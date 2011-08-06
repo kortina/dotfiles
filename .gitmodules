@@ -1,0 +1,21 @@
+[submodule "vim/bundle/snipmate"]
+	path = vim/bundle/snipmate
+	url = git://github.com/msanders/snipmate.vim.git
+[submodule "vim/bundle/pyflakes-vim"]
+	path = vim/bundle/pyflakes-vim
+	url = git://github.com/kevinw/pyflakes-vim.git
+[submodule "vim/bundle/vim-fakeclip"]
+	path = vim/bundle/vim-fakeclip
+	url = http://github.com/kana/vim-fakeclip.git
+[submodule "vim/bundle/command-t"]
+	path = vim/bundle/command-t
+	url = git://git.wincent.com/command-t.git
+[submodule "vim/bundle/minibufexpl"]
+	path = vim/bundle/minibufexpl
+	url = https://github.com/fholgado/minibufexpl.vim.git
+[submodule "vim/bundle/taglist"]
+	path = vim/bundle/taglist
+	url = https://github.com/vim-scripts/taglist.vim.git
+[submodule "vim/bundle/javaScriptLint"]
+	path = vim/bundle/javaScriptLint
+	url = https://github.com/joestelmach/javaScriptLint.vim.git
