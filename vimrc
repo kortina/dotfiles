@@ -1,4 +1,5 @@
 " Pathogen
+set nocompatible
 filetype off " Pathogen needs to run before plugin indent on
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags() " generate helptags for everything in 'runtimepath'
@@ -122,7 +123,7 @@ nmap \v :e $MYVIMRC<CR>
 ":helptags ~/.vim/doc 
 
 
-let g:pydiction_location = '~/.vim/ftplugin/pydiction-1.2/complete-dict'
+let g:pydiction_location = '~/.vim/bundle/pydiction/ftplugin/pydiction-1.2/complete-dict'
 "##################################################
 "# move through CamelCaseWords
 "##################################################
