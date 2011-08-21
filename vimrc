@@ -77,6 +77,8 @@ autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 autocmd FileType python set ft=python.django " For SnipMate
 autocmd FileType html set ft=html.django_template " For SnipMate
 
+au BufRead,BufNewFile {Capfile,Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru,.caprc,.irbrc,irb_tempfile*} set ft=ruby
+
 " fix backspace in vim 7
 :set backspace=indent,eol,start
 "nmap <buffer> <CR> gf
