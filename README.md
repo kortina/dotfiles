@@ -5,6 +5,10 @@ cd dotfiles
 git submodule init
 git submodule update
 
+Snipmate source is:
+
+git://github.com/msanders/snipmate.vim.git
+
 
 ## Getting the vim plugins to work
 
