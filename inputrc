@@ -1,3 +1,14 @@
 set show-all-if-ambiguous on
 "\e[1;5D": backward-word
 "\e[1;5C": forward-word
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+"\e[C": forward-char
+"\e[D": backward-char
+
+$if Bash
+  Space: magic-space
+$endif
+
+set visible-stats on
+
