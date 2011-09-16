@@ -94,6 +94,9 @@ imap <C-l> <C-r>"
 " imap <C-D> <Esc>yyp
 " nmap <C-D> <Esc>yyp
 
+nmap ,bs :ConqueTermSplit bash<CR>
+nmap ,bv :ConqueTermVSplit bash<CR>
+
 " copy all to clipboard
 nmap ,a ggVG"*y
 " copy word to clipboard
