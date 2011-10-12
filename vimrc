@@ -224,3 +224,10 @@ function! PythonUncommentSelection()  range
     let cl = cl + 1
   endwhile
 endfunction
+
+function! KortinaOpenQuickfix()
+    " open quickfix
+    exe "copen"
+endfunction
+autocmd BufWritePost,FileWritePost *.py call KortinaOpenQuickfix() " open quickfix on write
+
