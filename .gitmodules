@@ -16,3 +16,6 @@
 [submodule "vim/bundle/javaScriptLint"]
 	path = vim/bundle/javaScriptLint
 	url = https://github.com/joestelmach/javaScriptLint.vim.git
+[submodule "vim/bundle/ack"]
+	path = vim/bundle/ack
+	url = https://github.com/mileszs/ack.vim.git
