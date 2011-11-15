@@ -46,3 +46,9 @@ cd ctags-5.8
 ./configure
 make
 sudo make install
+
+
+
+### submodules
+
+git submodule add https://github.com/vim-scripts/gnupg.vim.git vim/bundle/gnupg

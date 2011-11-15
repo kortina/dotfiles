@@ -29,6 +29,10 @@ endif
 
 set nocompatible
 
+" always do very magic search
+:nnoremap / /\v
+:cnoremap %s/ %s/\v
+
 set number
 set et
 set sw=4
@@ -67,6 +71,8 @@ let g:miniBufExplMapWindowNavVim = 1
 let g:miniBufExplMapWindowNavArrows = 1
 let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplModSelTarget = 1
+
+let g:pyflakes_use_quickfix = 0
 
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 autocmd FileType python setlocal list
@@ -225,9 +231,12 @@ function! PythonUncommentSelection()  range
   endwhile
 endfunction
 
-function! KortinaOpenQuickfix()
-    " open quickfix
-    exe "copen"
-endfunction
-autocmd BufWritePost,FileWritePost *.py call KortinaOpenQuickfix() " open quickfix on write
+"function! KortinaOpenQuickfix()
+    "" open quickfix
+    "exe "copen"
+"endfunction
+" autocmd BufWritePost,FileWritePost *.py call KortinaOpenQuickfix() " open quickfix on write
+" autocmd BufWritePost,FileWritePost *.py call KortinaOpenQuickfix() " open quickfix on write
 
+
+source ~/Dropbox/Venmo-All/gpg/gpg-add-venmo-recipients.vim
