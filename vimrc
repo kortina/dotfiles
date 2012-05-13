@@ -100,6 +100,13 @@ imap <C-l> <C-r>"
 " imap <C-D> <Esc>yyp
 " nmap <C-D> <Esc>yyp
 
+" insert a markdown header, like
+" ==============================
+map ,1 V"zy"zpVr=
+map ,2 V"zy"zpVr-
+"map <leader>h1 VypVr=
+"map <leader>h2 VypVr-
+
 nmap ,bs :ConqueTermSplit bash<CR>
 nmap ,bv :ConqueTermVSplit bash<CR>
 
@@ -119,6 +126,9 @@ nmap ,kk ^"=strftime("%Y-%m-%d ")<CR>P<Esc>:,!~/Dropbox/nix/bin/note_archive.sh>
 nmap ,ll ^"=strftime("%Y-%m-%d ")<CR>P<Esc>:,!~/Dropbox/nix/bin/note_not_done.sh>/dev/null<CR>
 
 nmap ,t <Leader>t
+
+" kortina - map leader p to markdown preview
+nmap ,p :Mm<CR>
 
 "clear the fucking search buffer, not just remove the highlight
 map \c :let @/ = ""<CR>
@@ -155,6 +165,12 @@ vnoremap <silent><C-Left> :<C-U>call search('\C\<\<Bar>\%(^\<Bar>[^'.g:camelchar
 vnoremap <silent><C-Right> <Esc>`>:<C-U>call search('\C\<\<Bar>\%(^\<Bar>[^'.g:camelchar.']\@<=\)['.g:camelchar.']\<Bar>['.g:camelchar.']\ze\%([^'.g:camelchar.']\&\>\@!\)\<Bar>\%$','W')<CR>v`<o
 
 "##################################################
+
+" Jump to last cursor position unless it's invalid or in an event handler
+autocmd BufReadPost *
+    \ if line("'\"") > 0 && line("'\"") <= line("$") |
+        \ exe "normal g`\"" |
+    \ endif
 
 " https://wincent.com/blog/2-hours-with-vim
 "function! AckGrep(command)
@@ -239,4 +255,30 @@ endfunction
 " autocmd BufWritePost,FileWritePost *.py call KortinaOpenQuickfix() " open quickfix on write
 
 
-source ~/Dropbox/Venmo-All/gpg/gpg-add-venmo-recipients.vim
+if findfile('~/Dropbox/Venmo-Devops/gpg/gpg-add-venmo-recipients.vim')
+    source ~/Dropbox/Venmo-Devops/gpg/gpg-add-venmo-recipients.vim
+endif
+
+
+command! -complete=shellcmd -nargs=+ Shell call s:RunShellCommand(<q-args>)
+function! s:RunShellCommand(cmdline)
+  echo a:cmdline
+  let expanded_cmdline = a:cmdline
+  for part in split(a:cmdline, ' ')
+     if part[0] =~ '\v[%#<]'
+        let expanded_part = fnameescape(expand(part))
+        let expanded_cmdline = substitute(expanded_cmdline, part, expanded_part, '')
+     endif
+  endfor
+  botright new
+  setlocal buftype=nofile bufhidden=wipe nobuflisted noswapfile nowrap
+  call setline(1, 'You entered:    ' . a:cmdline)
+  call setline(2, 'Expanded Form:  ' .expanded_cmdline)
+  call setline(3,substitute(getline(2),'.','=','g'))
+  execute '$read !'. expanded_cmdline
+  setlocal nomodifiable
+  1
+endfunction
+command! -complete=file -nargs=* Gstaged call s:RunShellCommand('git diff --staged')
+" command! -complete=file -nargs=* Git call s:RunShellCommand('git '.<q-args>)
+
