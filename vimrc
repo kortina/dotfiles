@@ -132,6 +132,8 @@ nmap ,p :Mm<CR>
 
 "clear the fucking search buffer, not just remove the highlight
 map \c :let @/ = ""<CR>
+" also clear buffer with Enter
+nmap <CR> :let @/ = ""<CR>
 
 " Revert the current buffer
 nnoremap \r :e!<CR>
