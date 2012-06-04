@@ -185,6 +185,14 @@ autocmd BufReadPost *
 " prevent comments from going to beginning of line
 autocmd BufRead *.py inoremap # X<c-h>#
 
+" turn on python folding when you open a file
+autocmd BufRead *.py set foldmethod=indent
+autocmd BufRead *.py set foldlevel=1
+
+" use spacebar to toggle folding
+nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
+vnoremap <Space> zf
+
 
 "##################################################
 " markdown
