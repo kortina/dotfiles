@@ -131,7 +131,7 @@ nmap ,t <Leader>t
 nmap ,p :Mm<CR>
 
 "clear the fucking search buffer, not just remove the highlight
-map \c :let @/ = ""<CR>
+" map \c :let @/ = ""<CR> " this screws up Ack.vim
 " also clear buffer with Enter
 nmap <CR> :let @/ = ""<CR>
 
@@ -190,7 +190,7 @@ autocmd BufRead *.py set foldmethod=indent
 autocmd BufRead *.py set foldlevel=1
 
 " use spacebar to toggle folding
-nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
+nnoremap <silent> <Space> @=(foldlevel('.')?'zA':"\<Space>")<CR>
 vnoremap <Space> zf
 
 
@@ -292,3 +292,7 @@ endfunction
 command! -complete=file -nargs=* Gstaged call s:RunShellCommand('git diff --staged')
 " command! -complete=file -nargs=* Git call s:RunShellCommand('git '.<q-args>)
 
+
+" golang
+set rtp+=/usr/local/go/misc/vim
+autocmd BufWritePost *.go :silent Fmt

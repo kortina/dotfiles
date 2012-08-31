@@ -28,3 +28,6 @@
 [submodule "vim/bundle/csapprox"]
 	path = vim/bundle/csapprox
 	url = https://github.com/godlygeek/csapprox.git
+[submodule "soloist_workstation/pivotal_workstation"]
+	path = soloist_workstation/pivotal_workstation
+	url = https://github.com/kortina/pivotal_workstation.git
