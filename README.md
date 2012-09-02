@@ -5,27 +5,23 @@ cd dotfiles
 git submodule init
 git submodule update
 
+
+I am in the middle of transitioning from using my vim bundles folder here to the vim bundles in the pivotal_workstation, as they are pretty good and seem to work out of the box.
+
+I think all you should need to do now is run the commands in bootstrap.sh, viz;
+
+    gem install soloist
+    cd dotfiles/soloist_workstation
+    soloist
+
+
+...
+
+
 Snipmate source is:
 
 git://github.com/msanders/snipmate.vim.git
 
-
-## Getting the vim plugins to work
-
-
-### You must rebuild vim 
-
-cd ~/venmo-devops/mac
-chmod 700 vim7-install.sh 
-sudo env NO_RUNTIME_DOWNLOAD=1 ./vim7-install.sh --enable-perlinterp --enable-pythoninterp --enable-rubyinterp --with-features=huge --enable-gui=no 
-sudo mv /usr/bin/vim /usr/bin/vim_original
-vim --version
-
-### command-t
-
-cd ~/dotfiles/vim/bundle/command-t/ruby/command-t/
-ruby extconf.rb 
-make
 
 ### pyflakes
 
