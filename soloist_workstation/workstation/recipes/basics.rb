@@ -30,7 +30,28 @@ link "#{node[:HOME]}/.gitignore" do
     owner node[:workstation_user]
 end
 
+# create dir to hold all uninstalled bundles
+remove_to = "#{node[:HOME]}/Dropbox/git/dotfiles/vim-pivotal-uninstalled-bundles"
+directory "#{remove_to}" do
+    owner node[:workstation_user]
+    action :create
+end
+
+# remove these bundles
+kortina_removes_pivotal_bundles = [
+    "regreplop"
+]
+kortina_removes_pivotal_bundles.each do |bund|
+    bund_path = "#{node[:HOME]}/.vim/bundle/#{bund}"
+    execute "move #{bund}" do
+        command "mv #{bund_path} #{remove_to}/"
+    end
+
+end
+
+
 kortina_vim_bundles = [
+    "ctrlp",
     "ir_black_kortina",
     "javaScriptLint",
     "minibufexpl",
@@ -57,3 +78,5 @@ kortina_vim_snippets.each do |snip|
         owner node[:workstation_user]
     end
 end
+
+brew_install "bash-completion"
