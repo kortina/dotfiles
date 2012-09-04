@@ -45,8 +45,8 @@ kortina_removes_pivotal_bundles.each do |bund|
     bund_path = "#{node[:HOME]}/.vim/bundle/#{bund}"
     execute "move #{bund}" do
         command "mv #{bund_path} #{remove_to}/"
+        only_if "test -e #{bund_path}"
     end
-
 end
 
 
@@ -80,3 +80,11 @@ kortina_vim_snippets.each do |snip|
 end
 
 brew_install "bash-completion"
+
+# install git bash completion
+local_file = "/usr/local/etc/bash_completion.d/git-completion.bash"
+remote_file local_file do
+    user node[:workstation_user]
+    source "https://raw.github.com/markgandolfo/git-bash-completion/master/git-completion.bash"
+    not_if "test -e #{local_file}"
+end
