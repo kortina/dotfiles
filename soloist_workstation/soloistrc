@@ -9,3 +9,4 @@ recipes:
 - pivotal_workstation::git
 - pivotal_workstation::homebrew
 - pivotal_workstation::vim
+- workstation::jenkins_ios

@@ -12,6 +12,8 @@ syntax on
 if $HOME == '/Users/kortina'
     "colorscheme herald_kortina
     colorscheme ir_black_kortina
+
+    let g:clang_library_path = "/Applications/Xcode45-DP4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/"
 endif
 
 "if has("terminfo")
