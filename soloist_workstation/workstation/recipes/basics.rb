@@ -1,39 +1,46 @@
 ###
 # dotfiles
 ###
-link "#{node[:HOME]}/.ssh" do
-    to "#{node[:HOME]}/Dropbox/nix/ssh"
-    owner node[:workstation_user]
+# private
+link "#{WS_HOME}/.ssh" do
+    to "#{WS_HOME}/Dropbox/nix/ssh"
+    owner WS_USER
 end
-link "#{node[:HOME]}/.bash_profile_includes/kortina_mac.sh" do
-    to "#{node[:HOME]}/Dropbox/nix/bash_profile.sh"
-    owner node[:workstation_user]
+link "#{WS_HOME}/.bash_profile_includes/kortina_mac.sh" do
+    to "#{WS_HOME}/Dropbox/nix/bash_profile.sh"
+    owner WS_USER
 end
-link "#{node[:HOME]}/.vimrc" do
-    to "#{node[:HOME]}/Dropbox/git/dotfiles/vimrc"
-    owner node[:workstation_user]
+link "#{WS_HOME}/.jenkins" do
+    to "#{WS_HOME}/Dropbox/nix/dot_jenkins"
+    owner WS_USER
 end
-link "#{node[:HOME]}/.inputrc" do
-    to "#{node[:HOME]}/Dropbox/git/dotfiles/inputrc"
-    owner node[:workstation_user]
+
+# public
+link "#{WS_HOME}/.vimrc" do
+    to "#{WS_HOME}/Dropbox/git/dotfiles/vimrc"
+    owner WS_USER
 end
-link "#{node[:HOME]}/.ackrc" do
-    to "#{node[:HOME]}/Dropbox/git/dotfiles/ackrc"
-    owner node[:workstation_user]
+link "#{WS_HOME}/.inputrc" do
+    to "#{WS_HOME}/Dropbox/git/dotfiles/inputrc"
+    owner WS_USER
 end
-link "#{node[:HOME]}/.gitconfig" do
-    to "#{node[:HOME]}/Dropbox/git/dotfiles/gitconfig"
-    owner node[:workstation_user]
+link "#{WS_HOME}/.ackrc" do
+    to "#{WS_HOME}/Dropbox/git/dotfiles/ackrc"
+    owner WS_USER
 end
-link "#{node[:HOME]}/.gitignore" do
-    to "#{node[:HOME]}/Dropbox/git/dotfiles/gitignore"
-    owner node[:workstation_user]
+link "#{WS_HOME}/.gitconfig" do
+    to "#{WS_HOME}/Dropbox/git/dotfiles/gitconfig"
+    owner WS_USER
+end
+link "#{WS_HOME}/.gitignore" do
+    to "#{WS_HOME}/Dropbox/git/dotfiles/gitignore"
+    owner WS_USER
 end
 
 # create dir to hold all uninstalled bundles
-remove_to = "#{node[:HOME]}/Dropbox/git/dotfiles/vim-pivotal-uninstalled-bundles"
+remove_to = "#{WS_HOME}/Dropbox/git/dotfiles/vim-pivotal-uninstalled-bundles"
 directory "#{remove_to}" do
-    owner node[:workstation_user]
+    owner WS_USER
     action :create
 end
 
@@ -42,9 +49,9 @@ kortina_removes_pivotal_bundles = [
     "regreplop"
 ]
 kortina_removes_pivotal_bundles.each do |bund|
-    bund_path = "#{node[:HOME]}/.vim/bundle/#{bund}"
+    bund_path = "#{WS_HOME}/.vim/bundle/#{bund}"
     execute "move #{bund}" do
-        command "mv #{bund_path} #{remove_to}/"
+        command "mv #{bund_path} #{remove_to}/ || rm -r #{remove_to} && mv #{bund_path} #{remove_to}/"
         only_if "test -e #{bund_path}"
     end
 end
@@ -62,9 +69,9 @@ kortina_vim_bundles = [
     "vim-golang"
 ]
 kortina_vim_bundles.each do |bund|
-    link "#{node[:HOME]}/.vim/bundle/#{bund}" do
-        to "#{node[:HOME]}/Dropbox/git/dotfiles/vim/bundle/#{bund}"
-        owner node[:workstation_user]
+    link "#{WS_HOME}/.vim/bundle/#{bund}" do
+        to "#{WS_HOME}/Dropbox/git/dotfiles/vim/bundle/#{bund}"
+        owner WS_USER
     end
 end
 
@@ -73,18 +80,18 @@ kortina_vim_snippets = [
     "pyton.snippets"
 ]
 kortina_vim_snippets.each do |snip|
-    link "#{node[:HOME]}/.vim/snippets/#{snip}" do
-        to "#{node[:HOME]}/Dropbox/git/dotfiles/vim/snippets/#{snip}"
-        owner node[:workstation_user]
+    link "#{WS_HOME}/.vim/snippets/#{snip}" do
+        to "#{WS_HOME}/Dropbox/git/dotfiles/vim/snippets/#{snip}"
+        owner WS_USER
     end
 end
 
 brew_install "bash-completion"
 
 # install git bash completion
-local_file = "/usr/local/etc/bash_completion.d/git-completion.bash"
-remote_file local_file do
-    user node[:workstation_user]
+local_path = "/usr/local/etc/bash_completion.d/git-completion.bash"
+remote_file local_path do
+    user WS_USER
     source "https://raw.github.com/markgandolfo/git-bash-completion/master/git-completion.bash"
-    not_if "test -e #{local_file}"
+    not_if "test -e #{local_path}"
 end

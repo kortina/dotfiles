@@ -1,12 +1,10 @@
 cookbook_paths:
 - ./
-node_attributes:
-  workstation_user: kortina
-  HOME: /Users/kortina
 recipes:
-- workstation::basics
-- pivotal_workstation::ack
 - pivotal_workstation::git
+- pivotal_workstation::ack
 - pivotal_workstation::homebrew
 - pivotal_workstation::vim
+- workstation::basics
 - workstation::jenkins_ios
+- workstation::success
