@@ -12,9 +12,18 @@ remote_file local_path do
     not_if "test -e #{local_path}"
 end
 
+# xcode plugin
 local_path = "#{WS_HOME}/.jenkins/plugins/xcode-plugin.hpi"
 remote_file local_path do
     user WS_USER
     source "http://updates.jenkins-ci.org/download/plugins/xcode-plugin/1.3.1/xcode-plugin.hpi"
+    not_if "test -e #{local_path}"
+end
+
+# git plugin
+local_path = "#{WS_HOME}/.jenkins/plugins/git.hpi"
+remote_file local_path do
+    user WS_USER
+    source "http://updates.jenkins-ci.org/download/plugins/git/1.1.23/git.hpi"
     not_if "test -e #{local_path}"
 end
