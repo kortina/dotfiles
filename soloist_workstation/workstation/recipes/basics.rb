@@ -46,12 +46,13 @@ end
 
 # remove these bundles
 kortina_removes_pivotal_bundles = [
-    "regreplop"
+    "regreplop",
+    "command-t" # ctrlp is better
 ]
 kortina_removes_pivotal_bundles.each do |bund|
     bund_path = "#{WS_HOME}/.vim/bundle/#{bund}"
     execute "move #{bund}" do
-        command "mv #{bund_path} #{remove_to}/ || rm -r #{remove_to} && mv #{bund_path} #{remove_to}/"
+        command "mv #{bund_path} #{remove_to}/ || rm -r #{remove_to}/#{bund} && mv #{bund_path} #{remove_to}/"
         only_if "test -e #{bund_path}"
     end
 end
@@ -63,7 +64,7 @@ kortina_vim_bundles = [
     "javaScriptLint",
     "minibufexpl",
     "pep8",
-    "pydiction",
+    # "pydiction",
     "pyflakes-vim",
     "taglist",
     "vim-golang"

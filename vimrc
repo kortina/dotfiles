@@ -298,3 +298,25 @@ command! -complete=file -nargs=* Gstaged call s:RunShellCommand('git diff --stag
 " golang
 set rtp+=/usr/local/go/misc/vim
 autocmd BufWritePost *.go :silent Fmt
+
+
+
+" ############ Testing
+" TODO: this needs to be abstracted in a nicer manner
+
+map <leader>t :call RunTests()<cr>
+function! RunTests()
+    if filereadable("./testrun.rb")
+        " Write the file and run tests for the given filename
+        :w
+        :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+        :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+        :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+        :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+        :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+        :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+        exec ":!echo 'Running tests...' && ./testrun.rb"
+    else
+        echo "No testrun.rb file exists."
+    endif
+endfunction
