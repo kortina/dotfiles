@@ -1,12 +1,6 @@
 [submodule "vim/bundle/pyflakes-vim"]
 	path = vim/bundle/pyflakes-vim
 	url = git://github.com/kevinw/pyflakes-vim.git
-[submodule "vim/bundle/vim-fakeclip"]
-	path = vim/bundle/vim-fakeclip
-	url = http://github.com/kana/vim-fakeclip.git
-[submodule "vim/bundle/command-t"]
-	path = vim/bundle/command-t
-	url = git://git.wincent.com/command-t.git
 [submodule "vim/bundle/minibufexpl"]
 	path = vim/bundle/minibufexpl
 	url = https://github.com/fholgado/minibufexpl.vim.git
@@ -16,18 +10,9 @@
 [submodule "vim/bundle/javaScriptLint"]
 	path = vim/bundle/javaScriptLint
 	url = https://github.com/joestelmach/javaScriptLint.vim.git
-[submodule "vim/bundle/ack"]
-	path = vim/bundle/ack
-	url = https://github.com/mileszs/ack.vim.git
 [submodule "vim/bundle/gnupg"]
 	path = vim/bundle/gnupg
 	url = https://github.com/vim-scripts/gnupg.vim.git
-[submodule "vim/bundle/vim-fugitive"]
-	path = vim/bundle/vim-fugitive
-	url = https://github.com/tpope/vim-fugitive.git
-[submodule "vim/bundle/csapprox"]
-	path = vim/bundle/csapprox
-	url = https://github.com/godlygeek/csapprox.git
 [submodule "soloist_workstation/pivotal_workstation"]
 	path = soloist_workstation/pivotal_workstation
 	url = https://github.com/kortina/pivotal_workstation.git
@@ -43,3 +28,6 @@
 [submodule "vim/bundle/vim-golang"]
 	path = vim/bundle/vim-golang
 	url = https://github.com/jnwhiteh/vim-golang
+[submodule "vim/bundle/vim-scratch"]
+	path = vim/bundle/vim-scratch
+	url = https://github.com/duff/vim-scratch

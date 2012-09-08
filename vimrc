@@ -117,7 +117,7 @@ nmap ,a ggVG"*y
 " copy word to clipboard
 nmap ,d "*yiw
 " underline current line, markdown style
-nmap ,u "zyy"zp:.s/./-/g<CR>:let @/ = ""<CR>
+nmap ,- "zyy"zp:.s/./-/g<CR>:let @/ = ""<CR>
 
 " delete inner xml tag
 nmap ,dit dt<dT>
@@ -304,7 +304,7 @@ autocmd BufWritePost *.go :silent Fmt
 " ############ Testing
 " TODO: this needs to be abstracted in a nicer manner
 
-map <leader>t :call RunTests()<cr>
+map ,u :call RunTests()<cr>
 function! RunTests()
     if filereadable("./testrun.rb")
         " Write the file and run tests for the given filename

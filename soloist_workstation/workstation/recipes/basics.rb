@@ -52,7 +52,7 @@ kortina_removes_pivotal_bundles = [
 kortina_removes_pivotal_bundles.each do |bund|
     bund_path = "#{WS_HOME}/.vim/bundle/#{bund}"
     execute "move #{bund}" do
-        command "mv #{bund_path} #{remove_to}/ || rm -r #{remove_to}/#{bund} && mv #{bund_path} #{remove_to}/"
+        command "(test -e #{remove_to}/#{bund} && rm -rf #{remove_to}/#{bund} || test -e #{remove_to}/#{bund}) || mv #{bund_path} #{remove_to}/"
         only_if "test -e #{bund_path}"
     end
 end
@@ -67,7 +67,8 @@ kortina_vim_bundles = [
     # "pydiction",
     "pyflakes-vim",
     "taglist",
-    "vim-golang"
+    "vim-golang",
+    "vim-scratch"
 ]
 kortina_vim_bundles.each do |bund|
     link "#{WS_HOME}/.vim/bundle/#{bund}" do
