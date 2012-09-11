@@ -10,10 +10,13 @@ filetype indent on
 syntax on
 
 if $HOME == '/Users/kortina'
-    "colorscheme herald_kortina
     colorscheme ir_black_kortina
+    " Setting these alone seems to yield decent results
+    let g:clang_complete_auto = 1
+    "set omnifunc=ClangComplete "not strictly necessary
+    let g:clang_exec='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang'
+    let g:clang_library_path='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib'
 
-    let g:clang_library_path = "/Applications/Xcode45-DP4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/"
 endif
 
 "if has("terminfo")
