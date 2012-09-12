@@ -21,8 +21,8 @@ if $HOME == '/Users/kortina'
     " autocmd FileType objc # TODO: use this
     autocmd FileType objc let g:alternateExtensions_m = "h"
     autocmd FileType objc let g:alternateExtensions_h = "m"
-    noremap <buffer> <Down> :A<cr>
-    noremap <buffer> <Up> :A<cr>
+    noremap <Down> :A<cr>
+    noremap <Up> :A<cr>
     let g:clang_complete_auto = 1
     let g:clang_exec='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang'
     let g:clang_library_path='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib'
