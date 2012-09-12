@@ -68,6 +68,7 @@ end
 
 
 kortina_vim_bundles = [
+    "a.vim",
     "clang_complete",
     "ctrlp",
     "ir_black_kortina",

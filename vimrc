@@ -1,4 +1,9 @@
-" Pathogen
+" Notes ***********************************************************************
+" http://github.com/twerth/dotfiles/blob/master/etc/vim/vimrc
+" is a very good (and well documented!) vimrc to learn from 
+
+
+" Pathogen *******************************************************************
 set nocompatible
 filetype off " Pathogen needs to run before plugin indent on
 call pathogen#runtime_append_all_bundles()
@@ -9,36 +14,24 @@ filetype plugin on
 filetype indent on
 syntax on
 
+
+" Mac ************************************************************************
 if $HOME == '/Users/kortina'
     colorscheme ir_black_kortina
-    " Setting these alone seems to yield decent results
     " autocmd FileType objc # TODO: use this
+    autocmd FileType objc let g:alternateExtensions_m = "h"
+    autocmd FileType objc let g:alternateExtensions_h = "m"
+    noremap <buffer> <Down> :A<cr>
+    noremap <buffer> <Up> :A<cr>
     let g:clang_complete_auto = 1
-    "set omnifunc=ClangComplete "not strictly necessary
     let g:clang_exec='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang'
     let g:clang_library_path='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib'
 
 endif
 
-"if has("terminfo")
-"  set t_Co=16
-"  set t_AB=[%?%p1%{8}%<%t%p1%{40}%+%e%p1%{92}%+%;%dm
-"  set t_AF=[%?%p1%{8}%<%t%p1%{30}%+%e%p1%{82}%+%;%dm
-"else
-"  set t_Co=16
-"  set t_Sf=[3%dm
-"  set t_Sb=[4%dm
-"endif
 
-" http://github.com/twerth/dotfiles/blob/master/etc/vim/vimrc
-" very good vimrc (and well documented!)
-
-set nocompatible
-
-" always do very magic search
-:nnoremap / /\v
-:cnoremap %s/ %s/\v
-
+" Basics **********************************************************************
+:set backspace=indent,eol,start " fix backspace in vim 7
 set number
 set et
 set sw=4
@@ -50,95 +43,95 @@ set smartcase
 set cursorline
 set cursorcolumn
 "set list " turn invisibles on by default
-" show in title bar
 set title
 set ruler
 set showmode
 set showcmd
 set ai " Automatically set the indent of a new line (local to buffer)
 set si " smartindent    (local to buffer)
-set tags=./tags;
-set grepprg=ack
-"set list
-
-let jslint_command_options = '-conf ~/Dropbox/nix/bin/jsl.conf -nofilelisting -nocontext -nosummary -nologo -process'
-"set equalalways " Multiple windows, when created, are equal in size
+" set equalalways " Multiple windows, when created, are equal in size
 "set splitbelow splitright"
-
-" Professor VIM says '87% of users prefer jj over esc', jj abrams disagrees
-" imap jj <Esc>
-
 
 autocmd WinEnter * setlocal cursorline
 autocmd WinLeave * setlocal nocursorline
 autocmd BufRead,BufNewFile,BufDelete * :syntax on
 
+" Jump to last cursor position unless it's invalid or in an event handler
+autocmd BufReadPost *
+    \ if line("'\"") > 0 && line("'\"") <= line("$") |
+        \ exe "normal g`\"" |
+    \ endif
+
+
+" Folding *********************************************************************
+" use spacebar to toggle folding
+nnoremap <silent> <Space> @=(foldlevel('.')?'zA':"\<Space>")<CR>
+vnoremap <Space> zf
+
+
+" Search **********************************************************************
+set tags=./tags;
+set grepprg=ack
+" always do very magic search
+:nnoremap / /\v
+:cnoremap %s/ %s/\v
+
+
+" Javascript ******************************************************************
+let jslint_command_options = '-conf ~/Dropbox/nix/bin/jsl.conf -nofilelisting -nocontext -nosummary -nologo -process'
+
+
+" Golang  *********************************************************************
+set rtp+=/usr/local/go/misc/vim
+autocmd BufWritePost *.go :silent Fmt
+
+
+" MiniBufExpl *****************************************************************
 let g:miniBufExplMapWindowNavVim = 1
 let g:miniBufExplMapWindowNavArrows = 1
 let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplModSelTarget = 1
 
-let g:pyflakes_use_quickfix = 0
 
+" Python **********************************************************************
+let g:pyflakes_use_quickfix = 0
+autocmd FileType python set ft=python.django " For SnipMate
+autocmd FileType html set ft=html.django_template " For SnipMate
+" prevent comments from going to beginning of line
+autocmd BufRead *.py inoremap # X<c-h>#
+" turn on python folding when you open a file
+autocmd BufRead *.py set foldmethod=indent
+autocmd BufRead *.py set foldlevel=1
+
+
+" Completion ******************************************************************
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 autocmd FileType python setlocal list
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 
-autocmd FileType python set ft=python.django " For SnipMate
-autocmd FileType html set ft=html.django_template " For SnipMate
-
+" Ruby ***********************************************************************
 au BufRead,BufNewFile {Capfile,Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru,.caprc,.irbrc,irb_tempfile*} set ft=ruby
 
-" fix backspace in vim 7
-:set backspace=indent,eol,start
-"nmap <buffer> <CR> gf
-"nmap <buffer> <C-S-y> <Esc>yy<Esc>:bd<CR>:edit @"<CR>
 
-" popout split buffer hack
-" map <C-S-p>  <Esc>:hide<CR>:blast<CR>
-
+" Shortcuts *******************************************************************
 " ctrl-p paste
 imap <C-l> <C-r>"
-
-" duplicate line"
-" imap <C-D> <Esc>yyp
-" nmap <C-D> <Esc>yyp
 
 " insert a markdown header, like
 " ==============================
 map ,1 V"zy"zpVr=
 map ,2 V"zy"zpVr-
-"map <leader>h1 VypVr=
-"map <leader>h2 VypVr-
-
-nmap ,bs :ConqueTermSplit bash<CR>
-nmap ,bv :ConqueTermVSplit bash<CR>
 
 " copy all to clipboard
 nmap ,a ggVG"*y
-" copy word to clipboard
-nmap ,d "*yiw
-" underline current line, markdown style
-nmap ,- "zyy"zp:.s/./-/g<CR>:let @/ = ""<CR>
 
-" delete inner xml tag
-nmap ,dit dt<dT>
-nmap ,cit dt<cT>
-
-" kortina - move note to the old-notes file
-nmap ,kk ^"=strftime("%Y-%m-%d ")<CR>P<Esc>:,!~/Dropbox/nix/bin/note_archive.sh>/dev/null<CR>
-nmap ,ll ^"=strftime("%Y-%m-%d ")<CR>P<Esc>:,!~/Dropbox/nix/bin/note_not_done.sh>/dev/null<CR>
-
-nmap ,t <Leader>t
-
-" kortina - map leader p to markdown preview
+" open markdown preview
 nmap ,p :Mm<CR>
 
-"clear the fucking search buffer, not just remove the highlight
-" map \c :let @/ = ""<CR> " this screws up Ack.vim
-" also clear buffer with Enter
+" map \c :let @/ = ""<CR> " clearing search buffer this way screws up Ack.vim
+" clear buffer with Enter
 nmap <CR> :let @/ = ""<CR>
 
 " Revert the current buffer
@@ -149,13 +142,8 @@ nmap \s :source $MYVIMRC<CR>
 nmap \v :e $MYVIMRC<CR>
 
 :runtime! ~/.vim/
-":helptags ~/.vim/doc 
 
-
-let g:pydiction_location = '~/.vim/bundle/pydiction/ftplugin/pydiction-1.2/complete-dict'
-"##################################################
-"# move through CamelCaseWords
-"##################################################
+" CamelCaseWords *************************************************************
 " http://vim.wikia.com/wiki/Moving_through_camel_case_words
 " Use one of the following to define the camel characters.
 " Stop on capital letters.
@@ -172,45 +160,9 @@ inoremap <silent><C-Right> <C-o>:call search('\C\<\<Bar>\%(^\<Bar>[^'.g:camelcha
 vnoremap <silent><C-Left> :<C-U>call search('\C\<\<Bar>\%(^\<Bar>[^'.g:camelchar.']\@<=\)['.g:camelchar.']\<Bar>['.g:camelchar.']\ze\%([^'.g:camelchar.']\&\>\@!\)\<Bar>\%^','bW')<CR>v`>o
 vnoremap <silent><C-Right> <Esc>`>:<C-U>call search('\C\<\<Bar>\%(^\<Bar>[^'.g:camelchar.']\@<=\)['.g:camelchar.']\<Bar>['.g:camelchar.']\ze\%([^'.g:camelchar.']\&\>\@!\)\<Bar>\%$','W')<CR>v`<o
 
-"##################################################
 
-" Jump to last cursor position unless it's invalid or in an event handler
-autocmd BufReadPost *
-    \ if line("'\"") > 0 && line("'\"") <= line("$") |
-        \ exe "normal g`\"" |
-    \ endif
-
-" https://wincent.com/blog/2-hours-with-vim
-"function! AckGrep(command)
-"    cexpr system("ack " . a:command)
-"    cw " show quickfix window already
-"endfunction
-"command! -nargs=+ -complete=file Ack call AckGrep(<q-args>)
-"map <leader>a :Ack<space>
-
-" prevent comments from going to beginning of line
-autocmd BufRead *.py inoremap # X<c-h>#
-
-" turn on python folding when you open a file
-autocmd BufRead *.py set foldmethod=indent
-autocmd BufRead *.py set foldlevel=1
-
-" use spacebar to toggle folding
-nnoremap <silent> <Space> @=(foldlevel('.')?'zA':"\<Space>")<CR>
-vnoremap <Space> zf
-
-
-"##################################################
-" markdown
-"##################################################
- augroup mkd
-  autocmd BufRead *.mkd  set ai formatoptions=tcroqn2 comments=n:&gt;
- augroup END
-
-"##################################################
+" PythonCommenting ************************************************************
 " via http://www.vim.org/scripts/script.php?script_id=30
-"##################################################
-
 map  ,cm   :call PythonCommentSelection()<CR>
 vmap ,cm   :call PythonCommentSelection()<CR>
 map  ,cu   :call PythonUncommentSelection()<CR>
@@ -263,19 +215,8 @@ function! PythonUncommentSelection()  range
   endwhile
 endfunction
 
-"function! KortinaOpenQuickfix()
-    "" open quickfix
-    "exe "copen"
-"endfunction
-" autocmd BufWritePost,FileWritePost *.py call KortinaOpenQuickfix() " open quickfix on write
-" autocmd BufWritePost,FileWritePost *.py call KortinaOpenQuickfix() " open quickfix on write
 
-
-if findfile('~/Dropbox/Venmo-Devops/gpg/gpg-add-venmo-recipients.vim')
-    source ~/Dropbox/Venmo-Devops/gpg/gpg-add-venmo-recipients.vim
-endif
-
-
+" Shell Command > New Buffer *************************************************
 command! -complete=shellcmd -nargs=+ Shell call s:RunShellCommand(<q-args>)
 function! s:RunShellCommand(cmdline)
   echo a:cmdline
@@ -295,18 +236,14 @@ function! s:RunShellCommand(cmdline)
   setlocal nomodifiable
   1
 endfunction
+
+
+" Git *************************************************************************
 command! -complete=file -nargs=* Gstaged call s:RunShellCommand('git diff --staged')
-" command! -complete=file -nargs=* Git call s:RunShellCommand('git '.<q-args>)
 
 
-" golang
-set rtp+=/usr/local/go/misc/vim
-autocmd BufWritePost *.go :silent Fmt
-
-
-
-" ############ Testing
-" TODO: this needs to be abstracted in a nicer manner
+" Testing  ********************************************************************
+" TODO: this testrun.rb thing needs to be abstracted in a nicer manner
 
 map ,u :call RunTests()<cr>
 function! RunTests()
