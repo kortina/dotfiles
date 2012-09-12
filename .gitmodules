@@ -31,3 +31,6 @@
 [submodule "vim/bundle/vim-scratch"]
 	path = vim/bundle/vim-scratch
 	url = https://github.com/duff/vim-scratch
+[submodule "vim/bundle/vimux"]
+	path = vim/bundle/vimux
+	url = https://github.com/benmills/vimux

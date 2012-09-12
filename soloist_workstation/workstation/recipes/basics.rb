@@ -6,10 +6,15 @@ link "#{WS_HOME}/.ssh" do
     to "#{WS_HOME}/Dropbox/nix/ssh"
     owner WS_USER
 end
-link "#{WS_HOME}/.bash_profile_includes/kortina_mac.sh" do
-    to "#{WS_HOME}/Dropbox/nix/bash_profile.sh"
+link "#{WS_HOME}/.bash_profile_includes/0_nix.sh" do
+    to "#{WS_HOME}/Dropbox/git/dotfiles/.bash_profile_includes/0_nix.sh"
     owner WS_USER
 end
+link "#{WS_HOME}/.bash_profile_includes/mac.sh" do
+    to "#{WS_HOME}/Dropbox/git/dotfiles/.bash_profile_includes/mac.sh"
+    owner WS_USER
+end
+
 link "#{WS_HOME}/.jenkins" do
     to "#{WS_HOME}/Dropbox/nix/dot_jenkins"
     owner WS_USER
@@ -34,6 +39,10 @@ link "#{WS_HOME}/.gitconfig" do
 end
 link "#{WS_HOME}/.gitignore" do
     to "#{WS_HOME}/Dropbox/git/dotfiles/gitignore"
+    owner WS_USER
+end
+link "#{WS_HOME}/.tmux.conf" do
+    to "#{WS_HOME}/Dropbox/git/dotfiles/.tmux.conf"
     owner WS_USER
 end
 
@@ -68,6 +77,7 @@ kortina_vim_bundles = [
     # "pydiction",
     "pyflakes-vim",
     "taglist",
+    "vimux",
     "vim-golang",
     "vim-scratch"
 ]

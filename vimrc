@@ -12,6 +12,7 @@ syntax on
 if $HOME == '/Users/kortina'
     colorscheme ir_black_kortina
     " Setting these alone seems to yield decent results
+    " autocmd FileType objc # TODO: use this
     let g:clang_complete_auto = 1
     "set omnifunc=ClangComplete "not strictly necessary
     let g:clang_exec='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang'
