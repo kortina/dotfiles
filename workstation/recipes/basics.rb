@@ -79,6 +79,7 @@ kortina_vim_bundles = [
     "pyflakes-vim",
     "taglist",
     "vimux",
+    "vim-commentary",
     "vim-golang",
     "vim-scratch"
 ]

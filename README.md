@@ -15,7 +15,7 @@ is a great base for configuring a new mac and replaced much of my old setup.
 I think all you should need to do is run the commands in bootstrap.sh, viz,
 
     gem install soloist
-    cd dotfiles/soloist_workstation
+    cd dotfiles
     soloist
 
 

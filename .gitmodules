@@ -13,9 +13,6 @@
 [submodule "vim/bundle/gnupg"]
 	path = vim/bundle/gnupg
 	url = https://github.com/vim-scripts/gnupg.vim.git
-[submodule "soloist_workstation/pivotal_workstation"]
-	path = soloist_workstation/pivotal_workstation
-	url = https://github.com/kortina/pivotal_workstation.git
 [submodule "vim/bundle/ctrlp"]
 	path = vim/bundle/ctrlp
 	url = https://github.com/kien/ctrlp.vim
@@ -37,3 +34,9 @@
 [submodule "vim/bundle/a.vim"]
 	path = vim/bundle/a.vim
 	url = https://github.com/vim-scripts/a.vim.git
+[submodule "vim/bundle/vim-commentary"]
+	path = vim/bundle/vim-commentary
+	url = git://github.com/tpope/vim-commentary.git
+[submodule "pivotal_workstation"]
+	path = pivotal_workstation
+	url = https://github.com/kortina/pivotal_workstation.git

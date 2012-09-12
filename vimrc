@@ -161,61 +161,6 @@ vnoremap <silent><C-Left> :<C-U>call search('\C\<\<Bar>\%(^\<Bar>[^'.g:camelchar
 vnoremap <silent><C-Right> <Esc>`>:<C-U>call search('\C\<\<Bar>\%(^\<Bar>[^'.g:camelchar.']\@<=\)['.g:camelchar.']\<Bar>['.g:camelchar.']\ze\%([^'.g:camelchar.']\&\>\@!\)\<Bar>\%$','W')<CR>v`<o
 
 
-" PythonCommenting ************************************************************
-" via http://www.vim.org/scripts/script.php?script_id=30
-map  ,cm   :call PythonCommentSelection()<CR>
-vmap ,cm   :call PythonCommentSelection()<CR>
-map  ,cu   :call PythonUncommentSelection()<CR>
-vmap ,cu   :call PythonUncommentSelection()<CR>
-" Comment out selected lines
-" commentString is inserted in non-empty lines, and should be aligned with
-" the block
-function! PythonCommentSelection()  range
-  let commentString = "#"
-  let cl = a:firstline
-  let ind = 1000    " I hope nobody use so long lines! :)
-
-  " Look for smallest indent
-  while (cl <= a:lastline)
-    if strlen(getline(cl))
-      let cind = indent(cl)
-      let ind = ((ind < cind) ? ind : cind)
-    endif
-    let cl = cl + 1
-  endwhile
-  if (ind == 1000)
-    let ind = 1
-  else
-    let ind = ind + 1
-  endif
-
-  let cl = a:firstline
-  execute ":".cl
-  " Insert commentString in each non-empty line, in column ind
-  while (cl <= a:lastline)
-    if strlen(getline(cl))
-      execute "normal ".ind."|i".commentString
-    endif
-    execute "normal \<Down>"
-    let cl = cl + 1
-  endwhile
-endfunction
-
-" Uncomment selected lines
-function! PythonUncommentSelection()  range
-  " commentString could be different than the one from CommentSelection()
-  " For example, this could be "# \\="
-  let commentString = "#"
-  let cl = a:firstline
-  while (cl <= a:lastline)
-    let ul = substitute(getline(cl),
-             \"\\(\\s*\\)".commentString."\\(.*\\)$", "\\1\\2", "")
-    call setline(cl, ul)
-    let cl = cl + 1
-  endwhile
-endfunction
-
-
 " Shell Command > New Buffer *************************************************
 command! -complete=shellcmd -nargs=+ Shell call s:RunShellCommand(<q-args>)
 function! s:RunShellCommand(cmdline)
