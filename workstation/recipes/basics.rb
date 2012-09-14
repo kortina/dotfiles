@@ -70,6 +70,7 @@ end
 kortina_vim_bundles = [
     "a.vim",
     "clang_complete",
+    "cocoa",
     "ctrlp",
     "ir_black_kortina",
     "javaScriptLint",
