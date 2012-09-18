@@ -6,5 +6,6 @@ recipes:
 - pivotal_workstation::homebrew
 - pivotal_workstation::vim
 - workstation::basics
+- workstation::ctags
 - workstation::jenkins_ios
 - workstation::success

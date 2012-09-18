@@ -76,6 +76,10 @@ set grepprg=ack
 :nnoremap / /\v
 :cnoremap %s/ %s/\v
 
+" switch from horizontal to vertical split
+:command H2v normal <C-w>t<C-w>H
+" switch from vertical to horizontal split
+:command V2h normal <C-w>t<C-w>K
 
 " Javascript ******************************************************************
 let jslint_command_options = '-conf ~/Dropbox/nix/bin/jsl.conf -nofilelisting -nocontext -nosummary -nologo -process'
@@ -132,9 +136,7 @@ nmap ,a ggVG"*y
 " open markdown preview
 nmap ,p :Mm<CR>
 
-" map \c :let @/ = ""<CR> " clearing search buffer this way screws up Ack.vim
-" clear buffer with Enter
-nmap <CR> :let @/ = ""<CR>
+map \c :let @/ = ""<CR>
 
 " Revert the current buffer
 nnoremap \r :e!<CR>
@@ -187,6 +189,8 @@ endfunction
 
 " Git *************************************************************************
 command! -complete=file -nargs=* Gstaged call s:RunShellCommand('git diff --staged')
+" review git diff in vertical split (fugitive doesn't seem to want to do this
+:command ReviewGitDiff normal :Gdiff<CR>:H2v<CR>
 
 
 " Testing  ********************************************************************

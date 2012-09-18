@@ -66,6 +66,20 @@ kortina_removes_pivotal_bundles.each do |bund|
     end
 end
 
+# remove these bundles
+kortina_removes_pivotal_bash_includes = [
+    "rvm.sh",
+    "vi_is_minimal_vim.sh",
+    "vim_tmux.sh"
+]
+kortina_removes_pivotal_bash_includes.each do |sh|
+    sh_path = "#{WS_HOME}/.bash_profile_includes/#{sh}"
+    execute "remove #{sh}" do
+        command "rm #{sh_path}"
+        only_if "test -e #{sh_path}"
+    end
+end
+
 
 kortina_vim_bundles = [
     "a.vim",
@@ -102,6 +116,21 @@ kortina_vim_snippets.each do |snip|
     end
 end
 
+directory "#{WS_HOME}/bin" do
+    owner WS_USER
+    action :create
+end
+
+=begin
+brew_install "geoip"
+local_path = "/usr/local/share/GeoIP/GeoLiteCity.dat"
+remote_file local_path do
+    user WS_USER
+    source "http://www.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz"
+    not_if "test -e #{local_path}"
+end
+=end
+
 brew_install "bash-completion"
 
 # install git bash completion
@@ -110,4 +139,17 @@ remote_file local_path do
     user WS_USER
     source "https://raw.github.com/markgandolfo/git-bash-completion/master/git-completion.bash"
     not_if "test -e #{local_path}"
+end
+
+xcode_theme_dir = "#{WS_HOME}/Library/Developer/Xcode/UserData/FontAndColorThemes" 
+directory xcode_theme_dir do
+  owner WS_USER
+  mode "0755"
+  action :create
+  recursive true
+end
+
+execute "install color themes for xcode" do
+    user WS_USER
+    command "cp #{WS_HOME}/Dropbox/git/dotfiles/xcode-themes/* #{xcode_theme_dir}/"
 end
