@@ -16,9 +16,6 @@
 [submodule "vim/bundle/ctrlp"]
 	path = vim/bundle/ctrlp
 	url = https://github.com/kien/ctrlp.vim
-[submodule "vim/bundle/cocoa"]
-	path = vim/bundle/cocoa
-	url = https://github.com/vim-scripts/cocoa.vim
 [submodule "vim/bundle/clang_complete"]
 	path = vim/bundle/clang_complete
 	url = https://github.com/Rip-Rip/clang_complete.git
@@ -40,3 +37,6 @@
 [submodule "pivotal_workstation"]
 	path = pivotal_workstation
 	url = https://github.com/kortina/pivotal_workstation.git
+[submodule "vim/bundle/cocoa.vim"]
+	path = vim/bundle/cocoa.vim
+	url = https://jgoulah@github.com/jgoulah/cocoa.vim.git
