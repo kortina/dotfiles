@@ -1,11 +1,3 @@
-###
-# dotfiles
-###
-# private
-link "#{WS_HOME}/.ssh" do
-    to "#{WS_HOME}/Dropbox/nix/ssh"
-    owner WS_USER
-end
 link "#{WS_HOME}/.bash_profile_includes/0_nix.sh" do
     to "#{WS_HOME}/Dropbox/git/dotfiles/.bash_profile_includes/0_nix.sh"
     owner WS_USER
@@ -19,8 +11,11 @@ link "#{WS_HOME}/.jenkins" do
     to "#{WS_HOME}/Dropbox/nix/dot_jenkins"
     owner WS_USER
 end
+link "#{WS_HOME}/.ssh" do
+    to "#{WS_HOME}/Dropbox/nix/ssh"
+    owner WS_USER
+end
 
-# public
 link "#{WS_HOME}/.vimrc" do
     to "#{WS_HOME}/Dropbox/git/dotfiles/vimrc"
     owner WS_USER
@@ -53,7 +48,7 @@ directory "#{remove_to}" do
     action :create
 end
 
-# remove these bundles
+# remove these bundles (created by pivotal recipe)
 kortina_removes_pivotal_bundles = [
     "regreplop",
     "command-t" # ctrlp is better
@@ -66,7 +61,7 @@ kortina_removes_pivotal_bundles.each do |bund|
     end
 end
 
-# remove these bundles
+# remove these bash includes (created by pivotal recipe)
 kortina_removes_pivotal_bash_includes = [
     "rvm.sh",
     "vi_is_minimal_vim.sh",
