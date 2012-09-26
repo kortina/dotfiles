@@ -31,7 +31,8 @@ endif
 
 
 " Basics **********************************************************************
-:set backspace=indent,eol,start " fix backspace in vim 7
+set backspace=indent,eol,start " fix backspace in vim 7
+set cm=blowfish
 set number
 set et
 set sw=4

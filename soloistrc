@@ -8,4 +8,5 @@ recipes:
 - workstation::basics
 - workstation::ctags
 - workstation::jenkins_ios
+- workstation::ruby_deps
 - workstation::success

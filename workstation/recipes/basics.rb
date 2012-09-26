@@ -153,3 +153,9 @@ execute "install color themes for xcode" do
     user WS_USER
     command "cp #{WS_HOME}/Dropbox/git/dotfiles/xcode-themes/* #{xcode_theme_dir}/"
 end
+
+execute "brew tap phinze/homebrew-cask" do
+    user WS_USER
+    command "brew tap phinze/homebrew-cask"
+end
+brew_install "brew-cask"
