@@ -152,5 +152,6 @@ end
 execute "brew tap phinze/homebrew-cask" do
     user WS_USER
     command "brew tap phinze/homebrew-cask"
+    ignore_failure true # brew tap fails with non-zero output if cask is already installed
 end
 brew_install "brew-cask"
