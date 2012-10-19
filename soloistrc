@@ -5,7 +5,9 @@ recipes:
 - pivotal_workstation::ack
 - pivotal_workstation::homebrew
 - pivotal_workstation::vim
+- workstation::if_kortina
 - workstation::basics
+- workstation::cask
 - workstation::ctags
 - workstation::jenkins_ios
 - workstation::ruby_deps

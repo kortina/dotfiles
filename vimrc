@@ -118,6 +118,8 @@ autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 
 let g:ctrlp_working_path_mode = 0
 
+let g:AutoClosePairs = {'(': ')', '{': '}', '[': ']', '"': '"'}
+
 " Ruby ***********************************************************************
 au BufRead,BufNewFile {Capfile,Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru,.caprc,.irbrc,irb_tempfile*} set ft=ruby
 
