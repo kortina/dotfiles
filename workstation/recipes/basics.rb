@@ -108,6 +108,7 @@ remote_file local_path do
 end
 =end
 
+brew_install "ack"
 brew_install "bash-completion"
 
 # install git bash completion

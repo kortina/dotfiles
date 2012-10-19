@@ -11,4 +11,5 @@ recipes:
 - workstation::ctags
 - workstation::jenkins_ios
 - workstation::ruby_deps
+- workstation::python_deps
 - workstation::success

@@ -1,5 +1,6 @@
 # using gem_package to install these was doing the install as root or something strange
 [
+    "cheat",
     "debugger",
     "rack",
     "ruby-debug19",
