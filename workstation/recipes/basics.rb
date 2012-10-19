@@ -22,6 +22,10 @@ link "#{WS_HOME}/.tmux.conf" do
     to "#{WS_HOME}/Dropbox/git/dotfiles/.tmux.conf"
     owner WS_USER
 end
+link "#{WS_HOME}/.jsl.conf" do
+    to "#{WS_HOME}/Dropbox/git/dotfiles/.jsl.conf"
+    owner WS_USER
+end
 
 # create dir to hold all uninstalled bundles
 remove_to = "#{WS_HOME}/Dropbox/git/dotfiles/vim-pivotal-uninstalled-bundles"
@@ -109,6 +113,7 @@ end
 =end
 
 brew_install "ack"
+brew_install "jsl"
 brew_install "bash-completion"
 
 # install git bash completion

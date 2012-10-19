@@ -83,7 +83,7 @@ set grepprg=ack
 :command V2h normal <C-w>t<C-w>K
 
 " Javascript ******************************************************************
-let jslint_command_options = '-conf ~/Dropbox/nix/bin/jsl.conf -nofilelisting -nocontext -nosummary -nologo -process'
+let jslint_command_options = '-conf ~/.jsl.conf -nofilelisting -nocontext -nosummary -nologo -process'
 
 
 " Golang  *********************************************************************
