@@ -5,7 +5,8 @@
     "rack",
     "ruby-debug19",
     "thor",
-    "stubb"
+    "stubb",
+    "vagrant"
 ].each do |pkg|
     execute "gem install #{pkg}" do
         command "gem install #{pkg}"
