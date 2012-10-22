@@ -26,20 +26,3 @@ I think all you should need to do is run the commands in bootstrap.sh, viz,
     soloist
 
 
-### pyflakes
-
-    cd /tmp
-    git clone https://github.com/kevinw/pyflakes.git
-    cd pyflakes
-    sudo python setup.py install
-
-
-### exuberant ctags
-
-    cd ~/Downloads
-    wget http://prdownloads.sourceforge.net/ctags/ctags-5.8.tar.gz
-    tar -zxvf ctags-5.8.tar.gz 
-    cd ctags-5.8
-    ./configure
-    make
-    sudo make install
