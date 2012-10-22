@@ -14,7 +14,7 @@ is a great base for configuring a new mac and replaced much of my old setup.
 
 #### Clone this module and init the submodules
 
-    git clone git@github.com:kortina/dotfiles.git
+    git clone git://github.com/kortina/dotfiles.git # OR: git clone git@github.com:kortina/dotfiles.git
     cd dotfiles
     git submodule init
     git submodule update
