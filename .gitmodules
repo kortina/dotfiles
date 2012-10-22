@@ -40,3 +40,6 @@
 [submodule "vim/bundle/javaScriptLint"]
 	path = vim/bundle/javaScriptLint
 	url = git://github.com/kortina/javaScriptLint.vim.git
+[submodule "vim/bundle/vim-markdown-preview"]
+	path = vim/bundle/vim-markdown-preview
+	url = git://github.com/nelstrom/vim-markdown-preview.git
