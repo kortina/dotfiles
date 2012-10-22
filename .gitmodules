@@ -37,3 +37,6 @@
 [submodule "vim/bundle/cocoa.vim"]
 	path = vim/bundle/cocoa.vim
 	url = https://jgoulah@github.com/jgoulah/cocoa.vim.git
+[submodule "vim/bundle/javaScriptLint"]
+	path = vim/bundle/javaScriptLint
+	url = git://github.com/kortina/javaScriptLint.vim.git
