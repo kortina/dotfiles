@@ -7,6 +7,13 @@ is a great base for configuring a new mac and replaced much of my old setup.
 
 ### Installation
 
+#### Pre-Reqs
+
+    ruby -e "$(curl -fsSkL raw.github.com/mxcl/homebrew/go)" # install homebrew
+    brew doctor
+
+#### Clone this module and init the submodules
+
     git clone git@github.com:kortina/dotfiles.git
     cd dotfiles
     git submodule init

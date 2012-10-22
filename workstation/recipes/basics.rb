@@ -27,6 +27,11 @@ link "#{WS_HOME}/.jsl.conf" do
     owner WS_USER
 end
 
+link "/Applications/Screen\ Sharing.app" do
+    to "/System/Library/CoreServices/Screen\ Sharing.app"
+    owner WS_USER
+end
+
 # create dir to hold all uninstalled bundles
 remove_to = "#{WS_HOME}/Dropbox/git/dotfiles/vim-pivotal-uninstalled-bundles"
 directory "#{remove_to}" do
