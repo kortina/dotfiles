@@ -7,9 +7,6 @@
 [submodule "vim/bundle/taglist"]
 	path = vim/bundle/taglist
 	url = https://github.com/vim-scripts/taglist.vim.git
-[submodule "vim/bundle/javaScriptLint"]
-	path = vim/bundle/javaScriptLint
-	url = https://github.com/joestelmach/javaScriptLint.vim.git
 [submodule "vim/bundle/gnupg"]
 	path = vim/bundle/gnupg
 	url = https://github.com/vim-scripts/gnupg.vim.git
