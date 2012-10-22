@@ -1,29 +1,31 @@
+dotfiles_path = File.expand_path(File.dirname(__FILE__)+"../../..") # a few levels up from this file
+
 link "#{WS_HOME}/.vimrc" do
-    to "#{WS_HOME}/Dropbox/git/dotfiles/vimrc"
+    to "#{dotfiles_path}/vimrc"
     owner WS_USER
 end
 link "#{WS_HOME}/.inputrc" do
-    to "#{WS_HOME}/Dropbox/git/dotfiles/inputrc"
+    to "#{dotfiles_path}/inputrc"
     owner WS_USER
 end
 link "#{WS_HOME}/.ackrc" do
-    to "#{WS_HOME}/Dropbox/git/dotfiles/ackrc"
+    to "#{dotfiles_path}/ackrc"
     owner WS_USER
 end
 link "#{WS_HOME}/.gitconfig" do
-    to "#{WS_HOME}/Dropbox/git/dotfiles/gitconfig"
+    to "#{dotfiles_path}/gitconfig"
     owner WS_USER
 end
 link "#{WS_HOME}/.gitignore" do
-    to "#{WS_HOME}/Dropbox/git/dotfiles/gitignore"
+    to "#{dotfiles_path}/gitignore"
     owner WS_USER
 end
 link "#{WS_HOME}/.tmux.conf" do
-    to "#{WS_HOME}/Dropbox/git/dotfiles/.tmux.conf"
+    to "#{dotfiles_path}/.tmux.conf"
     owner WS_USER
 end
 link "#{WS_HOME}/.jsl.conf" do
-    to "#{WS_HOME}/Dropbox/git/dotfiles/.jsl.conf"
+    to "#{dotfiles_path}/.jsl.conf"
     owner WS_USER
 end
 
@@ -33,7 +35,7 @@ link "/Applications/Screen\ Sharing.app" do
 end
 
 # create dir to hold all uninstalled bundles
-remove_to = "#{WS_HOME}/Dropbox/git/dotfiles/vim-pivotal-uninstalled-bundles"
+remove_to = "#{dotfiles_path}/vim-pivotal-uninstalled-bundles"
 directory "#{remove_to}" do
     owner WS_USER
     action :create
@@ -86,7 +88,7 @@ kortina_vim_bundles = [
 ]
 kortina_vim_bundles.each do |bund|
     link "#{WS_HOME}/.vim/bundle/#{bund}" do
-        to "#{WS_HOME}/Dropbox/git/dotfiles/vim/bundle/#{bund}"
+        to "#{dotfiles_path}/vim/bundle/#{bund}"
         owner WS_USER
     end
 end
@@ -97,7 +99,7 @@ kortina_vim_snippets = [
 ]
 kortina_vim_snippets.each do |snip|
     link "#{WS_HOME}/.vim/snippets/#{snip}" do
-        to "#{WS_HOME}/Dropbox/git/dotfiles/vim/snippets/#{snip}"
+        to "#{dotfiles_path}/vim/snippets/#{snip}"
         owner WS_USER
     end
 end
@@ -139,5 +141,5 @@ end
 
 execute "install color themes for xcode" do
     user WS_USER
-    command "cp #{WS_HOME}/Dropbox/git/dotfiles/xcode-themes/* #{xcode_theme_dir}/"
+    command "cp #{dotfiles_path}/xcode-themes/* #{xcode_theme_dir}/"
 end

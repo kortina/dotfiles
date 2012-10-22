@@ -1,10 +1,12 @@
+dotfiles_path = File.expand_path(File.dirname(__FILE__)+"../../..") # a few levels up from this file
+
 if WS_USER == "kortina"
     link "#{WS_HOME}/.bash_profile_includes/0_nix.sh" do
-        to "#{WS_HOME}/Dropbox/git/dotfiles/.bash_profile_includes/0_nix.sh"
+        to "#{dotfiles_path}/.bash_profile_includes/0_nix.sh"
         owner WS_USER
     end
     link "#{WS_HOME}/.bash_profile_includes/mac.sh" do
-        to "#{WS_HOME}/Dropbox/git/dotfiles/.bash_profile_includes/mac.sh"
+        to "#{dotfiles_path}/.bash_profile_includes/mac.sh"
         owner WS_USER
     end
 
