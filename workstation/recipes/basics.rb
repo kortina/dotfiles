@@ -95,7 +95,7 @@ end
 
 kortina_vim_snippets = [
     "_.snippets",
-    "pyton.snippets"
+    "python.snippets"
 ]
 kortina_vim_snippets.each do |snip|
     link "#{WS_HOME}/.vim/snippets/#{snip}" do
