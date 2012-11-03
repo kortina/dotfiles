@@ -18,7 +18,7 @@ end
 
 execute "make sure rvm creates vagrant executable in bin" do
     user WS_USER
-    command "source $HOME/.rvm/scripts/rvm && rvm use ruby-1.9.3-p194"
+    command "#{WS_HOME}/.rvm/bin/rvm use ruby-1.9.3-p194"
     action :run
     not_if "which vagrant"
 end

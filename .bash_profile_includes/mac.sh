@@ -32,6 +32,8 @@ export PATH="$GOPATH/bin:$PATH"
 PATH="/Library/Frameworks/Python.framework/Versions/Current/bin:${PATH}"
 export PATH
 
+source $HOME/.rvm/scripts/rvm
+
 ##################################################
 # pretty bash prompt with git / svn branch name
 ##################################################
