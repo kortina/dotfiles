@@ -7,9 +7,9 @@ recipes:
 - pivotal_workstation::vim
 - workstation::if_kortina
 - workstation::basics
-- workstation::cask
 - workstation::ctags
 - workstation::jenkins_ios
 - workstation::ruby_deps
 - workstation::python_deps
+- workstation::cask
 - workstation::success

@@ -8,7 +8,7 @@
     "stubb",
     "vagrant"
 ].each do |pkg|
-    execute "gem install #{pkg}" do
+    execute "#{WS_HOME}/.rvm/bin/gem install #{pkg}" do
         command "gem install #{pkg}"
         user WS_USER
         action :run
