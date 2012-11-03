@@ -2,6 +2,13 @@
 # http://blog.shinetech.com/2011/06/23/ci-with-jenkins-for-ios-apps-build-distribution-via-testflightapp-tutorial/
 
 brew_install "jenkins"
+directory "#{WS_HOME}/.jenkins/plugins" do
+  action :create
+  owner WS_USER
+  group "staff"
+  mode "0700"
+  recursive true
+end
 
 
 # xcode-plugin depends on token-macro
