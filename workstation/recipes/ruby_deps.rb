@@ -5,6 +5,7 @@
     "rack",
     "ruby-debug19",
     "thor",
+    "soloist",
     "stubb",
     "vagrant"
 ].each do |pkg|
