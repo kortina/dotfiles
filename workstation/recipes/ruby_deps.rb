@@ -9,7 +9,7 @@
     "vagrant"
 ].each do |pkg|
     execute "#{WS_HOME}/.rvm/bin/gem install #{pkg}" do
-        command "gem install #{pkg}"
+        command "#{WS_HOME}/.rvm/bin/gem install #{pkg}"
         user WS_USER
         action :run
         not_if "gem list | grep \"^#{pkg} \""
