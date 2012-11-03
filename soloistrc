@@ -1,10 +1,12 @@
 cookbook_paths:
 - ./
+- ../
 recipes:
 - pivotal_workstation::git
 - pivotal_workstation::ack
 - pivotal_workstation::homebrew
 - pivotal_workstation::vim
+- workstation::if_venmo
 - workstation::if_kortina
 - workstation::basics
 - workstation::ctags
