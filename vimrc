@@ -52,12 +52,11 @@ set ai " Automatically set the indent of a new line (local to buffer)
 set si " smartindent    (local to buffer)
 " set equalalways " Multiple windows, when created, are equal in size
 "set splitbelow splitright"
-
-" Ensure all splits will be at least 5 lines and the current window will be 30
-" lines. As you navigate through the windows, the current one will become 30
-" lines.
-set winheight=30
-set winminheight=5
+"
+" Ensure the current window has at least 30 lines
+" set winheight=30
+" Ensure all splits will have at least 5 lines 
+" set winminheight=5
 
 autocmd WinEnter * setlocal cursorline
 autocmd WinLeave * setlocal nocursorline
