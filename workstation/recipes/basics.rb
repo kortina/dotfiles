@@ -43,8 +43,10 @@ end
 
 # remove these bundles (created by pivotal recipe)
 kortina_removes_pivotal_bundles = [
+    "autoclose",
     "regreplop",
-    "command-t" # ctrlp is better
+    "command-t", # ctrlp is better
+    "vim-surround"
 ]
 kortina_removes_pivotal_bundles.each do |bund|
     bund_path = "#{WS_HOME}/.vim/bundle/#{bund}"
