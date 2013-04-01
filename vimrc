@@ -17,7 +17,7 @@ syntax on
 
 " Mac ************************************************************************
 if $HOME == '/Users/kortina'
-    colorscheme ir_black_kortina
+    colorscheme ir_black
     " autocmd FileType objc # TODO: use this
     autocmd FileType objc let g:alternateExtensions_m = "h"
     autocmd FileType objc let g:alternateExtensions_h = "m"
@@ -58,6 +58,9 @@ set si " smartindent    (local to buffer)
 " Ensure all splits will have at least 5 lines 
 " set winminheight=5
 
+" Not exactly sure why the next 2 lines need at the beginning: autocmd VimEnter * 
+autocmd VimEnter * hi CursorLine     guifg=NONE        guibg=#121212     gui=underline ctermfg=NONE        ctermbg=NONE        cterm=underline
+autocmd VimEnter * hi CursorColumn   guifg=NONE        guibg=#121212     gui=NONE      ctermfg=NONE        ctermbg=darkgray        cterm=BOLD
 autocmd WinEnter * setlocal cursorline
 autocmd WinLeave * setlocal nocursorline
 autocmd BufRead,BufNewFile,BufDelete * :syntax on
@@ -220,3 +223,4 @@ function! RunTests()
         echo "No testrun.rb file exists."
     endif
 endfunction
+
