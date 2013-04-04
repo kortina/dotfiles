@@ -1,4 +1,4 @@
 --type-add=html=.mustache
---type-add=markdown=.md
 --type-set=go=.go
+--type-set=plaintext=.md,.mdown,.markdown,.mkdn,.textile,.rst,.txt
 --ignore-dir=htmlcov
