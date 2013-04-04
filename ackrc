@@ -1,3 +1,4 @@
 --type-add=html=.mustache
+--type-add=markdown=.md
 --type-set=go=.go
 --ignore-dir=htmlcov
