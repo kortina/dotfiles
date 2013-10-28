@@ -1,16 +1,12 @@
 ## My Setup
 
-Some of the symlinks created in the basics.rb recipe are specific to my setup
-(eg, my Dropbox folder with some private files). Most of the other stuff is
-generic.  I recently found the awesome pivotal workstation soloist repo, which
-is a great base for configuring a new mac and replaced much of my old setup.
+Create a link in the home directory for each file that matches the pattern
+`.symlink`.  The links that get created strip off the `.symlink` and everything
+after.
 
 ### Installation
 
-#### Pre-Reqs
-
-    ruby -e "$(curl -fsSkL raw.github.com/mxcl/homebrew/go)" # install homebrew
-    brew doctor
+./install.sh
 
 #### Clone this module and init the submodules
 

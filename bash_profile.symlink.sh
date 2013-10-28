@@ -8,3 +8,9 @@ HISTFILESIZE=100000000
 HISTSIZE=100000
 shopt -s histappend
 PROMPT_COMMAND='history -a'
+
+### Source osx bash setup
+[[ -f ~/.bash_mac ]] && source ~/.bash_mac
+
+### Source linux bash setup
+[[ -f ~/.bash_linux ]] && source ~/.bash_linux
