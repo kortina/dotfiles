@@ -2,7 +2,7 @@
 set -e
 
 DOTFILES_ROOT="`pwd`"
-BACKUP_DIR="${HOME}/old_dotfiles"
+BACKUP_DIR="${HOME}/old_dotfiles/`date +%Y-%m-%d.%H:%M`"
 
 
 function link_file {
@@ -25,7 +25,7 @@ function link_file {
 		then
 			if [ ! -d $BACKUP_DIR ]
 			then
-				mkdir $BACKUP_DIR
+				mkdir -p $BACKUP_DIR
 				echo "WARN: made backup directory $BACKUP_DIR"
 			fi
 			echo "WARN: moved old $lnk to $BACKUP_DIR"
