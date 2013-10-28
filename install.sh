@@ -2,7 +2,7 @@
 set -e
 
 DOTFILES_ROOT="`pwd`"
-BACKUP_DIR="${HOME}/old_dotfiles/`date +%Y-%m-%d.%H:%M`"
+BACKUP_DIR="${HOME}/old_dotfiles/`date +%Y-%m-%d.%H:%M:%S`"
 
 
 function link_file {
