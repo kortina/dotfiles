@@ -13,8 +13,6 @@ filetype on
 filetype plugin on
 filetype indent on
 syntax on
-let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
-
 
 " Mac ************************************************************************
 if $HOME == '/Users/kortina'
@@ -118,7 +116,10 @@ autocmd BufRead *.py inoremap # X<c-h>#
 " turn on python folding when you open a file
 autocmd BufRead *.py set foldmethod=indent
 autocmd BufRead *.py set foldlevel=1
-
+" call flake8 on save
+autocmd BufWritePost *.py call Flake8()
+" configure pydiction
+let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
 
 " Completion ******************************************************************
 autocmd FileType python set omnifunc=pythoncomplete#Complete

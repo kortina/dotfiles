@@ -49,3 +49,6 @@
 [submodule "vim/bundle/pydiction"]
 	path = vim/bundle/pydiction
 	url = https://github.com/rkulla/pydiction
+[submodule "vim/bundle/vim-flake8"]
+	path = vim/bundle/vim-flake8
+	url = git@github.com:nvie/vim-flake8.git
