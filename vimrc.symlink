@@ -13,6 +13,7 @@ filetype on
 filetype plugin on
 filetype indent on
 syntax on
+let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
 
 
 " Mac ************************************************************************
