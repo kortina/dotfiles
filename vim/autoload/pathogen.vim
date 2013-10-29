@@ -1,1 +1,1 @@
-vim/vim-pathogen/autoload/pathogen.vim
+/Users/kortina/.vim/vim-pathogen/autoload/pathogen.vim
