@@ -1,24 +1,20 @@
 ## My Setup
 
-Create a link in the home directory for each file that matches the pattern
-`.symlink`.  The links that get created strip off the `.symlink` and everything
-after.
+The installer creates symlinks in `~/` to each file matches the pattern
+`.symlink` and to the `vim` directory.
 
 ### Installation
 
-./install.sh
-
-#### Clone this module and init the submodules
-
-    git clone git://github.com/kortina/dotfiles.git # OR: git clone git@github.com:kortina/dotfiles.git
+    git clone https://github.com/kortina/dotfiles.git
     cd dotfiles
-    git submodule init
-    git submodule update
+    git submodule update --init
+    ./install.sh
 
-I think all you should need to do is run the commands in bootstrap.sh, viz,
+### Dependencies
 
-    gem install soloist
-    cd dotfiles
-    soloist
+I use these dotfiles in conjunction with boxen ( https://github.com/kortina/our-boxen ) to configure my machine.  For all of the vim plugins to work, there are some dependencies that I install via boxen, like `ctags`, `flake8`, and a few other things.
 
 
+### Questions
+
+If something is unclear, please add an issue: https://github.com/kortina/dotfiles/issues
