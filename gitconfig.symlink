@@ -1,0 +1,46 @@
+[user]
+	name = Kortina
+	email = kortina@gmail.com
+[color]
+	status = auto
+	diff = auto
+	branch = auto
+[alias]
+	st = status
+	ci = commit -a
+	co = checkout
+	br = branch
+	df = diff
+	dwc = diff -w -M --color-words
+	lg = log
+	ll = log -p
+	rb = rebase
+	fix = rebase -i origin/master
+	rbc = rebase --continue
+	re = remote
+	tree = log --graph --decorate --pretty=oneline --abbrev-commit --all
+        master-rebase = "!git fetch origin && git rebase origin/master"
+        l50 = "!git log --abbrev-commit --date=short --pretty=format:'%x00%h%x00%cd%x00%s%x00%an%x00%d' | gawk -F '\\0' '{ printf \"%s\\033[31m%s\\033[0m \\033[32m%s\\033[0m  %-50s \\033[30;1m%s\\033[0m\\033[33m%s\\n\", $1, $2, $3, gensub(/(.{49}).{2,}/, \"\\\\1…\",\"g\",$4), $5, $6 }' | less -R"
+        l80 = "!git log --abbrev-commit --date=short --pretty=format:'%x00%h%x00%cd%x00%s%x00%an%x00%d' | gawk -F '\\0' '{ printf \"%s\\033[31m%s\\033[0m \\033[32m%s\\033[0m  %-80s \\033[30;1m%s\\033[0m\\033[33m%s\\n\", $1, $2, $3, gensub(/(.{79}).{2,}/, \"\\\\1…\",\"g\",$4), $5, $6 }' | less -R"
+        lg50 = "!git log --graph --color=always --abbrev-commit --date=relative --pretty=format:'%x00%h%x00%s%x00%cd%x00%an%x00%d' | gawk -F '\\0' '{ printf \"%s\\033[31m%s\\033[0m %-50s \\033[32m%14s\\033[0m \\033[30;1m%s\\033[0m\\033[33m%s\\n\", $1, $2, gensub(/(.{49}).{2,}/, \"\\\\1…\",\"g\",$3), $4, $5, $6 }' | less -R"
+        lg80 = "!git log --graph --color=always --abbrev-commit --date=relative --pretty=format:'%x00%h%x00%s%x00%cd%x00%an%x00%d' | gawk -F '\\0' '{ printf \"%s\\033[31m%s\\033[0m %-80s \\033[32m%14s\\033[0m \\033[30;1m%s\\033[0m\\033[33m%s\\n\", $1, $2, gensub(/(.{79}).{2,}/, \"\\\\1…\",\"g\",$3), $4, $5, $6 }' | less -R"
+        mattsup = "submodule foreach 'if [ $name == \"Libraries/JSONKit\" ]; then git co experimental; else git co master; fi; git pull --rebase'"
+[merge]
+  tool = opendiff
+[core]
+	excludesfile = /opt/boxen/config/git/gitignore
+  legacyheaders = false
+[repack]
+  usedeltabaseoffset = true
+
+[rerere]
+	enabled = 1
+[branch "master"]
+	remote = origin
+	merge = refs/heads/master
+
+[credential]
+helper = /opt/boxen/bin/boxen-git-credential
+
+[hub]
+protocol = https

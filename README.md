@@ -1,28 +1,20 @@
 ## My Setup
 
-Some of the symlinks created in the basics.rb recipe are specific to my setup
-(eg, my Dropbox folder with some private files). Most of the other stuff is
-generic.  I recently found the awesome pivotal workstation soloist repo, which
-is a great base for configuring a new mac and replaced much of my old setup.
+The installer creates symlinks in `~/` to each file matches the pattern
+`.symlink` and to the `vim` directory.
 
 ### Installation
 
-#### Pre-Reqs
-
-    ruby -e "$(curl -fsSkL raw.github.com/mxcl/homebrew/go)" # install homebrew
-    brew doctor
-
-#### Clone this module and init the submodules
-
-    git clone git://github.com/kortina/dotfiles.git # OR: git clone git@github.com:kortina/dotfiles.git
+    git clone https://github.com/kortina/dotfiles.git
     cd dotfiles
-    git submodule init
-    git submodule update
+    git submodule update --init
+    ./install.sh
 
-I think all you should need to do is run the commands in bootstrap.sh, viz,
+### Dependencies
 
-    gem install soloist
-    cd dotfiles
-    soloist
+I use these dotfiles in conjunction with boxen ( https://github.com/kortina/our-boxen ) to configure my machine.  For all of the vim plugins to work, there are some dependencies that I install via boxen, like `ctags`, `flake8`, and a few other things.
 
 
+### Questions
+
+If something is unclear, please add an issue: https://github.com/kortina/dotfiles/issues

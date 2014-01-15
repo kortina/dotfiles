@@ -31,9 +31,6 @@
 [submodule "vim/bundle/vim-commentary"]
 	path = vim/bundle/vim-commentary
 	url = git://github.com/tpope/vim-commentary.git
-[submodule "pivotal_workstation"]
-	path = pivotal_workstation
-	url = https://github.com/pivotal/pivotal_workstation.git
 [submodule "vim/bundle/cocoa.vim"]
 	path = vim/bundle/cocoa.vim
 	url = https://jgoulah@github.com/jgoulah/cocoa.vim.git
@@ -43,3 +40,18 @@
 [submodule "vim/bundle/vim-markdown-preview"]
 	path = vim/bundle/vim-markdown-preview
 	url = git://github.com/nelstrom/vim-markdown-preview.git
+[submodule "vim/vim-pathogen"]
+	path = vim/vim-pathogen
+	url = https://github.com/tpope/vim-pathogen
+[submodule "vim/bundle/vim-fakeclip"]
+	path = vim/bundle/vim-fakeclip
+	url = git@github.com:kana/vim-fakeclip.git
+[submodule "vim/bundle/pydiction"]
+	path = vim/bundle/pydiction
+	url = https://github.com/rkulla/pydiction
+[submodule "vim/bundle/vim-flake8"]
+	path = vim/bundle/vim-flake8
+	url = git@github.com:nvie/vim-flake8.git
+[submodule "vim/bundle/vim-puppet"]
+	path = vim/bundle/vim-puppet
+	url = git@github.com:rodjek/vim-puppet.git
