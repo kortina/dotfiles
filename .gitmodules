@@ -52,3 +52,6 @@
 [submodule "vim/bundle/vim-puppet"]
 	path = vim/bundle/vim-puppet
 	url = git@github.com:rodjek/vim-puppet.git
+[submodule "vim/bundle/vimux-nose-test2"]
+	path = vim/bundle/vimux-nose-test2
+	url = https://github.com/dcosson/vimux-nose-test2
