@@ -1,9 +1,9 @@
-" Notes ***********************************************************************
+" Notes *********************************************************************
 " http://github.com/twerth/dotfiles/blob/master/etc/vim/vimrc
 " is a very good (and well documented!) vimrc to learn from 
 
 
-" Pathogen *******************************************************************
+" Pathogen *****************************************************************
 set nocompatible
 filetype off " Pathogen needs to run before plugin indent on
 call pathogen#infect('bundle/{}') " call pathogen#incubate()
@@ -14,7 +14,7 @@ filetype plugin on
 filetype indent on
 syntax on
 
-" Mac ************************************************************************
+" Mac **********************************************************************
 if $HOME == '/Users/kortina'
     colorscheme ir_black_kortina
     " autocmd FileType objc # TODO: use this
@@ -29,7 +29,7 @@ if $HOME == '/Users/kortina'
 endif
 
 
-" Basics **********************************************************************
+" Basics ********************************************************************
 set backspace=indent,eol,start " fix backspace in vim 7
 set cm=blowfish
 set number
@@ -75,7 +75,7 @@ autocmd BufReadPost *
     \ endif
 
 
-" Folding *********************************************************************
+" Folding *******************************************************************
 " use spacebar to toggle folding
 nnoremap <silent> <Space> @=(foldlevel('.')?'zA':"\<Space>")<CR>
 vnoremap <Space> zf
@@ -83,7 +83,7 @@ vnoremap <Space> zf
 nnoremap 88 zR
 
 
-" Search **********************************************************************
+" Search ********************************************************************
 set tags=./tags;
 set grepprg=ack
 " always do very magic search
@@ -95,23 +95,23 @@ set grepprg=ack
 " switch from vertical to horizontal split
 :command V2h normal <C-w>t<C-w>K
 
-" Javascript ******************************************************************
+" Javascript ****************************************************************
 let jslint_command_options = '-conf ~/.jsl.conf -nofilelisting -nocontext -nosummary -nologo -process'
 
 
-" Golang  *********************************************************************
+" Golang  *******************************************************************
 set rtp+=/usr/local/go/misc/vim
 autocmd BufWritePost *.go :silent Fmt
 
 
-" MiniBufExpl *****************************************************************
+" MiniBufExpl ***************************************************************
 let g:miniBufExplMapWindowNavVim = 1
 let g:miniBufExplMapWindowNavArrows = 1
 let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplModSelTarget = 1
 
 
-" Python **********************************************************************
+" Python ********************************************************************
 let g:pyflakes_use_quickfix = 0
 autocmd FileType python set ft=python.django " For SnipMate
 autocmd FileType html set ft=html.django_template " For SnipMate
@@ -125,7 +125,7 @@ autocmd BufWritePost *.py call Flake8()
 " configure pydiction
 let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
 
-" Completion ******************************************************************
+" Completion ****************************************************************
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 autocmd FileType python setlocal list
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
@@ -136,11 +136,11 @@ let g:ctrlp_working_path_mode = 0
 
 let g:AutoClosePairs = {'(': ')', '{': '}', '[': ']', '"': '"'}
 
-" Ruby ***********************************************************************
+" Ruby **********************************************************************
 au BufRead,BufNewFile {Capfile,Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru,.caprc,.irbrc,irb_tempfile*} set ft=ruby
 
 
-" Shortcuts *******************************************************************
+" Shortcuts *****************************************************************
 " ctrl-p paste
 imap <C-l> <C-r>"
 
@@ -155,6 +155,7 @@ nmap ,a ggVG"*y
 " open markdown preview
 nmap ,p :Mm<CR>
 
+" clear search buffer
 map \c :let @/ = ""<CR>
 
 " Revert the current buffer
@@ -166,7 +167,7 @@ nmap \v :e $MYVIMRC<CR>
 
 :runtime! ~/.vim/
 
-" CamelCaseWords *************************************************************
+" CamelCaseWords ************************************************************
 " http://vim.wikia.com/wiki/Moving_through_camel_case_words
 " Use one of the following to define the camel characters.
 " Stop on capital letters.
@@ -184,7 +185,7 @@ vnoremap <silent><C-Left> :<C-U>call search('\C\<\<Bar>\%(^\<Bar>[^'.g:camelchar
 vnoremap <silent><C-Right> <Esc>`>:<C-U>call search('\C\<\<Bar>\%(^\<Bar>[^'.g:camelchar.']\@<=\)['.g:camelchar.']\<Bar>['.g:camelchar.']\ze\%([^'.g:camelchar.']\&\>\@!\)\<Bar>\%$','W')<CR>v`<o
 
 
-" Shell Command > New Buffer *************************************************
+" Shell Command > New Buffer ************************************************
 command! -complete=shellcmd -nargs=+ Shell call s:RunShellCommand(<q-args>)
 function! s:RunShellCommand(cmdline)
   echo a:cmdline
@@ -206,34 +207,13 @@ function! s:RunShellCommand(cmdline)
 endfunction
 
 
-" Git *************************************************************************
+" Git ***********************************************************************
 command! -complete=file -nargs=* Gstaged call s:RunShellCommand('git diff --staged')
 " review git diff in vertical split (fugitive doesn't seem to want to do this
 :command ReviewGitDiff normal :Gdiff<CR>:H2v<CR>
 
 
-" Testing  ********************************************************************
-" TODO: this testrun.rb thing needs to be abstracted in a nicer manner
-
-map ,u :call RunTests()<cr>
-function! RunTests()
-    if filereadable("./testrun.rb")
-        " Write the file and run tests for the given filename
-        :w
-        :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-        :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-        :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-        :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-        :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-        :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-        exec ":!echo 'Running tests...' && ./testrun.rb"
-    else
-        echo "No testrun.rb file exists."
-    endif
-endfunction
-
-
-" --- Vimux commands to run tests
+" Vimux  ********************************************************************
 let g:vimux_nose_options="--nologcapture"
 map ,rs :call VimuxRunNoseSetup()<CR>
 map ,ri :call VimuxInspectRunner()<CR>
@@ -243,3 +223,14 @@ map ,ra :call VimuxRunNoseAll()<CR>
 map ,rF :call VimuxRunNoseFile()<CR>
 map ,rf :call VimuxRunNoseLine()<CR>
 map ,rr :call VimuxRunLastCommand()<CR>
+
+
+" Syntastic  ****************************************************************
+let g:syntastic_enable_signs=0 "sign markings (at beginning of line, before line numbers)
+let g:syntastic_enable_highlighting=2
+let g:syntastic_auto_loc_list=0
+let g:syntastic_check_on_open=1
+" mode info
+let g:syntastic_mode_map = { 'mode': 'active',
+                           \ 'active_filetypes': [],
+                           \ 'passive_filetypes': ['txt', 'go'] }
