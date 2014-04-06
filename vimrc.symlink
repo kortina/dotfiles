@@ -16,7 +16,7 @@ syntax on
 
 " Mac ************************************************************************
 if $HOME == '/Users/kortina'
-    colorscheme Tomorrow-Night
+    colorscheme ir_black_kortina
     " autocmd FileType objc # TODO: use this
     autocmd FileType objc let g:alternateExtensions_m = "h"
     autocmd FileType objc let g:alternateExtensions_h = "m"
