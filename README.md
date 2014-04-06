@@ -12,7 +12,13 @@ The installer creates symlinks in `~/` to each file matches the pattern
 
 ### Dependencies
 
-I use these dotfiles in conjunction with boxen ( https://github.com/kortina/our-boxen ) to configure my machine.  For all of the vim plugins to work, there are some dependencies that I install via boxen, like `ctags`, `flake8`, and a few other things.
+I use these dotfiles in conjunction with boxen ( https://github.com/kortina/our-boxen ) to configure my machine.  For all of the vim plugins to work, there are some dependencies that I install via boxen, like:
+
+* ctags
+* flake8
+* tmux
+* powerline
+* probably a few other things
 
 
 ### Questions

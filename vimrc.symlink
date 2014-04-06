@@ -232,3 +232,14 @@ function! RunTests()
     endif
 endfunction
 
+
+" --- Vimux commands to run tests
+let g:vimux_nose_options="--nologcapture"
+map ,rs :call VimuxRunNoseSetup()<CR>
+map ,ri :call VimuxInspectRunner()<CR>
+map ,rc :call VimuxCloseRunner()<CR>
+
+map ,ra :call VimuxRunNoseAll()<CR>
+map ,rF :call VimuxRunNoseFile()<CR>
+map ,rf :call VimuxRunNoseLine()<CR>
+map ,rr :call VimuxRunLastCommand()<CR>
