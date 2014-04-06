@@ -4,6 +4,7 @@ set -e
 DOTFILES_ROOT="`pwd`"
 BACKUP_DIR="${HOME}/old_dotfiles/`date +%Y-%m-%d.%H:%M:%S`"
 
+cd $DOTFILES_ROOT && git submodule update # make sure git submodules are up to date
 
 function link_file {
 	source=$1
