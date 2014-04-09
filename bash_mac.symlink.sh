@@ -12,6 +12,7 @@ alias SaveScreen='/System/Library/Frameworks/ScreenSaver.framework/Resources/Scr
 alias updatedb='sudo /usr/libexec/locate.updatedb'
 alias gg='git grep -n --color --heading --break'
 alias tmux="TERM=screen-256color-bce tmux"
+export TERM="xterm-256color"
 
 
 ##################################################
