@@ -68,3 +68,6 @@
 [submodule ".vim/bundle/syntastic"]
 	path = .vim/bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
+[submodule "themes/tomorrow-theme"]
+	path = themes/tomorrow-theme
+	url = git@github.com:chriskempson/tomorrow-theme.git
