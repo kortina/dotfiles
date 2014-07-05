@@ -1,3 +1,69 @@
 [submodule "themes/tomorrow-theme"]
 	path = themes/tomorrow-theme
 	url = git@github.com:chriskempson/tomorrow-theme.git
+[submodule "dotfiles-user/.vim/bundle/pyflakes-vim"]
+	path = dotfiles-user/.vim/bundle/pyflakes-vim
+	url = git://github.com/kevinw/pyflakes-vim.git
+[submodule "dotfiles-user/.vim/bundle/minibufexpl"]
+	path = dotfiles-user/.vim/bundle/minibufexpl
+	url = https://github.com/fholgado/minibufexpl.vim.git
+[submodule "dotfiles-user/.vim/bundle/taglist"]
+	path = dotfiles-user/.vim/bundle/taglist
+	url = https://github.com/vim-scripts/taglist.vim.git
+[submodule "dotfiles-user/.vim/bundle/gnupg"]
+	path = dotfiles-user/.vim/bundle/gnupg
+	url = https://github.com/vim-scripts/gnupg.vim.git
+[submodule "dotfiles-user/.vim/bundle/ctrlp"]
+	path = dotfiles-user/.vim/bundle/ctrlp
+	url = https://github.com/kien/ctrlp.vim
+[submodule "dotfiles-user/.vim/bundle/clang_complete"]
+	path = dotfiles-user/.vim/bundle/clang_complete
+	url = https://github.com/Rip-Rip/clang_complete.git
+[submodule "dotfiles-user/.vim/bundle/vim-golang"]
+	path = dotfiles-user/.vim/bundle/vim-golang
+	url = https://github.com/jnwhiteh/vim-golang
+[submodule "dotfiles-user/.vim/bundle/vim-scratch"]
+	path = dotfiles-user/.vim/bundle/vim-scratch
+	url = https://github.com/duff/vim-scratch
+[submodule "dotfiles-user/.vim/bundle/vimux"]
+	path = dotfiles-user/.vim/bundle/vimux
+	url = https://github.com/benmills/vimux
+[submodule "dotfiles-user/.vim/bundle/a.vim"]
+	path = dotfiles-user/.vim/bundle/a.vim
+	url = https://github.com/vim-scripts/a.vim.git
+[submodule "dotfiles-user/.vim/bundle/vim-commentary"]
+	path = dotfiles-user/.vim/bundle/vim-commentary
+	url = git://github.com/tpope/vim-commentary.git
+[submodule "dotfiles-user/.vim/bundle/cocoa.vim"]
+	path = dotfiles-user/.vim/bundle/cocoa.vim
+	url = https://jgoulah@github.com/jgoulah/cocoa.vim.git
+[submodule "dotfiles-user/.vim/bundle/javaScriptLint"]
+	path = dotfiles-user/.vim/bundle/javaScriptLint
+	url = git://github.com/kortina/javaScriptLint.vim.git
+[submodule "dotfiles-user/.vim/bundle/vim-markdown-preview"]
+	path = dotfiles-user/.vim/bundle/vim-markdown-preview
+	url = git://github.com/nelstrom/vim-markdown-preview.git
+[submodule "dotfiles-user/.vim/bundle/vim-fakeclip"]
+	path = dotfiles-user/.vim/bundle/vim-fakeclip
+	url = git@github.com:kana/vim-fakeclip.git
+[submodule "dotfiles-user/.vim/bundle/pydiction"]
+	path = dotfiles-user/.vim/bundle/pydiction
+	url = https://github.com/rkulla/pydiction
+[submodule "dotfiles-user/.vim/bundle/vim-flake8"]
+	path = dotfiles-user/.vim/bundle/vim-flake8
+	url = git@github.com:nvie/vim-flake8.git
+[submodule "dotfiles-user/.vim/bundle/vim-puppet"]
+	path = dotfiles-user/.vim/bundle/vim-puppet
+	url = git@github.com:rodjek/vim-puppet.git
+[submodule "dotfiles-user/.vim/bundle/vimux-nose-test2"]
+	path = dotfiles-user/.vim/bundle/vimux-nose-test2
+	url = https://github.com/dcosson/vimux-nose-test2
+[submodule "dotfiles-user/.vim/bundle/syntastic"]
+	path = dotfiles-user/.vim/bundle/syntastic
+	url = https://github.com/scrooloose/syntastic.git
+[submodule "dotfiles-user/.vim/bundle/powerline"]
+	path = dotfiles-user/.vim/bundle/powerline
+	url = git@github.com:Lokaltog/powerline.git
+[submodule "dotfiles-user/.vim/bundle/vim-fugitive"]
+	path = dotfiles-user/.vim/bundle/vim-fugitive
+	url = git@github.com:tpope/vim-fugitive.git
