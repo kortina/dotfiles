@@ -85,10 +85,12 @@ let g:ctrlp_working_path_mode = 0
 let g:AutoClosePairs = {'(': ')', '{': '}', '[': ']', '"': '"'}
 
 " MiniBufExpl ***************************************************************
-let g:miniBufExplMapWindowNavVim = 1
-let g:miniBufExplMapWindowNavArrows = 1
-let g:miniBufExplMapCTabSwitchBufs = 1
-let g:miniBufExplModSelTarget = 1
+" let g:miniBufExplMapWindowNavVim = 1 is obsolete. Remapping below:
+noremap <C-J> <C-W>j
+noremap <C-K> <C-W>k
+noremap <C-H> <C-W>h
+noremap <C-L> <C-W>l
+
 
 
 " Javascript ****************************************************************
