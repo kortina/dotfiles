@@ -19,7 +19,7 @@ export TERM="xterm-256color"
 # path adjustments
 ##################################################
 # export PATH="~/Dropbox/nix/bin:$PATH"
-export PATH="~/Dropbox/git/bakpak/bin:$PATH"
+export PATH="/opt/boxen/bakpak/bin:$PATH"
 export PATH="~/.vim/:/usr/local:/usr/local/bin/ruby:$PATH"
 
 export GOPATH="$HOME/gopath"
