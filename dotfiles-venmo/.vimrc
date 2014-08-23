@@ -115,6 +115,7 @@ autocmd BufRead *.py set foldlevel=1
 autocmd BufWritePost *.py call Flake8()
 " configure pydiction
 let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
+noremap ,d Oimport pdb; pdb.set_trace()<Esc>
 
 
 " Ruby **********************************************************************
