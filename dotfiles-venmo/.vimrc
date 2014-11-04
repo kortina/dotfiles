@@ -121,6 +121,8 @@ noremap ,d Oimport pdb; pdb.set_trace()<Esc>
 " Ruby **********************************************************************
 au BufRead,BufNewFile {Capfile,Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru,.caprc,.irbrc,irb_tempfile*} set ft=ruby
 
+" Fountain  *****************************************************************
+au BufRead,BufNewFile *.fountain        set filetype=fountain
 
 " Git ***********************************************************************
 command! -complete=file -nargs=* Gstaged call s:RunShellCommand('git diff --staged')
