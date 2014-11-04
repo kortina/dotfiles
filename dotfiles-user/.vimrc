@@ -39,6 +39,9 @@ nmap ,a ggVG"*y
 " open markdown preview
 nmap ,p :Mm<CR>
 
+" toggle Goyo (focus mode)
+nmap ,g :Goyo<CR>
+
 " clear search buffer
 map \c :let @/ = ""<CR>
 
