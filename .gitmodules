@@ -73,3 +73,6 @@
 [submodule "dotfiles-user/.vim/bundle/fountain.vim"]
 	path = dotfiles-user/.vim/bundle/fountain.vim
 	url = https://github.com/vim-scripts/fountain.vim.git
+[submodule "dotfiles-user/.vim/bundle/vim-markdown-folding"]
+	path = dotfiles-user/.vim/bundle/vim-markdown-folding
+	url = https://github.com/nelstrom/vim-markdown-folding
