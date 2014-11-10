@@ -51,3 +51,12 @@ nnoremap \r :e!<CR>
 "Easy edit of vimrc
 nmap \s :source $MYVIMRC<CR>
 nmap \v :e $MYVIMRC<CR>
+
+" fountain settings / hacks
+" fixes error when loading markdown-folding
+autocmd BufRead *.fountain let b:undo_ftplugin = '' 
+" use markdown folding of headers in fountain files
+autocmd BufRead *.fountain source ~/.vim/bundle/vim-markdown-folding/after/ftplugin/markdown/folding.vim
+" ir_black_kortina does not color scene headings nicely
+autocmd BufRead *.fountain colorscheme darkblue
+

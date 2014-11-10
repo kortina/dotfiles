@@ -56,8 +56,9 @@ autocmd BufReadPost *
 " use spacebar to toggle folding
 nnoremap <silent> <Space> @=(foldlevel('.')?'zA':"\<Space>")<CR>
 vnoremap <Space> zf
-" it's way too hard to type zR to expand all folds, so
+" it's way too hard to type zR/zM to expand/close all folds, so
 nnoremap 88 zR
+nnoremap 77 zM
 
 
 " Search ********************************************************************
