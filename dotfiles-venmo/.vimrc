@@ -155,8 +155,8 @@ map ,ri :call VimuxInspectRunner()<CR>
 map ,rc :call VimuxCloseRunner()<CR>
 
 map ,ra :call VimuxRunNoseAll()<CR>
-map ,rF :call VimuxRunNoseFile()<CR>
-map ,rf :call VimuxRunNoseLine()<CR>
+map ,rf :call VimuxRunNoseFile()<CR>
+map ,rl :call VimuxRunNoseLine()<CR>
 map ,rr :call VimuxRunLastCommand()<CR>
 
 
