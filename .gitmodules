@@ -76,3 +76,6 @@
 [submodule "dotfiles-user/.vim/bundle/vim-markdown-folding"]
 	path = dotfiles-user/.vim/bundle/vim-markdown-folding
 	url = https://github.com/nelstrom/vim-markdown-folding
+[submodule "dotfiles-user/.vim/bundle/vim-markdown"]
+	path = dotfiles-user/.vim/bundle/vim-markdown
+	url = https://github.com/plasticboy/vim-markdown.git
