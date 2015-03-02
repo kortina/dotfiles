@@ -79,3 +79,6 @@
 [submodule "dotfiles-user/.vim/bundle/vim-markdown"]
 	path = dotfiles-user/.vim/bundle/vim-markdown
 	url = https://github.com/plasticboy/vim-markdown.git
+[submodule "dotfiles-user/.vim/bundle/vim-livedown"]
+	path = dotfiles-user/.vim/bundle/vim-livedown
+	url = https://github.com/shime/vim-livedown
