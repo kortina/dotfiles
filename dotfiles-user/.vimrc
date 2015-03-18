@@ -48,9 +48,13 @@ map \c :let @/ = ""<CR>
 " Revert the current buffer
 nnoremap \r :e!<CR>
 
-"Easy edit of vimrc
+" Easy edit of vimrc
 nmap \s :source $MYVIMRC<CR>
 nmap \v :e $MYVIMRC<CR>
+
+" markdown settings
+autocmd BufNewFile,BufRead *.md,*.mkd,*.markdown,*.fountain set filetype=markdown
+autocmd FileType markdown set linebreak
 
 " fountain settings / hacks
 " fixes error when loading markdown-folding
