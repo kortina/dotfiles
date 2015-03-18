@@ -53,8 +53,7 @@ nmap \s :source $MYVIMRC<CR>
 nmap \v :e $MYVIMRC<CR>
 
 " markdown settings
-autocmd BufNewFile,BufRead *.md,*.mkd,*.markdown,*.fountain set filetype=markdown
-autocmd FileType markdown set linebreak
+autocmd BufNewFile,BufRead *.md,*.mkd,*.markdown,*.fountain set linebreak
 
 " fountain settings / hacks
 " fixes error when loading markdown-folding
