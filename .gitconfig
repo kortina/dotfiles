@@ -29,7 +29,7 @@
 [merge]
   tool = opendiff
 [core]
-	excludesfile = /opt/boxen/config/git/gitignore
+	excludesfile = ~/.gitignore
   legacyheaders = false
 [repack]
   usedeltabaseoffset = true
