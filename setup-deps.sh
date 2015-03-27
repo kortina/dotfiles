@@ -46,9 +46,9 @@ pip install nose-run-line-number
 ########################################
 npm install -g livedown
 
-./setup-symlinks.sh
-./setup-osx.sh
-
+########################################
+# misc
+########################################
 if ! test -d /opt/boxen/bakpak;
     echo "installing bakpak"
     # legacy location, lots of deps remaining on this:
@@ -60,7 +60,7 @@ fi
 ########################################
 # various symlinks
 ########################################
-ln -s "/System/Library/CoreServices/Screen\ Sharing.app" "/Applications/Screen\ Sharing.app":
+ln -s "/System/Library/CoreServices/Screen Sharing.app" "/Applications/Screen Sharing.app":
 
 # TODO: remaining from boxen
 # libs
