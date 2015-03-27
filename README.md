@@ -8,7 +8,8 @@
 
 `setup.sh` will run all of the following setup scripts: 
 
-* `setup-deps.sh` - install all dependencies, such as `homebrew`, `docker`, and other libs and packages.
+* `setup-homebrew.sh` - install and update homebrew.
+* `setup-deps.sh` - install all dependencies, such as `docker` and other libs and packages.
 * `setup-symlinks.sh` - create symlinks from your home directory to any files that begin with a `.` in your `~/dotfiles` directory.
 * `setup-osx.sh` - configure some osx preferences.
 
