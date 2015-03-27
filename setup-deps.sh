@@ -4,17 +4,7 @@ set -e
 DOTFILES_ROOT="`pwd`"
 
 # make sure git submodules are up to date
-cd $DOTFILES_ROOT && git submodule update 
-
-# other directories and things to link
-# link_file "$DOTFILES_ROOT/vim"
-
-if ! command -v brew >/dev/null 2>&1; then
-    echo "installing homebrew"
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-fi
-
-brew update
+cd $DOTFILES_ROOT && git submodule update --init
 
 ########################################
 # libs
