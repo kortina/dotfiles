@@ -12,6 +12,8 @@
 * `setup-symlinks.sh` - create symlinks from your home directory to any files that begin with a `.` in your `~/dotfiles` directory.
 * `setup-osx.sh` - configure some osx preferences.
 
+Each of this scripts can also be run independently (which may be faster for making small changes).
+
 ### Dependencies
 
 Some dependencies installed via `setup-deps.sh`
