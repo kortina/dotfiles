@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 
 # format clock in menubar
 defaults write com.apple.menuextra.clock DateFormat 'EEE MMM d  h:mm a'

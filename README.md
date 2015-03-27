@@ -1,27 +1,26 @@
-## My Setup
-
-`dotbuild` installer will aggregate all files found in `dotfiles-*` directories
-into a `build` directory and then create symlinks from user home directory to
-`build` directory.
-
 ### Installation
 
+    cd ~
     git clone https://github.com/kortina/dotfiles.git
     cd dotfiles
     git submodule update --init
-    dotbuild
+    ./setup.sh
+
+`setup.sh` will run all of the following setup scripts: 
+
+* `setup-deps.sh` - install all dependencies, such as `homebrew`, `docker`, and other libs and packages.
+* `setup-symlinks.sh` - create symlinks from your home directory to any files that begin with a `.` in your `~/dotfiles` directory.
+* `setup-osx.sh` - configure some osx preferences.
 
 ### Dependencies
 
-I use these dotfiles in conjunction with dotbuild and boxen ( https://github.com/kortina/our-boxen ) to configure my machine.  For all of the vim plugins to work, there are some dependencies that I install via boxen, like:
+Some dependencies installed via `setup-deps.sh`
 
-* dotbuild
 * ctags
 * flake8
 * tmux
 * powerline
 * probably a few other things
-
 
 ### Questions
 

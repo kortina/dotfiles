@@ -1,3 +1,7 @@
-build
-vim-pivotal-uninstalled-bundles
-vim/.netrwhist
+.DS_Store
+._*
+.svn
+.hg
+.DS_Store
+*.pyc
+*.swp
