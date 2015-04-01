@@ -159,6 +159,8 @@ map ,rf :call VimuxRunNoseFile()<CR>
 map ,rl :call VimuxRunNoseLine()<CR>
 map ,rr :call VimuxRunLastCommand()<CR>
 
+" Spelling ******************************************************************
+set spellfile=~/.vim/spell/en.utf-8.add
 
 " Syntastic  ****************************************************************
 let g:syntastic_enable_signs=0 "sign markings (at beginning of line, before line numbers)
