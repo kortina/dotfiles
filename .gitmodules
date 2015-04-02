@@ -82,3 +82,6 @@
 [submodule ".vim/bundle/vim-livedown"]
 	path = .vim/bundle/vim-livedown
 	url = https://github.com/shime/vim-livedown
+[submodule ".vim/bundle/LanguageTool"]
+	path = .vim/bundle/LanguageTool
+	url = https://github.com/vim-scripts/LanguageTool.git

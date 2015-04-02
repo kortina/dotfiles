@@ -13,6 +13,10 @@ brew install bash-completion
 brew install ctags
 brew install python
 brew install tmux
+brew install languagetool
+brew install youtube-dl
+
+xcode-select --install
 
 ########################################
 # virtualbox
