@@ -44,6 +44,10 @@ set ai " Automatically set the indent of a new line (local to buffer)
 set si " smartindent    (local to buffer)
 :runtime! ~/.vim/
 
+" use either , or \ as <Leader>
+let mapleader = ","
+nmap \ ,
+
 
 " Jump to last cursor position unless it's invalid or in an event handler
 autocmd BufReadPost *
@@ -116,7 +120,7 @@ autocmd BufRead *.py set foldlevel=1
 autocmd BufWritePost *.py call Flake8()
 " configure pydiction
 let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
-noremap ,d Oimport pdb; pdb.set_trace()<Esc>
+noremap <Leader>d Oimport pdb; pdb.set_trace()<Esc>
 
 
 " Ruby **********************************************************************
@@ -152,14 +156,14 @@ vnoremap <silent><C-Right> <Esc>`>:<C-U>call search('\C\<\<Bar>\%(^\<Bar>[^'.g:c
 
 " Vimux  ********************************************************************
 let g:vimux_nose_options="--nologcapture"
-map ,rs :call VimuxRunNoseSetup()<CR>
-map ,ri :call VimuxInspectRunner()<CR>
-map ,rc :call VimuxCloseRunner()<CR>
+map <Leader>rs :call VimuxRunNoseSetup()<CR>
+map <Leader>ri :call VimuxInspectRunner()<CR>
+map <Leader>rc :call VimuxCloseRunner()<CR>
 
-map ,ra :call VimuxRunNoseAll()<CR>
-map ,rf :call VimuxRunNoseFile()<CR>
-map ,rl :call VimuxRunNoseLine()<CR>
-map ,rr :call VimuxRunLastCommand()<CR>
+map <Leader>ra :call VimuxRunNoseAll()<CR>
+map <Leader>rf :call VimuxRunNoseFile()<CR>
+map <Leader>rl :call VimuxRunNoseLine()<CR>
+map <Leader>rr :call VimuxRunLastCommand()<CR>
 
 " Grammar  ******************************************************************
 let g:languagetool_jar='/opt/boxen/homebrew/Cellar/languagetool/2.8/libexec/languagetool.jar'
@@ -211,20 +215,20 @@ imap <C-l> <C-r>"
 
 " insert a markdown header, like
 " ==============================
-map ,1 V"zy"zpVr=
-map ,2 V"zy"zpVr-
+map <Leader>1 V"zy"zpVr=
+map <Leader>2 V"zy"zpVr-
 
 " copy all to clipboard
-nmap ,a ggVG"*y
+nmap <Leader>a ggVG"*y
 
 " open markdown preview
-nmap ,p :Mm<CR>
+nmap <Leader>p :Mm<CR>
 
 " toggle Goyo (focus mode)
-nmap ,g :Goyo<CR>
+nmap <Leader>g :Goyo<CR>
 
 " clear search buffer
-map \c :let @/ = ""<CR>
+map <Leader>c :let @/ = ""<CR>
 
 " markdown settings
 autocmd BufNewFile,BufRead *.md,*.mkd,*.markdown,*.fountain set linebreak
