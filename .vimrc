@@ -121,6 +121,8 @@ noremap ,d Oimport pdb; pdb.set_trace()<Esc>
 
 " Ruby **********************************************************************
 au BufRead,BufNewFile {Capfile,Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru,.caprc,.irbrc,irb_tempfile*} set ft=ruby
+autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
+let g:vroom_use_vimux=1
 
 " Fountain  *****************************************************************
 au BufRead,BufNewFile *.fountain        set filetype=fountain
@@ -223,13 +225,6 @@ nmap ,g :Goyo<CR>
 
 " clear search buffer
 map \c :let @/ = ""<CR>
-
-" Revert the current buffer
-nnoremap \r :e!<CR>
-
-" Easy edit of vimrc
-nmap \s :source $MYVIMRC<CR>
-nmap \v :e $MYVIMRC<CR>
 
 " markdown settings
 autocmd BufNewFile,BufRead *.md,*.mkd,*.markdown,*.fountain set linebreak

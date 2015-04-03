@@ -85,3 +85,12 @@
 [submodule ".vim/bundle/LanguageTool"]
 	path = .vim/bundle/LanguageTool
 	url = https://github.com/vim-scripts/LanguageTool.git
+[submodule ".vim/bundle/vim-rails"]
+	path = .vim/bundle/vim-rails
+	url = https://github.com/tpope/vim-rails
+[submodule ".vim/bundle/vim-ruby"]
+	path = .vim/bundle/vim-ruby
+	url = https://github.com/vim-ruby/vim-ruby
+[submodule ".vim/bundle/vim-vroom"]
+	path = .vim/bundle/vim-vroom
+	url = https://github.com/skalnik/vim-vroom

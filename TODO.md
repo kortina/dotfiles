@@ -1,3 +1,8 @@
+
+? https://github.com/tpope/vim-bundler
+? https://github.com/julienr/vim-cellmode
+? https://github.com/thoughtbot/vim-rspec
+
 https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard
 https://github.com/dcosson/dotfiles/blob/master/tmux.conf#L1-2
 http://vimawesome.com/
