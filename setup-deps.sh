@@ -9,14 +9,18 @@ cd $DOTFILES_ROOT && git submodule update --init
 ########################################
 # libs
 ########################################
+xcode-select --install
+
 brew install bash-completion
+brew tap homebrew/completions
+brew install rails-completion
+
 brew install ctags
 brew install python
 brew install tmux
 brew install languagetool
 brew install youtube-dl
 
-xcode-select --install
 
 ########################################
 # virtualbox

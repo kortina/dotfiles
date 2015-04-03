@@ -53,7 +53,10 @@ PS1="\n\
 # bash completion
 ##################################################
 if [ -f `brew --prefix`/etc/bash_completion ]; then
-. `brew --prefix`/etc/bash_completion
+    . `brew --prefix`/etc/bash_completion
+fi
+if [ -f `brew --prefix`/etc/bash_completion.d/rails.bash ]; then
+    source `brew --prefix`/etc/bash_completion.d/rails.bash
 fi
 
 
