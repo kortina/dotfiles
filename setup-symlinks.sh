@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 set -e
+echo "##### $(basename $BASH_SOURCE) #####"
 
 DOTFILES_ROOT="`pwd`"
 DONT_SYMLINK=("." ".." ".git" ".gitmodules")

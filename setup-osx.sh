@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+set -e
+echo "##### $(basename $BASH_SOURCE) #####"
 
 # format clock in menubar
 defaults write com.apple.menuextra.clock DateFormat 'EEE MMM d  h:mm a'
