@@ -94,3 +94,6 @@
 [submodule ".vim/bundle/vim-vroom"]
 	path = .vim/bundle/vim-vroom
 	url = https://github.com/skalnik/vim-vroom
+[submodule ".vim/bundle/nerdtree"]
+	path = .vim/bundle/nerdtree
+	url = https://github.com/scrooloose/nerdtree
