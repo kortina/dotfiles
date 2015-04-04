@@ -126,7 +126,14 @@ noremap <Leader>d Oimport pdb; pdb.set_trace()<Esc>
 " Ruby **********************************************************************
 au BufRead,BufNewFile {Capfile,Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru,.caprc,.irbrc,irb_tempfile*} set ft=ruby
 autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
-let g:vroom_use_vimux=1
+
+let g:vroom_use_vimux = 1
+let g:vroom_map_keys = 0
+
+autocmd FileType ruby map <Leader>rf :VroomRunTestFile<CR>
+autocmd FileType ruby map <Leader>rl :VroomRunNearestTest<CR>
+autocmd FileType ruby map <Leader>rr :VroomRunLastTest<CR>
+
 
 " Fountain  *****************************************************************
 au BufRead,BufNewFile *.fountain        set filetype=fountain
@@ -156,14 +163,14 @@ vnoremap <silent><C-Right> <Esc>`>:<C-U>call search('\C\<\<Bar>\%(^\<Bar>[^'.g:c
 
 " Vimux  ********************************************************************
 let g:vimux_nose_options="--nologcapture"
-map <Leader>rs :call VimuxRunNoseSetup()<CR>
-map <Leader>ri :call VimuxInspectRunner()<CR>
-map <Leader>rc :call VimuxCloseRunner()<CR>
+autocmd FileType python map <Leader>rs :call VimuxRunNoseSetup()<CR>
+autocmd FileType python map <Leader>ri :call VimuxInspectRunner()<CR>
+autocmd FileType python map <Leader>rc :call VimuxCloseRunner()<CR>
 
-map <Leader>ra :call VimuxRunNoseAll()<CR>
-map <Leader>rf :call VimuxRunNoseFile()<CR>
-map <Leader>rl :call VimuxRunNoseLine()<CR>
-map <Leader>rr :call VimuxRunLastCommand()<CR>
+autocmd FileType python map <Leader>ra :call VimuxRunNoseAll()<CR>
+autocmd FileType python map <Leader>rf :call VimuxRunNoseFile()<CR>
+autocmd FileType python map <Leader>rl :call VimuxRunNoseLine()<CR>
+autocmd FileType python map <Leader>rr :call VimuxRunLastCommand()<CR>
 
 " Grammar  ******************************************************************
 let g:languagetool_jar='/opt/boxen/homebrew/Cellar/languagetool/2.8/libexec/languagetool.jar'
