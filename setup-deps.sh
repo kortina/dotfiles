@@ -26,8 +26,7 @@ brew install youtube-dl
 ########################################
 # virtualbox
 ########################################
-brew tap phinze/homebrew-cask
-brew install brew-cask
+brew install caskroom/cask/brew-cask
 brew cask install virtualbox
 
 ########################################
