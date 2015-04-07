@@ -17,6 +17,7 @@ brew tap homebrew/completions
 brew install rails-completion
 
 brew install ctags
+brew install heroku
 brew install python
 brew install tmux
 brew install languagetool
