@@ -7,6 +7,9 @@ https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard
 https://github.com/dcosson/dotfiles/blob/master/tmux.conf#L1-2
 http://vimawesome.com/
 
+how to install xcode themes:
+https://github.com/hdoria/xcode-themes
+
 # create global keyboard shortcuts:
 http://hints.macworld.com/article.php?story=20131123074223584
 

@@ -70,7 +70,8 @@ fi
 ########################################
 # various symlinks
 ########################################
-ln -s "/System/Library/CoreServices/Screen Sharing.app" "/Applications/Screen Sharing.app":
+ln -s "/System/Library/CoreServices/Screen Sharing.app" "/Applications/Screen Sharing.app"
+ln -s "$HOME/Dropbox/Apps/bash_mac_private" "$HOME/.bash_mac_private"
 
 # TODO: remaining from boxen
 # libs

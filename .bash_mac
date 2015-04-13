@@ -59,6 +59,10 @@ if [ -f `brew --prefix`/etc/bash_completion.d/rails.bash ]; then
     source `brew --prefix`/etc/bash_completion.d/rails.bash
 fi
 
+##################################################
+# settings not on github
+##################################################
+[[ -f "$HOME/.bash_mac_private" ]] && source "$HOME/.bash_mac_private" # Load stuff not on github
 
 ##################################################
 # ruby
