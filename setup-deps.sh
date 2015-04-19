@@ -36,6 +36,11 @@ brew cask install virtualbox
 ########################################
 brew install boot2docker
 brew install docker
+echo "********************************"
+echo "  see for more docker setup steps:"
+echo "  http://viget.com/extend/how-to-use-docker-on-os-x-the-missing-guide"
+echo "********************************"
+
 
 ########################################
 # pip
