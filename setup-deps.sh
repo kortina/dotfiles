@@ -36,6 +36,7 @@ brew cask install virtualbox
 ########################################
 brew install boot2docker
 brew install docker
+brew install fig # pip install fig results in SSL cert errors
 echo "********************************"
 echo "  see for more docker setup steps:"
 echo "  http://viget.com/extend/how-to-use-docker-on-os-x-the-missing-guide"
@@ -54,7 +55,6 @@ pip install flake8
 pip install ipython
 pip install git+git://github.com/Lokaltog/powerline
 pip install nose-run-line-number
-pip install fig
 
 
 ########################################
