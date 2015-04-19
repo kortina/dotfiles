@@ -49,6 +49,7 @@ pip install flake8
 pip install ipython
 pip install git+git://github.com/Lokaltog/powerline
 pip install nose-run-line-number
+pip install fig
 
 
 ########################################
