@@ -11,6 +11,7 @@ defaults write com.apple.screensaver askForPasswordDelay -int 0
 
 # speed up Mission Control / slow animations
 # @see http://apple.stackexchange.com/questions/17929/how-can-i-disable-animation-when-switching-desktops-in-lion
+defaults write com.apple.dock workspaces-swoosh-animation-off -bool YES
 defaults write com.apple.dock expose-animation-duration -int 0
 defaults delete com.apple.dock expose-animation-duration
 
