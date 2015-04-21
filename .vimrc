@@ -100,7 +100,7 @@ noremap <C-L> <C-W>l
 
 " Javascript ****************************************************************
 " let jslint_command_options = '-conf ~/.jsl.conf -nofilelisting -nocontext -nosummary -nologo -process'
-
+let g:jsx_ext_required = 0
 
 " Golang  *******************************************************************
 set rtp+=/usr/local/go/misc/vim
