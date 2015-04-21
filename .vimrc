@@ -91,10 +91,17 @@ let g:AutoClosePairs = {'(': ')', '{': '}', '[': ']', '"': '"'}
 
 " MiniBufExpl ***************************************************************
 " let g:miniBufExplMapWindowNavVim = 1 is obsolete. Remapping below:
-noremap <C-J> <C-W>j
-noremap <C-K> <C-W>k
-noremap <C-H> <C-W>h
-noremap <C-L> <C-W>l
+noremap <C-j> <C-W>j
+noremap <C-k> <C-W>k
+noremap <C-h> <C-W>h
+noremap <C-l> <C-W>l
+
+" change buffer sizes with Shift arrow keys
+noremap <S-Right> :vertical resize +5<CR>
+noremap <S-Left>  :vertical resize -5<CR>
+" why don't these work with Shift?
+noremap <Down> :resize +5<CR>
+noremap <Up> :resize -5<CR>
 
 
 
@@ -197,8 +204,8 @@ if $HOME == '/Users/kortina'
     autocmd FileType objc let g:alternateExtensions_h = "m"
 
     " Toggle source/implementation
-    noremap <Down> :A<cr> 
-    noremap <Up> :A<cr>
+    " noremap <Down> :A<cr> 
+    " noremap <Up> :A<cr>
 
     let g:clang_complete_auto = 1
     let g:clang_exec='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang'
