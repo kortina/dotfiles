@@ -235,6 +235,8 @@ autocmd VimEnter,WinEnter,BufEnter,BufRead,BufAdd,BufNew,FileReadPost,BufWinEnte
 autocmd WinEnter * setlocal cursorline
 autocmd WinLeave * setlocal nocursorline
 autocmd BufRead,BufNewFile,BufDelete * :syntax on
+" Turn on cursorline if off
+nmap <Leader>l :set cursorline<CR>
 
 
 " Shortcuts *****************************************************************
