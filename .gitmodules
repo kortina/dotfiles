@@ -37,9 +37,6 @@
 [submodule ".vim/bundle/cocoa.vim"]
 	path = .vim/bundle/cocoa.vim
 	url = https://jgoulah@github.com/jgoulah/cocoa.vim.git
-[submodule ".vim/bundle/javaScriptLint"]
-	path = .vim/bundle/javaScriptLint
-	url = git://github.com/kortina/javaScriptLint.vim.git
 [submodule ".vim/bundle/vim-markdown-preview"]
 	path = .vim/bundle/vim-markdown-preview
 	url = git://github.com/nelstrom/vim-markdown-preview.git
@@ -100,3 +97,6 @@
 [submodule ".vim/bundle/vim-jsx"]
 	path = .vim/bundle/vim-jsx
 	url = https://github.com/mxw/vim-jsx.git
+[submodule ".vim/bundle/jshint"]
+	path = .vim/bundle/jshint
+	url = https://github.com/wookiehangover/jshint.vim
