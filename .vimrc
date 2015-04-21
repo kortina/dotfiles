@@ -97,8 +97,9 @@ noremap <C-h> <C-W>h
 noremap <C-l> <C-W>l
 
 " change buffer sizes with Shift arrow keys
-noremap <S-Right> :vertical resize +5<CR>
-noremap <S-Left>  :vertical resize -5<CR>
+" Shift worked with these:
+noremap <Right> :vertical resize -5<CR>
+noremap <Left>  :vertical resize +5<CR>
 " why don't these work with Shift?
 noremap <Down> :resize +5<CR>
 noremap <Up> :resize -5<CR>
