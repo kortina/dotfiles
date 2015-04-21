@@ -97,6 +97,6 @@
 [submodule ".vim/bundle/vim-jsx"]
 	path = .vim/bundle/vim-jsx
 	url = https://github.com/mxw/vim-jsx.git
-[submodule ".vim/bundle/jshint"]
-	path = .vim/bundle/jshint
+[submodule ".vim/bundle/jshint.vim"]
+	path = .vim/bundle/jshint.vim
 	url = https://github.com/wookiehangover/jshint.vim
