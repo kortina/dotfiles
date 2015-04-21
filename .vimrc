@@ -109,6 +109,7 @@ noremap <Up> :resize -5<CR>
 " Javascript ****************************************************************
 " let jslint_command_options = '-conf ~/.jsl.conf -nofilelisting -nocontext -nosummary -nologo -process'
 let g:jsx_ext_required = 0
+let g:syntastic_javascript_checkers = ['jsxhint']
 
 " Golang  *******************************************************************
 set rtp+=/usr/local/go/misc/vim
@@ -187,14 +188,26 @@ let g:languagetool_jar='/opt/boxen/homebrew/Cellar/languagetool/2.8/libexec/lang
 set spellfile=~/.vim/spell/en.utf-8.add
 
 " Syntastic  ****************************************************************
-let g:syntastic_enable_signs=0 "sign markings (at beginning of line, before line numbers)
-let g:syntastic_enable_highlighting=2
-let g:syntastic_auto_loc_list=0
-let g:syntastic_check_on_open=1
-" mode info
-let g:syntastic_mode_map = { 'mode': 'active',
-                           \ 'active_filetypes': [],
-                           \ 'passive_filetypes': ['txt', 'go'] }
+" defaults
+" @see https://github.com/scrooloose/syntastic README
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+" Old settings. Gotta figure out if any of this was useful
+" let g:syntastic_enable_signs=0 "sign markings (at beginning of line, before line numbers)
+" let g:syntastic_enable_highlighting=2
+" let g:syntastic_auto_loc_list=0
+" let g:syntastic_check_on_open=1
+" " mode info
+" let g:syntastic_mode_map = { 'mode': 'active',
+"                            \ 'active_filetypes': [],
+"                            \ 'passive_filetypes': ['txt', 'go'] }
 
 
 " Kortina  *****************************************************************
