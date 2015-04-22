@@ -86,6 +86,7 @@ autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 
 let g:ctrlp_working_path_mode = 0
+set wildignore+=*/node_modules/*
 
 let g:AutoClosePairs = {'(': ')', '{': '}', '[': ']', '"': '"'}
 
@@ -228,19 +229,20 @@ endif
 
 
 " Crosshairs ****************************************************************
-autocmd VimEnter,WinEnter,BufEnter,BufRead,BufAdd,BufNew,FileReadPost,BufWinEnter * hi CursorLine     guifg=NONE        guibg=#121212     gui=underline ctermfg=NONE        ctermbg=NONE        cterm=underline
-autocmd VimEnter,WinEnter,BufEnter,BufRead,BufAdd,BufNew,FileReadPost,BufWinEnter * hi CursorColumn   guifg=NONE        guibg=#121212     gui=NONE      ctermfg=NONE        ctermbg=darkgray        cterm=BOLD
-autocmd VimEnter,WinEnter,BufEnter,BufRead,BufAdd,BufNew,FileReadPost,BufWinEnter * hi Search         guifg=NONE        guibg=NONE        gui=underline ctermfg=NONE        ctermbg=darkgray        cterm=underline
+autocmd VimEnter,WinEnter,BufEnter,BufRead,BufAdd,BufNew,BufNewFile,FileReadPost,BufWinEnter * hi CursorLine     guifg=NONE        guibg=#121212     gui=underline ctermfg=NONE        ctermbg=NONE        cterm=underline
+autocmd VimEnter,WinEnter,BufEnter,BufRead,BufAdd,BufNew,BufNewFile,FileReadPost,BufWinEnter * hi CursorColumn   guifg=NONE        guibg=#121212     gui=NONE      ctermfg=NONE        ctermbg=darkgray        cterm=BOLD
+autocmd VimEnter,WinEnter,BufEnter,BufRead,BufAdd,BufNew,BufNewFile,FileReadPost,BufWinEnter * hi Search         guifg=NONE        guibg=NONE        gui=underline ctermfg=NONE        ctermbg=darkgray        cterm=underline
 " Underline current line, but only if window is in focus
 autocmd WinEnter * setlocal cursorline
 autocmd WinLeave * setlocal nocursorline
+" turn on crosshair when cursor moves
+autocmd CursorMoved * setlocal cursorline
 autocmd BufRead,BufNewFile,BufDelete * :syntax on
 " Turn on cursorline if off
 nmap <Leader>l :set cursorline<CR>
 
 
 " Shortcuts *****************************************************************
-" ctrl-p paste
 imap <C-l> <C-r>"
 
 " insert a markdown header, like

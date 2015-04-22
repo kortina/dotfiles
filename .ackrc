@@ -2,3 +2,4 @@
 --type-set=go=.go
 --type-set=plaintext=.md,.mdown,.markdown,.mkdn,.textile,.rst,.txt
 --ignore-dir=htmlcov
+--ignore-file=match:bundle.js
