@@ -90,6 +90,8 @@ set wildignore+=*/node_modules/*
 
 let g:AutoClosePairs = {'(': ')', '{': '}', '[': ']', '"': '"'}
 
+" Ack.vim  ******************************************************************
+nmap ,f :Ack 
 " MiniBufExpl ***************************************************************
 " let g:miniBufExplMapWindowNavVim = 1 is obsolete. Remapping below:
 noremap <C-j> <C-W>j

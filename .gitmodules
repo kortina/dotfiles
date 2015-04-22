@@ -100,3 +100,6 @@
 [submodule ".vim/bundle/vim-javascript.git"]
 	path = .vim/bundle/vim-javascript.git
 	url = https://github.com/pangloss/vim-javascript.git
+[submodule ".vim/bundle/ack.vim"]
+	path = .vim/bundle/ack.vim
+	url = https://github.com/mileszs/ack.vim
