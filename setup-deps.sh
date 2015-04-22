@@ -22,6 +22,8 @@ brew install python
 brew install tmux
 brew install languagetool
 brew install youtube-dl
+brew install ack
+brew install the_silver_searcher
 
 
 ########################################
