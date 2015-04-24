@@ -231,18 +231,15 @@ endif
 
 
 " Crosshairs ****************************************************************
-autocmd VimEnter,WinEnter,BufEnter,BufRead,BufAdd,BufNew,BufNewFile,FileReadPost,BufWinEnter * hi CursorLine     guifg=NONE        guibg=#121212     gui=underline ctermfg=NONE        ctermbg=NONE        cterm=underline
-autocmd VimEnter,WinEnter,BufEnter,BufRead,BufAdd,BufNew,BufNewFile,FileReadPost,BufWinEnter * hi CursorColumn   guifg=NONE        guibg=#121212     gui=NONE      ctermfg=NONE        ctermbg=darkgray        cterm=BOLD
-autocmd VimEnter,WinEnter,BufEnter,BufRead,BufAdd,BufNew,BufNewFile,FileReadPost,BufWinEnter * hi Search         guifg=NONE        guibg=NONE        gui=underline ctermfg=NONE        ctermbg=darkgray        cterm=underline
-" Underline current line, but only if window is in focus
-autocmd WinEnter * setlocal cursorline
-autocmd WinLeave * setlocal nocursorline
-" turn on crosshair when cursor moves
-autocmd CursorMoved * setlocal cursorline
-autocmd BufRead,BufNewFile,BufDelete * :syntax on
-" Turn on cursorline if off
-nmap <Leader>l :set cursorline<CR>
+"
+hi CursorLine     guifg=NONE        guibg=#121212     gui=underline ctermfg=NONE        ctermbg=NONE        cterm=underline
+hi CursorColumn   guifg=NONE        guibg=#121212     gui=NONE      ctermfg=NONE        ctermbg=darkgray        cterm=BOLD
+hi Search         guifg=NONE        guibg=NONE        gui=underline ctermfg=NONE        ctermbg=darkgray        cterm=underline
 
+set cursorline
+set cursorcolumn
+
+autocmd BufRead,BufNewFile,BufDelete * :syntax on
 
 " Shortcuts *****************************************************************
 imap <C-l> <C-r>"

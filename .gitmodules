@@ -103,3 +103,6 @@
 [submodule ".vim/bundle/ack.vim"]
 	path = .vim/bundle/ack.vim
 	url = https://github.com/mileszs/ack.vim
+[submodule ".vim/bundle/crosshair-focus.vim"]
+	path = .vim/bundle/crosshair-focus.vim
+	url = git@github.com:kortina/crosshair-focus.vim.git
