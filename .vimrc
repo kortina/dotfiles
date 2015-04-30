@@ -42,6 +42,12 @@ set showmode
 set showcmd
 set ai " Automatically set the indent of a new line (local to buffer)
 set si " smartindent    (local to buffer)
+
+" powerline
+set laststatus=2 " Show filename at bottom of buffer
+" powerline not working so falling back to:
+set statusline=%F%m%r%h%w\ \ \ [TYPE=%Y]\ \ \ [POS=%l,%v][%p%%]" [FORMAT=%{&ff}] %{strftime(\"%d/%m/%y\ -\ %H:%M\")} %F%m%r%h%w
+
 :runtime! ~/.vim/
 
 " use either , or \ as <Leader>
@@ -238,6 +244,11 @@ hi Search         guifg=NONE        guibg=NONE        gui=underline ctermfg=NONE
 
 set cursorline
 set cursorcolumn
+function CrosshairsOn()
+    set cursorline
+    set cursorcolumn
+endfunction
+nmap <Leader>l :call CrosshairsOn()<CR>
 
 autocmd BufRead,BufNewFile,BufDelete * :syntax on
 

@@ -1,4 +1,6 @@
 set show-all-if-ambiguous on
+set visible-stats on
+
 "\e[1;5D": backward-word
 "\e[1;5C": forward-word
 "\e[A": history-search-backward
@@ -6,9 +8,13 @@ set show-all-if-ambiguous on
 "\e[C": forward-char
 "\e[D": backward-char
 
+# shift+tab
+"\e[Z": alias-expand-line
+
+# @see http://unix.stackexchange.com/questions/17012/inputrc-tab-not-behaving-as-expected
+# on how to determine escape sequences for key press combos
+
 $if Bash
   Space: magic-space
 $endif
-
-set visible-stats on
 
