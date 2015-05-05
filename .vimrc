@@ -160,6 +160,7 @@ au BufRead,BufNewFile *.fountain        set filetype=fountain
 command! -complete=file -nargs=* Gstaged call s:RunShellCommand('git diff --staged')
 " review git diff in vertical split (fugitive doesn't seem to want to do this
 :command ReviewGitDiff normal :Gdiff<CR>:H2v<CR>
+nmap ,dd :ReviewGitDiff<CR>
 
 
 " CamelCaseWords ************************************************************
