@@ -67,7 +67,7 @@ npm install -g livedown
 ########################################
 # misc
 ########################################
-if ! test -d /opt/boxen/bakpak;
+if ! test -d /opt/boxen/bakpak; then
     echo "installing bakpak"
     # legacy location, lots of deps remaining on this:
     mkdir -p /opt/boxen
@@ -80,6 +80,15 @@ fi
 ########################################
 ln -s "/System/Library/CoreServices/Screen Sharing.app" "/Applications/Screen Sharing.app"
 ln -s "$HOME/Dropbox/Apps/bash_mac_private" "$HOME/.bash_mac_private"
+
+########################################
+# vim YCM
+########################################
+# brew install cmake
+# cd $HOME/dotfiles/.vim/bundle/YouCompleteMe
+# git submodule update --init --recursive
+# ./install.sh
+# cd -
 
 # TODO: remaining from boxen
 # libs
