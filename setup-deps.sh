@@ -65,6 +65,11 @@ pip install nose-run-line-number
 npm install -g livedown
 
 ########################################
+# ruby gems
+########################################
+gem install git-up
+
+########################################
 # misc
 ########################################
 if ! test -d /opt/boxen/bakpak; then
