@@ -10,7 +10,7 @@ cd $DOTFILES_ROOT && git submodule update --init
 ########################################
 # libs
 ########################################
-xcode-select --install
+# xcode-select --install # must be install via app store now
 
 brew install bash-completion
 brew tap homebrew/completions
@@ -55,19 +55,8 @@ if ! command -v pip >/dev/null 2>&1; then
 fi
 pip install flake8
 pip install ipython
-pip install git+git://github.com/Lokaltog/powerline
+pip list || grep -q "powerline-status" || pip install git+git://github.com/Lokaltog/powerline
 pip install nose-run-line-number
-
-
-########################################
-# node modules
-########################################
-npm install -g livedown
-
-########################################
-# ruby gems
-########################################
-gem install git-up
 
 ########################################
 # misc
@@ -75,7 +64,7 @@ gem install git-up
 if ! test -d /opt/boxen/bakpak; then
     echo "installing bakpak"
     # legacy location, lots of deps remaining on this:
-    mkdir -p /opt/boxen
+    test -e /opt/boxen || sudo mkdir -p /opt/boxen
     sudo chown kortina:staff /opt/boxen
     git clone https://github.com/kortina/bakpak.git /opt/boxen/bakpak
 fi
@@ -83,8 +72,8 @@ fi
 ########################################
 # various symlinks
 ########################################
-ln -s "/System/Library/CoreServices/Screen Sharing.app" "/Applications/Screen Sharing.app"
-ln -s "$HOME/Dropbox/Apps/bash_mac_private" "$HOME/.bash_mac_private"
+test -L "/Applications/Screen Sharing.app" || ln -s "/System/Library/CoreServices/Screen Sharing.app" "/Applications/Screen Sharing.app"
+test -L "$HOME/.bash_mac_private" || ln -s "$HOME/Dropbox/Apps/bash_mac_private" "$HOME/.bash_mac_private"
 
 ########################################
 # vim YCM
@@ -108,3 +97,17 @@ ln -s "$HOME/Dropbox/Apps/bash_mac_private" "$HOME/.bash_mac_private"
 # include spotify
 # include virtualbox
 # include vlc
+
+########################################
+# node modules
+########################################
+brew install node
+sudo npm install -g livedown
+
+########################################
+# ruby gems
+########################################
+test -e ~/.gemrc && grep -q "no-document" ~/.gemrc || echo "gem: --no-document" >> ~/.gemrc
+which rvm || curl -L https://get.rvm.io | bash -s stable --auto-dotfiles --autolibs=enable --rails
+gem install git-up
+

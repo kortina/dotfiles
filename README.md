@@ -15,15 +15,10 @@
 
 Each of this scripts can also be run independently (which may be faster for making small changes).
 
-### Dependencies
+### Other
 
-Some dependencies installed via `setup-deps.sh`
-
-* ctags
-* flake8
-* tmux
-* powerline
-* probably a few other things
+* Must install Xcode before running `./setup.sh`
+* Other things I install on a mac: Alfred, Caffeine, Chrome, Divvy, Dropbox
 
 ### Questions
 
