@@ -12,6 +12,7 @@ cd $DOTFILES_ROOT && git submodule update --init
 ########################################
 # xcode-select --install # must be install via app store now
 
+brew install git # so that it has completion
 brew install bash-completion
 brew tap homebrew/completions
 brew install rails-completion
