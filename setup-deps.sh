@@ -99,6 +99,14 @@ test -L "$HOME/.bash_mac_private" || ln -s "$HOME/Dropbox/Apps/bash_mac_private"
 # include vlc
 
 ########################################
+# xcode themes
+########################################
+cd "$HOME/dotfiles/themes/tomorrow-theme/Xcode 4/"
+mkdir -p ~/Library/Developer/Xcode/UserData/FontAndColorThemes/
+cp *.dvtcolortheme ~/Library/Developer/Xcode/UserData/FontAndColorThemes/
+cd -
+
+########################################
 # node modules
 ########################################
 brew install node
@@ -110,4 +118,5 @@ sudo npm install -g livedown
 test -e ~/.gemrc && grep -q "no-document" ~/.gemrc || echo "gem: --no-document" >> ~/.gemrc
 which rvm || curl -L https://get.rvm.io | bash -s stable --auto-dotfiles --autolibs=enable --rails
 gem install git-up
+gem install cocoapods
 
