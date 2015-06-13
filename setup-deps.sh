@@ -58,6 +58,7 @@ pip install flake8
 pip install ipython
 pip list || grep -q "powerline-status" || pip install git+git://github.com/Lokaltog/powerline
 pip install nose-run-line-number
+pip install boto
 
 ########################################
 # misc
@@ -68,6 +69,9 @@ if ! test -d /opt/boxen/bakpak; then
     test -e /opt/boxen || sudo mkdir -p /opt/boxen
     sudo chown kortina:staff /opt/boxen
     git clone https://github.com/kortina/bakpak.git /opt/boxen/bakpak
+    cd /opt/boxen/bakpak
+    git submodule update --init
+    cd -
 fi
 
 ########################################
