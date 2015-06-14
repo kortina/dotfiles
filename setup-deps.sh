@@ -63,12 +63,12 @@ pip install boto
 ########################################
 # misc
 ########################################
-$BAKPAK_PARENT_DIR="$HOME/src"
+BAKPAK_PARENT_DIR="$HOME/src"
 BAKPAK_DIR="$BAKPAK_PARENT_DIR/bakpak"
 if ! test -d $BAKPAK_DIR; then
     echo "installing bakpak"
     # legacy location, lots of deps remaining on this:
-    test -e $BAKPAK_PARENT_DIR || sudo mkdir -p $BAKPAK_PARENT_DIR
+    test -e $BAKPAK_PARENT_DIR || mkdir -p $BAKPAK_PARENT_DIR
     git clone https://github.com/kortina/bakpak.git $BAKPAK_DIR
     cd $BAKPAK_DIR
     git submodule update --init --recursive
@@ -102,13 +102,13 @@ cd -
 # node modules
 ########################################
 brew install node
-sudo npm install -g livedown
+npm list -g | grep -q livedown || sudo npm install -g livedown
 
 ########################################
 # ruby gems
 ########################################
 test -e ~/.gemrc && grep -q "no-document" ~/.gemrc || echo "gem: --no-document" >> ~/.gemrc
-which rvm || curl -L https://get.rvm.io | bash -s stable --auto-dotfiles --autolibs=enable --rails
+test -e "$HOME/.rvm/bin/rvm" || curl -L https://get.rvm.io | bash -s stable --auto-dotfiles --autolibs=enable --rails
 gem install git-up
 gem install cocoapods
 
