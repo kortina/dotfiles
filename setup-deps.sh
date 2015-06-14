@@ -69,7 +69,7 @@ if ! test -d $BAKPAK_DIR; then
     echo "installing bakpak"
     # legacy location, lots of deps remaining on this:
     test -e $BAKPAK_PARENT_DIR || mkdir -p $BAKPAK_PARENT_DIR
-    git clone https://github.com/kortina/bakpak.git $BAKPAK_DIR
+    git clone git@github.com:kortina/bakpak.git $BAKPAK_DIR
     cd $BAKPAK_DIR
     git submodule update --init --recursive
     cd -
