@@ -192,7 +192,7 @@ autocmd FileType python map <Leader>rl :call VimuxRunNoseLine()<CR>
 autocmd FileType python map <Leader>rr :call VimuxRunLastCommand()<CR>
 
 " Grammar  ******************************************************************
-let g:languagetool_jar='/opt/boxen/homebrew/Cellar/languagetool/2.8/libexec/languagetool.jar'
+" let g:languagetool_jar='/opt/boxen/homebrew/Cellar/languagetool/2.8/libexec/languagetool.jar'
 
 " Spelling ******************************************************************
 set spellfile=~/.vim/spell/en.utf-8.add

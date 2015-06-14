@@ -63,14 +63,15 @@ pip install boto
 ########################################
 # misc
 ########################################
-if ! test -d /opt/boxen/bakpak; then
+$BAKPAK_PARENT_DIR="$HOME/src"
+BAKPAK_DIR="$BAKPAK_PARENT_DIR/bakpak"
+if ! test -d $BAKPAK_DIR; then
     echo "installing bakpak"
     # legacy location, lots of deps remaining on this:
-    test -e /opt/boxen || sudo mkdir -p /opt/boxen
-    sudo chown kortina:staff /opt/boxen
-    git clone https://github.com/kortina/bakpak.git /opt/boxen/bakpak
-    cd /opt/boxen/bakpak
-    git submodule update --init
+    test -e $BAKPAK_PARENT_DIR || sudo mkdir -p $BAKPAK_PARENT_DIR
+    git clone https://github.com/kortina/bakpak.git $BAKPAK_DIR
+    cd $BAKPAK_DIR
+    git submodule update --init --recursive
     cd -
 fi
 
@@ -88,20 +89,6 @@ test -L "$HOME/.bash_mac_private" || ln -s "$HOME/Dropbox/Apps/bash_mac_private"
 # git submodule update --init --recursive
 # ./install.sh
 # cd -
-
-# TODO: remaining from boxen
-# libs
-# include java
-# include vim
-# include git
-# include hub
-# include alfred
-# include bash
-# include caffeine
-# include dropbox
-# include spotify
-# include virtualbox
-# include vlc
 
 ########################################
 # xcode themes
