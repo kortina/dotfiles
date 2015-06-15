@@ -112,3 +112,6 @@
 [submodule ".vim/bundle/Dockerfile.vim"]
 	path = .vim/bundle/Dockerfile.vim
 	url = git@github.com:ekalinin/Dockerfile.vim.git
+[submodule "XVim"]
+	path = XVim
+	url = git@github.com:XVimProject/XVim.git

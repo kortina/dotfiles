@@ -91,12 +91,14 @@ test -L "$HOME/.bash_mac_private" || ln -s "$HOME/Dropbox/Apps/bash_mac_private"
 # cd -
 
 ########################################
-# xcode themes
+# xcode
 ########################################
 cd "$HOME/dotfiles/themes/tomorrow-theme/Xcode 4/"
 mkdir -p ~/Library/Developer/Xcode/UserData/FontAndColorThemes/
 cp *.dvtcolortheme ~/Library/Developer/Xcode/UserData/FontAndColorThemes/
 cd -
+
+cd XVim && test -e ../madeXVim || make && touch ../madeXVim; cd -
 
 ########################################
 # node modules
