@@ -80,6 +80,7 @@ fi
 ########################################
 test -L "/Applications/Screen Sharing.app" || ln -s "/System/Library/CoreServices/Screen Sharing.app" "/Applications/Screen Sharing.app"
 test -L "$HOME/.bash_mac_private" || ln -s "$HOME/Dropbox/Apps/bash_mac_private" "$HOME/.bash_mac_private"
+test -L "$HOME/.ses_conf_private" || ln -s "$HOME/Dropbox/Apps/ses_conf_private" "$HOME/.ses_conf_private"
 
 ########################################
 # vim YCM
