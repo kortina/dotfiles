@@ -106,6 +106,7 @@ cd XVim && test -e ../madeXVim || make && touch ../madeXVim; cd -
 ########################################
 brew install node
 npm list -g | grep -q livedown || sudo npm install -g livedown
+npm list -g | grep -q jsxhint || sudo npm install -g jsxhint
 
 ########################################
 # ruby gems
