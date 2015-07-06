@@ -74,6 +74,9 @@ nnoremap 77 zM
 " Search ********************************************************************
 set tags=./tags;
 set grepprg=ack
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
 " always do very magic search
 " :nnoremap / /\v
 " :cnoremap %s/ %s/\v
