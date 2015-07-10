@@ -60,20 +60,28 @@ pip list || grep -q "powerline-status" || pip install git+git://github.com/Lokal
 pip install nose-run-line-number
 pip install boto
 
+
+install_git_repo() {
+    repo="$1"
+    target_dir="$2"
+
+    if ! test -d $target_dir; then
+        echo "installing $repo"
+        # legacy location, lots of deps remaining on this:
+        git clone "$repo" "$target_dir"
+        cd $target_dir
+        git submodule update --init --recursive
+        cd -
+    fi
+
+}
 ########################################
 # misc
 ########################################
-BAKPAK_PARENT_DIR="$HOME/src"
-BAKPAK_DIR="$BAKPAK_PARENT_DIR/bakpak"
-if ! test -d $BAKPAK_DIR; then
-    echo "installing bakpak"
-    # legacy location, lots of deps remaining on this:
-    test -e $BAKPAK_PARENT_DIR || mkdir -p $BAKPAK_PARENT_DIR
-    git clone git@github.com:kortina/bakpak.git $BAKPAK_DIR
-    cd $BAKPAK_DIR
-    git submodule update --init --recursive
-    cd -
-fi
+SRC_DIR="$HOME/src"
+test -e $SRC_DIR || mkdir -p $SRC_DIR
+install_git_repo "git@github.com:kortina/bakpak.git" "$HOME/src/bakpak"
+install_git_repo "git@github.com:/github/hub.git" "$HOME/src/hub"
 
 ########################################
 # various symlinks

@@ -50,17 +50,21 @@ PS1="\n\
 ##################################################
 # bash completion
 ##################################################
-if [ -f `brew --prefix`/etc/bash_completion ]; then
-    . `brew --prefix`/etc/bash_completion
-fi
-if [ -f `brew --prefix`/etc/bash_completion.d/rails.bash ]; then
-    source `brew --prefix`/etc/bash_completion.d/rails.bash
-fi
+
+source_if_exists() {
+    source_file_path="$1"
+    [[ -f "$source_file_path" ]] && source "$source_file_path"
+}
+
+source_if_exists "`brew --prefix`/etc/bash_completion"
+source_if_exists "`brew --prefix`/etc/bash_completion.d/rails.bash"
+source_if_exists "$HOME/src/hub/etc/hub.bash_completion.sh"
+command -v gulp >/dev/null 2>&1  && eval "$(gulp --completion=bash)"
 
 ##################################################
 # settings not on github
 ##################################################
-[[ -f "$HOME/.bash_mac_private" ]] && source "$HOME/.bash_mac_private" # Load stuff not on github
+source_if_exists "$HOME/.bash_mac_private"
 
 ##################################################
 # ruby
