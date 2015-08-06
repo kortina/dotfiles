@@ -107,7 +107,7 @@ mkdir -p ~/Library/Developer/Xcode/UserData/FontAndColorThemes/
 cp *.dvtcolortheme ~/Library/Developer/Xcode/UserData/FontAndColorThemes/
 cd -
 
-cd XVim && test -e ../madeXVim || make && touch ../madeXVim; cd -
+cd XVim && test -e ../madeXVim || make && touch ../madeXVim && open XVim.xcodeproj; cd -
 
 ########################################
 # node modules
