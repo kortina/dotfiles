@@ -30,8 +30,7 @@ brew install the_silver_searcher
 ########################################
 # virtualbox
 ########################################
-brew tap phinze/homebrew-cask
-brew install brew-cask
+brew install caskroom/cask/brew-cask
 brew cask install virtualbox
 
 ########################################
