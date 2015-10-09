@@ -288,3 +288,12 @@ autocmd BufRead *.fountain source ~/.vim/bundle/vim-markdown-folding/after/ftplu
 " ir_black_kortina does not color scene headings nicely
 autocmd BufRead *.fountain colorscheme darkblue
 
+
+" Experiments  *****************************************************************
+" autocmd VimEnter *   call LogCmdEvent("VimEnter")
+
+fun LogCmdEvent(eventName)
+    echom "LogCmdEvent: " . a:eventName
+endfun
+
+
