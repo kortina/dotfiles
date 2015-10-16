@@ -200,6 +200,8 @@ autocmd FileType python map <Leader>rr :call VimuxRunLastCommand()<CR>
 
 " Spelling ******************************************************************
 set spellfile=~/.vim/spell/en.utf-8.add
+nmap ,s :setlocal spell! spelllang=en_us<CR>
+
 
 " Syntastic  ****************************************************************
 " defaults

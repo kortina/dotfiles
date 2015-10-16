@@ -13,7 +13,7 @@
         pr = pull-request
         push-current = "!git push origin `git rev-parse --abbrev-ref HEAD`"
         pc           = "!git push origin `git rev-parse --abbrev-ref HEAD`"
-        delete-merged = "!git fetch origin && git branch -d $(git branch --merged | grep -v '*')"
+        delete-merged = "!git fetch origin && git branch -d $(git branch --merged | grep -v '*' | grep -v master)"
 	tree = log --graph --decorate --pretty=oneline --abbrev-commit --all
 [merge]
   tool = opendiff
