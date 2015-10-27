@@ -196,7 +196,7 @@ autocmd FileType python map <Leader>rl :call VimuxRunNoseLine()<CR>
 autocmd FileType python map <Leader>rr :call VimuxRunLastCommand()<CR>
 
 " Grammar  ******************************************************************
-" let g:languagetool_jar='/opt/boxen/homebrew/Cellar/languagetool/2.8/libexec/languagetool.jar'
+let g:languagetool_jar="`brew --prefix`/Cellar/languagetool/2.8/libexec/languagetool.jar"
 
 " Spelling ******************************************************************
 set spellfile=~/.vim/spell/en.utf-8.add
@@ -279,8 +279,9 @@ nmap <Leader>g :Goyo<CR>
 " clear search buffer
 map <Leader>c :let @/ = ""<CR>
 
-" markdown settings
+" Fountain / Markdown  *********************************************************
 autocmd BufNewFile,BufRead *.md,*.mkd,*.markdown,*.fountain set linebreak
+autocmd BufNewFile,BufRead *.md,*.mkd,*.markdown,*.fountain setlocal spell spelllang=en_us
 
 " fountain settings / hacks
 " fixes error when loading markdown-folding
