@@ -116,7 +116,9 @@ noremap <Left>  :vertical resize -5<CR>
 noremap <Down> :resize +5<CR>
 noremap <Up> :resize -5<CR>
 
-
+" CSS ****** ****************************************************************
+autocmd Filetype css setlocal ts=2 sts=2 sw=2
+autocmd Filetype scss setlocal ts=2 sts=2 sw=2
 
 " Javascript ****************************************************************
 " let jslint_command_options = '-conf ~/.jsl.conf -nofilelisting -nocontext -nosummary -nologo -process'
@@ -148,6 +150,7 @@ noremap <Leader>d Oimport pdb; pdb.set_trace()<Esc>
 " Ruby **********************************************************************
 au BufRead,BufNewFile {Capfile,Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru,.caprc,.irbrc,irb_tempfile*} set ft=ruby
 autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
+autocmd Filetype eruby setlocal ts=2 sts=2 sw=2
 
 let g:vroom_use_vimux = 1
 let g:vroom_map_keys = 0
