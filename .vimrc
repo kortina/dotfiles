@@ -121,7 +121,6 @@ autocmd Filetype css setlocal ts=2 sts=2 sw=2
 autocmd Filetype scss setlocal ts=2 sts=2 sw=2
 
 " Javascript ****************************************************************
-" let jslint_command_options = '-conf ~/.jsl.conf -nofilelisting -nocontext -nosummary -nologo -process'
 let g:jsx_ext_required = 0
 let g:syntastic_javascript_checkers = ['jsxhint']
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
