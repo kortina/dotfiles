@@ -122,7 +122,7 @@ autocmd Filetype scss setlocal ts=2 sts=2 sw=2
 
 " Javascript ****************************************************************
 let g:jsx_ext_required = 0
-let g:syntastic_javascript_checkers = ['jsxhint']
+let g:syntastic_javascript_checkers = ['eslint']
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 
 " Golang  *******************************************************************
