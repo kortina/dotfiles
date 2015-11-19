@@ -107,6 +107,8 @@ noremap <C-j> <C-W>j
 noremap <C-k> <C-W>k
 noremap <C-h> <C-W>h
 noremap <C-l> <C-W>l
+" make panes equal size
+noremap <Leader>w <C-W>=
 
 " change buffer sizes with Shift arrow keys
 " Shift worked with these:
