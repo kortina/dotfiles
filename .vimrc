@@ -214,20 +214,16 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
+let g:syntastic_loc_list_height=5
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+" From Danny, mode info
+let g:syntastic_mode_map = { 'mode': 'active',
+                           \ 'active_filetypes': [],
+                           \ 'passive_filetypes': ['txt', 'go'] }
 
-" Old settings. Gotta figure out if any of this was useful
-" let g:syntastic_enable_signs=0 "sign markings (at beginning of line, before line numbers)
-" let g:syntastic_enable_highlighting=2
-" let g:syntastic_auto_loc_list=0
-" let g:syntastic_check_on_open=1
-" " mode info
-" let g:syntastic_mode_map = { 'mode': 'active',
-"                            \ 'active_filetypes': [],
-"                            \ 'passive_filetypes': ['txt', 'go'] }
 
 
 " Kortina  *****************************************************************
