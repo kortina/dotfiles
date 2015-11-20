@@ -97,9 +97,6 @@
 [submodule ".vim/bundle/vim-jsx"]
 	path = .vim/bundle/vim-jsx
 	url = https://github.com/mxw/vim-jsx.git
-[submodule ".vim/bundle/vim-javascript.git"]
-	path = .vim/bundle/vim-javascript.git
-	url = https://github.com/pangloss/vim-javascript.git
 [submodule ".vim/bundle/ack.vim"]
 	path = .vim/bundle/ack.vim
 	url = https://github.com/mileszs/ack.vim
@@ -115,3 +112,9 @@
 [submodule "XVim"]
 	path = XVim
 	url = git@github.com:XVimProject/XVim.git
+[submodule ".vim/bundle/vim-javascript.git"]
+	path = .vim/bundle/vim-javascript.git
+	url = https://github.com/pangloss/vim-javascript.git
+[submodule ".vim/bundle/vim-jsx.git"]
+	path = .vim/bundle/vim-jsx.git
+	url = https://github.com/mxw/vim-jsx.git
