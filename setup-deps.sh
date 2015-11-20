@@ -115,6 +115,7 @@ cd XVim && test -e ../madeXVim || make && touch ../madeXVim && open XVim.xcodepr
 brew install node
 npm list -g | grep -q livedown || sudo npm install -g livedown
 npm list -g | grep -q eslint || sudo npm install -g eslint
+npm list -g | grep -q eslint-plugin-react || sudo npm install -g eslint-plugin-react
 
 ########################################
 # ruby gems
