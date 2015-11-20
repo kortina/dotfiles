@@ -43,10 +43,10 @@ set showcmd
 set ai " Automatically set the indent of a new line (local to buffer)
 set si " smartindent    (local to buffer)
 
-" powerline
+" airline
 set laststatus=2 " Show filename at bottom of buffer
-" powerline not working so falling back to:
-set statusline=%F%m%r%h%w\ \ \ [TYPE=%Y]\ \ \ [POS=%l,%v][%p%%]" [FORMAT=%{&ff}] %{strftime(\"%d/%m/%y\ -\ %H:%M\")} %F%m%r%h%w
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme = 'wombat'
 
 :runtime! ~/.vim/
 
