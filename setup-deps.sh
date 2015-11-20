@@ -56,7 +56,6 @@ if ! command -v pip >/dev/null 2>&1; then
 fi
 pip install flake8
 pip install ipython
-pip list || grep -q "powerline-status" || pip install git+git://github.com/Lokaltog/powerline
 pip install nose-run-line-number
 pip install boto
 
