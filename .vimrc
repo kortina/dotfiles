@@ -100,9 +100,10 @@ set wildignore+=*/node_modules/*
 let g:AutoClosePairs = {'(': ')', '{': '}', '[': ']', '"': '"'}
 
 " Ack.vim  ******************************************************************
-nmap ,f :Ack 
-" MiniBufExpl ***************************************************************
-" let g:miniBufExplMapWindowNavVim = 1 is obsolete. Remapping below:
+nmap <Leader>f :Ack 
+
+" Buffers *******************************************************************
+nmap <Leader>b :buffers<CR>
 noremap <C-j> <C-W>j
 noremap <C-k> <C-W>k
 noremap <C-h> <C-W>h
@@ -168,7 +169,7 @@ au BufRead,BufNewFile *.fountain        set filetype=fountain
 command! -complete=file -nargs=* Gstaged call s:RunShellCommand('git diff --staged')
 " review git diff in vertical split (fugitive doesn't seem to want to do this
 :command ReviewGitDiff normal :Gdiff<CR>:H2v<CR>
-nmap ,dd :ReviewGitDiff<CR>
+nmap <Leader>dd :ReviewGitDiff<CR>
 
 
 " CamelCaseWords ************************************************************
@@ -204,8 +205,7 @@ let g:languagetool_jar="`brew --prefix`/Cellar/languagetool/2.8/libexec/language
 
 " Spelling ******************************************************************
 set spellfile=~/.vim/spell/en.utf-8.add
-nmap ,s :setlocal spell! spelllang=en_us<CR>
-
+nmap <Leader>s :setlocal spell! spelllang=en_us<CR>
 
 " Syntastic  ****************************************************************
 " defaults
