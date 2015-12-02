@@ -35,6 +35,14 @@ brew install brew-cask
 brew cask install virtualbox
 
 ########################################
+# java (for languagetool)
+########################################
+brew tap caskroom/versions
+brew cask install java7
+echo "NB: You may also need to install Java for El Capitan from:"
+echo "https://support.apple.com/kb/DL1572?locale=en_US"
+
+########################################
 # docker
 ########################################
 brew install boot2docker
