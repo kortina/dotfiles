@@ -131,4 +131,4 @@ test -e ~/.gemrc && grep -q "no-document" ~/.gemrc || echo "gem: --no-document" 
 test -e "$HOME/.rvm/bin/rvm" || curl -L https://get.rvm.io | bash -s stable --auto-dotfiles --autolibs=enable --rails
 gem install git-up
 gem install cocoapods
-
+gem install overcommit
