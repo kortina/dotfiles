@@ -163,3 +163,5 @@ killall Dock
 
 echo "Done. Note that some of these changes require a logout/restart to take effect."
 
+# disable swipe to go back in Chrome
+defaults write com.google.Chrome AppleEnableSwipeNavigateWithScrolls -bool FALSE
