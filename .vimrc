@@ -153,6 +153,7 @@ noremap <Leader>d Oimport pdb; pdb.set_trace()<Esc>
 au BufRead,BufNewFile {Capfile,Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru,.caprc,.irbrc,irb_tempfile*} set ft=ruby
 autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
 autocmd Filetype eruby setlocal ts=2 sts=2 sw=2
+let g:syntastic_ruby_checkers = ['mri', 'rubocop'] 
 
 let g:vroom_use_vimux = 1
 let g:vroom_map_keys = 0
@@ -278,6 +279,13 @@ nmap <Leader>g :Goyo<CR>
 
 " clear search buffer
 map <Leader>c :let @/ = ""<CR>
+
+" show keymappings in a searchable buffer
+nmap <Leader>mm :redir @" | silent map | sort | redir END | new | put! 
+
+" run ctags. Check for local / project versions first.
+" This is currently buggin.
+" nmap ,cc !([-f ./ctags.sh] && ./ctags.sh) || ([-f ./bin/ctags.sh] && ./bin/ctags.sh) || ctags
 
 " Fountain / Markdown  *********************************************************
 autocmd BufNewFile,BufRead *.md,*.mkd,*.markdown,*.fountain set linebreak
