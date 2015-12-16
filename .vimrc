@@ -285,7 +285,7 @@ nmap <Leader>mm :redir @" | silent map | sort | redir END | new | put!
 
 " run ctags. Check for local / project versions first.
 " This is currently buggin.
-" nmap ,cc !([-f ./ctags.sh] && ./ctags.sh) || ([-f ./bin/ctags.sh] && ./bin/ctags.sh) || ctags
+nmap <Leader>cc :!(test -f ./ctags.sh && ./ctags.sh) \|\|  (test -f ./bin/ctags.sh && ./bin/ctags.sh) \|\| echo 'no ./ctags.sh or ./bin/ctags.sh found'<CR>
 
 " Fountain / Markdown  *********************************************************
 autocmd BufNewFile,BufRead *.md,*.mkd,*.markdown,*.fountain set linebreak
