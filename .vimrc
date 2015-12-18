@@ -284,7 +284,6 @@ map <Leader>c :let @/ = ""<CR>
 nmap <Leader>mm :redir @" | silent map | sort | redir END | new | put! 
 
 " run ctags. Check for local / project versions first.
-" This is currently buggin.
 nmap <Leader>cc :!(test -f ./ctags.sh && ./ctags.sh) \|\|  (test -f ./bin/ctags.sh && ./bin/ctags.sh) \|\| echo 'no ./ctags.sh or ./bin/ctags.sh found'<CR>
 
 " Fountain / Markdown  *********************************************************
