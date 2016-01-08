@@ -109,3 +109,6 @@
 [submodule ".vim/bundle/vim-airline.git"]
 	path = .vim/bundle/vim-airline.git
 	url = https://github.com/bling/vim-airline.git
+[submodule ".vim/bundle/mustache.vim"]
+	path = .vim/bundle/mustache.vim
+	url = https://github.com/juvenn/mustache.vim

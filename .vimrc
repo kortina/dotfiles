@@ -119,9 +119,12 @@ noremap <Left>  :vertical resize -5<CR>
 noremap <Down> :resize +5<CR>
 noremap <Up> :resize -5<CR>
 
-" CSS ****** ****************************************************************
+" CSS ***********************************************************************
 autocmd Filetype css setlocal ts=2 sts=2 sw=2
 autocmd Filetype scss setlocal ts=2 sts=2 sw=2
+
+" HTML  *********************************************************************
+autocmd Filetype html setlocal ts=2 sts=2 sw=2
 
 " Javascript ****************************************************************
 let g:jsx_ext_required = 0
@@ -136,7 +139,7 @@ autocmd BufWritePost *.go :silent Fmt
 " Python ********************************************************************
 let g:pyflakes_use_quickfix = 0
 autocmd FileType python set ft=python.django " For SnipMate
-autocmd FileType html set ft=html.django_template " For SnipMate
+" autocmd FileType html set ft=html.django_template " For SnipMate
 " prevent comments from going to beginning of line
 autocmd BufRead *.py inoremap # X<c-h>#
 " turn on python folding when you open a file
