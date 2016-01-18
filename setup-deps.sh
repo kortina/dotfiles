@@ -90,6 +90,8 @@ test -e $SRC_DIR || mkdir -p $SRC_DIR
 install_git_repo "git@github.com:kortina/bakpak.git" "$HOME/src/bakpak"
 install_git_repo "git@github.com:/github/hub.git" "$HOME/src/hub"
 
+test -e "$HOME/.teamocil" || mkdir -p "$HOME/.teamocil"
+
 ########################################
 # various symlinks
 ########################################
@@ -132,3 +134,4 @@ test -e "$HOME/.rvm/bin/rvm" || curl -L https://get.rvm.io | bash -s stable --au
 gem install git-up
 gem install cocoapods
 gem install overcommit
+gem install teamocil
