@@ -157,6 +157,7 @@ au BufRead,BufNewFile {Capfile,Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru,.
 autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
 autocmd Filetype eruby setlocal ts=2 sts=2 sw=2
 let g:syntastic_ruby_checkers = ['mri', 'rubocop'] 
+let g:syntastic_eruby_ruby_quiet_messages = {'regex': 'possibly useless use of a variable in void context'}
 
 let g:vroom_use_vimux = 1
 let g:vroom_map_keys = 0
