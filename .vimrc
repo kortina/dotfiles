@@ -159,13 +159,10 @@ autocmd Filetype eruby setlocal ts=2 sts=2 sw=2
 let g:syntastic_ruby_checkers = ['mri', 'rubocop'] 
 let g:syntastic_eruby_ruby_quiet_messages = {'regex': 'possibly useless use of a variable in void context'}
 
-let g:vroom_use_vimux = 1
-let g:vroom_map_keys = 0
-
-autocmd FileType ruby map <Leader>rf :VroomRunTestFile<CR>
-autocmd FileType ruby map <Leader>rl :VroomRunNearestTest<CR>
-autocmd FileType ruby map <Leader>rr :VroomRunLastTest<CR>
-
+let g:vimux_ruby_file_relative_paths = 1
+autocmd FileType ruby   map <Leader>ra :call VimuxRunCommand("rspec")<CR>
+autocmd FileType ruby   map <Leader>rF :RunAllRubyTests<CR>
+autocmd FileType ruby   map <Leader>rf :RunRailsFocusedTest<CR>
 
 " Fountain  *****************************************************************
 au BufRead,BufNewFile *.fountain        set filetype=fountain
@@ -197,13 +194,14 @@ vnoremap <silent><C-Right> <Esc>`>:<C-U>call search('\C\<\<Bar>\%(^\<Bar>[^'.g:c
 " Vimux  ********************************************************************
 let g:vimux_nose_options="--nologcapture"
 autocmd FileType python map <Leader>rs :call VimuxRunNoseSetup()<CR>
-autocmd FileType python map <Leader>ri :call VimuxInspectRunner()<CR>
-autocmd FileType python map <Leader>rc :call VimuxCloseRunner()<CR>
+" vimux all languages
+map <Leader>ri :call VimuxInspectRunner()<CR>
+map <Leader>rc :call VimuxCloseRunner()<CR>
+map <Leader>rr :call VimuxRunLastCommand()<CR>
 
 autocmd FileType python map <Leader>ra :call VimuxRunNoseAll()<CR>
-autocmd FileType python map <Leader>rf :call VimuxRunNoseFile()<CR>
-autocmd FileType python map <Leader>rl :call VimuxRunNoseLine()<CR>
-autocmd FileType python map <Leader>rr :call VimuxRunLastCommand()<CR>
+autocmd FileType python map <Leader>rF :call VimuxRunNoseFile()<CR>
+autocmd FileType python map <Leader>rf :call VimuxRunNoseLine()<CR>
 
 " Grammar  ******************************************************************
 let g:languagetool_jar="`brew --prefix`/Cellar/languagetool/2.8/libexec/languagetool.jar"
