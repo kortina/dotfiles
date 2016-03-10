@@ -159,11 +159,6 @@ autocmd Filetype eruby setlocal ts=2 sts=2 sw=2
 let g:syntastic_ruby_checkers = ['mri', 'rubocop'] 
 let g:syntastic_eruby_ruby_quiet_messages = {'regex': 'possibly useless use of a variable in void context'}
 
-let g:vimux_ruby_file_relative_paths = 1
-autocmd FileType ruby   map <Leader>ra :call VimuxRunCommand("rspec")<CR>
-autocmd FileType ruby   map <Leader>rF :RunAllRubyTests<CR>
-autocmd FileType ruby   map <Leader>rf :RunRailsFocusedTest<CR>
-
 " Fountain  *****************************************************************
 au BufRead,BufNewFile *.fountain        set filetype=fountain
 
@@ -192,16 +187,33 @@ vnoremap <silent><C-Right> <Esc>`>:<C-U>call search('\C\<\<Bar>\%(^\<Bar>[^'.g:c
 
 
 " Vimux  ********************************************************************
+let g:vimux_ruby_file_relative_paths = 1
 let g:vimux_nose_options="--nologcapture"
-autocmd FileType python map <Leader>rs :call VimuxRunNoseSetup()<CR>
+
 " vimux all languages
 map <Leader>ri :call VimuxInspectRunner()<CR>
-map <Leader>rc :call VimuxCloseRunner()<CR>
-map <Leader>rr :call VimuxRunLastCommand()<CR>
+" e'X'it vimux
+map <Leader>rx :call VimuxCloseRunner()<CR>
+" last spec 'A'gain
+map <Leader>ra :call VimuxRunLastCommand()<CR>
+" vimux ruby
+" 'S'pecs 'S'uite
+autocmd FileType ruby   map <Leader>rs :call VimuxRunCommand("rspec")<CR>
+" 'B'uffer
+autocmd FileType ruby   map <Leader>rb :RunAllRubyTests<CR>
+" 'L'ine
+autocmd FileType ruby   map <Leader>rl :RunRailsFocusedTest<CR>
+" 'C'ontext
+autocmd FileType ruby   map <Leader>rc :RunRubyFocusedContext<CR>
+" vimux python
+autocmd FileType python map <Leader>rt :call VimuxRunNoseSetup()<CR>
+" 'S'pecs 'S'uite
+autocmd FileType python map <Leader>rs :call VimuxRunNoseAll()<CR>
+" 'B'uffer
+autocmd FileType python map <Leader>rb :call VimuxRunNoseFile()<CR>
+" 'L'ine
+autocmd FileType python map <Leader>rl :call VimuxRunNoseLine()<CR>
 
-autocmd FileType python map <Leader>ra :call VimuxRunNoseAll()<CR>
-autocmd FileType python map <Leader>rF :call VimuxRunNoseFile()<CR>
-autocmd FileType python map <Leader>rf :call VimuxRunNoseLine()<CR>
 
 " Grammar  ******************************************************************
 let g:languagetool_jar="`brew --prefix`/Cellar/languagetool/2.8/libexec/languagetool.jar"
