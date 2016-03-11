@@ -71,7 +71,7 @@ source_if_exists "$HOME/.bash_profile_aws"
 # ruby
 ##################################################
 # [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-export PATH="$PATH:$HOME/.rbenv/shims"
+export PATH="$HOME/.rbenv/shims:$PATH"
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; else echo rbenv not installed; fi
 source_if_exists "$HOME/.rbenv/completions/rbenv.bash"
 
