@@ -130,8 +130,9 @@ npm list -g | grep -q eslint-plugin-react@ || sudo npm install -g eslint-plugin-
 # ruby gems
 ########################################
 test -e ~/.gemrc && grep -q "no-document" ~/.gemrc || echo "gem: --no-document" >> ~/.gemrc
-test -e "$HOME/.rvm/bin/rvm" || curl -L https://get.rvm.io | bash -s stable --auto-dotfiles --autolibs=enable --rails
+# TODO: swap for rbenv. test -e "$HOME/.rvm/bin/rvm" || curl -L https://get.rvm.io | bash -s stable --auto-dotfiles --autolibs=enable --rails
 gem install git-up
 gem install cocoapods
 gem install overcommit
 gem install teamocil
+gem install rubocop
