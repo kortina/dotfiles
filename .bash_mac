@@ -79,3 +79,4 @@ source_if_exists "$HOME/.rbenv/completions/rbenv.bash"
 # docker
 ##################################################
 export DOCKER_HOST="tcp://192.168.66.10:2375"
+export FIN_HOME="$HOME/fin/fin-core-beta"
