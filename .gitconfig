@@ -6,6 +6,7 @@
 	diff = auto
 	branch = auto
 [alias]
+        vi = "!vim .git/index"
 	st = status
 	ci = commit -a
 	co = checkout
