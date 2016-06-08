@@ -137,8 +137,6 @@ autocmd BufWritePost *.go :silent Fmt
 
 
 " Python ********************************************************************
-" let g:pyflakes_use_quickfix = 0
-" ^ using flake8 now instead of pyflakes:
 
 autocmd FileType python set ft=python.django " For SnipMate
 " autocmd FileType html set ft=html.django_template " For SnipMate
@@ -147,8 +145,6 @@ autocmd BufRead *.py inoremap # X<c-h>#
 " turn on python folding when you open a file
 autocmd BufRead *.py set foldmethod=indent
 autocmd BufRead *.py set foldlevel=1
-" call flake8 on save
-autocmd BufWritePost *.py call Flake8()
 " configure pydiction
 let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
 noremap <Leader>d Oimport pdb; pdb.set_trace()<Esc>
