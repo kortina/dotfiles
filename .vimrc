@@ -137,7 +137,9 @@ autocmd BufWritePost *.go :silent Fmt
 
 
 " Python ********************************************************************
-let g:pyflakes_use_quickfix = 0
+" let g:pyflakes_use_quickfix = 0
+" ^ using flake8 now instead of pyflakes:
+
 autocmd FileType python set ft=python.django " For SnipMate
 " autocmd FileType html set ft=html.django_template " For SnipMate
 " prevent comments from going to beginning of line
