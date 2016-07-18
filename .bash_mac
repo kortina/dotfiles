@@ -80,3 +80,4 @@ source_if_exists "$HOME/.rbenv/completions/rbenv.bash"
 ##################################################
 export DOCKER_HOST="tcp://192.168.66.10:2375"
 export FIN_HOME="$HOME/fin/fin-core-beta"
+export DOCKER_API_VERSION=1.21 # Error response from daemon: client is newer than server
