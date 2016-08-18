@@ -217,7 +217,7 @@ autocmd FileType python map <Leader>rl :call VimuxRunNoseLine()<CR>
 " 'L'ine
 autocmd FileType javascript map <Leader>rl :call VimuxRunCommand("clear; ./dev-scripts/karma-run-line-number.sh " . expand("%.") . ":" . line("."))<CR>
 " 'B'uffer
-autocmd FileType javascript map <Leader>rb :call VimuxRunCommand("clear; $NODE_PATH/karma/bin/karma run")<CR>
+autocmd FileType javascript map <Leader>rb :call VimuxRunCommand("clear; $NODE_PATH/karma/bin/karma run -- --grep=")<CR>
 
 
 " Grammar  ******************************************************************
