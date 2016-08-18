@@ -211,6 +211,13 @@ autocmd FileType python map <Leader>rs :call VimuxRunNoseAll()<CR>
 autocmd FileType python map <Leader>rb :call VimuxRunNoseFile()<CR>
 " 'L'ine
 autocmd FileType python map <Leader>rl :call VimuxRunNoseLine()<CR>
+" vimux js
+" In one tab in docker, start karma and leave it running with
+" xvfb-run $NODE_PATH/karma/bin/karma start --single-run=false
+" 'L'ine
+autocmd FileType javascript map <Leader>rl :call VimuxRunCommand("clear; ./dev-scripts/karma-run-line-number.sh " . expand("%.") . ":" . line("."))<CR>
+" 'B'uffer
+autocmd FileType javascript map <Leader>rb :call VimuxRunCommand("clear; $NODE_PATH/karma/bin/karma run")<CR>
 
 
 " Grammar  ******************************************************************
