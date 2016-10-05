@@ -16,6 +16,7 @@ brew install git # so that it has completion
 brew install bash-completion
 brew tap homebrew/completions
 brew install rails-completion
+brew install git-lfs
 
 brew install ctags
 brew install heroku
