@@ -10,6 +10,7 @@
 	st = status
 	ci = commit -a
 	co = checkout
+        cob = "!git checkout -b $1 && git push -u origin"
 	ll = log -p
         pr = pull-request
         push-current = "!git push origin `git rev-parse --abbrev-ref HEAD`"

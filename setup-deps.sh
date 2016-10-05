@@ -46,8 +46,8 @@ echo "https://support.apple.com/kb/DL1572?locale=en_US"
 ########################################
 # docker
 ########################################
-brew install boot2docker
-brew install docker
+# brew install boot2docker
+# brew install docker
 brew install fig # pip install fig results in SSL cert errors
 echo "********************************"
 echo "  see for more docker setup steps:"
