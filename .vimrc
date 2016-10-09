@@ -3,11 +3,18 @@
 " is a very good (and well documented!) vimrc to learn from 
 
 
-" Pathogen *****************************************************************
+" Pathogen ******************************************************************
 set nocompatible
 filetype off " Pathogen needs to run before plugin indent on
 call pathogen#infect('bundle/{}') " call pathogen#incubate()
 call pathogen#helptags() " generate helptags for everything in 'runtimepath'
+
+" vim-plug  *****************************************************************
+call plug#begin('~/.vim/plugged')
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+call plug#end()
+
 filetype plugin indent on
 filetype on
 filetype plugin on
@@ -98,6 +105,22 @@ let g:ctrlp_working_path_mode = 0
 set wildignore+=*/node_modules/*
 
 let g:AutoClosePairs = {'(': ')', '{': '}', '[': ']', '"': '"'}
+
+" Map ctrl + p to fzf fuzzy matcher, and customize colors to match vim
+nmap <C-p> :FZF<CR>
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
 
 " Ack.vim  ******************************************************************
 nmap <Leader>f :Ack 
@@ -200,7 +223,8 @@ autocmd FileType ruby   map <Leader>rs :call VimuxRunCommand("rspec")<CR>
 " 'B'uffer
 autocmd FileType ruby   map <Leader>rb :RunAllRubyTests<CR>
 " 'L'ine
-autocmd FileType ruby   map <Leader>rl :RunRailsFocusedTest<CR>
+" autocmd FileType ruby   map <Leader>rl :RunRailsFocusedTest<CR>
+autocmd FileType ruby   map <Leader>rl :call VimuxRunCommand("clear; RSPEC_CLEAN_WITH_DELETION=1 RSPEC_TRUNCATE_AFTER_SUITE=1 ./bin/rspec " . expand("%.") . ":" . line("."))<CR>
 " 'C'ontext
 autocmd FileType ruby   map <Leader>rc :RunRubyFocusedContext<CR>
 " vimux python

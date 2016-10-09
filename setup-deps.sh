@@ -17,6 +17,7 @@ brew install bash-completion
 brew tap homebrew/completions
 brew install rails-completion
 brew install git-lfs
+brew install fzf
 
 brew install ctags
 brew install heroku
