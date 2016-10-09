@@ -17,7 +17,7 @@ Plug 'benmills/vimux'
 Plug 'bling/vim-airline'
 Plug 'dcosson/vimux-nose-test2'
 Plug 'duff/vim-scratch'
-Plug 'fholgado/minibufexpl.vim'
+" Plug 'fholgado/minibufexpl.vim'
 Plug 'jgoulah/cocoa.vim'
 Plug 'jnwhiteh/vim-golang'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
