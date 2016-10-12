@@ -260,7 +260,7 @@ autocmd FileType ruby   map <Leader>rs :call VimuxRunCommand("rspec")<CR>
 autocmd FileType ruby   map <Leader>rb :RunAllRubyTests<CR>
 " 'L'ine
 " autocmd FileType ruby   map <Leader>rl :RunRailsFocusedTest<CR>
-autocmd FileType ruby   map <Leader>rl :call VimuxRunCommand("clear; RSPEC_CLEAN_WITH_DELETION=1 RSPEC_TRUNCATE_AFTER_SUITE=1 ./bin/rspec " . expand("%.") . ":" . line("."))<CR>
+autocmd FileType ruby   map <Leader>rl :call VimuxRunCommand("clear; RSPEC_CLEAN_WITH_DELETION=1 RSPEC_TRUNCATE_AFTER_SUITE=1 RSPEC_SKIP_ELASTICSEARCH_SETUP=1 ./bin/rspec " . expand("%.") . ":" . line("."))<CR>
 " 'C'ontext
 autocmd FileType ruby   map <Leader>rc :RunRubyFocusedContext<CR>
 " vimux python
