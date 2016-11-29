@@ -17,6 +17,7 @@
         pc           = "!git push origin `git rev-parse --abbrev-ref HEAD`"
         delete-merged = "!git fetch origin && git branch -d $(git branch --merged | grep -v '*' | grep -v master)"
 	tree = log --graph --decorate --pretty=oneline --abbrev-commit --all
+        local-branches = !git branch -vv | cut -c 3- | awk '$3 !~/\\[/ { print $1 }'
 [merge]
   tool = opendiff
 [core]
