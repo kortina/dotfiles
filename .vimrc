@@ -342,6 +342,7 @@ autocmd BufRead,BufNewFile,BufDelete * :syntax on
 
 " Shortcuts *****************************************************************
 imap <C-l> <C-r>"
+nmap <Leader>e :!%:p<CR>
 
 " insert a markdown header, like
 " ==============================
