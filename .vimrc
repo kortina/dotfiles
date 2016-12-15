@@ -172,11 +172,11 @@ noremap <Leader>w <C-W>=
 
 " change buffer sizes with Shift arrow keys
 " Shift worked with these:
-noremap <Right> :vertical resize +5<CR>
-noremap <Left>  :vertical resize -5<CR>
+" noremap <Right> :vertical resize +5<CR>
+" noremap <Left>  :vertical resize -5<CR>
 " why don't these work with Shift?
-noremap <Down> :resize +5<CR>
-noremap <Up> :resize -5<CR>
+" noremap <Down> :resize +5<CR>
+" noremap <Up> :resize -5<CR>
 
 " CSS ***********************************************************************
 autocmd Filetype css setlocal ts=2 sts=2 sw=2

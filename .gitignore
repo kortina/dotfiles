@@ -19,3 +19,4 @@ ehthumbs.db
 /.bundle/
 madeXVim
 .vim/.netrwhist
+.vim/plugged/**
