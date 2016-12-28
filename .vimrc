@@ -29,7 +29,6 @@ Plug 'kballard/vim-swift'
 Plug 'kortina/crosshair-focus.vim'
 Plug 'mileszs/ack.vim'
 Plug 'mxw/vim-jsx'
-Plug 'mxw/vim-jsx'
 Plug 'nelstrom/vim-markdown-folding'
 Plug 'nelstrom/vim-markdown-preview'
 Plug 'nvie/vim-flake8'
@@ -142,6 +141,9 @@ set wildignore+=*/node_modules/*
 
 let g:AutoClosePairs = {'(': ')', '{': '}', '[': ']', '"': '"'}
 
+" fzf
+nmap <C-t> :execute "Tags " expand('<cword>')<CR>
+nmap <Leader>t :Tags<CR>
 " Map ctrl + p to fzf fuzzy matcher, and customize colors to match vim
 nmap <C-p> :FZF<CR>
 let g:fzf_colors =
@@ -344,25 +346,34 @@ autocmd BufRead,BufNewFile,BufDelete * :syntax on
 imap <C-l> <C-r>"
 nmap <Leader>e :!%:p<CR>
 
-" insert a markdown header, like
-" ==============================
-map <Leader>1 V"zy"zpVr=
-map <Leader>2 V"zy"zpVr-
-
 " copy all to clipboard
 nmap <Leader>a ggVG"*y
 
 " open markdown preview
 nmap <Leader>p :Mm<CR>
 
-" toggle Goyo (focus mode)
-nmap <Leader>g :Goyo<CR>
-
 " clear search buffer
 map <Leader>c :let @/ = ""<CR>
 
 " show keymappings in a searchable buffer
-nmap <Leader>mm :redir @" | silent map | sort | redir END | new | put! 
+function! s:ShowMaps()
+    let old_reg = getreg("a")          " save the current content of register a
+    let old_reg_type = getregtype("a") " save the type of the register as well
+    try
+        redir @a                           " redirect output to register a
+        " Get the list of all key mappings silently, satisfy "Press ENTER to continue"
+        silent map | call feedkeys("\<CR>")    
+        redir END                          " end output redirection
+        vnew                               " new buffer in vertical window
+        put a                              " put content of register
+        " Sort on 4th character column which is the key(s)
+        %!sort -k1.4,1.4
+    finally                              " Execute even if exception is raised
+        call setreg("a", old_reg, old_reg_type) " restore register a
+    endtry
+endfunction
+com! ShowMaps call s:ShowMaps()      " Enable :ShowMaps to call the function
+nmap <Leader>mm :ShowMaps<CR>
 
 " run ctags. Check for local / project versions first.
 nmap <Leader>cc :!(test -f ./ctags.sh && ./ctags.sh) \|\|  (test -f ./bin/ctags.sh && ./bin/ctags.sh) \|\| echo 'no ./ctags.sh or ./bin/ctags.sh found'<CR>
