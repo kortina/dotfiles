@@ -142,8 +142,8 @@ set wildignore+=*/node_modules/*
 let g:AutoClosePairs = {'(': ')', '{': '}', '[': ']', '"': '"'}
 
 " fzf
-nmap <C-m> :Tags<CR>
-nmap <Leader>m :execute "Tags " expand('<cword>')<CR>
+nmap <C-t> :Tags<CR>
+nmap <Leader>t :execute "Tags " expand('<cword>')<CR>
 
 " Map ctrl + p to fzf fuzzy matcher, and customize colors to match vim
 nmap <C-p> :FZF<CR>
