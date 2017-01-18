@@ -47,6 +47,7 @@ brew tap homebrew/completions
 brew_install rails-completion
 brew_install git-lfs
 brew_install fzf
+brew_install fswatch
 
 brew_install ctags
 brew_install heroku
@@ -151,6 +152,7 @@ npm list -g | grep -q babel-eslint@ || sudo npm install -g babel-eslint
 test -e ~/.gemrc && grep -q "no-document" ~/.gemrc || echo "gem: --no-document" >> ~/.gemrc
 # TODO: swap for rbenv. test -e "$HOME/.rvm/bin/rvm" || curl -L https://get.rvm.io | bash -s stable --auto-dotfiles --autolibs=enable --rails
 gem install git-up
+gem install docker-sync
 gem install cocoapods
 gem install overcommit
 gem install teamocil
