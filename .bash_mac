@@ -84,3 +84,4 @@ source_if_exists "$HOME/.rbenv/completions/rbenv.bash"
 # export DOCKER_API_VERSION=1.21 # Error response from daemon: client is newer than server
 export FIN_HOME="$HOME/fin/fin-core-beta"
 source_if_exists "$FIN_HOME/dev-scripts/findev.sh"
+source_if_exists "$FIN_HOME/fin-dev/bashrc"
