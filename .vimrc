@@ -14,7 +14,6 @@ call plug#begin('~/.vim/plugged')
 " Plug 'Rip-Rip/clang_complete'
 Plug 'XVimProject/XVim'
 Plug 'benmills/vimux'
-Plug 'bling/vim-airline'
 Plug 'dcosson/vimux-nose-test2'
 Plug 'duff/vim-scratch'
 " Plug 'fholgado/minibufexpl.vim'
@@ -43,6 +42,7 @@ Plug 'shime/vim-livedown'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rails'
+Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-ruby/vim-ruby'
 Plug 'vim-scripts/LanguageTool'
@@ -312,8 +312,8 @@ let g:syntastic_mode_map = { 'mode': 'active',
 " Kortina  *****************************************************************
 " Mac **********************************************************************
 if $HOME == '/Users/kortina'
-    colorscheme ir_black_kortina
     set rtp+=/Users/kortina/dotfiles/themes/tomorrow-theme/vim
+    colorscheme Tomorrow-Night
     autocmd FileType objc let g:alternateExtensions_m = "h"
     autocmd FileType objc let g:alternateExtensions_h = "m"
 
