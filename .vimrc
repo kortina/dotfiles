@@ -313,7 +313,7 @@ let g:syntastic_mode_map = { 'mode': 'active',
 " Mac **********************************************************************
 if $HOME == '/Users/kortina'
     set rtp+=/Users/kortina/dotfiles/themes/tomorrow-theme/vim
-    colorscheme Tomorrow-Night
+    colorscheme ir_black_kortina " Tomorrow-Night
     autocmd FileType objc let g:alternateExtensions_m = "h"
     autocmd FileType objc let g:alternateExtensions_h = "m"
 
