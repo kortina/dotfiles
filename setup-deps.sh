@@ -58,6 +58,7 @@ brew_install youtube-dl
 brew_install ack
 brew_install the_silver_searcher
 brew_install rbenv
+brew install reattach-to-user-namespace
 brew tap caskroom/cask
 
 
