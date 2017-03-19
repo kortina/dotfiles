@@ -75,6 +75,8 @@ brew cask install java7
 echo "NB: You may also need to install Java for El Capitan from:"
 echo "https://support.apple.com/kb/DL1572?locale=en_US"
 
+# caffeine replacement
+brew cask install keepingyouawake
 ########################################
 # docker
 ########################################

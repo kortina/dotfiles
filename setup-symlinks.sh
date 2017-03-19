@@ -5,7 +5,7 @@ echo "##### $(basename $BASH_SOURCE) #####"
 DOTFILES_ROOT="`pwd`"
 DONT_SYMLINK=("." ".." ".git" ".gitmodules")
 
-for f in `ls -a | grep "^\." | grep -v "\.swp$"`; do 
+for f in `ls -a | grep "^\." | grep -v "\.swp$" | grep -v "DS_Store"`; do 
     if [ "$f" = "." ] \
         || [ "$f" = ".." ] \
         || [ "$f" = ".git" ] \
