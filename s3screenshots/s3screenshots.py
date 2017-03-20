@@ -83,8 +83,10 @@ class S3ScreenshotHandler(RegexMatchingEventHandler):
         m = self._match_groups(filename)
         cdate = m.group(1)
         hour = int(m.group(2))
-        if m.group(4) == 'PM':
+        if m.group(4) == 'PM' and hour != 12:
             hour += 12
+        if m.group(4) == 'AM' and hour == 12:  # 12 AM
+            hour = 0
         hour = str(hour).zfill(2)
         minute_second = m.group(3)
         return "screen-shot-{0}-{1}.{2}-{3}.png".format(cdate,
