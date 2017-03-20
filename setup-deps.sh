@@ -94,13 +94,17 @@ brew cask install keepingyouawake
 ########################################
 
 if ! command -v pip >/dev/null 2>&1; then
-    echo "installing pip"
-    easy_install pip
+    echo "re-installing python"
+    # NB: cannot easy_install once you brew install python
+    brew reinstall python
 fi
+pip install boto
 pip install flake8
 pip install ipython
+pip install mock # python 2.7
+pip install nose
 pip install nose-run-line-number
-pip install boto
+pip install watchdog
 
 ########################################
 # misc

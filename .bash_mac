@@ -29,6 +29,7 @@ export PATH="$GOPATH/bin:$PATH"
 # Setting PATH for MacPython 2.5
 PATH="/Library/Frameworks/Python.framework/Versions/Current/bin:${PATH}"
 export PATH
+export PYTHONPATH="`brew --prefix`/lib/python2.7/site-packages:$PYTHONPATH"
 
 
 ##################################################

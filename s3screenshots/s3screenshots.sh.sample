@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+export S3_SCREENSHOTS_OSX_USER=''
+export S3_SCREENSHOTS_AWS_BUCKET=''
+export S3_SCREENSHOTS_AWS_ID=''
+export S3_SCREENSHOTS_AWS_SECRET=''
+
+cd /Users/$S3_SCREENSHOTS_OSX_USER/dotfiles/s3screenshots
+python s3screenshots.py
