@@ -1,9 +1,21 @@
 #!/usr/bin/env bash
 
-export S3_SCREENSHOTS_OSX_USER=''
-export S3_SCREENSHOTS_AWS_BUCKET=''
-export S3_SCREENSHOTS_AWS_ID=''
-export S3_SCREENSHOTS_AWS_SECRET=''
+logfile="$HOME/Library/Logs/s3screenshots.log"
+touch $logfile
+exec 3>&1 4>&2 >$logfile 2>&1
 
-cd /Users/$S3_SCREENSHOTS_OSX_USER/dotfiles/s3screenshots
-python s3screenshots.py
+echo "........................."
+echo "Starting s3screenshots..."
+echo "........................."
+
+# allow root to use homebrew
+export PATH="/usr/local/bin:$PATH"
+
+export PYTHONPATH="`brew --prefix`/lib/python2.7/site-packages:$PYTHONPATH"
+export S3_SCREENSHOTS_OSX_USER="`id -un`"
+export S3_SCREENSHOTS_AWS_BUCKET='__YOURS__'
+export S3_SCREENSHOTS_AWS_ID='__YOURS__'
+export S3_SCREENSHOTS_AWS_SECRET='__YOURS__'
+
+cd $HOME/dotfiles/s3screenshots
+python s3screenshots.py 2>&1 | tee -a $logfile
