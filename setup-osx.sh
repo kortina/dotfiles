@@ -14,6 +14,7 @@ defaults write com.apple.screensaver askForPasswordDelay -int 0
 defaults write com.apple.dock workspaces-swoosh-animation-off -bool YES
 defaults write com.apple.dock expose-animation-duration -int 0
 defaults delete com.apple.dock expose-animation-duration
+defaults write -g NSWindowResizeTime -float 0.003
 
 # tons of good stuff here:
 # @see https://github.com/mathiasbynens/dotfiles/blob/master/.osx
