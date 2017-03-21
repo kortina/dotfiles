@@ -18,13 +18,13 @@ Each of this scripts can also be run independently (which may be faster for maki
 ### Other
 
 * Must install Xcode before running `./setup.sh`
-* Other things I install on a mac: Alfred, Caffeine, Chrome, Divvy, Dropbox
+* Other things I install on a mac: Alfred, Chrome, Dropbox
 
 ### Themes
 
-
-   open "themes/tomorrow-theme/OS X Terminal/Tomorrow Night.terminal" # install terminal theme
-   # best looking vim theme with crosshairs is still ir_black_lion_kortina
+    # install terminal theme
+    open "themes/tomorrow-theme/OS X Terminal/Tomorrow Night.terminal"
+    # the best looking vim theme with crosshairs is still ir_black_lion_kortina
 
 
 ### Questions
