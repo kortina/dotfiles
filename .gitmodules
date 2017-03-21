@@ -1,3 +1,6 @@
 [submodule "themes/tomorrow-theme"]
 	path = themes/tomorrow-theme
 	url = git@github.com:chriskempson/tomorrow-theme.git
+[submodule "ses-emailer-cli"]
+	path = ses-emailer-cli
+	url = git@github.com:kortina/ses-emailer-cli.git
