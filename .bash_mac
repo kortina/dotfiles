@@ -19,7 +19,6 @@ export FZF_DEFAULT_COMMAND='ag -g ""'
 ##################################################
 # path adjustments
 ##################################################
-# export PATH="~/Dropbox/nix/bin:$PATH"
 export PATH="$HOME/src/bakpak/bin:$PATH"
 export PATH="~/.vim/:/usr/local:/usr/local/bin/ruby:$PATH"
 
