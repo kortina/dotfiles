@@ -49,6 +49,7 @@ brew_install git-lfs
 brew_install fzf
 brew_install fswatch
 
+brew_install ctop
 brew_install ctags
 brew_install heroku
 brew_install python
