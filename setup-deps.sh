@@ -16,7 +16,7 @@ brew_install() {
     set +e
     test -z "$(brew ls --versions $formula)" && should_install="yes"
     set -e
-    echo "should_install: $should_install"
+    echo "should_install: $formula"
     test -z "$should_install" || brew install $formula
     should_install=""
 }
@@ -153,7 +153,7 @@ npm list -g | grep -q babel-eslint@ || sudo npm install -g babel-eslint
 # ruby gems
 ########################################
 test -e ~/.gemrc && grep -q "no-document" ~/.gemrc || echo "gem: --no-document" >> ~/.gemrc
-# TODO: swap for rbenv. test -e "$HOME/.rvm/bin/rvm" || curl -L https://get.rvm.io | bash -s stable --auto-dotfiles --autolibs=enable --rails
+rbenv global 2.3.3
 gem install git-up
 gem install docker-sync
 gem install cocoapods
