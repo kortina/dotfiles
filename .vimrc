@@ -313,14 +313,9 @@ let g:syntastic_mode_map = { 'mode': 'active',
 " Mac **********************************************************************
 if $HOME == '/Users/kortina'
     set rtp+=/Users/kortina/dotfiles/themes/tomorrow-theme/vim
-    colorscheme ir_black_kortina " Tomorrow-Night
+    colorscheme Tomorrow-Night
     autocmd FileType objc let g:alternateExtensions_m = "h"
     autocmd FileType objc let g:alternateExtensions_h = "m"
-
-    " Toggle source/implementation
-    " noremap <Down> :A<cr> 
-    " noremap <Up> :A<cr>
-
     let g:clang_complete_auto = 1
     let g:clang_exec='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang'
     let g:clang_library_path='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib'
@@ -328,20 +323,16 @@ endif
 
 
 " Crosshairs ****************************************************************
-"
-hi CursorLine     guifg=NONE        guibg=#121212     gui=underline ctermfg=NONE        ctermbg=NONE        cterm=underline
-hi CursorColumn   guifg=NONE        guibg=#121212     gui=NONE      ctermfg=NONE        ctermbg=darkgray        cterm=BOLD
-hi Search         guifg=NONE        guibg=NONE        gui=underline ctermfg=NONE        ctermbg=darkgray        cterm=underline
-
-set cursorline
-set cursorcolumn
 function CrosshairsOn()
     set cursorline
     set cursorcolumn
+    hi CursorLine     guifg=NONE        guibg=black     gui=NONE      ctermfg=NONE        ctermbg=black            cterm=BOLD
+    hi CursorColumn   guifg=NONE        guibg=black     gui=NONE      ctermfg=NONE        ctermbg=black            cterm=BOLD
 endfunction
 nmap <Leader>l :call CrosshairsOn()<CR>
 
 autocmd BufRead,BufNewFile,BufDelete * :syntax on
+autocmd BufRead,BufNewFile,BufDelete * :call CrosshairsOn()
 
 " Shortcuts *****************************************************************
 imap <C-l> <C-r>"
@@ -398,5 +389,3 @@ autocmd BufRead *.fountain colorscheme darkblue
 fun LogCmdEvent(eventName)
     echom "LogCmdEvent: " . a:eventName
 endfun
-
-
