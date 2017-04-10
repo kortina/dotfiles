@@ -99,6 +99,7 @@ if ! command -v pip >/dev/null 2>&1; then
     # NB: cannot easy_install once you brew install python
     brew reinstall python
 fi
+pip install ansible
 pip install boto
 pip install flake8
 pip install ipython
