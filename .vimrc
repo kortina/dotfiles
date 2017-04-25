@@ -336,6 +336,7 @@ autocmd BufRead,BufNewFile,BufDelete * :call CrosshairsOn()
 
 " Shortcuts *****************************************************************
 imap <C-l> <C-r>"
+" Run / execute the current file
 nmap <Leader>e :!%:p<CR>
 
 " copy all to clipboard
