@@ -2,12 +2,8 @@
 " http://github.com/twerth/dotfiles/blob/master/etc/vim/vimrc
 " is a very good (and well documented!) vimrc to learn from 
 
-
-" Pathogen ******************************************************************
 set nocompatible
-filetype off " Pathogen needs to run before plugin indent on
-call pathogen#infect('bundle/{}') " call pathogen#incubate()
-call pathogen#helptags() " generate helptags for everything in 'runtimepath'
+filetype off
 
 " vim-plug  *****************************************************************
 call plug#begin('~/.vim/plugged')
@@ -37,7 +33,6 @@ Plug 'plasticboy/vim-markdown'
 Plug 'rkulla/pydiction'
 Plug 'rodjek/vim-puppet'
 Plug 'scrooloose/nerdtree'
-Plug 'scrooloose/syntastic'
 Plug 'shime/vim-livedown'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
@@ -48,14 +43,18 @@ Plug 'vim-ruby/vim-ruby'
 Plug 'vim-scripts/LanguageTool'
 Plug 'vim-scripts/fountain.vim'
 Plug 'vim-scripts/taglist.vim'
+Plug 'w0rp/ale'
 call plug#end()
 
 filetype plugin indent on
-filetype on
-filetype plugin on
-filetype indent on
 syntax on
 
+let &runtimepath.=',~/.vim/bundle/ale'
+:runtime! ~/.vim/
+
+" use either , or \ as <Leader>
+let mapleader = ","
+nmap \ ,
 
 " source local customizations based on $USER name
 " eg, use ~/.vimrc.kortina for your local mods
@@ -90,11 +89,25 @@ set laststatus=2 " Show filename at bottom of buffer
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme = 'wombat'
 
-:runtime! ~/.vim/
+" ale
+set statusline+=%#warningmsg#
+set statusline+=%{ALEGetStatusLine()}
+set statusline+=%*
 
-" use either , or \ as <Leader>
-let mapleader = ","
-nmap \ ,
+let g:airline#extensions#ale#enable = 1
+let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:airline_section_error = '%{ALEGetStatusLine()}'
+
+let g:ale_linters = { 'javascript': ['eslint'], 'jsx': ['eslint']  }
+let g:ale_javascript_eslint_use_global = 1
+
+nnoremap <leader>a :ALENextWrap<CR>
+" [hack] Make sure the gutter is much darker black than the buffer background color
+autocmd BufEnter,BufRead,BufWrite * highlight SignColumn ctermbg=16
+
 
 
 " Jump to last cursor position unless it's invalid or in an event handler
@@ -190,7 +203,6 @@ autocmd Filetype html setlocal ts=2 sts=2 sw=2
 
 " Javascript ****************************************************************
 let g:jsx_ext_required = 0
-let g:syntastic_javascript_checkers = ['eslint']
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 
 " Golang  *******************************************************************
@@ -216,8 +228,6 @@ noremap <Leader>d Oimport pdb; pdb.set_trace()<Esc>
 au BufRead,BufNewFile {Capfile,Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru,.caprc,.irbrc,irb_tempfile*} set ft=ruby
 autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
 autocmd Filetype eruby setlocal ts=2 sts=2 sw=2
-let g:syntastic_ruby_checkers = ['mri', 'rubocop'] 
-let g:syntastic_eruby_ruby_quiet_messages = {'regex': 'possibly useless use of a variable in void context'}
 
 " Fountain  *****************************************************************
 au BufRead,BufNewFile *.fountain        set filetype=fountain
@@ -290,25 +300,6 @@ let g:languagetool_jar="`brew --prefix`/Cellar/languagetool/2.8/libexec/language
 set spellfile=~/.vim/spell/en.utf-8.add
 nmap <Leader>s :setlocal spell! spelllang=en_us<CR>
 
-" Syntastic  ****************************************************************
-" defaults
-" @see https://github.com/scrooloose/syntastic README
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_loc_list_height=5
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-" From Danny, mode info
-let g:syntastic_mode_map = { 'mode': 'active',
-                           \ 'active_filetypes': [],
-                           \ 'passive_filetypes': ['txt', 'go'] }
-
-
-
 " Kortina  *****************************************************************
 " Mac **********************************************************************
 if $HOME == '/Users/kortina'
@@ -340,13 +331,13 @@ imap <C-l> <C-r>"
 nmap <Leader>e :!%:p<CR>
 
 " copy all to clipboard
-nmap <Leader>a ggVG"*y
+nmap <Leader>c ggVG"*y
 
 " open markdown preview
 nmap <Leader>p :Mm<CR>
 
 " clear search buffer
-map <Leader>c :let @/ = ""<CR>
+map <Leader>/ :let @/ = ""<CR>
 
 " show keymappings in a searchable buffer
 function! s:ShowMaps()
@@ -390,3 +381,4 @@ autocmd BufRead *.fountain colorscheme darkblue
 fun LogCmdEvent(eventName)
     echom "LogCmdEvent: " . a:eventName
 endfun
+
