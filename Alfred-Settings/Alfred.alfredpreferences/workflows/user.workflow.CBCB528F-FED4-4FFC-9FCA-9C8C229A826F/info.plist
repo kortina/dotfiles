@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>net.kortina.alfred.hotkey-strip-pasteboard</string>
+	<key>connections</key>
+	<dict>
+		<key>07A721AC-9BD8-4DB5-BA51-E33252CEB3B0</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>D5BC59B5-B2EB-4F2B-A3F5-671FCD92A3BC</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>kortina</string>
+	<key>description</key>
+	<string>Strip pasteboard formatting, converting to plain text</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Hotkey - Strip Pasteboard</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>action</key>
+				<integer>0</integer>
+				<key>argument</key>
+				<integer>2</integer>
+				<key>hotkey</key>
+				<integer>9</integer>
+				<key>hotmod</key>
+				<integer>1179648</integer>
+				<key>hotstring</key>
+				<string>V</string>
+				<key>leftcursor</key>
+				<false/>
+				<key>modsmode</key>
+				<integer>0</integer>
+				<key>relatedAppsMode</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.hotkey</string>
+			<key>uid</key>
+			<string>07A721AC-9BD8-4DB5-BA51-E33252CEB3B0</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>autopaste</key>
+				<false/>
+				<key>clipboardtext</key>
+				<string>{query}</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.clipboard</string>
+			<key>uid</key>
+			<string>D5BC59B5-B2EB-4F2B-A3F5-671FCD92A3BC</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string>Strip pasteboard formatting, to paste plain text</string>
+	<key>uidata</key>
+	<dict>
+		<key>07A721AC-9BD8-4DB5-BA51-E33252CEB3B0</key>
+		<dict>
+			<key>ypos</key>
+			<real>150</real>
+		</dict>
+		<key>D5BC59B5-B2EB-4F2B-A3F5-671FCD92A3BC</key>
+		<dict>
+			<key>ypos</key>
+			<real>150</real>
+		</dict>
+	</dict>
+	<key>webaddress</key>
+	<string>http://kortina.net</string>
+</dict>
+</plist>

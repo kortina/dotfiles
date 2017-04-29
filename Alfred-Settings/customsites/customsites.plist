@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>keyword</key>
+		<string>gcal</string>
+		<key>spaces</key>
+		<false/>
+		<key>text</key>
+		<string>gcal</string>
+		<key>url</key>
+		<string>https://www.google.com/calendar/event?ctext=+{query}+&amp;action=TEMPLATE&amp;pprop=HowCreated%3AQUICKADD</string>
+		<key>utf8</key>
+		<true/>
+	</dict>
+</array>
+</plist>

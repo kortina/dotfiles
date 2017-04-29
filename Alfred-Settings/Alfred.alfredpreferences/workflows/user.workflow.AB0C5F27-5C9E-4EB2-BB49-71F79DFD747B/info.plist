@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string></string>
+	<key>category</key>
+	<string>Productivity</string>
+	<key>connections</key>
+	<dict>
+		<key>30AFC699-BE32-48EF-8F22-986CC03CE446</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>5F691244-2FD2-4F60-BEEB-0B9B6A78EBB0</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>B1055B9D-BBE5-46AB-A688-C836EDA1AF89</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>5F691244-2FD2-4F60-BEEB-0B9B6A78EBB0</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string></string>
+	<key>description</key>
+	<string>'Maximize' Front Window to Full Width / Height of Screen</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Window - Full Screen</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>action</key>
+				<integer>0</integer>
+				<key>argument</key>
+				<integer>0</integer>
+				<key>focusedappvariable</key>
+				<false/>
+				<key>focusedappvariablename</key>
+				<string></string>
+				<key>hotkey</key>
+				<integer>49</integer>
+				<key>hotmod</key>
+				<integer>1179648</integer>
+				<key>hotstring</key>
+				<string>Space</string>
+				<key>leftcursor</key>
+				<false/>
+				<key>modsmode</key>
+				<integer>0</integer>
+				<key>relatedAppsMode</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.hotkey</string>
+			<key>uid</key>
+			<string>30AFC699-BE32-48EF-8F22-986CC03CE446</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>applescript</key>
+				<string>on alfred_script(q)
+
+try
+    tell application "Finder" to set b to bounds of window of desktop
+    try
+        tell application (path to frontmost application as text)
+            set bounds of window 1 to {item 1 of b, 22, item 3 of b, item 4 of b}
+        end tell
+    on error
+        tell application "System Events" to tell window 1 of (process 1 where it is frontmost)
+            try
+                set position to {0, 22}
+                set size to {item 3 of b, (item 4 of b) - 22}
+            on error
+                click (button 1 of window 1 where subrole is "AXZoomButton")
+            end try
+        end tell
+    end try
+end try
+
+end alfred_script</string>
+				<key>cachescript</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.applescript</string>
+			<key>uid</key>
+			<string>5F691244-2FD2-4F60-BEEB-0B9B6A78EBB0</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>window-full-screen</string>
+				<key>subtext</key>
+				<string></string>
+				<key>text</key>
+				<string>window-full-screen</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>B1055B9D-BBE5-46AB-A688-C836EDA1AF89</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string></string>
+	<key>uidata</key>
+	<dict>
+		<key>30AFC699-BE32-48EF-8F22-986CC03CE446</key>
+		<dict>
+			<key>xpos</key>
+			<integer>130</integer>
+			<key>ypos</key>
+			<integer>30</integer>
+		</dict>
+		<key>5F691244-2FD2-4F60-BEEB-0B9B6A78EBB0</key>
+		<dict>
+			<key>xpos</key>
+			<integer>500</integer>
+			<key>ypos</key>
+			<integer>160</integer>
+		</dict>
+		<key>B1055B9D-BBE5-46AB-A688-C836EDA1AF89</key>
+		<dict>
+			<key>xpos</key>
+			<integer>130</integer>
+			<key>ypos</key>
+			<integer>160</integer>
+		</dict>
+	</dict>
+	<key>webaddress</key>
+	<string></string>
+</dict>
+</plist>

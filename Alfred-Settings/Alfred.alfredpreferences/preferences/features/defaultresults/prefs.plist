@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>showFolders</key>
+	<true/>
+	<key>showUserDefined</key>
+	<array>
+		<string>com.apple.web-internet-location</string>
+		<string>dyn.ah62d4rv4ge80s3dtqq</string>
+		<string>dyn.ah62d4rv4ge80s3xtsm0u</string>
+		<string>dyn.ah62d4rv4ge80s65kqzw1k</string>
+		<string>dyn.ah62d4rv4ge80s65qrfwgn62</string>
+		<string>public.symlink</string>
+	</array>
+</dict>
+</plist>

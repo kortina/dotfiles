@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>handleruid</key>
+	<string>alfred.hotkey.extensions</string>
+	<key>hotkey</key>
+	<integer>-1</integer>
+	<key>hotmod</key>
+	<integer>-1</integer>
+	<key>name</key>
+	<string>Shell Script</string>
+	<key>parameters</key>
+	<dict>
+		<key>argument</key>
+		<string>pbpaste | pbcopy</string>
+		<key>name</key>
+		<string></string>
+		<key>selectedtext</key>
+		<false/>
+	</dict>
+	<key>uid</key>
+	<string>alfred.hotkey.extensions.scripts</string>
+</dict>
+</plist>
