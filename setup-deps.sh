@@ -15,11 +15,11 @@ cd $DOTFILES_ROOT && git submodule update --init
 brew_install() {
     formula="$1"
     set +e
-    should_install="no"
-    test -z "$(brew ls --versions $formula)" && should_install="yes"
+    already_installed="no"
+    test -z "$(brew ls --versions $formula)" || already_installed="yes"
     set -e
-    echo "should_install $formula: $should_install"
-    [ $should_install = "yes" ] || brew install $formula
+    echo "already_installed $formula: $already_installed"
+    [ $already_installed = "no" ] && brew install $formula
 }
 
 install_git_repo() {
