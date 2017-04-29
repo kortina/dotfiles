@@ -18,7 +18,7 @@ brew_install() {
     already_installed="no"
     test -z "$(brew ls --versions $formula)" || already_installed="yes"
     set -e
-    echo "already_installed $formula: $already_installed"
+    echo "$formula already installed: $already_installed"
     [ $already_installed = "yes" ] || brew install $formula
 }
 
