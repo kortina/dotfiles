@@ -121,6 +121,7 @@ npm list -g | grep -q babel-eslint@ || sudo npm install -g babel-eslint
 # ruby gems
 ########################################
 test -e ~/.gemrc && grep -q "no-document" ~/.gemrc || echo "gem: --no-document" >> ~/.gemrc
+rbenv versions | grep -q "2\.3\.3" || rbenv install 2.3.3
 rbenv global 2.3.3
 # You may need to fix readline in irb by doing the following:
 # xcode-select --install
