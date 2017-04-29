@@ -15,11 +15,11 @@ cd $DOTFILES_ROOT && git submodule update --init
 brew_install() {
     formula="$1"
     set +e
+    should_install="no"
     test -z "$(brew ls --versions $formula)" && should_install="yes"
     set -e
-    echo "should_install: $formula"
-    test -z "$should_install" || brew install $formula
-    should_install=""
+    echo "should_install $formula: $should_install"
+    [ $should_install = "yes" ] || brew install $formula
 }
 
 install_git_repo() {
@@ -99,7 +99,7 @@ pip install watchdog
 ########################################
 SRC_DIR="$HOME/src"
 test -e $SRC_DIR || mkdir -p $SRC_DIR
-if [ "`id -u -n`" = "kortina" ] && [ ! -f "$HOME/.bash_mac_secrets" ]; then echo "~/.bash_mac_secrets does not exist. exiting."; exit 1; fi;
+if [ "`id -u -n`" = "kortina" ] && [ ! -f "$HOME/.bash_mac_private" ]; then echo "~/.bash_mac_private does not exist. exiting."; exit 1; fi;
 
 ########################################
 # various symlinks
