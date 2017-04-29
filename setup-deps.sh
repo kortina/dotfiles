@@ -19,7 +19,7 @@ brew_install() {
     test -z "$(brew ls --versions $formula)" || already_installed="yes"
     set -e
     echo "already_installed $formula: $already_installed"
-    [ $already_installed = "no" ] && brew install $formula
+    [ $already_installed = "yes" ] || brew install $formula
 }
 
 install_git_repo() {
