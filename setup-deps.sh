@@ -65,11 +65,6 @@ brew tap caskroom/cask
 
 
 ########################################
-# virtualbox
-########################################
-# brew cask install virtualbox
-
-########################################
 # java (for languagetool)
 ########################################
 brew tap caskroom/versions
@@ -79,16 +74,6 @@ echo "https://support.apple.com/kb/DL1572?locale=en_US"
 
 # caffeine replacement
 brew cask install keepingyouawake
-########################################
-# docker
-########################################
-# brew_install boot2docker
-# brew_install docker
-# brew_install fig # pip install fig results in SSL cert errors
-# echo "********************************"
-# echo "  see for more docker setup steps:"
-# echo "  http://viget.com/extend/how-to-use-docker-on-os-x-the-missing-guide"
-# echo "********************************"
 
 
 ########################################
@@ -120,25 +105,6 @@ if [ "`id -u -n`" = "kortina" ] && [ ! -f "$HOME/.bash_mac_secrets" ]; then echo
 # various symlinks
 ########################################
 test -L "/Applications/Screen Sharing.app" || ln -s "/System/Library/CoreServices/Screen Sharing.app" "/Applications/Screen Sharing.app"
-
-########################################
-# vim YCM
-########################################
-# brew_install cmake
-# cd $HOME/dotfiles/.vim/bundle/YouCompleteMe
-# git submodule update --init --recursive
-# ./install.sh
-# cd -
-
-########################################
-# xcode
-########################################
-# cd "$HOME/dotfiles/themes/tomorrow-theme/Xcode 4/"
-# mkdir -p ~/Library/Developer/Xcode/UserData/FontAndColorThemes/
-# cp *.dvtcolortheme ~/Library/Developer/Xcode/UserData/FontAndColorThemes/
-# cd -
-
-# cd XVim && test -e ../madeXVim || make && touch ../madeXVim && open XVim.xcodeproj; cd -
 
 ########################################
 # node modules
