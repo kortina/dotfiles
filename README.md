@@ -24,7 +24,6 @@ Each of this scripts can also be run independently (which may be faster for maki
 
     # install terminal theme
     open "themes/tomorrow-theme/OS X Terminal/Tomorrow Night.terminal"
-    # the best looking vim theme with crosshairs is still ir_black_lion_kortina
 
 
 ### Questions
