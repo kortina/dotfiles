@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 set -e
+
 # set -o verbose
 echo "##### $(basename $BASH_SOURCE) #####"
 
@@ -113,12 +114,12 @@ pip install watchdog
 ########################################
 SRC_DIR="$HOME/src"
 test -e $SRC_DIR || mkdir -p $SRC_DIR
+if [ "`id -u -n`" = "kortina" ] && [ ! -f "$HOME/.bash_mac_secrets" ]; then echo "~/.bash_mac_secrets does not exist. exiting."; exit 1; fi;
 
 ########################################
 # various symlinks
 ########################################
 test -L "/Applications/Screen Sharing.app" || ln -s "/System/Library/CoreServices/Screen Sharing.app" "/Applications/Screen Sharing.app"
-test -L "$HOME/.bash_mac_private" || ln -s "$HOME/Dropbox/Apps/bash_mac_private" "$HOME/.bash_mac_private"
 
 ########################################
 # vim YCM
