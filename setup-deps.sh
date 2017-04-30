@@ -76,6 +76,7 @@ echo "https://support.apple.com/kb/DL1572?locale=en_US"
 # caffeine replacement
 brew cask install keepingyouawake
 
+brew cask install cyberduck
 
 ########################################
 # pip
