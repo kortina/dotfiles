@@ -6,7 +6,7 @@
     git submodule update --init
     ./setup.sh
 
-    # NB: If you want s3screenshots, you will need to install following the [README](https://github.com/kortina/dotfiles/tree/master/s3screenshots)
+NB: If you want s3screenshots, you will need to install following the [README](https://github.com/kortina/dotfiles/tree/master/s3screenshots)
 
 `setup.sh` will run all of the following setup scripts: 
 
