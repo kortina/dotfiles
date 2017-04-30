@@ -8,7 +8,9 @@ This will ultimately probably end up in a new git repo.
     test -e s3screenshots.sh || cp s3screenshots.sh.sample s3screenshots.sh
     chmod 700 s3screenshots.sh
 
-Add your AWS credentials, bucket name, and OS X username to `s3screenshots.sh`
+Next, add your AWS credentials, bucket name, and OS X username to `s3screenshots.sh`
+
+Then, install the LaunchAgent:
 
     plist="com.`id -u -n`.s3screenshots.plist"
 
@@ -31,4 +33,4 @@ NB: since this uses OS X Notification Center, this must be a `LaunchAgent` not a
 
 If things are not working, you can check syslog for errors:
 
-    tail -f /var/log/system.log`
+    tail -f /var/log/system.log
