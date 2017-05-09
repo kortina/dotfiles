@@ -17,10 +17,18 @@ NB: If you want s3screenshots, you will need to install following the [README](h
 
 Each of this scripts can also be run independently (which may be faster for making small changes).
 
+### FAQ
+
+* If you get a permissions error, I recommened setting your user as owner of `/usr/local/`:
+
+```
+sudo chown -R "`id -u -n`:admin" /usr/local
+```
+
 ### Other
 
 * Must install Xcode before running `./setup.sh`
-* Other things I install on a mac: Alfred, Chrome, Dropbox
+* Other things I install on a mac: Alfred, Chrome
 
 ### Themes
 
