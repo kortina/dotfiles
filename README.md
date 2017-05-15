@@ -28,7 +28,6 @@ sudo chown -R "`id -u -n`:admin" /usr/local
 ### Other
 
 * Must install Xcode before running `./setup.sh`
-* Other things I install on a mac: Alfred, Chrome
 
 ### Themes
 
