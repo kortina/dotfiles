@@ -62,6 +62,7 @@ brew_install the_silver_searcher
 brew_install rbenv
 brew install reattach-to-user-namespace
 brew_install vim # need vim8 for ale
+brew_install yarn
 brew tap caskroom/cask
 
 
