@@ -382,3 +382,8 @@ fun LogCmdEvent(eventName)
     echom "LogCmdEvent: " . a:eventName
 endfun
 
+
+" allow for per-project configuration files (project .vimrc)
+set exrc
+" disable unsafe commands in your project-specific .vimrc files
+set secure
