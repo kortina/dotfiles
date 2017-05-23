@@ -1,31 +1,19 @@
-" Notes *********************************************************************
-" http://github.com/twerth/dotfiles/blob/master/etc/vim/vimrc
-" is a very good (and well documented!) vimrc to learn from 
-
 set nocompatible
 filetype off
 
 " vim-plug  *****************************************************************
 call plug#begin('~/.vim/plugged')
-" Plug 'Rip-Rip/clang_complete'
 Plug 'XVimProject/XVim'
 Plug 'benmills/vimux'
 Plug 'dcosson/vimux-nose-test2'
-Plug 'duff/vim-scratch'
-" Plug 'fholgado/minibufexpl.vim'
-" Plug 'jgoulah/cocoa.vim'
 Plug 'jnwhiteh/vim-golang'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'junegunn/goyo.vim'
 Plug 'juvenn/mustache.vim'
 Plug 'kana/vim-fakeclip'
-" Plug 'kballard/vim-swift'
 Plug 'kortina/crosshair-focus.vim'
 Plug 'mileszs/ack.vim'
 Plug 'mxw/vim-jsx'
-" Plug 'nelstrom/vim-markdown-folding'
-" Plug 'nelstrom/vim-markdown-preview'
 Plug 'nvie/vim-flake8'
 Plug 'pangloss/vim-javascript'
 Plug 'pgr0ss/vimux-ruby-test'
@@ -84,12 +72,12 @@ set showcmd
 set ai " Automatically set the indent of a new line (local to buffer)
 set si " smartindent    (local to buffer)
 
-" airline
+" airline *******************************************************************
 set laststatus=2 " Show filename at bottom of buffer
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme = 'wombat'
 
-" ale
+" ale ***********************************************************************
 set statusline+=%#warningmsg#
 set statusline+=%{ALEGetStatusLine()}
 set statusline+=%*
@@ -107,7 +95,6 @@ let g:ale_javascript_eslint_use_global = 1
 nnoremap <leader>a :ALENextWrap<CR>
 " [hack] Make sure the gutter is much darker black than the buffer background color
 autocmd BufEnter,BufRead,BufWrite * highlight SignColumn ctermbg=16
-
 
 
 " Jump to last cursor position unless it's invalid or in an event handler
@@ -132,9 +119,6 @@ set grepprg=ack
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
-" always do very magic search
-" :nnoremap / /\v
-" :cnoremap %s/ %s/\v
 
 " switch from horizontal to vertical split
 :command H2v normal <C-w>t<C-w>H
@@ -152,11 +136,7 @@ autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 let g:ctrlp_working_path_mode = 0
 set wildignore+=*/node_modules/*
 
-let g:AutoClosePairs = {'(': ')', '{': '}', '[': ']', '"': '"'}
-
-" fzf
-" map <Leader>w :Tags<CR>
-" map <C-[> :execute "Tags " expand('<cword>')<CR>
+" fzf ***********************************************************************
 
 " Map ctrl + p to fzf fuzzy matcher, and customize colors to match vim
 nmap <C-p> :FZF<CR>
@@ -174,8 +154,10 @@ let g:fzf_colors =
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
 
+
 " Ack.vim  ******************************************************************
 nmap <Leader>f :Ack 
+
 
 " Buffers *******************************************************************
 nmap <Leader>b :buffers<CR>
@@ -186,17 +168,11 @@ noremap <C-l> <C-W>l
 " make panes equal size
 noremap <Leader>w <C-W>=
 
-" change buffer sizes with Shift arrow keys
-" Shift worked with these:
-" noremap <Right> :vertical resize +5<CR>
-" noremap <Left>  :vertical resize -5<CR>
-" why don't these work with Shift?
-" noremap <Down> :resize +5<CR>
-" noremap <Up> :resize -5<CR>
 
 " CSS ***********************************************************************
 autocmd Filetype css setlocal ts=2 sts=2 sw=2
 autocmd Filetype scss setlocal ts=2 sts=2 sw=2
+
 
 " HTML  *********************************************************************
 autocmd Filetype html setlocal ts=2 sts=2 sw=2
@@ -205,6 +181,7 @@ autocmd Filetype html setlocal ts=2 sts=2 sw=2
 let g:jsx_ext_required = 0
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 
+
 " Golang  *******************************************************************
 set rtp+=/usr/local/go/misc/vim
 autocmd BufWritePost *.go :silent Fmt
@@ -212,8 +189,6 @@ autocmd BufWritePost *.go :silent Fmt
 
 " Python ********************************************************************
 
-autocmd FileType python set ft=python.django " For SnipMate
-" autocmd FileType html set ft=html.django_template " For SnipMate
 " prevent comments from going to beginning of line
 autocmd BufRead *.py inoremap # X<c-h>#
 " turn on python folding when you open a file
@@ -229,31 +204,12 @@ au BufRead,BufNewFile {Capfile,Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru,.
 autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
 autocmd Filetype eruby setlocal ts=2 sts=2 sw=2
 
-" Fountain  *****************************************************************
-au BufRead,BufNewFile *.fountain        set filetype=fountain
 
 " Git ***********************************************************************
 command! -complete=file -nargs=* Gstaged call s:RunShellCommand('git diff --staged')
 " review git diff in vertical split (fugitive doesn't seem to want to do this
 :command ReviewGitDiff normal :Gdiff<CR>:H2v<CR>
 nmap <Leader>dd :ReviewGitDiff<CR>
-
-
-" CamelCaseWords ************************************************************
-" http://vim.wikia.com/wiki/Moving_through_camel_case_words
-" Stop on capital letters.
-let g:camelchar = "A-Z"
-" Also stop on numbers.
-let g:camelchar = "A-Z0-9"
-" Include '.' for class member, ',' for separator, ';' end-statement,
-" and <[< bracket starts and "'` quotes.
-let g:camelchar = "A-Z0-9.,;:{([`'\""
-nnoremap <silent><C-Left> :<C-u>call search('\C\<\<Bar>\%(^\<Bar>[^'.g:camelchar.']\@<=\)['.g:camelchar.']\<Bar>['.g:camelchar.']\ze\%([^'.g:camelchar.']\&\>\@!\)\<Bar>\%^','bW')<CR>
-nnoremap <silent><C-Right> :<C-u>call search('\C\<\<Bar>\%(^\<Bar>[^'.g:camelchar.']\@<=\)['.g:camelchar.']\<Bar>['.g:camelchar.']\ze\%([^'.g:camelchar.']\&\>\@!\)\<Bar>\%$','W')<CR>
-inoremap <silent><C-Left> <C-o>:call search('\C\<\<Bar>\%(^\<Bar>[^'.g:camelchar.']\@<=\)['.g:camelchar.']\<Bar>['.g:camelchar.']\ze\%([^'.g:camelchar.']\&\>\@!\)\<Bar>\%^','bW')<CR>
-inoremap <silent><C-Right> <C-o>:call search('\C\<\<Bar>\%(^\<Bar>[^'.g:camelchar.']\@<=\)['.g:camelchar.']\<Bar>['.g:camelchar.']\ze\%([^'.g:camelchar.']\&\>\@!\)\<Bar>\%$','W')<CR>
-vnoremap <silent><C-Left> :<C-U>call search('\C\<\<Bar>\%(^\<Bar>[^'.g:camelchar.']\@<=\)['.g:camelchar.']\<Bar>['.g:camelchar.']\ze\%([^'.g:camelchar.']\&\>\@!\)\<Bar>\%^','bW')<CR>v`>o
-vnoremap <silent><C-Right> <Esc>`>:<C-U>call search('\C\<\<Bar>\%(^\<Bar>[^'.g:camelchar.']\@<=\)['.g:camelchar.']\<Bar>['.g:camelchar.']\ze\%([^'.g:camelchar.']\&\>\@!\)\<Bar>\%$','W')<CR>v`<o
 
 
 " Vimux  ********************************************************************
@@ -305,11 +261,6 @@ nmap <Leader>s :setlocal spell! spelllang=en_us<CR>
 if $HOME == '/Users/kortina'
     set rtp+=/Users/kortina/dotfiles/themes/tomorrow-theme/vim
     colorscheme Tomorrow-Night
-    autocmd FileType objc let g:alternateExtensions_m = "h"
-    autocmd FileType objc let g:alternateExtensions_h = "m"
-    let g:clang_complete_auto = 1
-    let g:clang_exec='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang'
-    let g:clang_library_path='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib'
 endif
 
 
@@ -363,6 +314,7 @@ nmap <Leader>mm :ShowMaps<CR>
 nmap <Leader>cc :!(test -f ./ctags.sh && ./ctags.sh) \|\|  (test -f ./bin/ctags.sh && ./bin/ctags.sh) \|\| echo 'no ./ctags.sh or ./bin/ctags.sh found'<CR>
 
 " Fountain / Markdown  *********************************************************
+au BufRead,BufNewFile *.fountain set filetype=fountain
 autocmd BufNewFile,BufRead *.md,*.mkd,*.markdown,*.fountain set linebreak
 autocmd BufNewFile,BufRead *.md,*.mkd,*.markdown,*.fountain setlocal spell spelllang=en_us
 
@@ -371,9 +323,6 @@ autocmd BufNewFile,BufRead *.md,*.mkd,*.markdown,*.fountain setlocal spell spell
 autocmd BufRead *.fountain let b:undo_ftplugin = '' 
 " use markdown folding of headers in fountain files
 autocmd BufRead *.fountain source ~/.vim/bundle/vim-markdown-folding/after/ftplugin/markdown/folding.vim
-" ir_black_kortina does not color scene headings nicely
-autocmd BufRead *.fountain colorscheme darkblue
-
 
 " Experiments  *****************************************************************
 " autocmd VimEnter *   call LogCmdEvent("VimEnter")
