@@ -18,8 +18,18 @@ brew_install() {
     already_installed="no"
     test -z "$(brew ls --versions $formula)" || already_installed="yes"
     set -e
-    echo "$formula already installed: $already_installed"
+    echo "$formula already installed with brew: $already_installed"
     [ $already_installed = "yes" ] || brew install $formula
+}
+
+npm_install() {
+    formula="$1"
+    set +e
+    already_installed="no"
+    npm list -g | grep -q "$formula@" && already_installed="yes"
+    set -e
+    echo "$formula already installed with npm: $already_installed"
+    [ $already_installed = "yes" ] || npm install $formula
 }
 
 install_git_repo() {
@@ -36,6 +46,10 @@ install_git_repo() {
     fi
 
 }
+
+# 'fix' permissions on usr local setting current usr as owner
+# assumes only one person, you, is using your machine
+sudo chown -R "`id -u -n`:admin" /usr/local
 
 ########################################
 # libs
@@ -113,12 +127,14 @@ test -L "/Applications/Screen Sharing.app" || ln -s "/System/Library/CoreService
 # node modules
 ########################################
 brew_install node
-npm list -g | grep -q livedown@ || sudo npm install -g livedown
 
-npm list -g | grep -q eslint@ || sudo npm install -g eslint
-npm list -g | grep -q eslint-plugin-react@ || sudo npm install -g eslint-plugin-react
-npm list -g | grep -q eslint-plugin-flowtype@ || sudo npm install -g eslint-plugin-flowtype
-npm list -g | grep -q babel-eslint@ || sudo npm install -g babel-eslint
+npm_install eslint
+npm_install eslint-plugin-react
+npm_install leslint-plugin-flowtype
+npm_install babel-eslint
+npm_install livedown
+npm_install prettier
+
 
 ########################################
 # ruby gems
