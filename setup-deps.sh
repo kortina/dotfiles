@@ -130,7 +130,7 @@ brew_install node
 
 npm_install eslint
 npm_install eslint-plugin-react
-npm_install leslint-plugin-flowtype
+npm_install eslint-plugin-flowtype
 npm_install babel-eslint
 npm_install livedown
 npm_install prettier
