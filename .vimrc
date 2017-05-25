@@ -184,7 +184,7 @@ autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 " Configure to run formatting when you leave insert mode
 autocmd FileType javascript setlocal formatprg=prettier\ --parser\ flow\ --single-quote\ --trailing-comma\ es5\ --jsx-bracket-same-line\ --parser\ babylon
 let g:neoformat_try_formatprg = 1
-autocmd InsertLeave *.js Neoformat
+autocmd BufWritePost *.js Neoformat
 
 
 " Golang  *******************************************************************
