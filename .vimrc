@@ -20,7 +20,6 @@ Plug 'pgr0ss/vimux-ruby-test'
 Plug 'plasticboy/vim-markdown'
 Plug 'rkulla/pydiction'
 Plug 'rodjek/vim-puppet'
-Plug 'sbdchd/neoformat'
 Plug 'scrooloose/nerdtree'
 Plug 'shime/vim-livedown'
 Plug 'tpope/vim-commentary'
@@ -181,11 +180,8 @@ autocmd Filetype html setlocal ts=2 sts=2 sw=2
 " Javascript ****************************************************************
 let g:jsx_ext_required = 0
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
-" Configure to run formatting when you leave insert mode
-autocmd FileType javascript setlocal formatprg=prettier\ --parser\ flow\ --single-quote\ --trailing-comma\ es5\ --jsx-bracket-same-line\ --parser\ babylon
-let g:neoformat_try_formatprg = 1
-autocmd BufWritePost *.js Neoformat
-
+" Run prettier on save (with Fin flags)
+autocmd BufWritePre *.js %! prettier --single-quote --jsx-bracket-same-line --parser babylon --trailing-comma es5
 
 " Golang  *******************************************************************
 set rtp+=/usr/local/go/misc/vim
