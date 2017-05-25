@@ -3,7 +3,6 @@ filetype off
 
 " vim-plug  *****************************************************************
 call plug#begin('~/.vim/plugged')
-Plug 'XVimProject/XVim'
 Plug 'benmills/vimux'
 Plug 'dcosson/vimux-nose-test2'
 Plug 'jnwhiteh/vim-golang'
