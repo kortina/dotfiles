@@ -186,7 +186,7 @@ function FormatPrettierJs()
     cal cursor(ln, cn)
 endfunction
 " Run prettier on save (with Fin flags)
-autocmd BufWritePre *.js call FormatPrettierJs()
+autocmd BufWritePre *.js,*.jsx call FormatPrettierJs()
 
 " Golang  *******************************************************************
 set rtp+=/usr/local/go/misc/vim
