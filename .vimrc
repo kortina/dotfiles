@@ -180,8 +180,13 @@ autocmd Filetype html setlocal ts=2 sts=2 sw=2
 " Javascript ****************************************************************
 let g:jsx_ext_required = 0
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
+function FormatPrettierJs()
+    let ln = line('.')
+    %! prettier --single-quote --jsx-bracket-same-line --parser babylon --trailing-comma es5
+    cal cursor(ln, 0)
+endfunction
 " Run prettier on save (with Fin flags)
-autocmd BufWritePre *.js %! prettier --single-quote --jsx-bracket-same-line --parser babylon --trailing-comma es5
+autocmd BufWritePre *.js call FormatPrettierJs()
 
 " Golang  *******************************************************************
 set rtp+=/usr/local/go/misc/vim
