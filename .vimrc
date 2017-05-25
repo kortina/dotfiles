@@ -181,8 +181,9 @@ let g:jsx_ext_required = 0
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 function FormatPrettierJs()
     let ln = line('.')
+    let cn = col('.')
     %! prettier --single-quote --jsx-bracket-same-line --parser babylon --trailing-comma es5
-    cal cursor(ln, 0)
+    cal cursor(ln, cn)
 endfunction
 " Run prettier on save (with Fin flags)
 autocmd BufWritePre *.js call FormatPrettierJs()
