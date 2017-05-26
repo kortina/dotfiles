@@ -1,6 +1,0 @@
---type-add=html=.mustache
---type-set=go=.go
---type-set=plaintext=.md,.mdown,.markdown,.mkdn,.textile,.rst,.txt
---ignore-dir=htmlcov
---ignore-dir=log
---ignore-file=match:bundle.js

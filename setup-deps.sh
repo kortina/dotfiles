@@ -71,8 +71,7 @@ brew_install python
 brew_install tmux
 brew_install languagetool
 brew_install youtube-dl
-brew_install ack
-brew_install the_silver_searcher
+brew_install the_silver_searcher # WAY faster than ack
 brew_install rbenv
 brew install reattach-to-user-namespace
 brew_install vim # need vim8 for ale

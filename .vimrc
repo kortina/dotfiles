@@ -114,15 +114,14 @@ nnoremap 77 zM
 
 " Search ********************************************************************
 set tags=./tags;
-set grepprg=ack
-if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
-endif
+set grepprg=ag\ --vimgrep
+set grepformat=%f:%l:%c:%m
+let g:ackprg = 'ag --vimgrep'
 
 " switch from horizontal to vertical split
-:command H2v normal <C-w>t<C-w>H
+command H2v normal <C-w>t<C-w>H
 " switch from vertical to horizontal split
-:command V2h normal <C-w>t<C-w>K
+command V2h normal <C-w>t<C-w>K
 
 
 " Completion ****************************************************************
