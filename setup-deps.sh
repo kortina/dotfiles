@@ -29,7 +29,7 @@ npm_install() {
     npm list -g | grep -q "$formula@" && already_installed="yes"
     set -e
     echo "$formula already installed with npm: $already_installed"
-    [ $already_installed = "yes" ] || npm install $formula
+    [ $already_installed = "yes" ] || npm install -g $formula
 }
 
 install_git_repo() {
