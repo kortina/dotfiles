@@ -181,7 +181,11 @@ autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 function FormatPrettierJs()
     let ln = line('.')
     let cn = col('.')
-    %! prettier --single-quote --jsx-bracket-same-line --parser babylon --trailing-comma es5
+    silent %! prettier --single-quote --jsx-bracket-same-line --parser babylon --trailing-comma es5 --print-width 100
+    " If there was an error, undo replacing the entire buffer
+    if v:shell_error
+        undo
+    endif
     cal cursor(ln, cn)
 endfunction
 " Run prettier on save (with Fin flags)
