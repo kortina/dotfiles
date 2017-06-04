@@ -56,6 +56,7 @@ sudo chown -R "`id -u -n`:admin" /usr/local
 ########################################
 # xcode-select --install # must be install via app store now
 
+brew_install CMake
 brew_install git # so that it has completion
 brew_install bash-completion
 brew tap homebrew/completions

@@ -3,6 +3,7 @@ filetype off
 
 " vim-plug  *****************************************************************
 call plug#begin('~/.vim/plugged')
+Plug 'Valloric/YouCompleteMe'
 Plug 'benmills/vimux'
 Plug 'dcosson/vimux-nose-test2'
 Plug 'jnwhiteh/vim-golang'
@@ -93,7 +94,8 @@ let g:ale_javascript_eslint_use_global = 1
 
 nnoremap <leader>a :ALENextWrap<CR>
 " [hack] Make sure the gutter is much darker black than the buffer background color
-autocmd BufEnter,BufRead,BufWrite * highlight SignColumn ctermbg=16
+" autocmd BufEnter,BufRead,BufWrite * highlight SignColumn ctermbg=16
+let g:ale_change_sign_column_color=1
 
 
 " Jump to last cursor position unless it's invalid or in an event handler
