@@ -6,7 +6,7 @@
     git submodule update --init
     ./setup.sh
 
-    cd .vim/plugged/YouCompleteMe/ && ./install.py --tern-completer
+    cd .vim/plugged/YouCompleteMe/ && ./install.py --tern-completer; cd -
 
 You should see the following output on sucessful install:
     
