@@ -51,7 +51,6 @@ if filereadable($HOME . '/.vimrc.' . $USER)
     exec ':source ' . $HOME . '/.vimrc.' . $USER
 endif
 
-
 " Basics ********************************************************************
 set backspace=indent,eol,start " fix backspace in vim 7
 set cm=blowfish
@@ -271,12 +270,9 @@ let g:languagetool_jar="`brew --prefix`/Cellar/languagetool/2.8/libexec/language
 set spellfile=~/.vim/spell/en.utf-8.add
 nmap <Leader>s :setlocal spell! spelllang=en_us<CR>
 
-" Kortina  *****************************************************************
-" Mac **********************************************************************
-if $HOME == '/Users/kortina'
-    set rtp+=/Users/kortina/dotfiles/themes/tomorrow-theme/vim
-    colorscheme Tomorrow-Night
-endif
+" Theme *********************************************************************
+set rtp+=$HOME/dotfiles/themes/tomorrow-theme/vim
+colorscheme Tomorrow-Night
 
 
 " Crosshairs ****************************************************************
