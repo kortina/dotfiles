@@ -8,6 +8,11 @@
 
     cd .vim/plugged/YouCompleteMe/ && ./install.py --tern-completer
 
+You should see the following output on sucessful install:
+    
+    ✅ ✅ ✅
+    🎉 🎉 🎉
+
 NB: If you want s3screenshots, you will need to install following the [README](https://github.com/kortina/dotfiles/tree/master/s3screenshots)
 
 `setup.sh` will run all of the following setup scripts: 
