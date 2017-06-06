@@ -84,9 +84,7 @@ brew tap caskroom/cask
 # java (for languagetool)
 ########################################
 brew tap caskroom/versions
-brew cask install java7
-echo "NB: You may also need to install Java for El Capitan from:"
-echo "https://support.apple.com/kb/DL1572?locale=en_US"
+brew cask install java
 
 # caffeine replacement
 brew cask install keepingyouawake
