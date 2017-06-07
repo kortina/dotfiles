@@ -143,7 +143,6 @@ rbenv global 2.3.3
 # You may need to fix readline in irb by doing the following:
 # xcode-select --install
 # rbenv install -f 2.3.3 && RBENV_VERSION=2.3.3 gem pristine --all
-gem install git-up
 gem install docker-sync
 gem install cocoapods
 gem install overcommit

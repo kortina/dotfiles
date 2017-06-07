@@ -3,19 +3,20 @@
 	diff = auto
 	branch = auto
 [alias]
-        vi = "!vim .git/index"
-	st = status
 	ci = commit -a
 	co = checkout
-        cob = "!git checkout -b $1 && git push -u origin"
 	ll = log -p
+	st = status
+	tree = log --graph --decorate --pretty=oneline --abbrev-commit --all
+        browse-commit = !sh -c 'hub browse -- commit/$1' -
+        cob = "!git checkout -b $1 && git push -u origin"
+        delete-merged = "!git fetch origin && git branch -d $(git branch --merged | grep -v '*' | grep -v master)"
+        local-branches = !git branch -vv | cut -c 3- | awk '$3 !~/\\[/ { print $1 }'
+        pc           = "!git push origin `git rev-parse --abbrev-ref HEAD`"
         pr = pull-request
         push-current = "!git push origin `git rev-parse --abbrev-ref HEAD`"
-        pc           = "!git push origin `git rev-parse --abbrev-ref HEAD`"
-        delete-merged = "!git fetch origin && git branch -d $(git branch --merged | grep -v '*' | grep -v master)"
-	tree = log --graph --decorate --pretty=oneline --abbrev-commit --all
-        local-branches = !git branch -vv | cut -c 3- | awk '$3 !~/\\[/ { print $1 }'
-        browse-commit = !sh -c 'hub browse -- commit/$1' -
+        up = pull --rebase --autostash
+        vi = "!vim .git/index"
 [merge]
   tool = opendiff
 [core]
