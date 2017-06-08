@@ -314,6 +314,9 @@ nmap <Leader>c ggVG"*y
 " open markdown preview
 nmap <Leader>p :Mm<CR>
 
+" Toggle NERDTree
+nmap <Leader>nn :NERDTreeToggle<CR>
+
 " clear search buffer
 map <Leader>/ :let @/ = ""<CR>
 
