@@ -101,6 +101,7 @@ if ! command -v pip >/dev/null 2>&1; then
     brew reinstall python
 fi
 pip install ansible
+pip install autopep8
 pip install boto
 pip install flake8
 pip install ipython
