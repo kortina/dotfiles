@@ -21,3 +21,5 @@ madeXVim
 .vim/.netrwhist
 .vim/plugged/**
 s3screenshots.sh
+playground/node_modules/*
+playground/package-lock.json
