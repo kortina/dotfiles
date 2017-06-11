@@ -200,7 +200,8 @@ function FormatPrettierJs()
     let ln = line('.')
     let cn = col('.')
     " ↓ this will call formatprg on the entire buffer ↓
-    exe "normal gggqG"
+    silent exe "normal gggqG"
+    redraw!
     " Old way was to run the buffer through a filter ↓
     " silent %! prettier --single-quote --jsx-bracket-same-line --parser babylon --trailing-comma es5 --print-width 100
     " If there was an error, undo replacing the entire buffer
