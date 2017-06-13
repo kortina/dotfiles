@@ -205,7 +205,7 @@ function FormatPrettierJs()
     if v:shell_error
         undo
     endif
-    redraw!
+    redraw
     " Old way was to run the buffer through a filter ↓
     " silent %! prettier --single-quote --jsx-bracket-same-line --parser babylon --trailing-comma es5 --print-width 100
     cal cursor(ln, cn)
