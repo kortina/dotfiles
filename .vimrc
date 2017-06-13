@@ -201,13 +201,13 @@ function FormatPrettierJs()
     let cn = col('.')
     " ↓ this will call formatprg on the entire buffer ↓
     silent exe "normal gggqG"
+    if v:shell_error
+        undo
+    endif
     redraw!
     " Old way was to run the buffer through a filter ↓
     " silent %! prettier --single-quote --jsx-bracket-same-line --parser babylon --trailing-comma es5 --print-width 100
     " If there was an error, undo replacing the entire buffer
-    " if v:shell_error
-    "     undo
-    " endif
     cal cursor(ln, cn)
 endfunction
 " Run prettier on save (with Fin flags)
