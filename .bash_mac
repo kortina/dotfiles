@@ -91,3 +91,4 @@ fx() {
     docker exec -it fin.local $*
 }
 alias fh="cd $FIN_HOME"
+alias stopcruft="docker-compose stop elasticsearch fin_react_native fin_web fin_tags languagetool mail_parser"

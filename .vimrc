@@ -197,18 +197,17 @@ let g:jsx_ext_required = 0
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 autocmd FileType javascript setlocal formatprg=prettier\ --write\ --single-quote\ --jsx-bracket-same-line\ --parser\ babylon\ --trailing-comma\ es5\ --print-width\ 100
 function FormatPrettierJs()
-    let ln = line('.')
-    let cn = col('.')
+    let l:wv = winsaveview()
     " ↓ this will call formatprg on the entire buffer ↓
     silent exe "normal gggqG"
     " If there was an error, undo replacing the entire buffer
     if v:shell_error
         undo
     endif
+    call winrestview(l:wv)
     redraw
     " Old way was to run the buffer through a filter ↓
     " silent %! prettier --single-quote --jsx-bracket-same-line --parser babylon --trailing-comma es5 --print-width 100
-    cal cursor(ln, cn)
 endfunction
 " Run prettier on save (with Fin flags)
 autocmd BufWritePre *.js,*.jsx call FormatPrettierJs()
