@@ -1,9 +1,13 @@
 set nocompatible
 filetype off
 
+let use_you_complete_me = 0 " experiencing editor lag. try turning this off for now
+
 " vim-plug  *****************************************************************
 call plug#begin('~/.vim/plugged')
-Plug 'Valloric/YouCompleteMe'
+if use_you_complete_me
+    Plug 'Valloric/YouCompleteMe'
+endif
 Plug 'benmills/vimux'
 Plug 'dcosson/vimux-nose-test2'
 " Plug 'flowtype/vim-flow' " experimental - I want to get working, but WIP
@@ -276,9 +280,11 @@ autocmd FileType python map <Leader>rl :call VimuxRunNoseLine()<CR>
 " In one tab in docker, start karma and leave it running with
 " xvfb-run $NODE_PATH/karma/bin/karma start --single-run=false
 " 'L'ine
-autocmd FileType javascript map <Leader>rl :call VimuxRunCommand("clear; ./dev-scripts/karma-run-line-number.sh " . expand("%.") . ":" . line("."))<CR>
+" autocmd FileType javascript map <Leader>rl :call VimuxRunCommand("clear; ./dev-scripts/karma-run-line-number.sh " . expand("%.") . ":" . line("."))<CR>
+autocmd FileType javascript map <Leader>rl :call VimuxRunCommand("clear; ./dev-scripts/karma-start-single-run-line-number.sh " . expand("%.") . ":" . line("."))<CR>
 " 'B'uffer
-autocmd FileType javascript map <Leader>rb :call VimuxRunCommand("clear; $NODE_PATH/karma/bin/karma run -- --grep=")<CR>
+" autocmd FileType javascript map <Leader>rb :call VimuxRunCommand("clear; $NODE_PATH/karma/bin/karma run -- --grep=")<CR>
+autocmd FileType javascript map <Leader>rb :call VimuxRunCommand("clear; xvfb-run ./node_modules/karma/bin/karma start --single-run=true --single-file=\"" . expand("%.") . "\"")<CR>
 
 
 " Grammar  ******************************************************************
