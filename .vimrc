@@ -1,9 +1,13 @@
 set nocompatible
 filetype off
 
+let use_you_complete_me = 0 " experiencing editor lag. try turning this off for now
+
 " vim-plug  *****************************************************************
 call plug#begin('~/.vim/plugged')
-Plug 'Valloric/YouCompleteMe'
+if use_you_complete_me
+    Plug 'Valloric/YouCompleteMe'
+endif
 Plug 'benmills/vimux'
 Plug 'dcosson/vimux-nose-test2'
 " Plug 'flowtype/vim-flow' " experimental - I want to get working, but WIP
