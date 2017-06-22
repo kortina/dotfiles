@@ -10,7 +10,7 @@ if use_you_complete_me
 endif
 Plug 'benmills/vimux'
 Plug 'dcosson/vimux-nose-test2'
-" Plug 'flowtype/vim-flow' " experimental - I want to get working, but WIP
+Plug 'flowtype/vim-flow'
 Plug 'jnwhiteh/vim-golang'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -102,13 +102,15 @@ if getcwd() =~ '/fin/fin-core-beta$'
     let g:ale_linters = { 'javascript': ['eslint', 'flow'], 'jsx': ['eslint', 'flow']  }
     let g:ale_javascript_flow_use_relative_paths = 1
     let g:ale_javascript_flow_executable = './dev-scripts/flow-proxy.sh'
-    " let g:flow#enable = 0
-    " let g:flow#omnifunc = 1
-    " let g:flow#flowpath = './dev-scripts/flow-proxy.sh'
-    " let g:javascript_plugin_flow = 1
-    " let g:jsx_ext_required = 0
+    let g:flow#enable = 0
+    let g:flow#omnifunc = 1
+    let g:flow#flowpath = './dev-scripts/flow-proxy.sh'
+    let g:javascript_plugin_flow = 1
+    let g:jsx_ext_required = 0
 end
 
+" temp shortcut while flow-proxy is broken
+nmap <leader>fm :FlowMake<CR>
 
 
 nnoremap <leader>a :ALENextWrap<CR>
