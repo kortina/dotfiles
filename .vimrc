@@ -9,6 +9,7 @@ if use_you_complete_me
     Plug 'Valloric/YouCompleteMe'
 endif
 Plug 'benmills/vimux'
+Plug 'bogado/file-line'
 Plug 'dcosson/vimux-nose-test2'
 Plug 'flowtype/vim-flow'
 Plug 'jnwhiteh/vim-golang'
