@@ -14,6 +14,7 @@ alias t="bundle exec rspec --color"
 alias dk="docker-compose"
 alias pidawk="awk '{print \$2}'"
 alias v='pbpaste | vim -'
+alias pluginstall='vim +PlugInstall +qall'
 export FZF_DEFAULT_COMMAND='ag -g ""'
 
 
