@@ -96,6 +96,9 @@ let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 let g:airline_section_error = '%{ALEGetStatusLine()}'
 
 " let g:ale_linters = { 'javascript': ['eslint'], 'jsx': ['eslint']  }
+" NB: if you run your project on docker, make sure to install js dependencies
+" on mac host as well:
+"   yarn install --dev
 let g:ale_linters = { 'javascript': ['eslint', 'flow'], 'jsx': ['eslint', 'flow']  }
 let g:ale_javascript_eslint_use_global = 1
 let g:javascript_plugin_flow = 1
