@@ -9,6 +9,7 @@ if use_you_complete_me
     Plug 'Valloric/YouCompleteMe'
 endif
 Plug 'benmills/vimux'
+Plug 'bogado/file-line'
 Plug 'dcosson/vimux-nose-test2'
 Plug 'flowtype/vim-flow'
 Plug 'jnwhiteh/vim-golang'
@@ -30,13 +31,14 @@ Plug 'shime/vim-livedown'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rails'
+Plug 'tpope/vim-rhubarb'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-ruby/vim-ruby'
 Plug 'vim-scripts/LanguageTool'
 Plug 'vim-scripts/fountain.vim'
 Plug 'vim-scripts/taglist.vim'
-Plug 'dcosson/ale' " Plug 'w0rp/ale' does not work with flow-proxy.sh
+Plug 'w0rp/ale'
 call plug#end()
 
 filetype plugin indent on
@@ -93,25 +95,24 @@ let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 let g:airline_section_error = '%{ALEGetStatusLine()}'
 
-let g:ale_linters = { 'javascript': ['eslint'], 'jsx': ['eslint']  }
+" let g:ale_linters = { 'javascript': ['eslint'], 'jsx': ['eslint']  }
+" NB: if you run your project on docker, make sure to install js dependencies
+" on mac host as well:
+"   yarn install --dev
+let g:ale_linters = { 'javascript': ['eslint', 'flow'], 'jsx': ['eslint', 'flow']  }
 let g:ale_javascript_eslint_use_global = 1
+let g:javascript_plugin_flow = 1
+let g:jsx_ext_required = 0
 
 " I would do this as a local project .vimrc, but do not want to commit that to
 " shared repo:
 if getcwd() =~ '/fin/fin-core-beta$'
-    let g:ale_linters = { 'javascript': ['eslint', 'flow'], 'jsx': ['eslint', 'flow']  }
-    let g:ale_javascript_flow_use_relative_paths = 1
-    let g:ale_javascript_flow_executable = './dev-scripts/flow-proxy.sh'
     let g:flow#enable = 0
-    let g:flow#omnifunc = 1
-    let g:flow#flowpath = './dev-scripts/flow-proxy.sh'
-    let g:javascript_plugin_flow = 1
-    let g:jsx_ext_required = 0
+    let g:flow#omnifunc = 0
 end
 
 " temp shortcut while flow-proxy is broken
 nmap <leader>fm :FlowMake<CR>
-
 
 nnoremap <leader>a :ALENextWrap<CR>
 " [hack] Make sure the gutter is much darker black than the buffer background color
