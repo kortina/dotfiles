@@ -92,4 +92,4 @@ fx() {
 }
 alias fh="cd $FIN_HOME"
 alias stopcruft="fin && docker-compose stop languagetool fin_react_native mail_parser"
-alias stopcruft="docker-compose stop elasticsearch fin_react_native fin_web fin_tags languagetool mail_parser rails"
+alias stopcruft="docker-compose stop elasticsearch fin_react_native fin_web languagetool mail_parser rails"
