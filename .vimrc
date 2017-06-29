@@ -252,31 +252,31 @@ map <Leader>rx :call VimuxCloseRunner()<CR>
 map <Leader>ra :call VimuxRunLastCommand()<CR>
 " vimux ruby
 " 'S'pecs 'S'uite
-autocmd FileType ruby   map <Leader>rs :call VimuxRunCommand("rspec")<CR>
+autocmd FileType ruby   map <buffer> <Leader>rs :call VimuxRunCommand("rspec")<CR>
 " 'B'uffer
-autocmd FileType ruby   map <Leader>rb :RunAllRubyTests<CR>
+autocmd FileType ruby   map <buffer> <Leader>rb :RunAllRubyTests<CR>
 " 'L'ine
-" autocmd FileType ruby   map <Leader>rl :RunRailsFocusedTest<CR>
-autocmd FileType ruby   map <Leader>rl :call VimuxRunCommand("clear; RSPEC_CLEAN_WITH_DELETION=1 RSPEC_TRUNCATE_AFTER_SUITE=1 RSPEC_SKIP_ELASTICSEARCH_SETUP=1 ./bin/rspec " . expand("%.") . ":" . line("."))<CR>
+" autocmd FileType ruby   map <buffer> <Leader>rl :RunRailsFocusedTest<CR>
+autocmd FileType ruby   map <buffer> <Leader>rl :call VimuxRunCommand("clear; RSPEC_CLEAN_WITH_DELETION=1 RSPEC_TRUNCATE_AFTER_SUITE=1 RSPEC_SKIP_ELASTICSEARCH_SETUP=1 ./bin/rspec " . expand("%.") . ":" . line("."))<CR>
 " 'C'ontext
-autocmd FileType ruby   map <Leader>rc :RunRubyFocusedContext<CR>
+autocmd FileType ruby   map <buffer> <Leader>rc :RunRubyFocusedContext<CR>
 " vimux python
-autocmd FileType python map <Leader>rt :call VimuxRunNoseSetup()<CR>
+autocmd FileType python map <buffer> <Leader>rt :call VimuxRunNoseSetup()<CR>
 " 'S'pecs 'S'uite
-autocmd FileType python map <Leader>rs :call VimuxRunNoseAll()<CR>
+autocmd FileType python map <buffer> <Leader>rs :call VimuxRunNoseAll()<CR>
 " 'B'uffer
-autocmd FileType python map <Leader>rb :call VimuxRunNoseFile()<CR>
+autocmd FileType python map <buffer> <Leader>rb :call VimuxRunNoseFile()<CR>
 " 'L'ine
-autocmd FileType python map <Leader>rl :call VimuxRunNoseLine()<CR>
+autocmd FileType python map <buffer> <Leader>rl :call VimuxRunNoseLine()<CR>
 " vimux js
 " In one tab in docker, start karma and leave it running with
 " xvfb-run $NODE_PATH/karma/bin/karma start --single-run=false
 " 'L'ine
 " autocmd FileType javascript map <Leader>rl :call VimuxRunCommand("clear; ./dev-scripts/karma-run-line-number.sh " . expand("%.") . ":" . line("."))<CR>
-autocmd FileType javascript map <Leader>rl :call VimuxRunCommand("clear; ./dev-scripts/karma-start-single-run-line-number.sh " . expand("%.") . ":" . line("."))<CR>
+autocmd FileType javascript map <buffer> <Leader>rl :call VimuxRunCommand("clear; ./dev-scripts/karma-start-single-run-line-number.sh " . expand("%.") . ":" . line("."))<CR>
 " 'B'uffer
 " autocmd FileType javascript map <Leader>rb :call VimuxRunCommand("clear; $NODE_PATH/karma/bin/karma run -- --grep=")<CR>
-autocmd FileType javascript map <Leader>rb :call VimuxRunCommand("clear; xvfb-run ./node_modules/karma/bin/karma start --single-run=true --single-file=\"" . expand("%.") . "\"")<CR>
+autocmd FileType javascript map <buffer> <Leader>rb :call VimuxRunCommand("clear; xvfb-run ./node_modules/karma/bin/karma start --single-run=true --single-file=\"" . expand("%.") . "\"")<CR>
 
 
 " Grammar  ******************************************************************
