@@ -139,10 +139,11 @@ command V2h normal <C-w>t<C-w>K
 
 
 " Completion ****************************************************************
-autocmd FileType python set omnifunc=pythoncomplete#Complete
-autocmd FileType python setlocal list
-autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+autocmd FileType css        setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html       setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python     setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType python     setlocal list
 
 let g:ctrlp_working_path_mode = 0
 set wildignore+=*/node_modules/*
