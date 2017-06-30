@@ -11,6 +11,7 @@ endif
 Plug 'benmills/vimux'
 Plug 'bogado/file-line'
 Plug 'dcosson/vimux-nose-test2'
+Plug 'flowtype/vim-flow'
 Plug 'jnwhiteh/vim-golang'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -18,7 +19,9 @@ Plug 'juvenn/mustache.vim'
 Plug 'kana/vim-fakeclip'
 Plug 'kortina/crosshair-focus.vim'
 Plug 'mileszs/ack.vim'
+Plug 'mxw/vim-jsx'
 Plug 'nvie/vim-flake8'
+Plug 'pangloss/vim-javascript'
 Plug 'pgr0ss/vimux-ruby-test'
 Plug 'plasticboy/vim-markdown'
 Plug 'rkulla/pydiction'
@@ -207,6 +210,9 @@ function FormatPrettierJs()
 endfunction
 " Run prettier on save (with Fin flags)
 autocmd BufWritePre *.js,*.jsx call FormatPrettierJs()
+let g:javascript_plugin_flow = 1
+let g:jsx_ext_required = 0
+
 
 " Golang  *******************************************************************
 set rtp+=/usr/local/go/misc/vim
