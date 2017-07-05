@@ -39,7 +39,7 @@ Plug 'vim-ruby/vim-ruby'
 Plug 'vim-scripts/LanguageTool'
 Plug 'vim-scripts/fountain.vim'
 Plug 'vim-scripts/taglist.vim'
-Plug 'dcosson/ale'
+Plug 'w0rp/ale'
 call plug#end()
 
 filetype plugin indent on
