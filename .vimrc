@@ -16,7 +16,7 @@ Plug 'flowtype/vim-flow'
 Plug 'jnwhiteh/vim-golang'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'juvenn/mustache.vim'
+" Plug 'juvenn/mustache.vim'
 Plug 'kana/vim-fakeclip'
 Plug 'kortina/crosshair-focus.vim'
 Plug 'mileszs/ack.vim'
@@ -26,9 +26,9 @@ Plug 'pangloss/vim-javascript'
 Plug 'pgr0ss/vimux-ruby-test'
 Plug 'plasticboy/vim-markdown'
 Plug 'rkulla/pydiction'
-Plug 'rodjek/vim-puppet'
+" Plug 'rodjek/vim-puppet'
 Plug 'scrooloose/nerdtree'
-Plug 'shime/vim-livedown'
+" Plug 'shime/vim-livedown'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rails'
@@ -96,24 +96,17 @@ let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 let g:airline_section_error = '%{ALEGetStatusLine()}'
 
-" let g:ale_linters = { 'javascript': ['eslint'], 'jsx': ['eslint']  }
 " NB: if you run your project on docker, make sure to install js dependencies
 " on mac host as well:
 "   yarn install --dev
 let g:ale_linters = { 'javascript': ['eslint', 'flow'], 'jsx': ['eslint', 'flow']  }
 let g:ale_javascript_eslint_use_global = 1
-let g:javascript_plugin_flow = 1
-let g:jsx_ext_required = 0
 
 " I would do this as a local project .vimrc, but do not want to commit that to
 " shared repo:
 if getcwd() =~ '/fin/fin-core-beta$'
-    let g:flow#enable = 0
-    let g:flow#omnifunc = 0
+    " Project specific stuff here.
 end
-
-" temp shortcut while flow-proxy is broken
-nmap <leader>fm :FlowMake<CR>
 
 nnoremap <leader>a :ALENextWrap<CR>
 " [hack] Make sure the gutter is much darker black than the buffer background color
@@ -156,11 +149,11 @@ autocmd BufWritePre *.js :%s/\s\+$//e
 
 
 " Completion ****************************************************************
-autocmd FileType python set omnifunc=pythoncomplete#Complete
-autocmd FileType python setlocal list
-autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+autocmd FileType css        setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html       setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python     setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType python     setlocal list
 
 let g:ctrlp_working_path_mode = 0
 set wildignore+=*/node_modules/*
@@ -207,7 +200,6 @@ autocmd Filetype scss setlocal ts=2 sts=2 sw=2
 autocmd Filetype html setlocal ts=2 sts=2 sw=2
 
 " Javascript ****************************************************************
-let g:jsx_ext_required = 0
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 autocmd FileType javascript setlocal formatprg=prettier\ --write\ --single-quote\ --jsx-bracket-same-line\ --parser\ babylon\ --trailing-comma\ es5\ --print-width\ 100
 function FormatPrettierJs()
@@ -225,6 +217,9 @@ function FormatPrettierJs()
 endfunction
 " Run prettier on save (with Fin flags)
 autocmd BufWritePre *.js,*.jsx call FormatPrettierJs()
+let g:javascript_plugin_flow = 1
+let g:jsx_ext_required = 0
+
 
 " Golang  *******************************************************************
 set rtp+=/usr/local/go/misc/vim
@@ -270,31 +265,31 @@ map <Leader>rx :call VimuxCloseRunner()<CR>
 map <Leader>ra :call VimuxRunLastCommand()<CR>
 " vimux ruby
 " 'S'pecs 'S'uite
-autocmd FileType ruby   map <Leader>rs :call VimuxRunCommand("rspec")<CR>
+autocmd FileType ruby   map <buffer> <Leader>rs :call VimuxRunCommand("rspec")<CR>
 " 'B'uffer
-autocmd FileType ruby   map <Leader>rb :RunAllRubyTests<CR>
+autocmd FileType ruby   map <buffer> <Leader>rb :RunAllRubyTests<CR>
 " 'L'ine
-" autocmd FileType ruby   map <Leader>rl :RunRailsFocusedTest<CR>
-autocmd FileType ruby   map <Leader>rl :call VimuxRunCommand("clear; RSPEC_CLEAN_WITH_DELETION=1 RSPEC_TRUNCATE_AFTER_SUITE=1 RSPEC_SKIP_ELASTICSEARCH_SETUP=1 ./bin/rspec " . expand("%.") . ":" . line("."))<CR>
+" autocmd FileType ruby   map <buffer> <Leader>rl :RunRailsFocusedTest<CR>
+autocmd FileType ruby   map <buffer> <Leader>rl :call VimuxRunCommand("clear; RSPEC_CLEAN_WITH_DELETION=1 RSPEC_TRUNCATE_AFTER_SUITE=1 RSPEC_SKIP_ELASTICSEARCH_SETUP=1 ./bin/rspec " . expand("%.") . ":" . line("."))<CR>
 " 'C'ontext
-autocmd FileType ruby   map <Leader>rc :RunRubyFocusedContext<CR>
+autocmd FileType ruby   map <buffer> <Leader>rc :RunRubyFocusedContext<CR>
 " vimux python
-autocmd FileType python map <Leader>rt :call VimuxRunNoseSetup()<CR>
+autocmd FileType python map <buffer> <Leader>rt :call VimuxRunNoseSetup()<CR>
 " 'S'pecs 'S'uite
-autocmd FileType python map <Leader>rs :call VimuxRunNoseAll()<CR>
+autocmd FileType python map <buffer> <Leader>rs :call VimuxRunNoseAll()<CR>
 " 'B'uffer
-autocmd FileType python map <Leader>rb :call VimuxRunNoseFile()<CR>
+autocmd FileType python map <buffer> <Leader>rb :call VimuxRunNoseFile()<CR>
 " 'L'ine
-autocmd FileType python map <Leader>rl :call VimuxRunNoseLine()<CR>
+autocmd FileType python map <buffer> <Leader>rl :call VimuxRunNoseLine()<CR>
 " vimux js
 " In one tab in docker, start karma and leave it running with
 " xvfb-run $NODE_PATH/karma/bin/karma start --single-run=false
 " 'L'ine
 " autocmd FileType javascript map <Leader>rl :call VimuxRunCommand("clear; ./dev-scripts/karma-run-line-number.sh " . expand("%.") . ":" . line("."))<CR>
-autocmd FileType javascript map <Leader>rl :call VimuxRunCommand("clear; ./dev-scripts/karma-start-single-run-line-number.sh " . expand("%.") . ":" . line("."))<CR>
+autocmd FileType javascript map <buffer> <Leader>rl :call VimuxRunCommand("clear; ./dev-scripts/karma-start-single-run-line-number.sh " . expand("%.") . ":" . line("."))<CR>
 " 'B'uffer
 " autocmd FileType javascript map <Leader>rb :call VimuxRunCommand("clear; $NODE_PATH/karma/bin/karma run -- --grep=")<CR>
-autocmd FileType javascript map <Leader>rb :call VimuxRunCommand("clear; xvfb-run ./node_modules/karma/bin/karma start --single-run=true --single-file=\"" . expand("%.") . "\"")<CR>
+autocmd FileType javascript map <buffer> <Leader>rb :call VimuxRunCommand("clear; xvfb-run ./node_modules/karma/bin/karma start --single-run=true --single-file=\"" . expand("%.") . "\"")<CR>
 
 
 " Grammar  ******************************************************************
