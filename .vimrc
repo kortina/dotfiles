@@ -8,6 +8,7 @@ call plug#begin('~/.vim/plugged')
 if use_you_complete_me
     Plug 'Valloric/YouCompleteMe'
 endif
+Plug 'aghareza/vim-gitgrep'
 Plug 'benmills/vimux'
 Plug 'bogado/file-line'
 Plug 'dcosson/vimux-nose-test2'
@@ -38,7 +39,7 @@ Plug 'vim-ruby/vim-ruby'
 Plug 'vim-scripts/LanguageTool'
 Plug 'vim-scripts/fountain.vim'
 Plug 'vim-scripts/taglist.vim'
-Plug 'w0rp/ale'
+Plug 'dcosson/ale'
 call plug#end()
 
 filetype plugin indent on
@@ -146,6 +147,12 @@ let g:ackprg = 'ag --vimgrep'
 command H2v normal <C-w>t<C-w>H
 " switch from vertical to horizontal split
 command V2h normal <C-w>t<C-w>K
+
+" Formatting ***************************************************************
+"" auto-remove trailing whitespace
+autocmd BufWritePre *.py :%s/\s\+$//e
+autocmd BufWritePre *.rb :%s/\s\+$//e
+autocmd BufWritePre *.js :%s/\s\+$//e
 
 
 " Completion ****************************************************************
@@ -377,3 +384,12 @@ endfun
 set exrc
 " disable unsafe commands in your project-specific .vimrc files
 set secure
+
+
+" Disables swap files
+set noswapfile
+set nobackup
+set nowb
+set nowritebackup
+
+autocmd FileType yaml set expandtab shiftwidth=2 softtabstop=2
