@@ -84,9 +84,17 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme = 'wombat'
 
 " ale ***********************************************************************
+let g:ale_enabled = 1
+nnoremap <leader>a :ALENextWrap<CR>
+
 set statusline+=%#warningmsg#
 set statusline+=%{ALEGetStatusLine()}
 set statusline+=%*
+
+" Only lint on save or when switching back to normal mode, not every keystroke in insert mode
+let g:ale_lint_on_text_changed = 'normal'
+" Only fix on save
+let g:ale_fix_on_save = 1
 
 let g:airline#extensions#ale#enable = 1
 let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
@@ -94,11 +102,25 @@ let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 let g:airline_section_error = '%{ALEGetStatusLine()}'
+let g:ale_change_sign_column_color = 1
 
 " NB: if you run your project on docker, make sure to install js dependencies
 " on mac host as well:
 "   yarn install --dev
-let g:ale_linters = { 'javascript': ['eslint', 'flow'], 'jsx': ['eslint', 'flow']  }
+let g:ale_linters = {
+\   'javascript': ['eslint', 'flow'],
+\   'jsx': ['eslint', 'flow'],
+\   'python': ['flake8'],
+\   'ruby': ['ruby', 'rubocop'],
+\   'hcl': [],
+\}
+let g:ale_fixers = {
+\   'javascript': ['prettier', 'remove_trailing_lines'],
+\   'ruby': ['rubocop', 'remove_trailing_lines'],
+\}
+
+" ale javascript settings
+let g:ale_javascript_prettier_options = ' --parser babylon --single-quote --jsx-bracket-same-line --trailing-comma es5 --print-width 100'
 let g:ale_javascript_eslint_use_global = 1
 
 " I would do this as a local project .vimrc, but do not want to commit that to
@@ -106,12 +128,6 @@ let g:ale_javascript_eslint_use_global = 1
 if getcwd() =~ '/fin/fin-core-beta$'
     " Project specific stuff here.
 end
-
-nnoremap <leader>a :ALENextWrap<CR>
-" [hack] Make sure the gutter is much darker black than the buffer background color
-" autocmd BufEnter,BufRead,BufWrite * highlight SignColumn ctermbg=16
-let g:ale_change_sign_column_color=1
-
 
 " Jump to last cursor position unless it's invalid or in an event handler
 autocmd BufReadPost *
@@ -195,6 +211,10 @@ autocmd Filetype html setlocal ts=2 sts=2 sw=2
 " Javascript ****************************************************************
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 autocmd FileType javascript setlocal formatprg=prettier\ --write\ --single-quote\ --jsx-bracket-same-line\ --parser\ babylon\ --trailing-comma\ es5\ --print-width\ 100
+let g:javascript_plugin_flow = 1
+let g:jsx_ext_required = 0
+
+" ↓ deprecated, using ale fixer now instead ↓
 function FormatPrettierJs()
     let l:wv = winsaveview()
     " ↓ this will call formatprg on the entire buffer ↓
@@ -208,11 +228,9 @@ function FormatPrettierJs()
     " Old way was to run the buffer through a filter ↓
     " silent %! prettier --single-quote --jsx-bracket-same-line --parser babylon --trailing-comma es5 --print-width 100
 endfunction
+" ↓ deprecated, using ale fixer now instead ↓
 " Run prettier on save (with Fin flags)
-autocmd BufWritePre *.js,*.jsx call FormatPrettierJs()
-let g:javascript_plugin_flow = 1
-let g:jsx_ext_required = 0
-
+" autocmd BufWritePre *.js,*.jsx call FormatPrettierJs()
 
 " Golang  *******************************************************************
 set rtp+=/usr/local/go/misc/vim
