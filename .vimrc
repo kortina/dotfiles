@@ -296,11 +296,19 @@ autocmd FileType python map <buffer> <Leader>rl :call VimuxRunNoseLine()<CR>
 " In one tab in docker, start karma and leave it running with
 " xvfb-run $NODE_PATH/karma/bin/karma start --single-run=false
 " 'L'ine
+" ↓ use daemonized karma runner:
 " autocmd FileType javascript map <Leader>rl :call VimuxRunCommand("clear; ./dev-scripts/karma-run-line-number.sh " . expand("%.") . ":" . line("."))<CR>
-autocmd FileType javascript map <buffer> <Leader>rl :call VimuxRunCommand("clear; ./dev-scripts/karma-start-single-run-line-number.sh " . expand("%.") . ":" . line("."))<CR>
+" ↓ start karma each test run:
+" autocmd FileType javascript map <buffer> <Leader>rl :call VimuxRunCommand("clear; ./dev-scripts/karma-start-single-run-line-number.sh " . expand("%.") . ":" . line("."))<CR>
+" ↓ use jest runner:
+autocmd FileType javascript map <buffer> <Leader>rl :call VimuxRunCommand("clear; ./dev-scripts/jest-run-focused-test.sh " . expand("%.") . ":" . line("."))<CR>
 " 'B'uffer
+" ↓ use daemonized karma runner:
 " autocmd FileType javascript map <Leader>rb :call VimuxRunCommand("clear; $NODE_PATH/karma/bin/karma run -- --grep=")<CR>
-autocmd FileType javascript map <buffer> <Leader>rb :call VimuxRunCommand("clear; xvfb-run ./node_modules/karma/bin/karma start --single-run=true --single-file=\"" . expand("%.") . "\"")<CR>
+" ↓ start karma each test run:
+" autocmd FileType javascript map <buffer> <Leader>rb :call VimuxRunCommand("clear; xvfb-run ./node_modules/karma/bin/karma start --single-run=true --single-file=\"" . expand("%.") . "\"")<CR>
+" ↓ use jest runner:
+autocmd FileType javascript map <buffer> <Leader>rb :call VimuxRunCommand("clear; ./dev-scripts/jest-run-focused-test.sh " . expand("%."))<CR>
 
 
 " Grammar  ******************************************************************
