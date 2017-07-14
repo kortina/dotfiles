@@ -99,8 +99,42 @@ let g:airline_section_error = '%{ALEGetStatusLine()}'
 " NB: if you run your project on docker, make sure to install js dependencies
 " on mac host as well:
 "   yarn install --dev
-let g:ale_linters = { 'javascript': ['eslint', 'flow'], 'jsx': ['eslint', 'flow']  }
-let g:ale_javascript_eslint_use_global = 1
+" let g:ale_linters = { 'javascript': ['eslint', 'flow'], 'jsx': ['eslint', 'flow']  }
+" let g:ale_javascript_eslint_use_global = 1
+
+"""
+""" ALE syntax checking
+"""
+let g:ale_enabled = 1
+" visual options
+let g:ale_sign_column_always = 1
+let g:ale_sign_warning = '✋'
+let g:ale_sign_error = '🚫'
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+
+" Linting options
+let g:ale_linters = {
+\   'javascript': ['eslint', 'flow'],
+\   'jsx': ['eslint', 'flow'],
+\   'python': ['flake8'],
+\   'ruby': ['ruby', 'rubocop'],
+\   'hcl': [],
+\}
+" Only lint on save or when switching back to normal mode, not every keystroke in insert mode
+let g:ale_lint_on_text_changed = 'normal'
+
+" Fixer options
+let g:ale_fixers = {
+\   'javascript': ['prettier', 'remove_trailing_lines'],
+\   'ruby': ['rubocop', 'remove_trailing_lines'],
+\}
+let g:ale_fix_on_save = 1
+
+" language-specific options
+let g:ale_javascript_prettier_options = ' --parser babylon --single-quote --jsx-bracket-same-line --trailing-comma es5 --print-width 100'
+let g:ale_javascript_flow_executable = './dev-scripts/flow-proxy.sh'
 
 " I would do this as a local project .vimrc, but do not want to commit that to
 " shared repo:
