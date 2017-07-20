@@ -1,0 +1,5 @@
+set noswapfile
+set nobackup
+set nowb
+set nowritebackup
+nmap <Leader>nt :NERDTreeToggle<CR>

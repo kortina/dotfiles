@@ -11,11 +11,9 @@ endif
 Plug 'benmills/vimux'
 Plug 'bogado/file-line'
 Plug 'dcosson/vimux-nose-test2'
-"Plug 'flowtype/vim-flow'
 Plug 'jnwhiteh/vim-golang'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-" Plug 'juvenn/mustache.vim'
 Plug 'kana/vim-fakeclip'
 Plug 'kortina/crosshair-focus.vim'
 Plug 'mileszs/ack.vim'
@@ -25,13 +23,10 @@ Plug 'pangloss/vim-javascript'
 Plug 'pgr0ss/vimux-ruby-test'
 Plug 'plasticboy/vim-markdown'
 Plug 'rkulla/pydiction'
-" Plug 'rodjek/vim-puppet'
 Plug 'scrooloose/nerdtree'
-" Plug 'shime/vim-livedown'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rails'
-Plug 'tpope/vim-rhubarb'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-ruby/vim-ruby'
@@ -50,13 +45,6 @@ let &runtimepath.=',~/.vim/bundle/ale'
 " use either , or \ as <Leader>
 let mapleader = ","
 nmap \ ,
-
-" source local customizations based on $USER name
-" eg, use ~/.vimrc.kortina for your local mods
-" and one common ~/.vimrc for team
-if filereadable($HOME . '/.vimrc.' . $USER)
-    exec ':source ' . $HOME . '/.vimrc.' . $USER
-endif
 
 " Basics ********************************************************************
 set backspace=indent,eol,start " fix backspace in vim 7
@@ -91,8 +79,9 @@ set statusline+=%#warningmsg#
 set statusline+=%{ALEGetStatusLine()}
 set statusline+=%*
 
-" Only lint on save or when switching back to normal mode, not every keystroke in insert mode
-let g:ale_lint_on_text_changed = 'normal'
+let g:ale_lint_on_insert_leave = 1
+let g:ale_lint_on_text_changed = 'normal' " 'never', 'insert', or 'normal'
+let g:ale_lint_on_save = 1
 " Only fix on save
 let g:ale_fix_on_save = 1
 
@@ -211,7 +200,6 @@ autocmd Filetype html setlocal ts=2 sts=2 sw=2
 " Javascript ****************************************************************
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 autocmd FileType javascript setlocal formatprg=prettier\ --write\ --single-quote\ --jsx-bracket-same-line\ --parser\ babylon\ --trailing-comma\ es5\ --print-width\ 100
-" let g:javascript_plugin_flow = 1
 let g:jsx_ext_required = 0
 
 " ↓ deprecated, using ale fixer now instead ↓
@@ -395,3 +383,11 @@ endfun
 set exrc
 " disable unsafe commands in your project-specific .vimrc files
 set secure
+
+" source local customizations based on $USER name
+" eg, use ~/.vimrc.kortina for your local mods
+" and one common ~/.vimrc for team
+if filereadable($HOME . '/.vimrc.' . $USER)
+    exec ':source ' . $HOME . '/.vimrc.' . $USER
+endif
+
