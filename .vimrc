@@ -46,13 +46,6 @@ let &runtimepath.=',~/.vim/bundle/ale'
 let mapleader = ","
 nmap \ ,
 
-" source local customizations based on $USER name
-" eg, use ~/.vimrc.kortina for your local mods
-" and one common ~/.vimrc for team
-if filereadable($HOME . '/.vimrc.' . $USER)
-    exec ':source ' . $HOME . '/.vimrc.' . $USER
-endif
-
 " Basics ********************************************************************
 set backspace=indent,eol,start " fix backspace in vim 7
 set cm=blowfish
@@ -390,3 +383,11 @@ endfun
 set exrc
 " disable unsafe commands in your project-specific .vimrc files
 set secure
+
+" source local customizations based on $USER name
+" eg, use ~/.vimrc.kortina for your local mods
+" and one common ~/.vimrc for team
+if filereadable($HOME . '/.vimrc.' . $USER)
+    exec ':source ' . $HOME . '/.vimrc.' . $USER
+endif
+
