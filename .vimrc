@@ -11,7 +11,7 @@ endif
 Plug 'benmills/vimux'
 Plug 'bogado/file-line'
 Plug 'dcosson/vimux-nose-test2'
-Plug 'flowtype/vim-flow'
+"Plug 'flowtype/vim-flow'
 Plug 'jnwhiteh/vim-golang'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -211,7 +211,7 @@ autocmd Filetype html setlocal ts=2 sts=2 sw=2
 " Javascript ****************************************************************
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 autocmd FileType javascript setlocal formatprg=prettier\ --write\ --single-quote\ --jsx-bracket-same-line\ --parser\ babylon\ --trailing-comma\ es5\ --print-width\ 100
-let g:javascript_plugin_flow = 1
+" let g:javascript_plugin_flow = 1
 let g:jsx_ext_required = 0
 
 " ↓ deprecated, using ale fixer now instead ↓
