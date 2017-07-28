@@ -86,6 +86,7 @@ export FIN_HOME="$HOME/fin/fin-core-beta"
 export FIN_DOCKER_MEMORY=8
 export FIN_DOCKER_MEMORY_MIB=8192
 export FIN_SSH_USERNAME="andrew_kortina"
+export RUN_FLOW_ON_COMMIT=1 # for Fin overcommit
 source_if_exists "$FIN_HOME/fin-dev/bashrc"
 
 fx() {
