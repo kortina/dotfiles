@@ -93,8 +93,4 @@ fx() {
     docker exec -it fin.local $*
 }
 alias fh="cd $FIN_HOME"
-<<<<<<< HEAD
 alias stopcruft="fin && docker-compose stop languagetool fin_react_native mail_parser fin_tags"
-=======
-alias stopcruft="docker-compose stop fin_react_native fin_web fin_tags languagetool mail_parser"
->>>>>>> 173efaccb1dd323775bef3311eece5d759fb00a6
