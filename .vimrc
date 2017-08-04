@@ -309,6 +309,11 @@ nmap <Leader>s :setlocal spell! spelllang=en_us<CR>
 " Theme *********************************************************************
 set rtp+=$HOME/dotfiles/themes/tomorrow-theme/vim
 colorscheme Tomorrow-Night
+" Some of the highlight colors are kinda wack. Fix them:
+hi SpellBad ctermfg=54
+hi SpellCap ctermfg=54
+hi DiffAdd ctermfg=54
+
 
 
 " Crosshairs ****************************************************************
