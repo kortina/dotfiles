@@ -333,7 +333,7 @@ function! s:FlashCrosshairs()
     hi CursorLine     guifg=NONE        guibg=black     gui=NONE      ctermfg=NONE        ctermbg=black            cterm=BOLD
     hi CursorColumn   guifg=NONE        guibg=black     gui=NONE      ctermfg=NONE        ctermbg=black            cterm=BOLD
     redraw
-    sleep 100m
+    " sleep 100m
 
     " restore originals
     if g:crosshair_cursorline
