@@ -15,7 +15,7 @@ Plug 'jnwhiteh/vim-golang'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'kana/vim-fakeclip'
-Plug 'kortina/crosshair-focus.vim'
+" Plug 'kortina/crosshair-focus.vim'
 Plug 'mileszs/ack.vim'
 Plug 'mxw/vim-jsx'
 Plug 'nvie/vim-flake8'
@@ -57,8 +57,8 @@ set incsearch
 set hlsearch
 set ignorecase
 set smartcase
-set cursorline
-set cursorcolumn
+set nocursorline " see Crosshairs below for turning these on and off for real
+set nocursorcolumn
 set title
 set ruler
 set showmode
@@ -309,19 +309,61 @@ nmap <Leader>s :setlocal spell! spelllang=en_us<CR>
 " Theme *********************************************************************
 set rtp+=$HOME/dotfiles/themes/tomorrow-theme/vim
 colorscheme Tomorrow-Night
+" Some of the highlight colors are kinda wack. Fix them:
+hi SpellBad ctermfg=54
+hi SpellCap ctermfg=54
+hi DiffAdd ctermfg=54
+
 
 
 " Crosshairs ****************************************************************
-function CrosshairsOn()
-    set cursorline
-    set cursorcolumn
+" function CrosshairsOn()
+"     set cursorline
+"     set cursorcolumn
+"     hi CursorLine     guifg=NONE        guibg=black     gui=NONE      ctermfg=NONE        ctermbg=black            cterm=BOLD
+"     hi CursorColumn   guifg=NONE        guibg=black     gui=NONE      ctermfg=NONE        ctermbg=black            cterm=BOLD
+" endfunction
+" nmap <Leader>l :call CrosshairsOn()<CR>
+
+" autocmd BufRead,BufNewFile,BufDelete * :syntax on
+" autocmd BufRead,BufNewFile,BufDelete * :call CrosshairsOn()
+
+" Use these instead of cursorline and cursorcolumn
+let g:crosshair_cursorline = 1
+let g:crosshair_cursorcolumn = 0
+
+function! s:FlashCrosshairs()
+    setlocal cursorline
+    setlocal cursorcolumn
     hi CursorLine     guifg=NONE        guibg=black     gui=NONE      ctermfg=NONE        ctermbg=black            cterm=BOLD
     hi CursorColumn   guifg=NONE        guibg=black     gui=NONE      ctermfg=NONE        ctermbg=black            cterm=BOLD
-endfunction
-nmap <Leader>l :call CrosshairsOn()<CR>
+    redraw
+    sleep 10m
 
-autocmd BufRead,BufNewFile,BufDelete * :syntax on
-autocmd BufRead,BufNewFile,BufDelete * :call CrosshairsOn()
+    " restore originals
+    if g:crosshair_cursorline
+        setlocal cursorline
+    else
+        setlocal nocursorline
+    endif
+    if g:crosshair_cursorcolumn
+        setlocal cursorcolumn
+    else
+        setlocal nocursorcolumn
+    endif
+    redraw
+endfunction
+com! FlashCrosshairs call s:FlashCrosshairs()
+" Use ,, to flash the Crosshairs:
+nmap <Leader>, :FlashCrosshairs<CR>
+
+" Set cursorline and cursorcolumn here based on your prefs:
+augroup CrosshairsGroup
+    au!
+    au WinEnter,BufWinEnter * :call s:FlashCrosshairs() " ,VimEnter
+    au WinLeave * setlocal nocursorline nocursorcolumn
+augroup END
+
 
 " Shortcuts *****************************************************************
 imap <C-l> <C-r>"
