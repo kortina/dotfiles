@@ -1,7 +1,5 @@
 ### JK aliasas
-alias launch_ense='cd /Users/jennykortina/Developer/ense/development/metalweb/website && subl . && gulp'
-alias ense='cd /Users/jennykortina/Developer/ense/development/metalweb/website'
-alias noteToSelf='cd /Users/jennykortina/Developer/noteToSelf'
+alias dotfiles='cd /Users/jennykortina/dotfiles'
+alias developer='cd /Users/jennykortina/Developer'
 alias sesher='cd /Users/jennykortina/Developer/sesher'
-alias akinai='cd /Users/jennykortina/Developer/akinai'
-alias foreman_akinai='foreman start -f Procfile.dev'
+alias ngork='cd /Users/jennykortina/Developer/ngork && ./ngrok http fin.local:3000'
