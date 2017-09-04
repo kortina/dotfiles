@@ -78,6 +78,12 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; else echo rbenv not ins
 source_if_exists "$HOME/.rbenv/completions/rbenv.bash"
 
 ##################################################
+# fzf
+##################################################
+source_if_exists "$HOME/.fzf.bash"
+source_if_exists "$HOME/.fzf.conf.bash"
+
+##################################################
 # docker
 ##################################################
 # export DOCKER_HOST="tcp://192.168.66.10:2375"
