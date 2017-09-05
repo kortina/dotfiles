@@ -67,6 +67,7 @@ brew_install fswatch
 
 brew_install ctop
 brew_install ctags
+brew_install ffmpeg
 brew_install heroku
 brew_install python
 brew_install tmux
