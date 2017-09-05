@@ -133,6 +133,7 @@ npm_install eslint-plugin-flowtype
 npm_install babel-eslint
 npm_install livedown
 npm_install prettier
+npm_install reveal-md
 
 
 ########################################
