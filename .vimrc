@@ -413,6 +413,7 @@ autocmd BufNewFile,BufRead *.md,*.mkd,*.markdown,*.fountain setlocal spell spell
 autocmd BufRead *.fountain let b:undo_ftplugin = '' 
 " use markdown folding of headers in fountain files
 autocmd BufRead *.fountain source ~/.vim/bundle/vim-markdown-folding/after/ftplugin/markdown/folding.vim
+let g:vim_markdown_frontmatter=1
 
 " Experiments  *****************************************************************
 " autocmd VimEnter *   call LogCmdEvent("VimEnter")
