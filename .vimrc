@@ -133,6 +133,7 @@ vnoremap <Space> zf
 " it's way too hard to type zR/zM to expand/close all folds, so
 nnoremap 88 zR
 nnoremap 77 zM
+set foldlevelstart=99
 
 
 " Search ********************************************************************
