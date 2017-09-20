@@ -3,3 +3,6 @@ set nobackup
 set nowb
 set nowritebackup
 nmap <Leader>nt :NERDTreeToggle<CR>
+" leader k to run focused spec in karma daemon
+" start the daemon w `fd karma-focused-runner dashboard` (or web)
+autocmd FileType javascript map <Leader>rk :call VimuxRunCommand("clear; ./dev-scripts/karma-run-line-number.sh " . expand("%.") . ":" . line("."))<CR>
