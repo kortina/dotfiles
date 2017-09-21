@@ -66,6 +66,7 @@ set showmode
 set showcmd
 set ai " Automatically set the indent of a new line (local to buffer)
 set si " smartindent    (local to buffer)
+set lazyredraw
 
 " airline *******************************************************************
 set laststatus=2 " Show filename at bottom of buffer
