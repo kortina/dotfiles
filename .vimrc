@@ -66,6 +66,7 @@ set showmode
 set showcmd
 set ai " Automatically set the indent of a new line (local to buffer)
 set si " smartindent    (local to buffer)
+set lazyredraw
 
 " airline *******************************************************************
 set laststatus=2 " Show filename at bottom of buffer
@@ -133,6 +134,7 @@ vnoremap <Space> zf
 " it's way too hard to type zR/zM to expand/close all folds, so
 nnoremap 88 zR
 nnoremap 77 zM
+set foldlevelstart=99
 
 
 " Search ********************************************************************
@@ -413,6 +415,7 @@ autocmd BufNewFile,BufRead *.md,*.mkd,*.markdown,*.fountain setlocal spell spell
 autocmd BufRead *.fountain let b:undo_ftplugin = '' 
 " use markdown folding of headers in fountain files
 autocmd BufRead *.fountain source ~/.vim/bundle/vim-markdown-folding/after/ftplugin/markdown/folding.vim
+let g:vim_markdown_frontmatter=1
 
 " Experiments  *****************************************************************
 " autocmd VimEnter *   call LogCmdEvent("VimEnter")
