@@ -42,6 +42,15 @@ sudo chown -R "`id -u -n`:admin" /usr/local
     open "themes/tomorrow-theme/OS X Terminal/Tomorrow Night.terminal"
 
 
+### fzf
+
+`setup-deps.sh` will run `brew install fzf` which creates 
+`~/.fzf.bash` and `~/.fzf/`. In my `~/.bash_mac` I source `~/.fzf.bash`
+to get all of the default terminal keybindings for `fzf` like
+`ctrl-r` for history search. Then, I have my personal `fzf` settings
+in `~/.fzf.conf.bash`
+
+
 ### Questions
 
 If something is unclear, please add an issue: https://github.com/kortina/dotfiles/issues
