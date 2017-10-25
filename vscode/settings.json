@@ -1,0 +1,8 @@
+{
+    "vim.disableAnnoyingNeovimMessage": true,
+    "workbench.colorTheme": "Tomorrow Night",
+    "workbench.colorCustomizations": {
+        "editor.lineHighlightBorder": "#444444"
+        // "editor.lineHighlightBackground": "#ff0000"
+    }
+}
