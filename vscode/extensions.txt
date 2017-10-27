@@ -1,0 +1,3 @@
+flowtype.flow-for-vscode
+ms-vscode.Theme-TomorrowKit
+vscodevim.vim
