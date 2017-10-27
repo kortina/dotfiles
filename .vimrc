@@ -35,6 +35,11 @@ Plug 'vim-scripts/LanguageTool'
 Plug 'vim-scripts/fountain.vim'
 Plug 'vim-scripts/taglist.vim'
 Plug 'w0rp/ale'
+
+
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
+
 call plug#end()
 
 filetype plugin indent on
@@ -42,6 +47,8 @@ syntax on
 
 let &runtimepath.=',~/.vim/bundle/ale'
 :runtime! ~/.vim/
+
+
 
 " use either , or \ as <Leader>
 let mapleader = ","
@@ -436,4 +443,42 @@ set secure
 if filereadable($HOME . '/.vimrc.' . $USER)
     exec ':source ' . $HOME . '/.vimrc.' . $USER
 endif
+
+
+" ***********************************************************************
+" ***********************************************************************
+" ***********************************************************************
+" ***********************************************************************
+
+
+let g:lsp_log_verbose = 1
+let g:lsp_log_file = expand('~/vim-lsp.log')
+" for asyncomplete.vim log
+let g:asyncomplete_log_file = expand('~/asyncomplete.log')
+
+autocmd FileType * setlocal omnifunc=lsp#complete
+let g:lsp_async_completion = 1
+" autocmd FileType typescript setlocal omnifunc=lsp#complete
+set omnifunc=lsp#complete
+
+" gem install language_server
+au User lsp_setup call lsp#register_server({
+    \ 'name': 'language_server',
+    \ 'cmd': {server_info->['language_server']},
+    \ 'whitelist': ['ruby'],
+    \ })
+
+" gem install language_server
+au User lsp_setup call lsp#register_server({
+    \ 'name': 'flow-language-server',
+    \ 'cmd': {server_info->['flow-language-server']},
+    \ 'whitelist': ['javascript', 'javascript.jsx'],
+    \ })
+
+" pip install python-language-server
+au User lsp_setup call lsp#register_server({
+    \ 'name': 'pyls',
+    \ 'cmd': {server_info->['pyls']},
+    \ 'whitelist': ['python'],
+    \ })
 

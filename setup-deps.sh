@@ -157,3 +157,9 @@ gem install rubocop
 # vim
 ########################################
 vim +PlugInstall +qall
+
+########################################
+# vscode
+########################################
+cd "$DOTFILES_ROOT"
+./vscode/extensions-install.sh
