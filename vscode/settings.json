@@ -4,5 +4,10 @@
         "editor.lineHighlightBorder": "#444444"
         // "editor.lineHighlightBackground": "#ff0000"
     },
+    "focusRunner": {
+            "[plaintext]": {
+                "line": "echo \"\""
+        }
+    },
     "workbench.colorTheme": "Tomorrow Night"
 }
