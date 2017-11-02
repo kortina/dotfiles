@@ -5,6 +5,7 @@ set -e
 echo "##### $(basename $BASH_SOURCE) #####"
 
 DOTFILES_ROOT="`pwd`"
+source "$DOTFILES_ROOT/.bash_defs.sh"
 
 # make sure git submodules are up to date
 cd $DOTFILES_ROOT && git submodule update --init
@@ -75,7 +76,7 @@ brew_install languagetool
 brew_install youtube-dl
 brew_install the_silver_searcher # WAY faster than ack
 brew_install rbenv
-brew install reattach-to-user-namespace
+brew_install reattach-to-user-namespace
 brew_install vim # need vim8 for ale
 brew_install yarn
 brew tap caskroom/cask
@@ -153,13 +154,16 @@ gem install teamocil
 gem install rb-readline
 gem install rubocop
 
+
 ########################################
 # vim
 ########################################
-vim +PlugInstall +qall
+show_warning "You may still need to run\n vim +PlugInstall +qall"
 
 ########################################
 # vscode
 ########################################
 cd "$DOTFILES_ROOT"
-./vscode/extensions-install.sh
+test -e "$VSCODE_APP" || brew cask install visual-studio-code
+
+show_success "Finished setup-deps.sh"
