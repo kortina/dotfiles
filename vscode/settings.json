@@ -35,5 +35,9 @@
     "workbench.colorTheme": "Tomorrow Night",
     "workbench.startupEditor": "newUntitledFile",
     "workbench.activityBar.visible": false,
-    "workbench.statusBar.visible": true
+    "workbench.statusBar.visible": true,
+    "zenMode.hideStatusBar": false,
+
+    ///////////////////////////////////////////////////////////////////////////
+    "zzzz": null
 }
