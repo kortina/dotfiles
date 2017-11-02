@@ -1,17 +1,30 @@
 // Place your key bindings in this file to overwrite the defaults
 [
+    // Need to move all these to the vim keybindings in settings.json
+    //  {"key": ", r b", "command": "sendToTerminal.run"},
+    //  {"key": ", e", "command": "editor.action.marker.next"},
     // {"key": "ctrl+h", "command": "workbench.action.moveEditorLeftInGroup"},
     // {"key": "ctrl+l", "command": "workbench.action.moveEditorRightInGroup"},
+
+    // Prolly need to move all these to the vim keybindings in settings.json
     {"key": "ctrl+j", "command": "workbench.action.focusNextGroup"},
     {"key": "ctrl+l", "command": "workbench.action.focusNextGroup"},
     {"key": "ctrl+k", "command": "workbench.action.focusPreviousGroup"},
     {"key": "ctrl+h", "command": "workbench.action.focusPreviousGroup"},
 
+    // Prolly need to move all these to the vim keybindings in settings.json
     // Move focus from terminal to editor:
-    { "key": "ctrl+k", "command": "workbench.action.focusActiveEditorGroup", "when": "terminalFocus"},
+    { "key": "ctrl+shift+k", "command": "workbench.action.focusActiveEditorGroup", "when": "terminalFocus"},
+    { "key": "ctrl+shift+k", "command": "workbench.action.terminal.focus", "when": "!terminalFocus"},
     // Move focus down to the terminal:
-    {"key": "ctrl+a j", "command": "workbench.action.terminal.focus"},
+    { "key": "ctrl+shift+j", "command": "workbench.action.terminal.focus", "when": "!terminalFocus"},
+    { "key": "ctrl+shift+j", "command": "workbench.action.focusActiveEditorGroup", "when": "terminalFocus"},
+
+    {"zenMode.hideStatusBar": false},
+    
+
 //    { "key": "ctrl+j",          "command": "workbench.action.focusActiveEditorGroup", "when": "terminalFocus" },
 //    { "key": "ctrl+k",          "command": "workbench.action.terminal.focus", "when": "!terminalFocus" }
+
     {}
 ]

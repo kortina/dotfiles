@@ -1,5 +1,17 @@
 {
+    "editor.minimap.enabled": false,
     "vim.disableAnnoyingNeovimMessage": true,
+    "vim.leader": ",",
+    "vim.otherModesKeyBindingsNonRecursive": [
+        {
+            "before": ["<leader>", "e"],
+            "after": [],
+            "commands": [
+                {"command": "editor.action.marker.next", "args": []}
+            ]
+
+        }
+    ],
     "workbench.colorCustomizations": {
         "editor.lineHighlightBorder": "#444444"
         // "editor.lineHighlightBackground": "#ff0000"
@@ -9,5 +21,19 @@
                 "line": "echo \"\""
         }
     },
-    "workbench.colorTheme": "Tomorrow Night"
+    "sendToTerminal.commands": [{
+        "match": "_spec\\.rb$",
+        "cmd": "./bin/rspec ${relativeFile}"
+    }, {
+        "match": ".*",
+        "cmd": "echo 'Please add an entry to \"sendToTerminal.commands\" for \"${fileExtname}\"'"
+    }],
+    "sendToTerminal.focusCommands": [{
+        "match": "_spec\\.rb$",
+        "cmd": "./bin/rspec ${relativeFile}:${line}"
+    }],
+    "workbench.colorTheme": "Tomorrow Night",
+    "workbench.startupEditor": "newUntitledFile",
+    "workbench.activityBar.visible": false,
+    "workbench.statusBar.visible": true
 }
