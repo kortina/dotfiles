@@ -4,6 +4,8 @@
   "editor.quickSuggestionsDelay": 1,
   // "eslint.autoFixOnSave": true,
   // "eslint.validate": ["javascript", "javascriptreact", "typescript"],
+    "gitlens.annotations.file.gutter.format": "${author} - ${message|40?} ${ago|14-}",
+  "gitlens.blame.line.enabled": false,
   "prettier.eslintIntegration": true,
   "prettier.jsxBracketSameLine": true,
   "prettier.parser": "flow",

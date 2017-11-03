@@ -1,8 +1,10 @@
 dbaeumer.vscode-eslint
 dzannotti.vscode-babel-coloring
+eamodio.gitlens
 esbenp.prettier-vscode
 flowtype.flow-for-vscode
 hoovercj.ruby-linter
+johngraham262.join-comment-aware
 kortina.run-in-terminal
 misogi.ruby-rubocop
 ms-vscode.Theme-TomorrowKit
