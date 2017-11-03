@@ -2,8 +2,8 @@
   "editor.formatOnSave": true,
   "editor.minimap.enabled": false,
   "editor.quickSuggestionsDelay": 1,
-  "eslint.autoFixOnSave": true,
-  "eslint.validate": ["javascript", "javascriptreact", "typescript"],
+  // "eslint.autoFixOnSave": true,
+  // "eslint.validate": ["javascript", "javascriptreact", "typescript"],
   "prettier.eslintIntegration": true,
   "prettier.jsxBracketSameLine": true,
   "prettier.parser": "flow",
@@ -11,7 +11,7 @@
   "prettier.singleQuote": true,
   "prettier.trailingComma": "es5",
   "ruby.linter.run": "onSave",
-  "javascript.format.enable": true,
+  // "javascript.format.enable": true,
   "runInTerminal.commands": [
     {
       "cmd": "./bin/rspec ${relativeFile}:${line}",
@@ -116,6 +116,5 @@
   "workbench.colorTheme": "Tomorrow Night",
   "workbench.startupEditor": "newUntitledFile",
   "workbench.statusBar.visible": true,
-  "zenMode.hideStatusBar": false,
-  "zzzz": null
+  "zenMode.hideStatusBar": false
 }
