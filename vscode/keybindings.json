@@ -1,11 +1,7 @@
 // Place your key bindings in this file to overwrite the defaults
 [
-    // Need to move all these to the vim keybindings in settings.json
-    //  {"key": ", r b", "command": "sendToTerminal.run"},
-    //  {"key": ", e", "command": "editor.action.marker.next"},
-    // {"key": "ctrl+h", "command": "workbench.action.moveEditorLeftInGroup"},
-    // {"key": "ctrl+l", "command": "workbench.action.moveEditorRightInGroup"},
 
+    { "key": "ctrl+a ctrl+o", "command": "workbench.action.toggleMaximizedPanel" },
     // Prolly need to move all these to the vim keybindings in settings.json
     // {"key": "ctrl+j", "command": "workbench.action.focusNextGroup"},
     // {"key": "ctrl+k", "command": "workbench.action.focusPreviousGroup"},
@@ -14,13 +10,13 @@
 
     // Prolly need to move all these to the vim keybindings in settings.json
     // Move focus left to explorer
-    { "key": "ctrl+shift+h", "command": "workbench.view.explorer", "when": "!explorerViewletFocus"},
+    { "key": "ctrl+a ctrl+h", "command": "workbench.view.explorer", "when": "!explorerViewletFocus"},
     // Move focus up to editor:
-    { "key": "ctrl+shift+k", "command": "workbench.action.focusActiveEditorGroup", "when": "terminalFocus"},
+    { "key": "ctrl+k", "command": "workbench.action.focusActiveEditorGroup", "when": "terminalFocus"}, // ctrl+a prefix doesn't work here
     // Move focus right to editor:
-    { "key": "ctrl+shift+l", "command": "workbench.action.focusActiveEditorGroup", "when": "explorerViewletFocus"},
+    { "key": "ctrl+a ctrl+l", "command": "workbench.action.focusActiveEditorGroup", "when": "explorerViewletFocus"},
     // Move focus down to the terminal:
-    { "key": "ctrl+shift+j", "command": "workbench.action.terminal.focus", "when": "editorFocus"},
+    { "key": "ctrl+a ctrl+j", "command": "workbench.action.terminal.focus", "when": "editorFocus"},
 
 //    { "key": "ctrl+j",          "command": "workbench.action.focusActiveEditorGroup", "when": "terminalFocus" },
 //    { "key": "ctrl+k",          "command": "workbench.action.terminal.focus", "when": "!terminalFocus" }
