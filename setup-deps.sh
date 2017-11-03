@@ -136,6 +136,8 @@ npm_install babel-eslint
 npm_install livedown
 npm_install prettier
 npm_install reveal-md
+npm_install typescript
+npm_install tslint
 
 
 ########################################

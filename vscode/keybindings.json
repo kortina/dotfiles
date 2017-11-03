@@ -7,20 +7,20 @@
     // {"key": "ctrl+l", "command": "workbench.action.moveEditorRightInGroup"},
 
     // Prolly need to move all these to the vim keybindings in settings.json
-    {"key": "ctrl+j", "command": "workbench.action.focusNextGroup"},
+    // {"key": "ctrl+j", "command": "workbench.action.focusNextGroup"},
+    // {"key": "ctrl+k", "command": "workbench.action.focusPreviousGroup"},
     {"key": "ctrl+l", "command": "workbench.action.focusNextGroup"},
-    {"key": "ctrl+k", "command": "workbench.action.focusPreviousGroup"},
     {"key": "ctrl+h", "command": "workbench.action.focusPreviousGroup"},
 
     // Prolly need to move all these to the vim keybindings in settings.json
-    // Move focus from terminal to editor:
+    // Move focus left to explorer
+    { "key": "ctrl+shift+h", "command": "workbench.view.explorer", "when": "!explorerViewletFocus"},
+    // Move focus up to editor:
     { "key": "ctrl+shift+k", "command": "workbench.action.focusActiveEditorGroup", "when": "terminalFocus"},
-    { "key": "ctrl+shift+k", "command": "workbench.action.terminal.focus", "when": "!terminalFocus"},
+    // Move focus right to editor:
+    { "key": "ctrl+shift+l", "command": "workbench.action.focusActiveEditorGroup", "when": "explorerViewletFocus"},
     // Move focus down to the terminal:
-    { "key": "ctrl+shift+j", "command": "workbench.action.terminal.focus", "when": "!terminalFocus"},
-    { "key": "ctrl+shift+j", "command": "workbench.action.focusActiveEditorGroup", "when": "terminalFocus"},
-
-    
+    { "key": "ctrl+shift+j", "command": "workbench.action.terminal.focus", "when": "editorFocus"},
 
 //    { "key": "ctrl+j",          "command": "workbench.action.focusActiveEditorGroup", "when": "terminalFocus" },
 //    { "key": "ctrl+k",          "command": "workbench.action.terminal.focus", "when": "!terminalFocus" }

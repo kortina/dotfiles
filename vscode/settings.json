@@ -1,37 +1,50 @@
 {
+    "terminal.integrated.cursorStyle": "block",
     "editor.minimap.enabled": false,
+    "eslint.validate": ["javascript", "javascriptreact", "typescript"],
     "vim.disableAnnoyingNeovimMessage": true,
+    "vim.hlsearch": true,
     "vim.leader": ",",
     "vim.otherModesKeyBindingsNonRecursive": [
         {
-            "before": ["<leader>", "e"],
-            "after": [],
+            "before": ["<leader>", "e"], "after": [],
             "commands": [
                 {"command": "editor.action.marker.next", "args": []}
             ]
-
+        },
+        {
+            "before": ["<leader>", "r", "a"], "after": [],
+            "commands": [ {"command": "runInTerminal.runLast" } ]
+        },
+        {
+            "before": ["<leader>", "r", "l"], "after": [],
+            "commands": [ {"command": "runInTerminal.run", "args": {"name": "l"}} ]
+        },
+        {
+            "before": ["<leader>", "r", "b"], "after": [],
+            "commands": [ {"command": "runInTerminal.run", "args": {"name": "b"}} ]
+        },
+        {
+            "before": ["<leader>", "r", "s"], "after": [],
+            "commands": [ {"command": "runInTerminal.run", "args": {"name": "s"}} ]
         }
     ],
     "workbench.colorCustomizations": {
-        "editor.lineHighlightBorder": "#444444"
+        "tab.activeForeground": "#ffffff",
+        "tab.unfocusedActiveForeground": "#555555",
+        "editor.lineHighlightBorder": "#444444",
+        // "panelTitle.activeBorder": "#42f468",
+        "editorCursor.foreground": "#f44271",
+        "terminalCursor.foreground": "#f44271"
+        // "contrastActiveBorder": "#42f468"
         // "editor.lineHighlightBackground": "#ff0000"
     },
-    "focusRunner": {
-            "[plaintext]": {
-                "line": "echo \"\""
-        }
-    },
-    "sendToTerminal.commands": [{
-        "match": "_spec\\.rb$",
-        "cmd": "./bin/rspec ${relativeFile}"
-    }, {
-        "match": ".*",
-        "cmd": "echo 'Please add an entry to \"sendToTerminal.commands\" for \"${fileExtname}\"'"
-    }],
-    "sendToTerminal.focusCommands": [{
-        "match": "_spec\\.rb$",
-        "cmd": "./bin/rspec ${relativeFile}:${line}"
-    }],
+    "runInTerminal.commands": [
+        {"match": "_spec\\.rb$", "name": "l", "cmd": "./bin/rspec ${relativeFile}:${line}"},
+        {"match": "_spec\\.rb$", "name": "b", "cmd": "./bin/rspec ${relativeFile}"},
+        {"match": "_spec\\.rb$", "name": "s", "cmd": "./bin/rspec"}
+    ],
+    "terminal.integrated.cursorBlinking": true,
     "workbench.colorTheme": "Tomorrow Night",
     "workbench.startupEditor": "newUntitledFile",
     "workbench.activityBar.visible": false,
@@ -39,5 +52,6 @@
     "zenMode.hideStatusBar": false,
 
     ///////////////////////////////////////////////////////////////////////////
-    "zzzz": null
+    "zzzz": null,
+    "window.zoomLevel": 0
 }
