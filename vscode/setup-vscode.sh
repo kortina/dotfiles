@@ -3,7 +3,9 @@ set -e
 echo "##### $(basename $BASH_SOURCE) #####"
 
 DOTFILES_ROOT="$HOME/dotfiles"
+cd "$DOTFILES_ROOT"
 source "$DOTFILES_ROOT/.bash_defs.sh"
+test -e "$VSCODE_APP" || brew cask install visual-studio-code
 
 EXTENSIONS="$HOME/dotfiles/vscode/extensions.txt"
 

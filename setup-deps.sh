@@ -162,10 +162,4 @@ gem install rubocop
 ########################################
 show_warning "You may still need to run\n vim +PlugInstall +qall"
 
-########################################
-# vscode
-########################################
-cd "$DOTFILES_ROOT"
-test -e "$VSCODE_APP" || brew cask install visual-studio-code
-
 show_success "Finished setup-deps.sh"
