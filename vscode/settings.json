@@ -41,10 +41,19 @@
   "terminal.integrated.cursorStyle": "block",
   "vim.disableAnnoyingNeovimMessage": true,
   "vim.handleKeys": {
-    "<C-a>": false
+    "<C-a>": false,
+    "<C-p>": false
   },
   "vim.hlsearch": true,
   "vim.leader": ",",
+  // This does not seem to work:
+  // "vim.insertModeKeyBindings": [
+  //   {
+  //     "before": ["<C-p>"],
+  //     "after": [],
+  //     "commands": [{ "command": "editor.action.triggerSuggest", "args": [] }]
+  //   }
+  // ],
   "vim.otherModesKeyBindingsNonRecursive": [
     {
       "after": [],

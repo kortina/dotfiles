@@ -1,5 +1,6 @@
 // Place your key bindings in this file to overwrite the defaults
 [
+    {"key": "ctrl+p", "command": "editor.action.triggerSuggest", "when": "editorFocus"},
 
     { "key": "ctrl+a ctrl+o", "command": "workbench.action.toggleMaximizedPanel" },
     // Prolly need to move all these to the vim keybindings in settings.json
