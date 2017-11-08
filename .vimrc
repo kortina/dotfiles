@@ -268,6 +268,12 @@ command! -complete=file -nargs=* Gstaged call s:RunShellCommand('git diff --stag
 :command ReviewGitDiff normal :Gdiff<CR>:H2v<CR>
 nmap <Leader>dd :ReviewGitDiff<CR>
 
+" browse current file on github (with my browse-file alias in .gitconfig) +
+" `hub`
+function! GH()
+    call system('hub browse-file "' . @% . '#L' . line('.') . '" & > /dev/null')
+endfunction
+nmap <Leader>gh :call GH()<CR>
 
 " Vimux  ********************************************************************
 let g:vimux_ruby_file_relative_paths = 1
