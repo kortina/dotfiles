@@ -1,7 +1,10 @@
+*.css.map
+
+.git/
 coverage
 log
+node_modules/
+site/
 tags
 tmp
 vendor
-.git/
-node_modules/

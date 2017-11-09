@@ -11,22 +11,29 @@ endif
 Plug 'benmills/vimux'
 Plug 'bogado/file-line'
 Plug 'dcosson/vimux-nose-test2'
+Plug 'jtratner/vim-flavored-markdown'
 Plug 'jnwhiteh/vim-golang'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'kana/vim-fakeclip'
+Plug 'kana/vim-textobj-user'
 " Plug 'kortina/crosshair-focus.vim'
 Plug 'mileszs/ack.vim'
 Plug 'mxw/vim-jsx'
 Plug 'nvie/vim-flake8'
 Plug 'pangloss/vim-javascript'
 Plug 'pgr0ss/vimux-ruby-test'
-Plug 'plasticboy/vim-markdown'
+Plug 'rainerborene/vim-reek'
+Plug 'reedes/vim-pencil'
+Plug 'reedes/vim-textobj-quote'
+Plug 'reedes/vim-textobj-sentence'
+Plug 'reedes/vim-wordy'
 Plug 'rkulla/pydiction'
 Plug 'scrooloose/nerdtree'
 Plug 'shime/vim-livedown'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-rails'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -35,6 +42,11 @@ Plug 'vim-scripts/LanguageTool'
 Plug 'vim-scripts/fountain.vim'
 Plug 'vim-scripts/taglist.vim'
 Plug 'w0rp/ale'
+
+
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
+
 call plug#end()
 
 filetype plugin indent on
@@ -42,6 +54,8 @@ syntax on
 
 let &runtimepath.=',~/.vim/bundle/ale'
 :runtime! ~/.vim/
+
+
 
 " use either , or \ as <Leader>
 let mapleader = ","
@@ -254,6 +268,12 @@ command! -complete=file -nargs=* Gstaged call s:RunShellCommand('git diff --stag
 :command ReviewGitDiff normal :Gdiff<CR>:H2v<CR>
 nmap <Leader>dd :ReviewGitDiff<CR>
 
+" browse current file on github (with my browse-file alias in .gitconfig) +
+" `hub`
+function! GH()
+    call system('hub browse-file "' . @% . '#L' . line('.') . '" & > /dev/null')
+endfunction
+nmap <Leader>gh :call GH()<CR>
 
 " Vimux  ********************************************************************
 let g:vimux_ruby_file_relative_paths = 1
@@ -436,4 +456,90 @@ set secure
 if filereadable($HOME . '/.vimrc.' . $USER)
     exec ':source ' . $HOME . '/.vimrc.' . $USER
 endif
+
+
+" ***********************************************************************
+" prose
+" ***********************************************************************
+" via https://github.com/reedes/vim-pencil
+function! Prose()
+  call pencil#init()
+  " call lexical#init()
+  " call litecorrect#init()
+  call textobj#quote#init()
+  call textobj#sentence#init()
+
+  " manual reformatting shortcuts
+  nnoremap <buffer> <silent> Q gqap
+  xnoremap <buffer> <silent> Q gq
+  nnoremap <buffer> <silent> <leader>Q vapJgqap
+
+  " force top correction on most recent misspelling
+  nnoremap <buffer> <c-s> [s1z=<c-o>
+  inoremap <buffer> <c-s> <c-g>u<Esc>[s1z=`]A<c-g>u
+
+  " replace common punctuation
+  " iabbrev <buffer> -- –
+  " iabbrev <buffer> --- —
+  iabbrev <buffer> << «
+  iabbrev <buffer> >> »
+  iabbrev <buffer> --> →
+
+  " open most folds
+  " setlocal foldlevel=6
+
+  " replace typographical quotes (reedes/vim-textobj-quote)
+  map <silent> <buffer> <leader>qc <Plug>ReplaceWithCurly
+  map <silent> <buffer> <leader>qs <Plug>ReplaceWithStraight
+
+  " highlight words (reedes/vim-wordy)
+  noremap <silent> <buffer> <F8> :<C-u>NextWordy<cr>
+  xnoremap <silent> <buffer> <F8> :<C-u>NextWordy<cr>
+  inoremap <silent> <buffer> <F8> <C-o>:NextWordy<cr>
+
+endfunction
+
+" automatically initialize buffer by file type
+autocmd FileType markdown,mkd,text call Prose()
+
+" invoke manually by command for other file types
+command! -nargs=0 Prose call Prose()
+
+
+
+" ***********************************************************************
+" experimental:
+" ***********************************************************************
+
+
+let g:lsp_log_verbose = 1
+let g:lsp_log_file = expand('~/vim-lsp.log')
+" for asyncomplete.vim log
+let g:asyncomplete_log_file = expand('~/asyncomplete.log')
+
+autocmd FileType * setlocal omnifunc=lsp#complete
+let g:lsp_async_completion = 1
+" autocmd FileType typescript setlocal omnifunc=lsp#complete
+set omnifunc=lsp#complete
+
+" gem install language_server
+au User lsp_setup call lsp#register_server({
+    \ 'name': 'language_server',
+    \ 'cmd': {server_info->['language_server']},
+    \ 'whitelist': ['ruby'],
+    \ })
+
+" gem install language_server
+au User lsp_setup call lsp#register_server({
+    \ 'name': 'flow-language-server',
+    \ 'cmd': {server_info->['flow-language-server']},
+    \ 'whitelist': ['javascript', 'javascript.jsx'],
+    \ })
+
+" pip install python-language-server
+au User lsp_setup call lsp#register_server({
+    \ 'name': 'pyls',
+    \ 'cmd': {server_info->['pyls']},
+    \ 'whitelist': ['python'],
+    \ })
 
