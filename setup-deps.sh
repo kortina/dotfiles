@@ -71,6 +71,7 @@ brew_install ctags
 brew_install ffmpeg
 brew_install heroku
 brew_install python
+brew_install pyenv
 brew_install tmux
 brew_install languagetool
 brew_install youtube-dl
