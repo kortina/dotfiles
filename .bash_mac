@@ -81,6 +81,13 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; else echo rbenv not ins
 source_if_exists "$HOME/.rbenv/completions/rbenv.bash"
 
 ##################################################
+# python
+##################################################
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+
+##################################################
 # fzf
 ##################################################
 source_if_exists "$HOME/.fzf.bash"

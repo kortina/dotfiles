@@ -10,11 +10,13 @@
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>3F9C47AF-FF7F-4A0D-BBC3-6F42EC85F4AB</string>
+				<string>9B120EA6-5FD6-4900-860B-EE99067D6D8E</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
 				<string></string>
+				<key>vitoclose</key>
+				<false/>
 			</dict>
 		</array>
 	</dict>
@@ -35,6 +37,10 @@
 				<integer>0</integer>
 				<key>argument</key>
 				<integer>0</integer>
+				<key>focusedappvariable</key>
+				<false/>
+				<key>focusedappvariablename</key>
+				<string></string>
 				<key>hotkey</key>
 				<integer>50</integer>
 				<key>hotmod</key>
@@ -53,22 +59,32 @@
 			<key>uid</key>
 			<string>294A52DC-6FB9-4549-8665-D58FDE0223F3</string>
 			<key>version</key>
-			<integer>1</integer>
+			<integer>2</integer>
 		</dict>
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>command</key>
-				<integer>1</integer>
-				<key>confirm</key>
+				<key>concurrently</key>
 				<false/>
+				<key>escaping</key>
+				<integer>68</integer>
+				<key>script</key>
+				<string>tell application "System Events" 
+    start current screen saver
+end tell</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>6</integer>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.action.systemcommand</string>
+			<string>alfred.workflow.action.script</string>
 			<key>uid</key>
-			<string>3F9C47AF-FF7F-4A0D-BBC3-6F42EC85F4AB</string>
+			<string>9B120EA6-5FD6-4900-860B-EE99067D6D8E</string>
 			<key>version</key>
-			<integer>1</integer>
+			<integer>2</integer>
 		</dict>
 	</array>
 	<key>readme</key>
@@ -77,13 +93,17 @@
 	<dict>
 		<key>294A52DC-6FB9-4549-8665-D58FDE0223F3</key>
 		<dict>
+			<key>xpos</key>
+			<integer>100</integer>
 			<key>ypos</key>
 			<real>60</real>
 		</dict>
-		<key>3F9C47AF-FF7F-4A0D-BBC3-6F42EC85F4AB</key>
+		<key>9B120EA6-5FD6-4900-860B-EE99067D6D8E</key>
 		<dict>
+			<key>xpos</key>
+			<integer>400</integer>
 			<key>ypos</key>
-			<real>60</real>
+			<integer>210</integer>
 		</dict>
 	</dict>
 	<key>webaddress</key>
