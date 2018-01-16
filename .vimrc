@@ -125,7 +125,8 @@ let g:ale_fixers = {
 \}
 
 " ale javascript settings
-let g:ale_javascript_prettier_options = ' --parser babylon --single-quote --jsx-bracket-same-line --trailing-comma es5 --print-width 100'
+" let g:ale_javascript_prettier_options = ' --parser babylon --single-quote --jsx-bracket-same-line --trailing-comma es5 --print-width 100'
+let g:ale_javascript_prettier_options = ' --config $FIN_HOME/.prettierrc '
 let g:ale_javascript_eslint_use_global = 1
 
 " I would do this as a local project .vimrc, but do not want to commit that to

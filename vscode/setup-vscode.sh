@@ -7,6 +7,8 @@ cd "$DOTFILES_ROOT"
 source "$DOTFILES_ROOT/.bash_defs.sh"
 test -e "$VSCODE_APP" || brew cask install visual-studio-code
 
+which code || { echo "No \`code\` binary on \$PATH. If you just installed VS Code, you may need to open a new terminal session."; exit 1; }
+
 EXTENSIONS="$HOME/dotfiles/vscode/extensions.txt"
 
 # vscode files
