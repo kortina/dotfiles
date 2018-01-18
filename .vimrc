@@ -26,7 +26,7 @@ Plug 'pgr0ss/vimux-ruby-test'
 Plug 'plasticboy/vim-markdown'
 Plug 'rainerborene/vim-reek'
 Plug 'reedes/vim-pencil'
-Plug 'reedes/vim-textobj-quote'
+" Plug 'reedes/vim-textobj-quote'
 Plug 'reedes/vim-textobj-sentence'
 Plug 'reedes/vim-wordy'
 Plug 'rkulla/pydiction'
@@ -469,7 +469,7 @@ function! Prose()
   call pencil#init()
   " call lexical#init()
   " call litecorrect#init()
-  call textobj#quote#init()
+  " call textobj#quote#init()
   call textobj#sentence#init()
 
   " manual reformatting shortcuts
@@ -492,7 +492,7 @@ function! Prose()
   " setlocal foldlevel=6
 
   " replace typographical quotes (reedes/vim-textobj-quote)
-  map <silent> <buffer> <leader>qc <Plug>ReplaceWithCurly
+  " map <silent> <buffer> <leader>qc <Plug>ReplaceWithCurly
   map <silent> <buffer> <leader>qs <Plug>ReplaceWithStraight
 
   " highlight words (reedes/vim-wordy)
