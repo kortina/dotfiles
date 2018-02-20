@@ -27,7 +27,7 @@
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
-	<string>Hotkey - Chrome - COPY</string>
+	<string>Hotkey - VSCode</string>
 	<key>objects</key>
 	<array>
 		<dict>
