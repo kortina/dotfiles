@@ -16,13 +16,14 @@ Then, install the LaunchAgent:
 
     # If your plist does not exist, create it by copying
     # com.kortina.s3screenshots.plist
-    # and replacing all instances of 'kortina' with your username:
+    # and replacing all instances of 'kortina' with your username.
+    # This command will do the copy + replace:
     test -e $plist || sed "s/kortina/`id -u -n`/g" com.kortina.s3screenshots.plist > $plist
 
     # Copy to your LaunchAgents:
-    $agent="~/Library/LaunchAgents/$plist"
+    agent="$HOME/Library/LaunchAgents/$plist"
     cp $plist $agent
-    chown kortina:staff $agent
+    chown "`id -u -n`:staff" $agent
     chmod 644 $agent
 
     # Start the agent:
