@@ -52,6 +52,7 @@ class S3ScreenshotHandler(RegexMatchingEventHandler):
         event_handler = klass(regexes=regexes,
                               ignore_directories=True)
         observer = Observer()
+        # observer = Observer(timeout=3.0)
         observer.schedule(event_handler, path, recursive=True)
         observer.start()
         try:
@@ -60,6 +61,10 @@ class S3ScreenshotHandler(RegexMatchingEventHandler):
         except KeyboardInterrupt:
             observer.stop()
         observer.join()
+
+    def on_moved(self, event):
+        logging.info(event)
+        self._mv_and_upload_file(event.dest_path)
 
     def on_created(self, event):
         logging.info(event)
@@ -107,7 +112,7 @@ class S3ScreenshotHandler(RegexMatchingEventHandler):
         b = conn.get_bucket(self._bucket_name())
         k = Key(b)
         k.key = os.path.basename(new_filepath)
-        logging.info("Uploading {0} to {1}", k.key, self._bucket_name())
+        logging.info("Uploading {0} to {1}".format(k.key, self._bucket_name()))
         k.set_contents_from_filename(new_filepath)
 
     def _mv_and_upload_file(self, filepath):
