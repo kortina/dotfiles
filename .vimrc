@@ -129,6 +129,7 @@ let g:ale_fixers = {
 " let g:ale_javascript_prettier_options = ' --parser babylon --single-quote --jsx-bracket-same-line --trailing-comma es5 --print-width 100'
 let g:ale_javascript_prettier_options = ' --config $FIN_HOME/.prettierrc '
 let g:ale_javascript_eslint_use_global = 1
+let g:ale_javascript_flow_executable = './dev-scripts/flow-proxy.sh'
 
 " I would do this as a local project .vimrc, but do not want to commit that to
 " shared repo:
