@@ -21,6 +21,19 @@
 				<false/>
 			</dict>
 		</array>
+		<key>98E705AA-2C2F-490F-AA29-B18EA1C4E517</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>3BB6DD07-5D29-4397-9E53-9F4CDC16BBB6</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>B1055B9D-BBE5-46AB-A688-C836EDA1AF89</key>
 		<array>
 			<dict>
@@ -88,7 +101,8 @@
 
 url=`osascript -e 'tell application "Google Chrome" to return URL of active tab of front window' | grep -v '\r\n'`
 title=`osascript -e 'tell application "Google Chrome" to return title of active tab of front window' | grep -v '\r\n'`
-echo "&lt;a href=\"$url\"&gt;$title&lt;/a&gt;" | textutil -stdin -format html -convert rtf -stdout | pbcopy</string>
+echo "&lt;a href=\"$url\"&gt;$title&lt;/a&gt;" | textutil -stdin -format html -convert rtf -stdout | pbcopy
+echo -e "$title\n$url"</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
@@ -124,6 +138,27 @@ echo "&lt;a href=\"$url\"&gt;$title&lt;/a&gt;" | textutil -stdin -format html -c
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string>{query}</string>
+				<key>title</key>
+				<string>Copied Link</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>3BB6DD07-5D29-4397-9E53-9F4CDC16BBB6</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string></string>
@@ -135,6 +170,13 @@ echo "&lt;a href=\"$url\"&gt;$title&lt;/a&gt;" | textutil -stdin -format html -c
 			<integer>130</integer>
 			<key>ypos</key>
 			<integer>30</integer>
+		</dict>
+		<key>3BB6DD07-5D29-4397-9E53-9F4CDC16BBB6</key>
+		<dict>
+			<key>xpos</key>
+			<integer>550</integer>
+			<key>ypos</key>
+			<integer>170</integer>
 		</dict>
 		<key>98E705AA-2C2F-490F-AA29-B18EA1C4E517</key>
 		<dict>
