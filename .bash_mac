@@ -100,7 +100,7 @@ source_if_exists "$HOME/.fzf.conf.bash"
 # export DOCKER_API_VERSION=1.21 # Error response from daemon: client is newer than server
 export FIN_HOME="$HOME/fin/fin-core-beta"
 export FIN_SSH_USERNAME="andrew_kortina"
-export RUN_FLOW_ON_COMMIT=1 # for Fin overcommit
+# export RUN_FLOW_ON_COMMIT=1 # for Fin overcommit
 source_if_exists "$FIN_HOME/fin-dev/bashrc"
 
 fx() {
