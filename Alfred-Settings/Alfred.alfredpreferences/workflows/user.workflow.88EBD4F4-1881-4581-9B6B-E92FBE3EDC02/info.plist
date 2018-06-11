@@ -100,7 +100,12 @@
 				<string>#!/usr/bin/env bash
 
 url=`osascript -e 'tell application "Google Chrome" to return URL of active tab of front window' | grep -v '\r\n'`
-title=`osascript -e 'tell application "Google Chrome" to return title of active tab of front window' | sed "s/\“/\"/g" | sed "s/\”/\"/g" | sed "s/\’/\'/g" | grep -v '\r\n'`
+title=`osascript -e 'tell application "Google Chrome" to return title of active tab of front window' \
+| sed "s/\“/\"/g" \
+| sed "s/\”/\"/g" \
+| sed "s/\’/\'/g" \
+| sed "s/–/--/g" \
+| grep -v '\r\n'`
 echo "&lt;a href=\"$url\"&gt;$title&lt;/a&gt;" | textutil -stdin -format html -convert rtf -stdout | pbcopy
 echo -e "$title\n$url"</string>
 				<key>scriptargtype</key>
