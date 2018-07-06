@@ -253,7 +253,8 @@ autocmd BufRead *.py set foldmethod=indent
 autocmd BufRead *.py set foldlevel=1
 " configure pydiction
 let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
-noremap <Leader>d Oimport pdb; pdb.set_trace()<Esc>
+" noremap <Leader>d Oimport pdb; pdb.set_trace()<Esc>
+noremap <Leader>d Ofrom IPython.core.debugger import set_trace; set_trace()<Esc>
 au FileType python setlocal formatprg=autopep8\ -
 au FileType python setlocal equalprg=autopep8\ -
 
