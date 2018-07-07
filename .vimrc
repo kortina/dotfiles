@@ -466,7 +466,7 @@ endif
 " ***********************************************************************
 " via https://github.com/reedes/vim-pencil
 function! Prose()
-  call pencil#init()
+  " call pencil#init()
   " call lexical#init()
   " call litecorrect#init()
   " call textobj#quote#init()
