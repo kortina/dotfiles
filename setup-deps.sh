@@ -90,7 +90,7 @@ brew tap caskroom/cask
 
 
 # caffeine replacement
-brew cask install keepingyouawake
+test -e /Applications/KeepingYouAwake.app || brew cask install keepingyouawake
 
 test -e /Applications/Cyberduck.app || brew cask install cyberduck
 
