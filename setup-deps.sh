@@ -53,6 +53,12 @@ install_git_repo() {
 sudo chown -R "`id -u -n`:admin" /usr/local/*
 
 ########################################
+# java (for languagetool & tmux)
+########################################
+brew tap caskroom/versions
+brew cask install java
+
+########################################
 # libs
 ########################################
 # xcode-select --install # must be install via app store now
@@ -82,11 +88,6 @@ brew_install yarn
 brew tap caskroom/cask
 
 
-########################################
-# java (for languagetool)
-########################################
-brew tap caskroom/versions
-brew cask install java
 
 # caffeine replacement
 brew cask install keepingyouawake
