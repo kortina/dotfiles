@@ -50,7 +50,7 @@ install_git_repo() {
 
 # 'fix' permissions on usr local setting current usr as owner
 # assumes only one person, you, is using your machine
-sudo chown -R "`id -u -n`:admin" /usr/local
+sudo chown -R "`id -u -n`:admin" /usr/local/*
 
 ########################################
 # libs
