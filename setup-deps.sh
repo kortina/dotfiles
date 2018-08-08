@@ -60,7 +60,6 @@ sudo chown -R "`id -u -n`:admin" /usr/local/*
 brew_install CMake
 brew_install git # so that it has completion
 brew_install bash-completion
-brew tap homebrew/completions
 brew_install rails-completion
 brew_install git-lfs
 brew_install fzf
