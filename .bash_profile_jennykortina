@@ -4,3 +4,6 @@ alias developer='cd /Users/jennykortina/Developer'
 alias sesher='cd /Users/jennykortina/Developer/sesher'
 alias ngork='cd /Users/jennykortina/Developer && ./ngrok http fin.local:3000'
 alias unity='cd /Users/jennykortina/Developer/unity/udemy-unity-2d-platformer'
+
+export ANDROID_HOME=/usr/local/share/android-sdk
+export PATH="/Applications/Genymotion.app/Contents/MacOS/tools/:$PATH"

@@ -136,5 +136,9 @@
   "zenMode.hideStatusBar": false,
   "gitlens.blame.format": "${author} - ${message|40?} ${ago|14-}",
   "gitlens.currentLine.enabled": false,
-  "gitlens.hovers.currentLine.enabled": false
+  "gitlens.hovers.currentLine.enabled": false,
+  "gitlens.keymap": "alternate",
+  "gitlens.advanced.messages": {
+    "suppressShowKeyBindingsNotice": true
+  }
 }
