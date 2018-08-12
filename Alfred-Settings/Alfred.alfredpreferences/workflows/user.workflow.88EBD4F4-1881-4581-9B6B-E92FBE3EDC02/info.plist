@@ -105,6 +105,7 @@ title=`osascript -e 'tell application "Google Chrome" to return title of active 
 | sed "s/\”/\"/g" \
 | sed "s/\’/\'/g" \
 | sed "s/–/--/g" \
+| sed "s/—/--/g" \
 | grep -v '\r\n'`
 echo "&lt;a href=\"$url\"&gt;$title&lt;/a&gt;" | textutil -stdin -format html -convert rtf -stdout | pbcopy
 echo -e "$title\n$url"</string>
