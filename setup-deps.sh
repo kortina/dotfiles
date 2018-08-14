@@ -80,6 +80,7 @@ brew_install the_silver_searcher # WAY faster than ack
 brew_install rbenv
 brew_install reattach-to-user-namespace
 brew_install vim # need vim8 for ale
+brew_install watchman
 brew_install yarn
 brew tap caskroom/cask
 
@@ -129,7 +130,8 @@ test -L "/Applications/Screen Sharing.app" || ln -s "/System/Library/CoreService
 ########################################
 # node modules
 ########################################
-brew_install node
+# brew_install node
+brew_install nvm # instead of node
 
 npm_install eslint
 npm_install eslint-plugin-react
@@ -141,6 +143,7 @@ npm_install reveal-md
 npm_install typescript
 npm_install tslint
 
+test -e $HOME/.nvm || mkdir -p $HOME/.nvm 
 
 ########################################
 # ruby gems

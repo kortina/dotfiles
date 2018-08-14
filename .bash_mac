@@ -111,3 +111,10 @@ fx() {
 }
 alias fh="cd $FIN_HOME"
 alias stopcruft="docker-compose stop fin_react_native fin_web fin_tags languagetool mail_parser"
+
+
+##################################################
+# javascript
+##################################################
+export NVM_DIR="$HOME/.nvm"
+. "/usr/local/opt/nvm/nvm.sh"
