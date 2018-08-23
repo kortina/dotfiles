@@ -313,6 +313,7 @@ autocmd FileType python map <buffer> <Leader>rl :call VimuxRunNoseLine()<CR>
 " 'L'ine
 " ↓ use daemonized karma runner:
 " autocmd FileType javascript map <Leader>rl :call VimuxRunCommand("clear; ./dev-scripts/karma-run-line-number.sh " . expand("%.") . ":" . line("."))<CR>
+autocmd FileType javascript map <Leader>rk :call VimuxRunCommand("clear; ./dev-scripts/karma-run-line-number.sh " . expand("%.") . ":" . line("."))<CR>
 " ↓ start karma each test run:
 " autocmd FileType javascript map <buffer> <Leader>rl :call VimuxRunCommand("clear; ./dev-scripts/karma-start-single-run-line-number.sh " . expand("%.") . ":" . line("."))<CR>
 " ↓ use jest runner:

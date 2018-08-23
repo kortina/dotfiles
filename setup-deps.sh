@@ -71,8 +71,12 @@ brew_install ctop
 brew_install ctags
 brew_install ffmpeg
 brew_install heroku
+
 brew_install python
 brew_install pyenv
+eval "$(pyenv init -)"
+test -e "$HOME/.pyenv/versions/3.7.0" || pyenv install 3.7.0
+
 brew_install tmux
 brew_install languagetool
 brew_install youtube-dl
@@ -92,19 +96,13 @@ brew tap caskroom/versions
 brew cask install java
 
 # caffeine replacement
-brew cask install keepingyouawake
-
+test -e /Applications/KeepingYouAwake.app || brew cask install keepingyouawake
 test -e /Applications/Cyberduck.app || brew cask install cyberduck
 
 ########################################
 # pip
 ########################################
 
-if ! command -v pip >/dev/null 2>&1; then
-    echo "re-installing python"
-    # NB: cannot easy_install once you brew install python
-    brew reinstall python
-fi
 pip install ansible
 pip install autopep8
 pip install boto
