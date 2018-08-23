@@ -94,7 +94,6 @@ let g:ale_enabled = 1
 nnoremap <leader>a :ALENextWrap<CR>
 
 set statusline+=%#warningmsg#
-set statusline+=%{ALEGetStatusLine()}
 set statusline+=%*
 
 let g:ale_lint_on_insert_leave = 1
@@ -108,7 +107,6 @@ let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-let g:airline_section_error = '%{ALEGetStatusLine()}'
 let g:ale_change_sign_column_color = 1
 
 " NB: if you run your project on docker, make sure to install js dependencies
