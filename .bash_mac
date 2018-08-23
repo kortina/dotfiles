@@ -86,9 +86,7 @@ source_if_exists "$HOME/.rbenv/completions/rbenv.bash"
 ##################################################
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-fi
+if command -v pyenv 1>/dev/null 2>&1; then eval "$(pyenv init -)"; fi
 
 ##################################################
 # fzf
@@ -112,4 +110,11 @@ fx() {
     docker exec -it fin.local $*
 }
 alias fh="cd $FIN_HOME"
-alias stopcruft="fin && docker-compose stop languagetool fin_react_native mail_parser fin_tags"
+alias stopcruft="docker-compose stop fin_react_native fin_web fin_tags languagetool mail_parser"
+
+
+##################################################
+# javascript
+##################################################
+export NVM_DIR="$HOME/.nvm"
+. "/usr/local/opt/nvm/nvm.sh"
