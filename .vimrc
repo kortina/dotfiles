@@ -11,6 +11,7 @@ endif
 Plug 'benmills/vimux'
 Plug 'bogado/file-line'
 Plug 'dcosson/vimux-nose-test2'
+Plug 'itchyny/lightline.vim'
 Plug 'jtratner/vim-flavored-markdown'
 Plug 'jnwhiteh/vim-golang'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -19,6 +20,7 @@ Plug 'kana/vim-fakeclip'
 Plug 'kana/vim-textobj-user'
 Plug 'keith/swift.vim'
 " Plug 'kortina/crosshair-focus.vim'
+Plug 'maximbaz/lightline-ale'
 Plug 'mileszs/ack.vim'
 Plug 'mxw/vim-jsx'
 Plug 'nvie/vim-flake8'
@@ -37,8 +39,6 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 " Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-rails'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-ruby/vim-ruby'
 Plug 'vim-scripts/LanguageTool'
 Plug 'vim-scripts/fountain.vim'
@@ -84,11 +84,6 @@ set ai " Automatically set the indent of a new line (local to buffer)
 set si " smartindent    (local to buffer)
 set lazyredraw
 
-" airline *******************************************************************
-set laststatus=2 " Show filename at bottom of buffer
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme = 'wombat'
-"
 " ale ***********************************************************************
 function! LinterStatus() abort
     let l:counts = ale#statusline#Count(bufnr(''))
@@ -116,12 +111,10 @@ let g:ale_lint_on_save = 1
 " Only fix on save
 let g:ale_fix_on_save = 1
 
-let g:airline#extensions#ale#enable = 1
 let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-let g:airline_section_error = '%{LinterStatus()}'
 let g:ale_change_sign_column_color = 1
 
 " NB: if you run your project on docker, make sure to install js dependencies
@@ -143,6 +136,37 @@ let g:ale_fixers = {
 " let g:ale_javascript_prettier_options = ' --parser babylon --single-quote --jsx-bracket-same-line --trailing-comma es5 --print-width 100'
 let g:ale_javascript_prettier_options = ' --config $FIN_HOME/.prettierrc '
 let g:ale_javascript_eslint_use_global = 1
+
+" lightline *****************************************************************
+set laststatus=2 " Show filename at bottom of buffer
+let g:lightline = {}
+let g:lightline.colorscheme = 'wombat'
+let g:lightline.active = {}
+let g:lightline.active.left = [ ['mode', 'paste'], [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+let g:lightline.component_function = { 'gitbranch': 'fugitive#head' }
+      " \ 'colorscheme': 'wombat',
+      " \ 'active': {
+      " \   'left': [ [ 'mode', 'paste' ],
+      " \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      " \ },
+      " \ 'component_function': {
+      " \   'gitbranch': 'fugitive#head'
+      " \ },
+      " \ }
+
+let g:lightline.component_expand = {
+      \  'linter_checking': 'lightline#ale#checking',
+      \  'linter_warnings': 'lightline#ale#warnings',
+      \  'linter_errors': 'lightline#ale#errors',
+      \  'linter_ok': 'lightline#ale#ok',
+      \ }
+let g:lightline.component_type = {
+      \     'linter_checking': 'left',
+      \     'linter_warnings': 'warning',
+      \     'linter_errors': 'error',
+      \     'linter_ok': 'left',
+      \ }
+let g:lightline.active.right = [[ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok' ]]
 
 " I would do this as a local project .vimrc, but do not want to commit that to
 " shared repo:
