@@ -13,8 +13,3 @@ if which pyenv > /dev/null; then eval "$(pyenv init -)"; eval "$(pyenv virtualen
 
 # nodenv
 if which nodenv > /dev/null; then eval "$(nodenv init -)"; else echo nodenv not installed; fi
-
-export FIN_HOME=~/code/fin-core-beta
-export FIN_IOS_HOME=~/code/fin-ios
-export FIN_SSH_USERNAME=JENNY_KORTINA
-source "${FIN_HOME}/fin-dev/bashrc"
