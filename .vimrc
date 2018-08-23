@@ -17,6 +17,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'kana/vim-fakeclip'
 Plug 'kana/vim-textobj-user'
+Plug 'keith/swift.vim'
 " Plug 'kortina/crosshair-focus.vim'
 Plug 'mileszs/ack.vim'
 Plug 'mxw/vim-jsx'
@@ -26,7 +27,7 @@ Plug 'pgr0ss/vimux-ruby-test'
 Plug 'plasticboy/vim-markdown'
 Plug 'rainerborene/vim-reek'
 Plug 'reedes/vim-pencil'
-Plug 'reedes/vim-textobj-quote'
+" Plug 'reedes/vim-textobj-quote'
 Plug 'reedes/vim-textobj-sentence'
 Plug 'reedes/vim-wordy'
 Plug 'rkulla/pydiction'
@@ -254,9 +255,10 @@ autocmd BufRead *.py set foldmethod=indent
 autocmd BufRead *.py set foldlevel=1
 " configure pydiction
 let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
-noremap <Leader>d Oimport pdb; pdb.set_trace()<Esc>
+" noremap <Leader>d Oimport pdb; pdb.set_trace()<Esc>
+noremap <Leader>d Ofrom IPython.core.debugger import set_trace; set_trace()<Esc>
 au FileType python setlocal formatprg=autopep8\ -
-au FileType python setlocal equalprg=autopep8\ -
+" au FileType python setlocal equalprg=autopep8\ -
 
 
 " Ruby **********************************************************************
@@ -466,10 +468,10 @@ endif
 " ***********************************************************************
 " via https://github.com/reedes/vim-pencil
 function! Prose()
-  call pencil#init()
+  " call pencil#init()
   " call lexical#init()
   " call litecorrect#init()
-  call textobj#quote#init()
+  " call textobj#quote#init()
   call textobj#sentence#init()
 
   " manual reformatting shortcuts
@@ -492,7 +494,7 @@ function! Prose()
   " setlocal foldlevel=6
 
   " replace typographical quotes (reedes/vim-textobj-quote)
-  map <silent> <buffer> <leader>qc <Plug>ReplaceWithCurly
+  " map <silent> <buffer> <leader>qc <Plug>ReplaceWithCurly
   map <silent> <buffer> <leader>qs <Plug>ReplaceWithStraight
 
   " highlight words (reedes/vim-wordy)

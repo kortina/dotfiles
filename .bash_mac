@@ -30,9 +30,10 @@ export PATH="$HOME/dotfiles/bin:$PATH"
 export PATH="$PATH:$VSCODE_APP/Contents/Resources/app/bin"
 
 # Setting PATH for MacPython 2.5
-PATH="/Library/Frameworks/Python.framework/Versions/Current/bin:${PATH}"
-export PATH
-export PYTHONPATH="`brew --prefix`/lib/python2.7/site-packages:$PYTHONPATH"
+# PATH="/Library/Frameworks/Python.framework/Versions/Current/bin:${PATH}"
+# export PATH
+# This does not seem to play nice with pyenv:
+# export PYTHONPATH="`brew --prefix`/lib/python2.7/site-packages:$PYTHONPATH"
 
 
 ##################################################
@@ -83,6 +84,8 @@ source_if_exists "$HOME/.rbenv/completions/rbenv.bash"
 ##################################################
 # python
 ##################################################
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
@@ -99,10 +102,10 @@ source_if_exists "$HOME/.fzf.conf.bash"
 # export DOCKER_HOST="tcp://192.168.66.10:2375"
 # export DOCKER_API_VERSION=1.21 # Error response from daemon: client is newer than server
 export FIN_HOME="$HOME/fin/fin-core-beta"
-export FIN_DOCKER_MEMORY=8
-export FIN_DOCKER_MEMORY_MIB=8192
+# export FIN_DOCKER_MEMORY=8
+# export FIN_DOCKER_MEMORY_MIB=8192
 export FIN_SSH_USERNAME="jenny_kortina"
-export RUN_FLOW_ON_COMMIT # for Fin overcommit
+# export RUN_FLOW_ON_COMMIT # for Fin overcommit
 source_if_exists "$FIN_HOME/fin-dev/bashrc"
 
 fx() {

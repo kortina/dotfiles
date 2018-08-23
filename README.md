@@ -29,7 +29,7 @@ Each of this scripts can also be run independently (which may be faster for maki
 * If you get a permissions error, I recommened setting your user as owner of `/usr/local/`:
 
 ```
-sudo chown -R "`id -u -n`:admin" /usr/local
+sudo chown -R "`id -u -n`:admin" /usr/local/*
 ```
 
 ### Other

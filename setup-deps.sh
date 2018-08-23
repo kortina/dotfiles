@@ -50,7 +50,9 @@ install_git_repo() {
 
 # 'fix' permissions on usr local setting current usr as owner
 # assumes only one person, you, is using your machine
-sudo chown -R "`id -u -n`:admin" /usr/local
+# sudo chown -R "`id -u -n`:admin" /usr/local
+sudo chown -R $(whoami) $(brew --prefix)/* # need to do this on High Sierra instead of previous line
+
 
 ########################################
 # libs
@@ -60,7 +62,6 @@ sudo chown -R "`id -u -n`:admin" /usr/local
 brew_install CMake
 brew_install git # so that it has completion
 brew_install bash-completion
-brew tap homebrew/completions
 brew_install rails-completion
 brew_install git-lfs
 brew_install fzf
