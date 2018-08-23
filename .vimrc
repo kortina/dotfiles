@@ -88,13 +88,26 @@ set lazyredraw
 set laststatus=2 " Show filename at bottom of buffer
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme = 'wombat'
-
+"
 " ale ***********************************************************************
+function! LinterStatus() abort
+    let l:counts = ale#statusline#Count(bufnr(''))
+
+    let l:all_errors = l:counts.error + l:counts.style_error
+    let l:all_non_errors = l:counts.total - l:all_errors
+
+    return l:counts.total == 0 ? 'OK' : printf(
+    \   '%dW %dE',
+    \   all_non_errors,
+    \   all_errors
+    \)
+endfunction
+
 let g:ale_enabled = 1
 nnoremap <leader>a :ALENextWrap<CR>
 
 set statusline+=%#warningmsg#
-set statusline+=%{ALEGetStatusLine()}
+set statusline=%{LinterStatus()}
 set statusline+=%*
 
 let g:ale_lint_on_insert_leave = 1
@@ -108,7 +121,7 @@ let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-let g:airline_section_error = '%{ALEGetStatusLine()}'
+let g:airline_section_error = '%{LinterStatus()}'
 let g:ale_change_sign_column_color = 1
 
 " NB: if you run your project on docker, make sure to install js dependencies
