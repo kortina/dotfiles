@@ -19,7 +19,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'kana/vim-fakeclip'
 Plug 'kana/vim-textobj-user'
 Plug 'keith/swift.vim'
-" Plug 'kortina/crosshair-focus.vim'
 Plug 'maximbaz/lightline-ale'
 Plug 'mileszs/ack.vim'
 Plug 'mxw/vim-jsx'
@@ -74,8 +73,6 @@ set incsearch
 set hlsearch
 set ignorecase
 set smartcase
-set nocursorline " see Crosshairs below for turning these on and off for real
-set nocursorcolumn
 set title
 set ruler
 set showmode
@@ -379,20 +376,9 @@ hi SpellBad ctermfg=54
 hi SpellCap ctermfg=54
 hi DiffAdd ctermfg=54
 
-
-
 " Crosshairs ****************************************************************
-" function CrosshairsOn()
-"     set cursorline
-"     set cursorcolumn
-"     hi CursorLine     guifg=NONE        guibg=black     gui=NONE      ctermfg=NONE        ctermbg=black            cterm=BOLD
-"     hi CursorColumn   guifg=NONE        guibg=black     gui=NONE      ctermfg=NONE        ctermbg=black            cterm=BOLD
-" endfunction
-" nmap <Leader>l :call CrosshairsOn()<CR>
-
-" autocmd BufRead,BufNewFile,BufDelete * :syntax on
-" autocmd BufRead,BufNewFile,BufDelete * :call CrosshairsOn()
-
+set nocursorline
+set nocursorcolumn
 " Use these instead of cursorline and cursorcolumn
 let g:crosshair_cursorline = 1
 let g:crosshair_cursorcolumn = 0
@@ -422,12 +408,13 @@ com! FlashCrosshairs call s:FlashCrosshairs()
 " Use ,, to flash the Crosshairs:
 nmap <Leader>, :FlashCrosshairs<CR>
 
-" Set cursorline and cursorcolumn here based on your prefs:
+" Flash crosshairs when cursor enters new buffer:
 augroup CrosshairsGroup
     au!
-    au WinEnter,BufWinEnter * :call s:FlashCrosshairs() " ,VimEnter
+    au WinEnter,BufWinEnter * :call s:FlashCrosshairs()
     au WinLeave * setlocal nocursorline nocursorcolumn
 augroup END
+" ^ Crosshairs ^ ************************************************************
 
 
 " Shortcuts *****************************************************************
