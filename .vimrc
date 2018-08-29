@@ -140,7 +140,7 @@ set laststatus=2 " Show filename at bottom of buffer
 let g:lightline = {}
 let g:lightline.colorscheme = 'wombat'
 let g:lightline.active = {}
-let g:lightline.active.left = [ ['mode', 'paste'], [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+let g:lightline.active.left = [ ['mode', 'paste'], [ 'gitbranch', 'readonly', 'relativepath', 'modified' ] ]
 let g:lightline.component_function = { 'gitbranch': 'fugitive#head' }
       " \ 'colorscheme': 'wombat',
       " \ 'active': {
