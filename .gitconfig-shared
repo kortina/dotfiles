@@ -39,7 +39,7 @@ helper = /opt/boxen/bin/boxen-git-credential
 [hub]
 protocol = https
 [push]
-	default = simple
+	default = current
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
