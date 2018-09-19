@@ -8,7 +8,7 @@ This will ultimately probably end up in a new git repo.
     test -e s3screenshots.sh || cp s3screenshots.sh.sample s3screenshots.sh
     chmod 700 s3screenshots.sh
 
-Next, add your AWS credentials, bucket name, and OS X username to `s3screenshots.sh`
+**NB:** Next, add your AWS credentials, bucket name, and OS X username to `s3screenshots.sh`
 
 Then, install the LaunchAgent:
 
@@ -28,7 +28,12 @@ Then, install the LaunchAgent:
 
     # Start the agent:
     launchctl load $agent
-
+    
+    # To stop the agent:
+    # launchctl unload $agent
+    
+    # Debug using the logs:
+    tail -f $HOME/Library/Logs/s3screenshots.log
 
 NB: since this uses OS X Notification Center, this must be a `LaunchAgent` not a `LaunchDaemon`.
 
