@@ -7,8 +7,9 @@ This will ultimately probably end up in a new git repo.
     # Copy the template:
     test -e s3screenshots.sh || cp s3screenshots.sh.sample s3screenshots.sh
     chmod 700 s3screenshots.sh
-
-**NB:** Next, add your AWS credentials, bucket name, and OS X username to `s3screenshots.sh`
+    vim s3screenshots.sh
+    # Add your AWS credentials, bucket name, and OS X username to `s3screenshots.sh`
+    # Or, source your `.bash_mac_private` with the env vars set
 
 Then, install the LaunchAgent:
 
