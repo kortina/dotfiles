@@ -120,7 +120,7 @@ let g:ale_change_sign_column_color = 1
 let g:ale_linters = {
 \   'javascript': ['eslint', 'flow'],
 \   'jsx': ['eslint', 'flow'],
-\   'python': ['flake8'],
+\   'python': ['flake8', 'mypy'],
 \   'ruby': ['ruby', 'rubocop'],
 \   'hcl': [],
 \}
@@ -285,7 +285,7 @@ autocmd BufWritePost *.go :silent Fmt
 autocmd BufRead *.py inoremap # X<c-h>#
 " turn on python folding when you open a file
 autocmd BufRead *.py set foldmethod=indent
-autocmd BufRead *.py set foldlevel=1
+" autocmd BufRead *.py set foldlevel=1
 " configure pydiction
 let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
 " noremap <Leader>d Oimport pdb; pdb.set_trace()<Esc>
