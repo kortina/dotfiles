@@ -42,6 +42,7 @@ Plug 'vim-ruby/vim-ruby'
 Plug 'vim-scripts/LanguageTool'
 Plug 'vim-scripts/fountain.vim'
 Plug 'vim-scripts/taglist.vim'
+Plug 'zxqfl/tabnine-vim'
 Plug 'w0rp/ale'
 
 
@@ -55,8 +56,6 @@ syntax on
 
 let &runtimepath.=',~/.vim/bundle/ale'
 :runtime! ~/.vim/
-
-
 
 " use either , or \ as <Leader>
 let mapleader = ","
@@ -80,6 +79,10 @@ set showcmd
 set ai " Automatically set the indent of a new line (local to buffer)
 set si " smartindent    (local to buffer)
 set lazyredraw
+
+" tabnine *******************************************************************
+" set rtp+=~/tabnine-vim
+set rtp+=~/.vim/plugged/tabnine-vim/
 
 " ale ***********************************************************************
 function! LinterStatus() abort
@@ -539,7 +542,6 @@ command! -nargs=0 Prose call Prose()
 " ***********************************************************************
 " experimental:
 " ***********************************************************************
-
 
 let g:lsp_log_verbose = 1
 let g:lsp_log_file = expand('~/vim-lsp.log')
