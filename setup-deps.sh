@@ -77,6 +77,7 @@ brew_install pyenv
 eval "$(pyenv init -)"
 test -e "$HOME/.pyenv/versions/3.7.0" || pyenv install 3.7.0
 
+brew_install jq
 brew_install tmux
 brew_install languagetool
 brew_install youtube-dl
