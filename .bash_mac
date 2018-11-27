@@ -109,6 +109,7 @@ fx() {
 }
 alias fh="cd $FIN_HOME"
 alias stopcruft="docker-compose stop fin_react_native fin_web fin_tags languagetool mail_parser"
+export PATH="$PATH:$HOME/fin/fin-analytics"
 
 
 ##################################################
