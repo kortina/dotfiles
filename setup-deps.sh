@@ -70,16 +70,17 @@ brew_install fswatch
 brew_install ctop
 brew_install ctags
 brew_install ffmpeg
-brew_install heroku
+# brew_install heroku
 
 brew_install python
 brew_install pyenv
 eval "$(pyenv init -)"
-test -e "$HOME/.pyenv/versions/3.7.0" || pyenv install 3.7.0
+test -e "$HOME/.pyenv/versions/3.7.0" || CFLAGS="-I$(xcrun --show-sdk-path)/usr/include" pyenv install -v 3.7.0
+# see: https://github.com/pyenv/pyenv/issues/530 for CFLAGS tip
 
 brew_install jq
 brew_install tmux
-brew_install languagetool
+# brew_install languagetool
 brew_install youtube-dl
 brew_install the_silver_searcher # WAY faster than ack
 brew_install rbenv
