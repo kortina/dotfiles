@@ -46,8 +46,8 @@ Plug 'zxqfl/tabnine-vim'
 Plug 'w0rp/ale'
 
 
-Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/vim-lsp'
+" Plug 'prabirshrestha/async.vim'
+" Plug 'prabirshrestha/vim-lsp'
 
 call plug#end()
 
