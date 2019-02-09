@@ -130,6 +130,7 @@ let g:ale_linters = {
 \}
 let g:ale_fixers = {
 \   'javascript': ['prettier', 'remove_trailing_lines'],
+\   'python': ['black'],
 \   'ruby': ['rubocop', 'remove_trailing_lines'],
 \}
 
@@ -286,6 +287,7 @@ autocmd BufWritePost *.go :silent Fmt
 " Python ********************************************************************
 
 let g:black_linelength = 79
+let g:ale_python_black_options = ' -l 79 '
 " prevent comments from going to beginning of line
 autocmd BufRead *.py inoremap # X<c-h>#
 " turn on python folding when you open a file
@@ -295,10 +297,8 @@ autocmd BufRead *.py set foldmethod=indent
 let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
 " noremap <Leader>d Oimport pdb; pdb.set_trace()<Esc>
 noremap <Leader>d Ofrom IPython.core.debugger import set_trace; set_trace()<Esc>
-" au FileType python setlocal formatprg=autopep8\ -
+au FileType python setlocal formatprg=autopep8\ -
 " au FileType python setlocal equalprg=autopep8\ -
-au FileType python setlocal formatprg=black\ -l\ 79\ -q\ -
-autocmd BufWritePre *.py execute ':Black'
 
 " Ruby **********************************************************************
 au BufRead,BufNewFile {Capfile,Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru,.caprc,.irbrc,irb_tempfile*} set ft=ruby
