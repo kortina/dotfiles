@@ -107,6 +107,7 @@ test -e /Applications/Cyberduck.app || brew cask install cyberduck
 
 pip install ansible
 pip install autopep8
+pip install black
 pip install boto
 pip install flake8
 pip install ipython
