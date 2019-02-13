@@ -6,6 +6,7 @@ doc/tags
 .DS_Store?
 .Spotlight-V100
 .Trashes
+.secrets
 ._*
 Icon
 Thumbs.db

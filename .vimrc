@@ -254,7 +254,7 @@ autocmd Filetype html setlocal ts=2 sts=2 sw=2
 
 " Javascript ****************************************************************
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
-autocmd FileType javascript setlocal formatprg=prettier\ --write\ --single-quote\ --jsx-bracket-same-line\ --parser\ babylon\ --trailing-comma\ es5\ --print-width\ 100
+" autocmd FileType javascript setlocal formatprg=prettier\ --write\ --single-quote\ --jsx-bracket-same-line\ --parser\ babylon\ --trailing-comma\ es5\ --print-width\ 100
 let g:jsx_ext_required = 0
 
 " ↓ deprecated, using ale fixer now instead ↓
@@ -286,7 +286,7 @@ autocmd BufWritePost *.go :silent Fmt
 autocmd BufRead *.py inoremap # X<c-h>#
 " turn on python folding when you open a file
 autocmd BufRead *.py set foldmethod=indent
-autocmd BufRead *.py set foldlevel=1
+" autocmd BufRead *.py set foldlevel=1
 " configure pydiction
 let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
 " noremap <Leader>d Oimport pdb; pdb.set_trace()<Esc>
