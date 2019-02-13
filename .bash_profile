@@ -15,7 +15,5 @@ PROMPT_COMMAND='history -a'
 ### Source linux bash setup
 [[ -f ~/.bash_linux ]] && source ~/.bash_linux
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-
 [[ -f ~/.bash_profile_jennykortina ]] && source ~/.bash_profile_jennykortina
 [[ -f ~/.bash_profile_extensions ]] && source ~/.bash_profile_extensions

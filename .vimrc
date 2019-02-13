@@ -8,6 +8,7 @@ call plug#begin('~/.vim/plugged')
 if use_you_complete_me
     Plug 'Valloric/YouCompleteMe'
 endif
+Plug 'ambv/black'
 Plug 'benmills/vimux'
 Plug 'bogado/file-line'
 Plug 'dcosson/vimux-nose-test2'
@@ -42,11 +43,12 @@ Plug 'vim-ruby/vim-ruby'
 Plug 'vim-scripts/LanguageTool'
 Plug 'vim-scripts/fountain.vim'
 Plug 'vim-scripts/taglist.vim'
+Plug 'zxqfl/tabnine-vim'
 Plug 'w0rp/ale'
 
 
-Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/vim-lsp'
+" Plug 'prabirshrestha/async.vim'
+" Plug 'prabirshrestha/vim-lsp'
 
 call plug#end()
 
@@ -55,8 +57,6 @@ syntax on
 
 let &runtimepath.=',~/.vim/bundle/ale'
 :runtime! ~/.vim/
-
-
 
 " use either , or \ as <Leader>
 let mapleader = ","
@@ -80,6 +80,10 @@ set showcmd
 set ai " Automatically set the indent of a new line (local to buffer)
 set si " smartindent    (local to buffer)
 set lazyredraw
+
+" tabnine *******************************************************************
+" set rtp+=~/tabnine-vim
+set rtp+=~/.vim/plugged/tabnine-vim/
 
 " ale ***********************************************************************
 function! LinterStatus() abort
@@ -120,12 +124,13 @@ let g:ale_change_sign_column_color = 1
 let g:ale_linters = {
 \   'javascript': ['eslint', 'flow'],
 \   'jsx': ['eslint', 'flow'],
-\   'python': ['flake8'],
+\   'python': ['flake8', 'mypy'],
 \   'ruby': ['ruby', 'rubocop'],
 \   'hcl': [],
 \}
 let g:ale_fixers = {
 \   'javascript': ['prettier', 'remove_trailing_lines'],
+\   'python': ['black'],
 \   'ruby': ['rubocop', 'remove_trailing_lines'],
 \}
 
@@ -140,7 +145,7 @@ set laststatus=2 " Show filename at bottom of buffer
 let g:lightline = {}
 let g:lightline.colorscheme = 'wombat'
 let g:lightline.active = {}
-let g:lightline.active.left = [ ['mode', 'paste'], [ 'gitbranch', 'readonly', 'relativepath', 'modified' ] ]
+let g:lightline.active.left = [ ['mode', 'paste'], [ 'gitbranch', 'readonly', 'relativepath', 'modified', 'column' ] ]
 let g:lightline.component_function = { 'gitbranch': 'fugitive#head' }
       " \ 'colorscheme': 'wombat',
       " \ 'active': {
@@ -282,6 +287,8 @@ autocmd BufWritePost *.go :silent Fmt
 
 " Python ********************************************************************
 
+let g:black_linelength = 79
+let g:ale_python_black_options = ' -l 79 '
 " prevent comments from going to beginning of line
 autocmd BufRead *.py inoremap # X<c-h>#
 " turn on python folding when you open a file
@@ -293,7 +300,6 @@ let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
 noremap <Leader>d Ofrom IPython.core.debugger import set_trace; set_trace()<Esc>
 au FileType python setlocal formatprg=autopep8\ -
 " au FileType python setlocal equalprg=autopep8\ -
-
 
 " Ruby **********************************************************************
 au BufRead,BufNewFile {Capfile,Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru,.caprc,.irbrc,irb_tempfile*} set ft=ruby
@@ -540,7 +546,6 @@ command! -nargs=0 Prose call Prose()
 " ***********************************************************************
 " experimental:
 " ***********************************************************************
-
 
 let g:lsp_log_verbose = 1
 let g:lsp_log_file = expand('~/vim-lsp.log')

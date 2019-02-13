@@ -19,6 +19,7 @@ ehthumbs.db
 /tags
 /.bundle/
 madeXVim
+.vim/black
 .vim/.netrwhist
 .vim/plugged/**
 s3screenshots.sh

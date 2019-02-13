@@ -2,6 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>blacklist</key>
+	<array>
+		<string>Keychain Access</string>
+		<string>SecurityAgent</string>
+		<string>Wallet</string>
+	</array>
 	<key>hotkey</key>
 	<dict>
 		<key>key</key>

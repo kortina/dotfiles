@@ -1,5 +1,6 @@
 export FIN_SSH_USERNAME="jenny_kortina"
 export FIN_HOME=~/code/fin-core-beta
+source_if_exists "$FIN_HOME/fin-dev/bashrc"
 export FIN_IOS_HOME=~/code/fin-ios
 export FIN_SSH_USERNAME=jenny_kortina
 source "${FIN_HOME}/fin-dev/bashrc"

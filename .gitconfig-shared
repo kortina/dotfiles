@@ -13,9 +13,11 @@
         cob = "!git checkout -b $1 && git push -u origin"
         delete-merged = "!git fetch origin && git branch -d $(git branch --merged | grep -v '*' | grep -v master)"
         local-branches = !git branch -vv | cut -c 3- | awk '$3 !~/\\[/ { print $1 }'
-        pc           = "!git push origin `git rev-parse --abbrev-ref HEAD`"
+        pcu            = "!git push -u origin `git rev-parse --abbrev-ref HEAD`"
+        track-upstream = "!git push -u origin `git rev-parse --abbrev-ref HEAD`"
+        pc             = "!git push origin `git rev-parse --abbrev-ref HEAD`"
+        push-current   = "!git push origin `git rev-parse --abbrev-ref HEAD`"
         pr = pull-request
-        push-current = "!git push origin `git rev-parse --abbrev-ref HEAD`"
         up = pull --rebase --autostash
         undo-last-commit = reset --soft HEAD~1
         vi = "!vim .git/index"
