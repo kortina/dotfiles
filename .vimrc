@@ -50,6 +50,10 @@ Plug 'w0rp/ale'
 " Plug 'prabirshrestha/async.vim'
 " Plug 'prabirshrestha/vim-lsp'
 
+" jenny v
+Plug 'Lokaltog/vim-easymotion'
+Plug 'aghareza/vim-gitgrep'
+" jenny ^
 call plug#end()
 
 filetype plugin indent on
