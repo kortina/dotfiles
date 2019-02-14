@@ -114,6 +114,7 @@ pip install ipython
 pip install mock # python 2.7
 pip install nose
 pip install nose-run-line-number
+pip install pre-commit
 pip install watchdog
 pip install xlsx2csv
 
