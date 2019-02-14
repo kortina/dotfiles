@@ -24,7 +24,6 @@ Plug 'pgr0ss/vimux-ruby-test'
 Plug 'plasticboy/vim-markdown'
 Plug 'rainerborene/vim-reek'
 Plug 'reedes/vim-pencil'
-" Plug 'reedes/vim-textobj-quote'
 Plug 'reedes/vim-textobj-sentence'
 Plug 'reedes/vim-wordy'
 Plug 'rkulla/pydiction'
@@ -40,10 +39,6 @@ Plug 'vim-scripts/fountain.vim'
 Plug 'vim-scripts/taglist.vim'
 Plug 'zxqfl/tabnine-vim'
 Plug 'w0rp/ale'
-
-
-" Plug 'prabirshrestha/async.vim'
-" Plug 'prabirshrestha/vim-lsp'
 
 call plug#end()
 
@@ -141,15 +136,6 @@ let g:lightline.colorscheme = 'wombat'
 let g:lightline.active = {}
 let g:lightline.active.left = [ ['mode', 'paste'], [ 'gitbranch', 'readonly', 'relativepath', 'modified', 'column' ] ]
 let g:lightline.component_function = { 'gitbranch': 'fugitive#head' }
-      " \ 'colorscheme': 'wombat',
-      " \ 'active': {
-      " \   'left': [ [ 'mode', 'paste' ],
-      " \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-      " \ },
-      " \ 'component_function': {
-      " \   'gitbranch': 'fugitive#head'
-      " \ },
-      " \ }
 
 let g:lightline.component_expand = {
       \  'linter_checking': 'lightline#ale#checking',
@@ -256,51 +242,25 @@ autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 autocmd FileType javascript setlocal formatprg=prettier\ --write\ --single-quote\ --jsx-bracket-same-line\ --parser\ babylon\ --trailing-comma\ es5\ --print-width\ 100
 let g:jsx_ext_required = 0
 
-" ↓ deprecated, using ale fixer now instead ↓
-function FormatPrettierJs()
-    let l:wv = winsaveview()
-    " ↓ this will call formatprg on the entire buffer ↓
-    silent exe "normal gggqG"
-    " If there was an error, undo replacing the entire buffer
-    if v:shell_error
-        undo
-    endif
-    call winrestview(l:wv)
-    redraw
-    " Old way was to run the buffer through a filter ↓
-    " silent %! prettier --single-quote --jsx-bracket-same-line --parser babylon --trailing-comma es5 --print-width 100
-endfunction
-" ↓ deprecated, using ale fixer now instead ↓
-" Run prettier on save (with Fin flags)
-" autocmd BufWritePre *.js,*.jsx call FormatPrettierJs()
-
 " Golang  *******************************************************************
 set rtp+=/usr/local/go/misc/vim
 autocmd BufWritePost *.go :silent Fmt
 
-
 " Python ********************************************************************
-
-" let g:black_linelength = 79
-" let g:ale_python_black_options = ' -l 79 '
+" see ale_fixers above for the black autofix on save
 
 " prevent comments from going to beginning of line
 autocmd BufRead *.py inoremap # X<c-h>#
 " turn on python folding when you open a file
 autocmd BufRead *.py set foldmethod=indent
-" autocmd BufRead *.py set foldlevel=1
 " configure pydiction
 let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
-" noremap <Leader>d Oimport pdb; pdb.set_trace()<Esc>
 noremap <Leader>d Ofrom IPython.core.debugger import set_trace; set_trace()<Esc>
-" au FileType python setlocal formatprg=autopep8\ -
-" au FileType python setlocal equalprg=autopep8\ -
 
 " Ruby **********************************************************************
 au BufRead,BufNewFile {Capfile,Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru,.caprc,.irbrc,irb_tempfile*} set ft=ruby
 autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
 autocmd Filetype eruby setlocal ts=2 sts=2 sw=2
-
 
 " Git ***********************************************************************
 command! -complete=file -nargs=* Gstaged call s:RunShellCommand('git diff --staged')
@@ -535,41 +495,3 @@ autocmd FileType markdown,mkd,text call Prose()
 
 " invoke manually by command for other file types
 command! -nargs=0 Prose call Prose()
-
-
-
-" ***********************************************************************
-" experimental:
-" ***********************************************************************
-
-let g:lsp_log_verbose = 1
-let g:lsp_log_file = expand('~/vim-lsp.log')
-" for asyncomplete.vim log
-let g:asyncomplete_log_file = expand('~/asyncomplete.log')
-
-autocmd FileType * setlocal omnifunc=lsp#complete
-let g:lsp_async_completion = 1
-" autocmd FileType typescript setlocal omnifunc=lsp#complete
-set omnifunc=lsp#complete
-
-" gem install language_server
-au User lsp_setup call lsp#register_server({
-    \ 'name': 'language_server',
-    \ 'cmd': {server_info->['language_server']},
-    \ 'whitelist': ['ruby'],
-    \ })
-
-" gem install language_server
-au User lsp_setup call lsp#register_server({
-    \ 'name': 'flow-language-server',
-    \ 'cmd': {server_info->['flow-language-server']},
-    \ 'whitelist': ['javascript', 'javascript.jsx'],
-    \ })
-
-" pip install python-language-server
-au User lsp_setup call lsp#register_server({
-    \ 'name': 'pyls',
-    \ 'cmd': {server_info->['pyls']},
-    \ 'whitelist': ['python'],
-    \ })
-
