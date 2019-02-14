@@ -281,8 +281,9 @@ autocmd BufWritePost *.go :silent Fmt
 
 " Python ********************************************************************
 
-let g:black_linelength = 79
-let g:ale_python_black_options = ' -l 79 '
+" let g:black_linelength = 79
+" let g:ale_python_black_options = ' -l 79 '
+
 " prevent comments from going to beginning of line
 autocmd BufRead *.py inoremap # X<c-h>#
 " turn on python folding when you open a file
