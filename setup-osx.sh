@@ -27,10 +27,14 @@ defaults write -g NSWindowResizeTime -float 0.003
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
 defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+
 # Disable Look up & data detectors: Tap with three fingers
 defaults write com.apple.AppleMultitouchTrackpad ActuateDetents 0
+
 # Disable Force Click and haptic feedback: Click then press firmly for Quick Look, Look up, and variable speed media controls.
 defaults write com.apple.AppleMultitouchTrackpad ForceSuppressed 1
+defaults write -g com.apple.trackpad.forceClick 0
+defaults write com.apple.preference.trackpad ForceClickSavedState 0
 
 # Enable full keyboard access for all controls
 # (e.g. enable Tab in modal dialogs)
