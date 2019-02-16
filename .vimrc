@@ -114,19 +114,21 @@ let g:ale_change_sign_column_color = 1
 let g:ale_linters = {
 \   'javascript': ['eslint', 'flow'],
 \   'jsx': ['eslint', 'flow'],
+\   'markdown': ['prettier', 'remark'],
 \   'python': ['flake8', 'mypy'],
 \   'ruby': ['ruby', 'rubocop'],
 \   'hcl': [],
 \}
 let g:ale_fixers = {
 \   'javascript': ['prettier', 'remove_trailing_lines'],
+\   'markdown': ['prettier'],
 \   'python': ['black'],
 \   'ruby': ['rubocop', 'remove_trailing_lines'],
 \}
 
 " ale javascript settings
 " let g:ale_javascript_prettier_options = ' --parser babylon --single-quote --jsx-bracket-same-line --trailing-comma es5 --print-width 100'
-let g:ale_javascript_prettier_options = ' --config $FIN_HOME/.prettierrc '
+" let g:ale_javascript_prettier_options = ' --config $FIN_HOME/.prettierrc '
 let g:ale_javascript_eslint_use_global = 1
 
 " lightline *****************************************************************
