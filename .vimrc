@@ -37,7 +37,7 @@ Plug 'vim-ruby/vim-ruby'
 Plug 'vim-scripts/LanguageTool'
 Plug 'vim-scripts/fountain.vim'
 Plug 'vim-scripts/taglist.vim'
-Plug 'zxqfl/tabnine-vim'
+" Plug 'zxqfl/tabnine-vim'
 Plug 'w0rp/ale'
 
 call plug#end()
@@ -72,8 +72,7 @@ set si " smartindent    (local to buffer)
 set lazyredraw
 
 " tabnine *******************************************************************
-" set rtp+=~/tabnine-vim
-set rtp+=~/.vim/plugged/tabnine-vim/
+" set rtp+=~/.vim/plugged/tabnine-vim/
 
 " ale ***********************************************************************
 function! LinterStatus() abort
@@ -112,6 +111,7 @@ let g:ale_change_sign_column_color = 1
 " on mac host as well:
 "   yarn install --dev
 let g:ale_linters = {
+\   'css': ['stylelint', 'prettier'],
 \   'javascript': ['eslint', 'flow'],
 \   'jsx': ['eslint', 'flow'],
 \   'markdown': ['prettier', 'remark'],
@@ -120,6 +120,7 @@ let g:ale_linters = {
 \   'hcl': [],
 \}
 let g:ale_fixers = {
+\   'css': ['stylelint', 'prettier'],
 \   'javascript': ['prettier', 'remove_trailing_lines'],
 \   'markdown': ['prettier'],
 \   'python': ['black'],
