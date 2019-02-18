@@ -133,8 +133,8 @@ test -L "/Applications/Screen Sharing.app" || ln -s "/System/Library/CoreService
 ########################################
 # node modules
 ########################################
-# brew_install node
-brew_install nvm # instead of node
+which nodenv || brew_install nodenv # instead of node
+eval "$(nodenv init -)"
 
 npm_install eslint
 npm_install eslint-plugin-react
@@ -145,8 +145,6 @@ npm_install prettier
 npm_install reveal-md
 npm_install typescript
 npm_install tslint
-
-test -e $HOME/.nvm || mkdir -p $HOME/.nvm 
 
 ########################################
 # ruby gems
