@@ -1,52 +1,42 @@
-alias ls='ls -G'
-alias grep='grep -i --color=auto'
+##################################################
+# path adjustments
+##################################################
 export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/opt/local/bin:$PATH"
-export PS1="\h:\w$ "
+export PATH="~/.vim/:/usr/local:/usr/local/bin/ruby:$PATH"
+export PATH="$HOME/dotfiles/bin:$PATH"
+
+export GOPATH="$HOME/gopath"
+export PATH="$GOPATH/bin:$PATH"
+
+##################################################
+# aliases and bindings
+##################################################
+# alias SaveScreen='/System/Library/Frameworks/ScreenSaver.framework/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine'
+alias ag='ag --hidden'
+alias dk="docker-compose"
+alias flushdns='sudo dscacheutil -flushcache'
+alias gg='git grep -n --color --heading --break'
+alias grep='grep -i --color=auto'
+alias ls='ls -G'
+alias pidawk="awk '{print \$2}'"
+alias pluginstall='vim +PlugInstall +qall'
+alias t="bundle exec rspec --color"
+alias tmux="TERM=screen-256color-bce tmux"
+alias updatedb='sudo /usr/libexec/locate.updatedb'
+alias v='pbpaste | vim -'
+
 export EDITOR=vim
+export FZF_DEFAULT_COMMAND='ag -g ""'
+export PS1="\h:\w$ "
+export TERM="xterm-256color"
 
 HISTFILESIZE=100000000
 HISTSIZE=100000
 shopt -s histappend
 PROMPT_COMMAND='history -a'
 
-# kortina mac specific bash profile settings
+# use option delete to delete previous word
 bind '"\M-d": backward-kill-word'
-
-##################################################
-# aliases
-##################################################
-alias flushdns='sudo dscacheutil -flushcache'
-alias SaveScreen='/System/Library/Frameworks/ScreenSaver.framework/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine'
-alias updatedb='sudo /usr/libexec/locate.updatedb'
-alias gg='git grep -n --color --heading --break'
-alias tmux="TERM=screen-256color-bce tmux"
-export TERM="xterm-256color"
-alias t="bundle exec rspec --color"
-alias dk="docker-compose"
-alias pidawk="awk '{print \$2}'"
-alias v='pbpaste | vim -'
-alias pluginstall='vim +PlugInstall +qall'
-alias ag='ag --hidden'
-export FZF_DEFAULT_COMMAND='ag -g ""'
-
-
-##################################################
-# path adjustments
-##################################################
-export PATH="~/.vim/:/usr/local:/usr/local/bin/ruby:$PATH"
-
-export GOPATH="$HOME/gopath"
-export PATH="$GOPATH/bin:$PATH"
-export PATH="$HOME/dotfiles/bin:$PATH"
-# enables `code` cli binary
-export PATH="$PATH:$VSCODE_APP/Contents/Resources/app/bin"
-
-# Setting PATH for MacPython 2.5
-# PATH="/Library/Frameworks/Python.framework/Versions/Current/bin:${PATH}"
-# export PATH
-# This does not seem to play nice with pyenv:
-# export PYTHONPATH="`brew --prefix`/lib/python2.7/site-packages:$PYTHONPATH"
-
 
 ##################################################
 # pretty bash prompt with git / svn branch name

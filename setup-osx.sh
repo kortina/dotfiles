@@ -58,6 +58,20 @@ defaults write NSGlobalDomain KeyRepeat -int 2
 defaults write NSGlobalDomain InitialKeyRepeat -int 15
 
 ###############################################################################
+# Terminal
+###############################################################################
+# use Tomorrow Night theme by default
+defaults write com.apple.Terminal "Default Window Settings" "Tomorrow Night"
+defaults write com.apple.Terminal "Startup Window Settings" "Tomorrow Night"
+# false: Audible bell
+/usr/libexec/PlistBuddy -c "Set :'Window Settings':'Tomorrow Night':Bell 0" ~/Library/Preferences/com.apple.Terminal.plist
+# false: Visual bell > Only when sound is muted
+/usr/libexec/PlistBuddy -c "Set :'Window Settings':'Tomorrow Night':VisualBellOnlyWhenMuted 0" ~/Library/Preferences/com.apple.Terminal.plist
+# true: Use option key as meta key
+/usr/libexec/PlistBuddy -c "Set :'Window Settings':'Tomorrow Night':useOptionAsMetaKey 1" ~/Library/Preferences/com.apple.Terminal.plist
+
+
+###############################################################################
 # Finder                                                                      #
 ###############################################################################
 
