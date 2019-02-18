@@ -11,7 +11,7 @@ echo "You should see a bunch of ✅ emoji when this script finishes."
 ./vscode/setup-vscode.sh
 ./setup-osx.sh
 
-source "./.bash_defs.sh"
+source "./_setup_defs.sh"
 show_success "✅ ✅ ✅  Finished setup.sh."
 show_success "🎉 🎉 🎉  Party Time."
 

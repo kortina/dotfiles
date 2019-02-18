@@ -3,7 +3,7 @@ set -e
 echo "##### $(basename $BASH_SOURCE) #####"
 
 DOTFILES_ROOT="`pwd`"
-source "$DOTFILES_ROOT/.bash_defs.sh"
+source "$DOTFILES_ROOT/_setup_defs.sh"
 
 # home directory dotfiles
 for f in `ls -a | grep "^\." | grep -v "\.swp$" | grep -v "DS_Store"`; do 

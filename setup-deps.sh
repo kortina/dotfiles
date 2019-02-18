@@ -5,7 +5,7 @@ set -e
 echo "##### $(basename $BASH_SOURCE) #####"
 
 DOTFILES_ROOT="`pwd`"
-source "$DOTFILES_ROOT/.bash_defs.sh"
+source "$DOTFILES_ROOT/_setup_defs.sh"
 
 # make sure git submodules are up to date
 cd $DOTFILES_ROOT && git submodule update --init
