@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # kortina mac specific bash profile settings
 bind '"\M-d": backward-kill-word'
 
@@ -15,6 +17,7 @@ alias dk="docker-compose"
 alias pidawk="awk '{print \$2}'"
 alias v='pbpaste | vim -'
 alias pluginstall='vim +PlugInstall +qall'
+alias ag='ag --hidden'
 export FZF_DEFAULT_COMMAND='ag -g ""'
 
 
@@ -65,14 +68,12 @@ source_if_exists() {
 
 source_if_exists "`brew --prefix`/etc/bash_completion"
 source_if_exists "`brew --prefix`/etc/bash_completion.d/rails.bash"
-source_if_exists "$HOME/src/hub/etc/hub.bash_completion.sh"
 command -v gulp >/dev/null 2>&1  && eval "$(gulp --completion=bash)"
 
 ##################################################
 # settings not on github
 ##################################################
 source_if_exists "$HOME/.bash_mac_private"
-source_if_exists "$HOME/.bash_profile_aws"
 
 ##################################################
 # ruby
@@ -89,6 +90,11 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 if command -v pyenv 1>/dev/null 2>&1; then eval "$(pyenv init -)"; fi
 
 ##################################################
+# javascript
+##################################################
+if which nodenv > /dev/null; then eval "$(nodenv init -)"; else echo nodenv not installed; fi
+
+##################################################
 # fzf
 ##################################################
 source_if_exists "$HOME/.fzf.bash"
@@ -102,9 +108,3 @@ export FIN_CODE_HOME="$HOME/code"
 fa_bin="/usr/local/bin/fa"
 test -h $fa_bin ||  ln -s "$FIN_CODE_HOME/fin-dev/fa" $fa_bin
 eval "$(_FA_COMPLETE=source fa)"
-
-##################################################
-# javascript
-##################################################
-export NVM_DIR="$HOME/.nvm"
-. "/usr/local/opt/nvm/nvm.sh"

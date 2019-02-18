@@ -179,9 +179,9 @@ set foldlevelstart=99
 
 " Search ********************************************************************
 set tags=./tags;
-set grepprg=ag\ --vimgrep
+set grepprg=ag\ --hidden\ --vimgrep
 set grepformat=%f:%l:%c:%m
-let g:ackprg = 'ag --vimgrep'
+let g:ackprg = 'ag --hidden --vimgrep'
 
 " switch from horizontal to vertical split
 command H2v normal <C-w>t<C-w>H
