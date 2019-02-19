@@ -9,6 +9,6 @@ kortina.run-in-terminal
 misogi.ruby-rubocop
 ms-vscode.Theme-TomorrowKit
 piersdeseilligny.betterfountain
-rebornix.Ruby
+rebornix.ruby
 richie5um2.vscode-sort-json
 vscodevim.vim
