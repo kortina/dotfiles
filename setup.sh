@@ -15,7 +15,4 @@ source "./_setup_defs.sh"
 show_success "✅ ✅ ✅  Finished setup.sh."
 show_success "🎉 🎉 🎉  Party Time."
 
-echo "You may still need to setup YouCompleteMe by running:"
-echo "cd .vim/plugged/YouCompleteMe/ && ./install.py --tern-completer; cd -"
-
 vim +PlugInstall +qall

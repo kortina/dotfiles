@@ -16,7 +16,6 @@ vscode_dotfiles="$DOTFILES_ROOT/vscode"
 cd "$vscode_dotfiles"
 code_dirs=(
     "$HOME/Library/Application Support/Code/User"
-    "$HOME/Library/Application Support/Source Graph" 
 )
 
 for code_dir in "${code_dirs[@]}"; do
