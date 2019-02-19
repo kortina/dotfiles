@@ -12,7 +12,7 @@
 .svn
 .vim/.netrwhist
 .vim/black
-.vim/plugged/**
+.vim/plugged
 /.bundle/
 /tags
 Icon
