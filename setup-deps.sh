@@ -193,6 +193,7 @@ npm_install remark-preset-lint-markdown-style-guide
 npm_install remark-reference-links
 npm_install reveal-md
 npm_install stylelint
+npm_install stylelint-config-recommended
 npm_install typescript
 npm_install tslint
 
