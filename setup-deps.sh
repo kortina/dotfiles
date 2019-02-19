@@ -135,6 +135,9 @@ test -L "/Applications/Screen Sharing.app" || ln -s "/System/Library/CoreService
 ########################################
 which nodenv || brew_install nodenv # instead of node
 eval "$(nodenv init -)"
+nodenv versions | grep -q "11\.9\.0" || nodenv install 11.9.0
+nodenv global 11.9.0
+nodenv rehash
 
 npm_install eslint
 npm_install eslint-plugin-react
@@ -142,7 +145,11 @@ npm_install eslint-plugin-flowtype
 npm_install babel-eslint
 npm_install livedown
 npm_install prettier
+npm_install remark
+npm_install remark-preset-lint-markdown-style-guide
+npm_install remark-reference-links
 npm_install reveal-md
+npm_install stylelint
 npm_install typescript
 npm_install tslint
 
@@ -152,6 +159,7 @@ npm_install tslint
 test -e ~/.gemrc && grep -q "no-document" ~/.gemrc || echo "gem: --no-document" >> ~/.gemrc
 rbenv versions | grep -q "2\.3\.3" || rbenv install 2.3.3
 rbenv global 2.3.3
+rbenv rehash
 # You may need to fix readline in irb by doing the following:
 # xcode-select --install
 # rbenv install -f 2.3.3 && RBENV_VERSION=2.3.3 gem pristine --all
