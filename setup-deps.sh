@@ -166,7 +166,7 @@ pip_install xlsx2csv
 ########################################
 SRC_DIR="$HOME/src"
 test -e $SRC_DIR || mkdir -p $SRC_DIR
-if [ "`id -u -n`" = "kortina" ] && [ ! -f "$HOME/.bash_mac_private" ]; then echo "~/.bash_mac_private does not exist. exiting."; exit 1; fi;
+if [ "`id -u -n`" = "kortina" ] && [ ! -f "$HOME/.bash_secrets" ]; then echo "~/.bash_secrets does not exist. exiting."; exit 1; fi;
 
 ########################################
 # various symlinks

@@ -72,7 +72,7 @@ command -v gulp >/dev/null 2>&1  && eval "$(gulp --completion=bash)"
 ##################################################
 # settings not on github
 ##################################################
-source_if_exists "$HOME/.bash_mac_private"
+source_if_exists "$HOME/.bash_secrets"
 
 ##################################################
 # ruby

@@ -9,7 +9,7 @@ This will ultimately probably end up in a new git repo.
     chmod 700 s3screenshots.sh
     vim s3screenshots.sh
     # Add your AWS credentials, bucket name, and OS X username to `s3screenshots.sh`
-    # Or, source your `.bash_mac_private` with the env vars set
+    # Or, source your `.bash_secrets` with the env vars set
 
 Then, install the LaunchAgent:
 
@@ -29,10 +29,10 @@ Then, install the LaunchAgent:
 
     # Start the agent:
     launchctl load $agent
-    
+
     # To stop the agent:
     # launchctl unload $agent
-    
+
     # Debug using the logs:
     tail -f $HOME/Library/Logs/s3screenshots.log
 
