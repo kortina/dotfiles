@@ -13,24 +13,67 @@ cd $DOTFILES_ROOT && git submodule update --init
 ########################################
 # helpers
 ########################################
+# These cache the output of the package lists,
+# and then check packages against the caches.
+# This dramatically speeds up run time.
+BREW_LS=""
 brew_install() {
+    test -z "$BREW_LS" && BREW_LS=$(brew ls -1)
     formula="$1"
     set +e
     already_installed="no"
-    test -z "$(brew ls --versions $formula)" || already_installed="yes"
+    echo "$BREW_LS" | grep -q $formula && already_installed="yes"
     set -e
     echo "$formula already installed with brew: $already_installed"
     [ $already_installed = "yes" ] || brew install $formula
 }
 
+CASK_LIST=""
+cask_install() {
+    test -z "$CASK_LIST" && CASK_LIST=$(brew cask list -1)
+    pkg="$1"
+    set +e
+    already_installed="no"
+    echo "$CASK_LIST" | grep -q "\b$pkg\b" && already_installed="yes"
+    set -e
+    echo "$pkg already installed with cask: $already_installed"
+    [ $already_installed = "yes" ] || brew cask install $pkg
+}
+
+NPM_LIST_G=""
 npm_install() {
+    test -z "$NPM_LIST_G" && NPM_LIST_G=$(npm list -g)
     formula="$1"
     set +e
     already_installed="no"
-    npm list -g | grep -q "$formula@" && already_installed="yes"
+    echo "$NPM_LIST_G" | grep -q "$formula@" && already_installed="yes"
     set -e
     echo "$formula already installed with npm: $already_installed"
     [ $already_installed = "yes" ] || npm install -g $formula
+}
+
+PIP_LIST=""
+pip_install() {
+    test -z "$PIP_LIST" && PIP_LIST=$(pip list)
+    pkg="$1"
+    set +e
+    already_installed="no"
+    echo "$PIP_LIST" | grep -q "\b$pkg\b" && already_installed="yes"
+    set -e
+    echo "$pkg already installed with pip: $already_installed"
+    [ $already_installed = "yes" ] || pip install $pkg
+}
+
+GEM_LIST=""
+gem_install() {
+    test -z "$GEM_LIST" && GEM_LIST=$(gem list)
+    pkg="$1"
+    set +e
+    already_installed="no"
+    echo "$GEM_LIST" | grep -q "\b$pkg\b" && already_installed="yes"
+    set -e
+    echo "$pkg already installed with gem: $already_installed"
+    [ $already_installed = "yes" ] || gem install $pkg
 }
 
 install_git_repo() {
@@ -59,7 +102,7 @@ sudo chown -R $(whoami) $(brew --prefix)/* # need to do this on High Sierra inst
 ########################################
 # xcode-select --install # must be install via app store now
 
-brew_install CMake
+brew_install cmake
 brew_install git # so that it has completion
 brew_install bash-completion
 brew_install rails-completion
@@ -94,8 +137,8 @@ brew tap caskroom/cask
 ########################################
 # java (for languagetool)
 ########################################
-brew tap caskroom/versions
-brew cask install java
+brew tap caskroom/versions # this is still a little slow
+cask_install java
 
 # caffeine replacement
 test -e /Applications/KeepingYouAwake.app || brew cask install keepingyouawake
@@ -105,18 +148,18 @@ test -e /Applications/Cyberduck.app || brew cask install cyberduck
 # pip
 ########################################
 
-pip install ansible
-pip install autopep8
-pip install black
-pip install boto
-pip install flake8
-pip install ipython
-pip install mock # python 2.7
-pip install nose
-pip install nose-run-line-number
-pip install pre-commit
-pip install watchdog
-pip install xlsx2csv
+pip_install ansible
+pip_install autopep8
+pip_install black
+pip_install boto
+pip_install flake8
+pip_install ipython
+pip_install mock # python 2.7
+pip_install nose
+pip_install nose-run-line-number
+pip_install pre-commit
+pip_install watchdog
+pip_install xlsx2csv
 
 ########################################
 # misc
@@ -163,12 +206,12 @@ rbenv rehash
 # You may need to fix readline in irb by doing the following:
 # xcode-select --install
 # rbenv install -f 2.3.3 && RBENV_VERSION=2.3.3 gem pristine --all
-gem install docker-sync
-gem install cocoapods
-gem install overcommit
-gem install teamocil
-gem install rb-readline
-gem install rubocop
+gem_install docker-sync
+gem_install cocoapods
+gem_install overcommit
+gem_install teamocil
+gem_install rb-readline
+gem_install rubocop
 
 
 ########################################
