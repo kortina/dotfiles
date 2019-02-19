@@ -1,1 +1,11 @@
-themes
+*.css.map
+.git/
+coverage/
+log/
+node_modules/
+site/
+tags/
+themes/tomorrow-theme/
+themes/ir_black_lion_kortina.terminal
+tmp/
+vendor/
