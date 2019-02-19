@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 set -e
 echo "##### $(basename $BASH_SOURCE) #####"
+DOTFILES_ROOT="`pwd`"
 
 # format clock in menubar
 defaults write com.apple.menuextra.clock DateFormat 'EEE MMM d  h:mm a'
@@ -60,16 +61,33 @@ defaults write NSGlobalDomain InitialKeyRepeat -int 15
 ###############################################################################
 # Terminal
 ###############################################################################
+terminal_plist="$HOME/Library/Preferences/com.apple.Terminal.plist"
+# check if theme is installed, if not, install it:
+/usr/libexec/PlistBuddy \
+    -c "Print :'Window Settings':'Tomorrow Night'" \
+    "$terminal_plist"  &> /dev/null \
+    || open -gj "$DOTFILES_ROOT/themes/tomorrow-theme/OS X Terminal/Tomorrow Night.terminal"
+
 # use Tomorrow Night theme by default
 defaults write com.apple.Terminal "Default Window Settings" "Tomorrow Night"
 defaults write com.apple.Terminal "Startup Window Settings" "Tomorrow Night"
 # false: Audible bell
-/usr/libexec/PlistBuddy -c "Set :'Window Settings':'Tomorrow Night':Bell 0" ~/Library/Preferences/com.apple.Terminal.plist
+/usr/libexec/PlistBuddy -c "Set :'Window Settings':'Tomorrow Night':Bell 0" "$terminal_plist"
 # false: Visual bell > Only when sound is muted
-/usr/libexec/PlistBuddy -c "Set :'Window Settings':'Tomorrow Night':VisualBellOnlyWhenMuted 0" ~/Library/Preferences/com.apple.Terminal.plist
+/usr/libexec/PlistBuddy -c "Set :'Window Settings':'Tomorrow Night':VisualBellOnlyWhenMuted 0" "$terminal_plist"
 # true: Use option key as meta key
-/usr/libexec/PlistBuddy -c "Set :'Window Settings':'Tomorrow Night':useOptionAsMetaKey 1" ~/Library/Preferences/com.apple.Terminal.plist
+/usr/libexec/PlistBuddy -c "Set :'Window Settings':'Tomorrow Night':useOptionAsMetaKey 1" "$terminal_plist"
 
+# delete all the builtin themes
+# i'm not sure this actually works
+for dt in "Basic" "Grass" "Homebrew" "Novel" "Ocean" "Pro" "Red Sands" "Silver Aerogel" "Solid Colors" "Tomorrow"; do 
+    /usr/libexec/PlistBuddy \
+        -c "Print :'Window Settings':'$dt'" \
+        "$terminal_plist"  &> /dev/null \
+        && /usr/libexec/PlistBuddy \
+        -c "Delete :'Window Settings':'$dt'" \
+        "$terminal_plist"
+done;
 
 ###############################################################################
 # Finder                                                                      #
