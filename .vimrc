@@ -61,23 +61,24 @@ let mapleader = ","
 nmap \ ,
 
 " Basics ********************************************************************
+set ai " Automatically set the indent of a new line (local to buffer)
 set backspace=indent,eol,start " fix backspace in vim 7
 set cm=blowfish
-set number
 set et
-set sw=4
-set smarttab
-set incsearch
 set hlsearch
 set ignorecase
-set smartcase
-set title
-set ruler
-set showmode
-set showcmd
-set ai " Automatically set the indent of a new line (local to buffer)
-set si " smartindent    (local to buffer)
+set incsearch
 set lazyredraw
+set number
+set ruler
+set showcmd
+set showmode
+set si " smartindent    (local to buffer)
+set smartcase
+set smarttab
+set sw=4
+set title
+set tw=100 " textwidth: so gq-like commands wrap at 100 chars (default 78)
 
 " tabnine *******************************************************************
 " set rtp+=~/.vim/plugged/tabnine-vim/

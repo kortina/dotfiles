@@ -16,7 +16,6 @@ vscode_dotfiles="$DOTFILES_ROOT/vscode"
 cd "$vscode_dotfiles"
 code_dirs=(
     "$HOME/Library/Application Support/Code/User"
-    "$HOME/Library/Application Support/Source Graph" 
 )
 
 for code_dir in "${code_dirs[@]}"; do
@@ -34,10 +33,15 @@ for VARIANT in "code" \
                "code-insiders"
 do
     if hash $VARIANT 2>/dev/null; then
+        extensions_installed=$($VARIANT --list-extensions)
         echo "Installing extensions for $VARIANT"
-        for EXTENSION in `cat $EXTENSIONS`
-        do
-            $VARIANT --install-extension $EXTENSION
-        done
+        for EXTENSION in `cat $EXTENSIONS`; do
+            set +e
+            already_installed="no"
+            echo "$extensions_installed" | grep -q "$EXTENSION" && already_installed="yes"
+            set -e
+            echo "$EXTENSION already installed with code: $already_installed"
+            [ $already_installed = "yes" ] || $VARIANT --install-extension $EXTENSION ;
+        done;
     fi
 done
