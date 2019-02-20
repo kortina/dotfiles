@@ -16,7 +16,7 @@ alias sesher='cd /Users/jennykortina/Developer/sesher'
 alias ngork='cd /Users/jennykortina/Developer && ./ngrok http fin.local:3000'
 alias unity='cd /Users/jennykortina/Developer/unity/udemy-unity-2d-platformer'
 alias fin='cd /Users/jennykortina/code/fin-analytics'
-alias fa='./fa'
+# alias fa='./fa'
 
 # rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; else echo rbenv not installed; fi
