@@ -113,6 +113,7 @@ let g:ale_change_sign_column_color = 1
 "   yarn install --dev
 let g:ale_linters = {
 \   'css': ['stylelint', 'prettier'],
+\   'html': ['prettier'],
 \   'javascript': ['eslint', 'flow'],
 \   'jsx': ['eslint', 'flow'],
 \   'markdown': ['prettier', 'remark'],
@@ -122,6 +123,7 @@ let g:ale_linters = {
 \}
 let g:ale_fixers = {
 \   'css': ['stylelint', 'prettier'],
+\   'html': ['prettier'],
 \   'javascript': ['prettier', 'remove_trailing_lines'],
 \   'markdown': ['prettier'],
 \   'python': ['black'],
