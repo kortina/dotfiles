@@ -3,6 +3,8 @@ set -e
 echo "##### $(basename $BASH_SOURCE) #####"
 DOTFILES_ROOT="`pwd`"
 
+cp themes/fonts/* "$HOME/Library/Fonts/"
+
 # format clock in menubar
 defaults write com.apple.menuextra.clock DateFormat 'EEE MMM d  h:mm a'
 
