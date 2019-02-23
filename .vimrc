@@ -268,6 +268,9 @@ au BufRead,BufNewFile {Capfile,Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru,.
 autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
 autocmd Filetype eruby setlocal ts=2 sts=2 sw=2
 
+" yaml  *********************************************************************
+autocmd Filetype yaml setlocal ts=2 sts=2 sw=2
+
 " Git ***********************************************************************
 command! -complete=file -nargs=* Gstaged call s:RunShellCommand('git diff --staged')
 " review git diff in vertical split (fugitive doesn't seem to want to do this
@@ -426,6 +429,7 @@ nmap <Leader>cc :!(test -f ./ctags.sh && ./ctags.sh) \|\|  (test -f ./bin/ctags.
 au BufRead,BufNewFile *.fountain set filetype=fountain
 autocmd BufNewFile,BufRead *.md,*.mkd,*.markdown,*.fountain set linebreak
 autocmd BufNewFile,BufRead *.md,*.mkd,*.markdown,*.fountain setlocal spell spelllang=en_us
+autocmd Filetype markdown setlocal ts=2 sts=2 sw=2
 
 " fountain settings / hacks
 " fixes error when loading markdown-folding
