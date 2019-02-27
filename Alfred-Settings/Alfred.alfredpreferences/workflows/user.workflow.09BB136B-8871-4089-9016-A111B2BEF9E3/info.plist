@@ -57,11 +57,11 @@
 				<key>focusedappvariablename</key>
 				<string></string>
 				<key>hotkey</key>
-				<integer>28</integer>
+				<integer>25</integer>
 				<key>hotmod</key>
 				<integer>1179648</integer>
 				<key>hotstring</key>
-				<string>8</string>
+				<string>9</string>
 				<key>leftcursor</key>
 				<false/>
 				<key>modsmode</key>
