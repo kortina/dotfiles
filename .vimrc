@@ -121,6 +121,7 @@ let g:ale_change_sign_column_color = 1
 "   yarn install --dev
 let g:ale_linters = {
 \   'css': ['stylelint', 'prettier'],
+\   'html': ['prettier'],
 \   'javascript': ['eslint', 'flow'],
 \   'jsx': ['eslint', 'flow'],
 \   'markdown': ['prettier', 'remark'],
@@ -130,6 +131,7 @@ let g:ale_linters = {
 \}
 let g:ale_fixers = {
 \   'css': ['stylelint', 'prettier'],
+\   'html': ['prettier'],
 \   'javascript': ['prettier', 'remove_trailing_lines'],
 \   'markdown': ['prettier'],
 \   'python': ['black'],
@@ -274,6 +276,9 @@ noremap <Leader>d Ofrom IPython.core.debugger import set_trace; set_trace()<Esc>
 au BufRead,BufNewFile {Capfile,Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru,.caprc,.irbrc,irb_tempfile*} set ft=ruby
 autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
 autocmd Filetype eruby setlocal ts=2 sts=2 sw=2
+
+" yaml  *********************************************************************
+autocmd Filetype yaml setlocal ts=2 sts=2 sw=2
 
 " Git ***********************************************************************
 command! -complete=file -nargs=* Gstaged call s:RunShellCommand('git diff --staged')
@@ -433,6 +438,7 @@ nmap <Leader>cc :!(test -f ./ctags.sh && ./ctags.sh) \|\|  (test -f ./bin/ctags.
 au BufRead,BufNewFile *.fountain set filetype=fountain
 autocmd BufNewFile,BufRead *.md,*.mkd,*.markdown,*.fountain set linebreak
 autocmd BufNewFile,BufRead *.md,*.mkd,*.markdown,*.fountain setlocal spell spelllang=en_us
+autocmd Filetype markdown setlocal ts=2 sts=2 sw=2
 
 " fountain settings / hacks
 " fixes error when loading markdown-folding
