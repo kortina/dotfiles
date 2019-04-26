@@ -277,8 +277,20 @@ au BufRead,BufNewFile {Capfile,Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru,.
 autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
 autocmd Filetype eruby setlocal ts=2 sts=2 sw=2
 
-" Ruby **********************************************************************
+" sql ***********************************************************************
 autocmd Filetype sql setlocal ts=2 sts=2 sw=2
+
+" see https://github.com/kortina/dotfiles/commit/567f6c2540401a58b889b4ffb616fa26bde7852f
+function FormatSQL()
+    let ln = line('.')
+    let cn = col('.')
+    silent %! sqlformat --keywords upper --reindent --indent_after_first --indent_columns --comma_first True  
+    " If there was an error, undo replacing the entire buffer
+    if v:shell_error
+        undo
+    endif
+    cal cursor(ln, cn)
+endfunction
 
 " yaml  *********************************************************************
 autocmd Filetype yaml setlocal ts=2 sts=2 sw=2
