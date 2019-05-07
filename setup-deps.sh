@@ -188,6 +188,7 @@ nodenv rehash
 npm_install eslint
 npm_install eslint-plugin-react
 npm_install eslint-plugin-flowtype
+npm_install eslint-plugin-fin-eslint-flow-enforcement
 npm_install babel-eslint
 npm_install livedown
 npm_install prettier
