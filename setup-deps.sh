@@ -119,6 +119,8 @@ brew_install python
 brew_install pyenv
 eval "$(pyenv init -)"
 test -e "$HOME/.pyenv/versions/3.7.0" || CFLAGS="-I$(xcrun --show-sdk-path)/usr/include" pyenv install -v 3.7.0
+pyenv global 3.7.0
+pyenv rehash
 # see: https://github.com/pyenv/pyenv/issues/530 for CFLAGS tip
 
 brew_install jq
