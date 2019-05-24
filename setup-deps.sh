@@ -150,10 +150,12 @@ test -e /Applications/Cyberduck.app || brew cask install cyberduck
 # pip
 ########################################
 
+pip install --upgrade pip
 pip_install ansible
 pip_install autopep8
 pip_install black
 pip_install boto
+pip_install boto3
 pip_install flake8
 pip_install ipython
 pip_install mock # python 2.7
@@ -208,6 +210,7 @@ npm_install tslint
 ########################################
 test -e ~/.gemrc && grep -q "no-document" ~/.gemrc || echo "gem: --no-document" >> ~/.gemrc
 rbenv versions | grep -q "2\.3\.3" || rbenv install 2.3.3
+eval "$(rbenv init -)"
 rbenv global 2.3.3
 rbenv rehash
 # You may need to fix readline in irb by doing the following:
@@ -215,7 +218,7 @@ rbenv rehash
 # rbenv install -f 2.3.3 && RBENV_VERSION=2.3.3 gem pristine --all
 gem_install docker-sync
 gem_install cocoapods
-gem_install overcommit
+# gem_install overcommit
 gem_install teamocil
 gem_install rb-readline
 gem_install rubocop
