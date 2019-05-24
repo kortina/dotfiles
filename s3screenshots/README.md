@@ -36,6 +36,13 @@ Then, install the LaunchAgent:
     # Debug using the logs:
     tail -f $HOME/Library/Logs/s3screenshots.log
 
+    # If you see errors about boto not installed, do:
+    mkdir ~/tmp
+    cd ~/tmp
+    pyenv local system
+    sudo easy_install boto
+    sudo easy_install watchdog
+
 NB: since this uses OS X Notification Center, this must be a `LaunchAgent` not a `LaunchDaemon`.
 
 If things are not working, you can check syslog for errors:
