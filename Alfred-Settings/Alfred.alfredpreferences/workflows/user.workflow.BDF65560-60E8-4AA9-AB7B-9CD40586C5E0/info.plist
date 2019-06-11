@@ -42,7 +42,7 @@
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
-	<string>Window - 1024 x 768</string>
+	<string>Window - 1440 x 900</string>
 	<key>objects</key>
 	<array>
 		<dict>
@@ -59,7 +59,7 @@
 				<key>hotkey</key>
 				<integer>25</integer>
 				<key>hotmod</key>
-				<integer>1179648</integer>
+				<integer>786432</integer>
 				<key>hotstring</key>
 				<string>9</string>
 				<key>leftcursor</key>
@@ -86,13 +86,13 @@ try
     tell application "Finder" to set b to bounds of window of desktop
     try
         tell application (path to frontmost application as text)
-            set bounds of window 1 to {item 1 of b, 22, 1024, 768}
+            set bounds of window 1 to {item 1 of b, 22, 1440, 900}
         end tell
     on error
         tell application "System Events" to tell window 1 of (process 1 where it is frontmost)
             try
                 set position to {0, 22}
-                set size to {1024, 768}
+                set size to {1440, 900}
             on error
 			    display notification "Resize error." with title "Unable to set bounds of window." subtitle "in alfred script."
             end try
@@ -117,11 +117,11 @@ end alfred_script</string>
 				<key>argumenttype</key>
 				<integer>2</integer>
 				<key>keyword</key>
-				<string>window-1024</string>
+				<string>window-1440</string>
 				<key>subtext</key>
 				<string></string>
 				<key>text</key>
-				<string>window-1024</string>
+				<string>window-1440</string>
 				<key>withspace</key>
 				<false/>
 			</dict>
