@@ -200,6 +200,7 @@ npm_install remark
 npm_install remark-preset-lint-markdown-style-guide
 npm_install remark-reference-links
 npm_install remark-cli
+npm_install remark-frontmatter
 npm_install reveal-md
 npm_install stylelint
 npm_install stylelint-config-recommended
