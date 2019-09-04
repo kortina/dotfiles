@@ -1,9 +1,10 @@
 export FIN_SSH_USERNAME="jenny_kortina"
 export FIN_HOME=~/code/fin-core-beta
-source_if_exists "$FIN_HOME/fin-dev/bashrc"
-export FIN_IOS_HOME=~/code/fin-ios
-export FIN_SSH_USERNAME=jenny_kortina
-source "${FIN_HOME}/fin-dev/bashrc"
+export FIN_CODE_HOME="~/code/fin-anatlycis"
+fa_bin="/usr/local/bin/fa"
+# test -h $fa_bin ||  ln -s "$FIN_CODE_HOME/fin-dev/fa" $fa_bin
+eval "$(_FA_COMPLETE=source fa)"
+
 
 # Manually call ssh_add_from_keychain.sh instead of doing this here:
 # For fin laptop, keep id_rsa ssh key in keychain so it can be added with -K argument

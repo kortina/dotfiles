@@ -103,10 +103,4 @@ source_if_exists "$HOME/.fzf.conf.bash"
 ##################################################
 # fin
 ##################################################
-export FIN_SSH_USERNAME="jenny_kortina"
-export FIN_CODE_HOME="$HOME/code"
-fa_bin="/usr/local/bin/fa"
-test -h $fa_bin ||  ln -s "$FIN_CODE_HOME/fin-dev/fa" $fa_bin
-eval "$(_FA_COMPLETE=source fa)"
-
 [[ -f ~/.bash_profile_jennykortina ]] && source ~/.bash_profile_jennykortina
