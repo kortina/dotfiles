@@ -1,20 +1,12 @@
 export FIN_SSH_USERNAME="jenny_kortina"
 export FIN_HOME="$HOME/code/fin-core-beta"
-export FIN_CODE_HOME="$HOME/code/fin-anatlycis"
+export FIN_CODE_HOME="$HOME/code/fin-analytics"
 fa_bin="/usr/local/bin/fa"
-# test -h $fa_bin ||  ln -s "$FIN_CODE_HOME/fin-dev/fa" $fa_bin
 eval "$(_FA_COMPLETE=source fa)"
-
-
-# Manually call ssh_add_from_keychain.sh instead of doing this here:
-# For fin laptop, keep id_rsa ssh key in keychain so it can be added with -K argument
-# ssh-add -l | grep '.ssh/id_rsa ' > /dev/null || ssh-add -K
 
 ### JK aliasas
 alias dotfiles='cd /Users/jennykortina/dotfiles'
-alias developer='cd /Users/jennykortina/Developer'
 alias sesher='cd /Users/jennykortina/Developer/sesher'
-alias ngork='cd /Users/jennykortina/Developer && ./ngrok http fin.local:3000'
 alias unity='cd /Users/jennykortina/Developer/unity/udemy-unity-2d-platformer'
 alias fin='cd /Users/jennykortina/code/fin-analytics'
 # alias fa='./fa'
