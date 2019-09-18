@@ -104,3 +104,12 @@ source_if_exists "$HOME/.fzf.conf.bash"
 # fin
 ##################################################
 [[ -f ~/.bash_profile_jennykortina ]] && source ~/.bash_profile_jennykortina
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+if [[ ":$PATH:" != *":$HOME/.datacoral/cli/bin:"* ]];
+then
+  export PATH=$HOME/.datacoral/cli/bin:$PATH
+fi

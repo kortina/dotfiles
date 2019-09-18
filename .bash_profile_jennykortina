@@ -1,6 +1,6 @@
 export FIN_SSH_USERNAME="jenny_kortina"
-export FIN_HOME=~/code/fin-core-beta
-export FIN_CODE_HOME="~/code/fin-anatlycis"
+export FIN_HOME="$HOME/code/fin-core-beta"
+export FIN_CODE_HOME="$HOME/code/fin-anatlycis"
 fa_bin="/usr/local/bin/fa"
 # test -h $fa_bin ||  ln -s "$FIN_CODE_HOME/fin-dev/fa" $fa_bin
 eval "$(_FA_COMPLETE=source fa)"
