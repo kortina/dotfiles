@@ -15,5 +15,5 @@ while getopts ":l" opt; do
     esac
 done
 
-cmd="cat - | sed -e 's/[^[:alnum:]]/-/g' | tr -s '-' $lowercase"
+cmd="cat - | tr '\n' '-' | sed -e 's/[^[:alnum:]]/-/g' | tr -s '-' $lowercase"
 eval $cmd
