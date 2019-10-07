@@ -140,5 +140,7 @@
   "gitlens.keymap": "alternate",
   "gitlens.advanced.messages": {
     "suppressShowKeyBindingsNotice": true
-  }
+  },
+  "python.linting.flake8Enabled": true,
+  "python.linting.mypyEnabled": true
 }
