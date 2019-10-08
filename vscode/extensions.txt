@@ -4,6 +4,8 @@ eamodio.gitlens
 esbenp.prettier-vscode
 flowtype.flow-for-vscode
 hoovercj.ruby-linter
+IgorSbitnev.error-gutters
+JoeBerria.statusbarerror
 johngraham262.join-comment-aware
 kortina.run-in-terminal
 misogi.ruby-rubocop
