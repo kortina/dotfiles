@@ -57,13 +57,10 @@
   //     "commands": [{ "command": "editor.action.triggerSuggest", "args": [] }]
   //   }
   // ],
-  "vim.otherModesKeyBindingsNonRecursive": [
+  "vim.normalModeKeyBindingsNonRecursive": [
     {
       "after": [],
-      "before": [
-        "g",
-        "l"
-      ],
+      "before": ["g", "l"],
       "commands": [
         {
           "args": [],
@@ -73,10 +70,7 @@
     },
     {
       "after": [],
-      "before": [
-        "<leader>",
-        "e"
-      ],
+      "before": ["<leader>", "e"],
       "commands": [
         {
           "args": [],
@@ -86,11 +80,7 @@
     },
     {
       "after": [],
-      "before": [
-        "<leader>",
-        "r",
-        "a"
-      ],
+      "before": ["<leader>", "r", "a"],
       "commands": [
         {
           "command": "runInTerminal.runLast"
@@ -99,11 +89,7 @@
     },
     {
       "after": [],
-      "before": [
-        "<leader>",
-        "r",
-        "l"
-      ],
+      "before": ["<leader>", "r", "l"],
       "commands": [
         {
           "args": {
@@ -115,11 +101,7 @@
     },
     {
       "after": [],
-      "before": [
-        "<leader>",
-        "r",
-        "b"
-      ],
+      "before": ["<leader>", "r", "b"],
       "commands": [
         {
           "args": {
@@ -131,11 +113,7 @@
     },
     {
       "after": [],
-      "before": [
-        "<leader>",
-        "r",
-        "s"
-      ],
+      "before": ["<leader>", "r", "s"],
       "commands": [
         {
           "args": {
@@ -144,7 +122,17 @@
           "command": "runInTerminal.run"
         }
       ]
-    }
+    },
+    {
+      "after": [],
+      "before": ["<leader>", "a"],
+      "commands": [
+        {
+          "command": "editor.action.marker.nextInFiles"
+        }
+      ]
+    },
+    {}
   ],
   "window.zoomLevel": 0,
   "workbench.activityBar.visible": false,
@@ -158,5 +146,6 @@
   "workbench.colorTheme": "Tomorrow Night",
   "workbench.startupEditor": "newUntitledFile",
   "workbench.statusBar.visible": true,
-  "zenMode.hideStatusBar": false
+  "zenMode.hideStatusBar": false,
+  "python.pythonPath": "$HOME/.pyenv/shims/python"
 }
