@@ -25,6 +25,11 @@
   // "javascript.format.enable": true,
   "runInTerminal.commands": [
     {
+      "cmd": "${relativeFile}",
+      "match": ".*",
+      "name": "exec-file"
+    },
+    {
       "cmd": "./bin/rspec ${relativeFile}:${line}",
       "match": "_spec\\.rb$",
       "name": "l"
@@ -60,7 +65,10 @@
   "vim.normalModeKeyBindingsNonRecursive": [
     {
       "after": [],
-      "before": ["g", "l"],
+      "before": [
+        "g",
+        "l"
+      ],
       "commands": [
         {
           "args": [],
@@ -70,7 +78,10 @@
     },
     {
       "after": [],
-      "before": ["<leader>", "e"],
+      "before": [
+        "<leader>",
+        "e"
+      ],
       "commands": [
         {
           "args": [],
@@ -80,7 +91,11 @@
     },
     {
       "after": [],
-      "before": ["<leader>", "r", "a"],
+      "before": [
+        "<leader>",
+        "r",
+        "a"
+      ],
       "commands": [
         {
           "command": "runInTerminal.runLast"
@@ -89,7 +104,11 @@
     },
     {
       "after": [],
-      "before": ["<leader>", "r", "l"],
+      "before": [
+        "<leader>",
+        "r",
+        "l"
+      ],
       "commands": [
         {
           "args": {
@@ -101,7 +120,11 @@
     },
     {
       "after": [],
-      "before": ["<leader>", "r", "b"],
+      "before": [
+        "<leader>",
+        "r",
+        "b"
+      ],
       "commands": [
         {
           "args": {
@@ -113,7 +136,11 @@
     },
     {
       "after": [],
-      "before": ["<leader>", "r", "s"],
+      "before": [
+        "<leader>",
+        "r",
+        "s"
+      ],
       "commands": [
         {
           "args": {
@@ -125,10 +152,28 @@
     },
     {
       "after": [],
-      "before": ["<leader>", "a"],
+      "before": [
+        "<leader>",
+        "a"
+      ],
       "commands": [
         {
           "command": "editor.action.marker.nextInFiles"
+        }
+      ]
+    },
+    {
+      "after": [],
+      "before": [
+        "<leader>",
+        "x"
+      ],
+      "commands": [
+        {
+          "args": {
+            "name": "exec-file"
+          },
+          "command": "runInTerminal.run"
         }
       ]
     },
