@@ -7,6 +7,7 @@ hoovercj.ruby-linter
 johngraham262.join-comment-aware
 kortina.run-in-terminal
 misogi.ruby-rubocop
+ms-python.python
 ms-vscode.Theme-TomorrowKit
 piersdeseilligny.betterfountain
 rebornix.ruby

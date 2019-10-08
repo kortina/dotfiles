@@ -18,6 +18,9 @@
   "prettier.printWidth": 100,
   "prettier.singleQuote": true,
   "prettier.trailingComma": "es5",
+  "python.formatting.provider": "black",
+  "python.linting.flake8Enabled": true,
+  "python.linting.pylintEnabled": false,
   "ruby.linter.run": "onSave",
   // "javascript.format.enable": true,
   "runInTerminal.commands": [
