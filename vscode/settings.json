@@ -177,7 +177,6 @@
         }
       ]
     },
-    {}
   ],
   "window.zoomLevel": 0,
   "workbench.activityBar.visible": false,
@@ -185,6 +184,8 @@
     "editor.lineHighlightBorder": "#444444",
     "editorCursor.foreground": "#f44271",
     "tab.activeForeground": "#ffffff",
+    "tab.activeBorderTop": "#f44271",
+    "tab.unfocusedActiveBorderTop": "#444444",
     "tab.unfocusedActiveForeground": "#555555",
     "terminalCursor.foreground": "#f44271"
   },
