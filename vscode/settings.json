@@ -20,30 +20,47 @@
   "prettier.trailingComma": "es5",
   "python.formatting.provider": "black",
   "python.linting.flake8Enabled": true,
+  // "python.linting.mypyEnabled": true,
   "python.linting.pylintEnabled": false,
   "ruby.linter.run": "onSave",
   // "javascript.format.enable": true,
   "runInTerminal.commands": [
+    // exec any file as a binary
     {
       "cmd": "${relativeFile}",
       "match": ".*",
       "name": "exec-file"
     },
+    //////////////////////
+    // ruby
+    //////////////////////
+    // rspec: test line
     {
       "cmd": "./bin/rspec ${relativeFile}:${line}",
       "match": "_spec\\.rb$",
       "name": "l"
     },
+    // rspec: test buffer
     {
       "cmd": "./bin/rspec ${relativeFile}",
       "match": "_spec\\.rb$",
       "name": "b"
     },
+    // rspec: test suite
     {
       "cmd": "./bin/rspec",
       "match": "_spec\\.rb$",
       "name": "s"
-    }
+    },
+    //////////////////////
+    // python
+    //////////////////////
+    // nose: test line
+    {
+      "cmd": "noseline ${relativeFile} --line=${line}",
+      "match": "\\.py$",
+      "name": "l"
+    },
   ],
   "terminal.integrated.cursorBlinking": true,
   "terminal.integrated.cursorStyle": "block",
@@ -176,7 +193,7 @@
           "command": "runInTerminal.run"
         }
       ]
-    },
+    }
   ],
   "window.zoomLevel": 0,
   "workbench.activityBar.visible": false,
