@@ -45,4 +45,14 @@
         "command": "workbench.action.focusActiveEditorGroup",
         "when": "terminalFocus"
     },
+    // Exec bash script with runInTerminal
+    {
+        "key": "ctrl+e",
+        "command": "runInTerminal.run",
+        "args": {
+            "cmd": "/usr/bin/env bash ${relativeFile}",
+            "match": ".*"
+        },
+        "when": "resourceLangId == shellscript"
+    },
 ]
