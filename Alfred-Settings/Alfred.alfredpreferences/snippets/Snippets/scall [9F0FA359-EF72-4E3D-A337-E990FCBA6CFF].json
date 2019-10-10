@@ -1,6 +1,10 @@
 {
   "alfredsnippet" : {
+<<<<<<< HEAD
     "snippet" : "https:\/\/sched.finxpc.com\/c\/kortina\/t\/2",
+=======
+    "snippet" : "https:\/\/calendly.com\/kortina\/25-call",
+>>>>>>> c10343af89318dc9841c29cc055c500e4f87a001
     "uid" : "9F0FA359-EF72-4E3D-A337-E990FCBA6CFF",
     "name" : "scall",
     "keyword" : "scall"

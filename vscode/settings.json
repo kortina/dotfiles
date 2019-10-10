@@ -8,19 +8,29 @@
   "editor.minimap.enabled": false,
   "editor.quickSuggestionsDelay": 1,
   "files.autoSave": "off",
-  // "eslint.autoFixOnSave": true,
+  "eslint.autoFixOnSave": true,
   // "eslint.validate": ["javascript", "javascriptreact", "typescript"],
-  "gitlens.annotations.file.gutter.format": "${author} - ${message|40?} ${ago|14-}",
-  "gitlens.blame.line.enabled": false,
-  "prettier.eslintIntegration": true,
+  // "gitlens.annotations.file.gutter.format": "${author} - ${message|40?} ${ago|14-}",
+  // "gitlens.blame.line.enabled": false,
+  // "prettier.eslintIntegration": true,
   "prettier.jsxBracketSameLine": true,
   "prettier.parser": "flow",
   "prettier.printWidth": 100,
   "prettier.singleQuote": true,
   "prettier.trailingComma": "es5",
+  "python.formatting.provider": "black",
+  "python.linting.flake8Enabled": true,
+  "python.linting.pylintEnabled": false,
+  "python.linting.mypyEnabled": true,
+  "python.pythonPath": "~/.pyenv/shims/python",
   "ruby.linter.run": "onSave",
   // "javascript.format.enable": true,
   "runInTerminal.commands": [
+    {
+      "cmd": "${relativeFile}",
+      "match": ".*",
+      "name": "exec-file"
+    },
     {
       "cmd": "./bin/rspec ${relativeFile}:${line}",
       "match": "_spec\\.rb$",
@@ -39,7 +49,7 @@
   ],
   "terminal.integrated.cursorBlinking": true,
   "terminal.integrated.cursorStyle": "block",
-  "vim.disableAnnoyingNeovimMessage": true,
+  // "vim.disableAnnoyingNeovimMessage": true,
   "vim.handleKeys": {
     "<C-a>": false,
     "<C-p>": false
@@ -54,7 +64,7 @@
   //     "commands": [{ "command": "editor.action.triggerSuggest", "args": [] }]
   //   }
   // ],
-  "vim.otherModesKeyBindingsNonRecursive": [
+  "vim.normalModeKeyBindingsNonRecursive": [
     {
       "after": [],
       "before": ["g", "l"],
@@ -119,6 +129,27 @@
           "command": "runInTerminal.run"
         }
       ]
+    },
+    {
+      "after": [],
+      "before": ["<leader>", "a"],
+      "commands": [
+        {
+          "command": "editor.action.marker.nextInFiles"
+        }
+      ]
+    },
+    {
+      "after": [],
+      "before": ["<leader>", "x"],
+      "commands": [
+        {
+          "args": {
+            "name": "exec-file"
+          },
+          "command": "runInTerminal.run"
+        }
+      ]
     }
   ],
   "window.zoomLevel": 0,
@@ -127,6 +158,8 @@
     "editor.lineHighlightBorder": "#444444",
     "editorCursor.foreground": "#f44271",
     "tab.activeForeground": "#ffffff",
+    "tab.activeBorderTop": "#f44271",
+    "tab.unfocusedActiveBorderTop": "#444444",
     "tab.unfocusedActiveForeground": "#555555",
     "terminalCursor.foreground": "#f44271"
   },
@@ -140,7 +173,5 @@
   "gitlens.keymap": "alternate",
   "gitlens.advanced.messages": {
     "suppressShowKeyBindingsNotice": true
-  },
-  "python.linting.flake8Enabled": true,
-  "python.linting.mypyEnabled": true
+  }
 }

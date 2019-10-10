@@ -56,12 +56,13 @@ PIP_LIST=""
 pip_install() {
     test -z "$PIP_LIST" && PIP_LIST=$(pip list)
     pkg="$1"
+    test -z "$2" && pkg_src="$1" || pkg_src="$2"
     set +e
     already_installed="no"
     echo "$PIP_LIST" | grep -q "\b$pkg\b" && already_installed="yes"
     set -e
     echo "$pkg already installed with pip: $already_installed"
-    [ $already_installed = "yes" ] || pip install $pkg
+    [ $already_installed = "yes" ] || pip install $pkg_src
 }
 
 GEM_LIST=""
@@ -119,6 +120,8 @@ brew_install python
 brew_install pyenv
 eval "$(pyenv init -)"
 test -e "$HOME/.pyenv/versions/3.7.0" || CFLAGS="-I$(xcrun --show-sdk-path)/usr/include" pyenv install -v 3.7.0
+pyenv global 3.7.0
+pyenv rehash
 # see: https://github.com/pyenv/pyenv/issues/530 for CFLAGS tip
 
 brew_install jq
@@ -131,32 +134,31 @@ brew_install reattach-to-user-namespace
 brew_install vim # need vim8 for ale
 brew_install watchman
 brew_install yarn
-brew tap caskroom/cask
-
 
 ########################################
-# java (for languagetool)
+# cask required for the following, kind of annoyting so removing for now
 ########################################
-brew tap caskroom/versions # this is still a little slow
-cask_install java
-
-# caffeine replacement
-test -e /Applications/KeepingYouAwake.app || brew cask install keepingyouawake
-test -e /Applications/Cyberduck.app || brew cask install cyberduck
+# brew tap homebrew/cask-cask
+# brew tap caskroom/versions 
+# cask_install java # java (for languagetool)
+# test -e /Applications/KeepingYouAwake.app || brew cask install keepingyouawake # caffeine replacement
+# test -e /Applications/Cyberduck.app || brew cask install cyberduck
 
 ########################################
 # pip
 ########################################
 
+pip install --upgrade pip
 pip_install ansible
 pip_install autopep8
 pip_install black
 pip_install boto
+pip_install boto3
 pip_install flake8
 pip_install ipython
 pip_install mock # python 2.7
 pip_install nose
-pip_install nose-run-line-number
+pip_install nose-run-line-number "git+https://github.com/kortina/nose-run-line-number.git@ak-python3-compatibility" # fork w py3 support
 pip_install pre-commit
 pip_install watchdog
 pip_install xlsx2csv
@@ -195,6 +197,8 @@ npm_install prettier
 npm_install remark
 npm_install remark-preset-lint-markdown-style-guide
 npm_install remark-reference-links
+npm_install remark-cli
+npm_install remark-frontmatter
 npm_install reveal-md
 npm_install stylelint
 npm_install stylelint-config-recommended
@@ -206,6 +210,7 @@ npm_install tslint
 ########################################
 test -e ~/.gemrc && grep -q "no-document" ~/.gemrc || echo "gem: --no-document" >> ~/.gemrc
 rbenv versions | grep -q "2\.3\.3" || rbenv install 2.3.3
+eval "$(rbenv init -)"
 rbenv global 2.3.3
 rbenv rehash
 # You may need to fix readline in irb by doing the following:
@@ -213,7 +218,7 @@ rbenv rehash
 # rbenv install -f 2.3.3 && RBENV_VERSION=2.3.3 gem pristine --all
 gem_install docker-sync
 gem_install cocoapods
-gem_install overcommit
+# gem_install overcommit
 gem_install teamocil
 gem_install rb-readline
 gem_install rubocop

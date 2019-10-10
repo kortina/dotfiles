@@ -1,6 +1,10 @@
 {
   "alfredsnippet" : {
+<<<<<<< HEAD
     "snippet" : "https:\/\/sched.finxpc.com\/calendar\/user\/kortina\/t\/3",
+=======
+    "snippet" : "https:\/\/calendly.com\/kortina\/coffee",
+>>>>>>> c10343af89318dc9841c29cc055c500e4f87a001
     "uid" : "28A80B1F-30E2-4AC8-A05D-A67F59C504E7",
     "name" : "scoffee",
     "keyword" : "scoffee"

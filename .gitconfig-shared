@@ -35,11 +35,8 @@
 	remote = origin
 	merge = refs/heads/master
 
-[credential]
-helper = /opt/boxen/bin/boxen-git-credential
-
 [hub]
-protocol = https
+  protocol = https
 [push]
 	default = current
 [filter "lfs"]

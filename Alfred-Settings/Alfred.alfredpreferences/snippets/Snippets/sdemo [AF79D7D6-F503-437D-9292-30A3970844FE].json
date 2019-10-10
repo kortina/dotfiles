@@ -1,6 +1,10 @@
 {
   "alfredsnippet" : {
+<<<<<<< HEAD
     "snippet" : "https:\/\/sched.finxpc.com\/c\/kortina\/t\/1",
+=======
+    "snippet" : "https:\/\/calendly.com\/kortina\/fin-analytics-demo",
+>>>>>>> c10343af89318dc9841c29cc055c500e4f87a001
     "uid" : "AF79D7D6-F503-437D-9292-30A3970844FE",
     "name" : "sdemo",
     "keyword" : "sdemo"

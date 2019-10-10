@@ -38,7 +38,7 @@
 	<key>createdby</key>
 	<string></string>
 	<key>description</key>
-	<string>'Maximize' Front Window to Full Width / Height of Screen</string>
+	<string>Set w x h of Front Window</string>
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
@@ -121,7 +121,7 @@ end alfred_script</string>
 				<key>subtext</key>
 				<string></string>
 				<key>text</key>
-				<string>window-full-screen</string>
+				<string>window-1024</string>
 				<key>withspace</key>
 				<false/>
 			</dict>

@@ -12,20 +12,7 @@
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>98E705AA-2C2F-490F-AA29-B18EA1C4E517</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-		</array>
-		<key>98E705AA-2C2F-490F-AA29-B18EA1C4E517</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>3BB6DD07-5D29-4397-9E53-9F4CDC16BBB6</string>
+				<string>5F691244-2FD2-4F60-BEEB-0B9B6A78EBB0</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -38,7 +25,7 @@
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>98E705AA-2C2F-490F-AA29-B18EA1C4E517</string>
+				<string>5F691244-2FD2-4F60-BEEB-0B9B6A78EBB0</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -51,11 +38,11 @@
 	<key>createdby</key>
 	<string></string>
 	<key>description</key>
-	<string></string>
+	<string>Set w x h of Front Window</string>
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
-	<string>Hotkey - Copy RTF Link to Pasteboard</string>
+	<string>Window - 1440 x 900</string>
 	<key>objects</key>
 	<array>
 		<dict>
@@ -70,21 +57,17 @@
 				<key>focusedappvariablename</key>
 				<string></string>
 				<key>hotkey</key>
-				<integer>37</integer>
+				<integer>25</integer>
 				<key>hotmod</key>
-				<integer>393216</integer>
+				<integer>786432</integer>
 				<key>hotstring</key>
-				<string>L</string>
+				<string>9</string>
 				<key>leftcursor</key>
 				<false/>
 				<key>modsmode</key>
 				<integer>0</integer>
-				<key>relatedApps</key>
-				<array>
-					<string>com.microsoft.VSCode</string>
-				</array>
 				<key>relatedAppsMode</key>
-				<integer>2</integer>
+				<integer>0</integer>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.trigger.hotkey</string>
@@ -96,37 +79,37 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>concurrently</key>
-				<false/>
-				<key>escaping</key>
-				<integer>102</integer>
-				<key>script</key>
-				<string>#!/usr/bin/env bash
+				<key>applescript</key>
+				<string>on alfred_script(q)
 
-url=`osascript -e 'tell application "Google Chrome" to return URL of active tab of front window' | grep -v '\r\n'`
-title=`osascript -e 'tell application "Google Chrome" to return title of active tab of front window' \
-| sed "s/\“/\"/g" \
-| sed "s/\”/\"/g" \
-| sed "s/\’/\'/g" \
-| sed "s/–/--/g" \
-| sed "s/—/--/g" \
-| sed "s/·/-/g" \
-| grep -v '\r\n'`
-echo "&lt;a href=\"$url\"&gt;$title&lt;/a&gt;" | textutil -stdin -format html -convert rtf -stdout | pbcopy
-echo -e "$title\n$url"</string>
-				<key>scriptargtype</key>
-				<integer>1</integer>
-				<key>scriptfile</key>
-				<string></string>
-				<key>type</key>
-				<integer>0</integer>
+try
+    tell application "Finder" to set b to bounds of window of desktop
+    try
+        tell application (path to frontmost application as text)
+            set bounds of window 1 to {item 1 of b, 22, 1440, 900}
+        end tell
+    on error
+        tell application "System Events" to tell window 1 of (process 1 where it is frontmost)
+            try
+                set position to {0, 22}
+                set size to {1440, 900}
+            on error
+			    display notification "Resize error." with title "Unable to set bounds of window." subtitle "in alfred script."
+            end try
+        end tell
+    end try
+end try
+
+end alfred_script</string>
+				<key>cachescript</key>
+				<false/>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.action.script</string>
+			<string>alfred.workflow.action.applescript</string>
 			<key>uid</key>
-			<string>98E705AA-2C2F-490F-AA29-B18EA1C4E517</string>
+			<string>5F691244-2FD2-4F60-BEEB-0B9B6A78EBB0</string>
 			<key>version</key>
-			<integer>2</integer>
+			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -134,11 +117,11 @@ echo -e "$title\n$url"</string>
 				<key>argumenttype</key>
 				<integer>2</integer>
 				<key>keyword</key>
-				<string>copy-rtf-link-to-pasteboard</string>
+				<string>window-1440</string>
 				<key>subtext</key>
 				<string></string>
 				<key>text</key>
-				<string>copy-rtf-link-to-pasteboard</string>
+				<string>window-1440</string>
 				<key>withspace</key>
 				<false/>
 			</dict>
@@ -146,27 +129,6 @@ echo -e "$title\n$url"</string>
 			<string>alfred.workflow.input.keyword</string>
 			<key>uid</key>
 			<string>B1055B9D-BBE5-46AB-A688-C836EDA1AF89</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>lastpathcomponent</key>
-				<false/>
-				<key>onlyshowifquerypopulated</key>
-				<false/>
-				<key>removeextension</key>
-				<false/>
-				<key>text</key>
-				<string>{query}</string>
-				<key>title</key>
-				<string>Copied Link</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.notification</string>
-			<key>uid</key>
-			<string>3BB6DD07-5D29-4397-9E53-9F4CDC16BBB6</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -182,19 +144,12 @@ echo -e "$title\n$url"</string>
 			<key>ypos</key>
 			<integer>30</integer>
 		</dict>
-		<key>3BB6DD07-5D29-4397-9E53-9F4CDC16BBB6</key>
+		<key>5F691244-2FD2-4F60-BEEB-0B9B6A78EBB0</key>
 		<dict>
 			<key>xpos</key>
-			<integer>550</integer>
+			<integer>500</integer>
 			<key>ypos</key>
-			<integer>170</integer>
-		</dict>
-		<key>98E705AA-2C2F-490F-AA29-B18EA1C4E517</key>
-		<dict>
-			<key>xpos</key>
-			<integer>350</integer>
-			<key>ypos</key>
-			<integer>50</integer>
+			<integer>160</integer>
 		</dict>
 		<key>B1055B9D-BBE5-46AB-A688-C836EDA1AF89</key>
 		<dict>
