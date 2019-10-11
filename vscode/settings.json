@@ -13,6 +13,7 @@
   // "gitlens.annotations.file.gutter.format": "${author} - ${message|40?} ${ago|14-}",
   // "gitlens.blame.line.enabled": false,
   // "prettier.eslintIntegration": true,
+  "javascript.validate.enable": false,
   "prettier.jsxBracketSameLine": true,
   "prettier.parser": "flow",
   "prettier.printWidth": 100,
@@ -178,6 +179,7 @@
   "window.zoomLevel": 0,
   "workbench.activityBar.visible": false,
   "workbench.colorCustomizations": {
+    "statusBar.background" : "#202225",
     "editor.lineHighlightBorder": "#444444",
     "editorCursor.foreground": "#f44271",
     "tab.activeForeground": "#ffffff",
