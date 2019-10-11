@@ -20,31 +20,54 @@
   "prettier.trailingComma": "es5",
   "python.formatting.provider": "black",
   "python.linting.flake8Enabled": true,
+  "python.linting.mypyEnabled": true,
   "python.linting.pylintEnabled": false,
   "python.linting.mypyEnabled": true,
   "python.pythonPath": "~/.pyenv/shims/python",
   "ruby.linter.run": "onSave",
   // "javascript.format.enable": true,
   "runInTerminal.commands": [
+    // exec any file as a binary
     {
       "cmd": "${relativeFile}",
       "match": ".*",
       "name": "exec-file"
     },
+    //////////////////////
+    // ruby
+    //////////////////////
+    // rspec: test line
     {
       "cmd": "./bin/rspec ${relativeFile}:${line}",
       "match": "_spec\\.rb$",
       "name": "l"
     },
+    // rspec: test buffer
     {
       "cmd": "./bin/rspec ${relativeFile}",
       "match": "_spec\\.rb$",
       "name": "b"
     },
+    // rspec: test suite
     {
       "cmd": "./bin/rspec",
       "match": "_spec\\.rb$",
       "name": "s"
+    },
+    //////////////////////
+    // python
+    //////////////////////
+    // nose: test line
+    {
+      "cmd": "noseline ${relativeFile} --line=${line}",
+      "match": "\\.py$",
+      "name": "l"
+    },
+    // nose: test buffer
+    {
+      "cmd": "nosetests ${relativeFile}",
+      "match": "\\.py$",
+      "name": "b"
     }
   ],
   "terminal.integrated.cursorBlinking": true,
@@ -173,5 +196,6 @@
   "gitlens.keymap": "alternate",
   "gitlens.advanced.messages": {
     "suppressShowKeyBindingsNotice": true
-  }
+  },
+  "python.pythonPath": "~/.pyenv/shims/python"
 }
