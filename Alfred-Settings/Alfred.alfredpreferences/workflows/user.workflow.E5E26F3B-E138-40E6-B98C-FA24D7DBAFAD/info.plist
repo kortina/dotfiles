@@ -10,6 +10,16 @@
 		<array>
 			<dict>
 				<key>destinationuid</key>
+				<string>07D46E7B-F019-49EF-B635-BEB7A6D17DE9</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
 				<string>9B120EA6-5FD6-4900-860B-EE99067D6D8E</string>
 				<key>modifiers</key>
 				<integer>0</integer>
@@ -30,6 +40,21 @@
 	<string>Hotkey - Screen Saver</string>
 	<key>objects</key>
 	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>command</key>
+				<integer>6</integer>
+				<key>confirm</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.systemcommand</string>
+			<key>uid</key>
+			<string>07D46E7B-F019-49EF-B635-BEB7A6D17DE9</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
 		<dict>
 			<key>config</key>
 			<dict>
@@ -91,6 +116,13 @@ end tell</string>
 	<string></string>
 	<key>uidata</key>
 	<dict>
+		<key>07D46E7B-F019-49EF-B635-BEB7A6D17DE9</key>
+		<dict>
+			<key>xpos</key>
+			<integer>380</integer>
+			<key>ypos</key>
+			<integer>40</integer>
+		</dict>
 		<key>294A52DC-6FB9-4549-8665-D58FDE0223F3</key>
 		<dict>
 			<key>xpos</key>
