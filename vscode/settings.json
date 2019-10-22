@@ -199,5 +199,11 @@
   "gitlens.advanced.messages": {
     "suppressShowKeyBindingsNotice": true
   },
-  "python.pythonPath": "~/.pyenv/shims/python"
+  "files.exclude": {
+    "**/._*": true,
+    "**/.*": true,
+    "node_modules/": true
+   },
+  "python.pythonPath": "~/.pyenv/shims/python",
+  "workbench.iconTheme": "vs-minimal"
 }

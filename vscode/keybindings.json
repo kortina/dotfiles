@@ -1,4 +1,5 @@
 // Place your key bindings in this file to overwrite the defaults
+// https://stackoverflow.com/questions/48203523/how-to-create-file-in-current-explorer-directory-in-vs-code-using-only-keys
 [
     {
         "key": "ctrl+p",

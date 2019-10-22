@@ -18,4 +18,5 @@ piersdeseilligny.betterfountain
 rebornix.ruby
 richie5um2.vscode-sort-json
 sdras.night-owl
+vscode-icons-team.vscode-icons
 vscodevim.vim
