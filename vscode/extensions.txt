@@ -8,6 +8,7 @@ IgorSbitnev.error-gutters
 JoeBerria.statusbarerror
 johngraham262.join-comment-aware
 kortina.run-in-terminal
+mauve.terraform
 misogi.ruby-rubocop
 ms-python.python
 ms-vscode.Theme-TomorrowKit
