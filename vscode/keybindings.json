@@ -61,5 +61,21 @@
         "key": "enter",
         "command": "list.select",
         "when": "explorerViewletFocus && !inputFocus"
+    },
+    {
+        "key": "m a",
+        "command": "explorer.newFile",
+        "when": "explorerViewletFocus && !inputFocus"
+    },
+    {
+        "key": "m f",
+        "command": "explorer.newFolder",
+        "when": "explorerViewletFocus && !inputFocus"
+    },
+    {
+        "key": "m d",
+        "command": "deleteFile",
+        "when": "explorerViewletFocus && !inputFocus"
     }
+
 ]
