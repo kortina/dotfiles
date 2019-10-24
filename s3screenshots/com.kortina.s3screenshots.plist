@@ -6,7 +6,7 @@
         <string>com.kortina.s3screenshots</string>
         <key>ProgramArguments</key>
         <array>
-            <string>/Users/kortina/dotfiles/s3screenshots/s3screenshots.sh</string>
+            <string>/Users/kortina/dotfiles/s3screenshots/s3screenshots</string>
         </array>
         <key>RunAtLoad</key>
         <true/>

@@ -1,6 +1,7 @@
 {
   "diffEditor.renderIndicators": true,
   "editor.formatOnSave": true,
+  "editor.codeLens": false,
   "[ruby]": {
     "editor.formatOnSave": true
   },
@@ -9,6 +10,7 @@
   "files.autoSave": "off",
   "eslint.autoFixOnSave": true,
   "javascript.validate.enable": false,
+  "gitlens.codeLens.enabled": false,
   "prettier.jsxBracketSameLine": true,
   "prettier.parser": "flow",
   "prettier.printWidth": 100,
@@ -84,7 +86,10 @@
   "vim.normalModeKeyBindingsNonRecursive": [
     {
       "after": [],
-      "before": ["g", "l"],
+      "before": [
+        "g",
+        "l"
+      ],
       "commands": [
         {
           "args": [],
@@ -94,7 +99,10 @@
     },
     {
       "after": [],
-      "before": ["<leader>", "e"],
+      "before": [
+        "<leader>",
+        "e"
+      ],
       "commands": [
         {
           "args": [],
@@ -104,7 +112,21 @@
     },
     {
       "after": [],
-      "before": ["<leader>", "r", "a"],
+      "before": [
+        "<leader>",
+        "/"
+      ],
+      "commands": [
+        ":nohl"
+      ]
+    },
+    {
+      "after": [],
+      "before": [
+        "<leader>",
+        "r",
+        "a"
+      ],
       "commands": [
         {
           "command": "runInTerminal.runLast"
@@ -113,7 +135,11 @@
     },
     {
       "after": [],
-      "before": ["<leader>", "r", "l"],
+      "before": [
+        "<leader>",
+        "r",
+        "l"
+      ],
       "commands": [
         {
           "args": {
@@ -125,7 +151,11 @@
     },
     {
       "after": [],
-      "before": ["<leader>", "r", "b"],
+      "before": [
+        "<leader>",
+        "r",
+        "b"
+      ],
       "commands": [
         {
           "args": {
@@ -137,7 +167,11 @@
     },
     {
       "after": [],
-      "before": ["<leader>", "r", "s"],
+      "before": [
+        "<leader>",
+        "r",
+        "s"
+      ],
       "commands": [
         {
           "args": {
@@ -149,7 +183,10 @@
     },
     {
       "after": [],
-      "before": ["<leader>", "a"],
+      "before": [
+        "<leader>",
+        "a"
+      ],
       "commands": [
         {
           "command": "editor.action.marker.nextInFiles"
@@ -158,7 +195,10 @@
     },
     {
       "after": [],
-      "before": ["<leader>", "x"],
+      "before": [
+        "<leader>",
+        "x"
+      ],
       "commands": [
         {
           "args": {
@@ -172,14 +212,14 @@
   "window.zoomLevel": 0,
   "workbench.activityBar.visible": false,
   "workbench.colorCustomizations": {
-    "statusBar.background" : "#202225",
     "editor.lineHighlightBorder": "#444444",
     "editorCursor.foreground": "#f44271",
     "tab.activeForeground": "#ffffff",
     "tab.activeBorderTop": "#f44271",
     "tab.unfocusedActiveBorderTop": "#444444",
     "tab.unfocusedActiveForeground": "#555555",
-    "terminalCursor.foreground": "#f44271"
+    "terminalCursor.foreground": "#f44271",
+    "statusBar.background": "#202225"
   },
   "workbench.colorTheme": "Tomorrow Night",
   "workbench.startupEditor": "newUntitledFile",
