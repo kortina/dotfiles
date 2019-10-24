@@ -58,6 +58,10 @@
     // nerdtree like binds
     // https://stackoverflow.com/questions/48203523/how-to-create-file-in-current-explorer-directory-in-vs-code-using-only-keys
     {
+        "key": ", n t",
+        "command": "workbench.files.action.showActiveFileInExplorer"
+    },
+    {
         "key": "enter",
         "command": "list.select",
         "when": "explorerViewletFocus && !inputFocus"
@@ -75,6 +79,16 @@
     {
         "key": "m d",
         "command": "deleteFile",
+        "when": "explorerViewletFocus && !inputFocus"
+    },
+    {
+        "key": "ctrl+l",
+        "command": "workbench.action.nextEditor",
+        "when": "explorerViewletFocus && !inputFocus"
+    },
+    {
+        "key": ", n t",
+        "command": "workbench.action.toggleSidebarVisibility",
         "when": "explorerViewletFocus && !inputFocus"
     }
 
