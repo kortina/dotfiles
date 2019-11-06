@@ -240,5 +240,11 @@
     "node_modules/": true
    },
   "workbench.iconTheme": "vs-minimal",
-  "explorer.openEditors.visible": 0
+  "explorer.autoReveal": false,
+  "javascript.autoClosingTags": false,
+  "explorer.openEditors.visible": 0,
+  "cSpell.userWords": [
+    "asts",
+    "selectinload"
+  ]
 }

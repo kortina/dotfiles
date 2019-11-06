@@ -81,6 +81,11 @@
         "key": "ctrl+l",
         "command": "workbench.action.nextEditor",
         "when": "explorerViewletFocus && !inputFocus"
+    },
+    {
+        "key": "cmd+m",
+        "command": "workbench.files.action.collapseExplorerFolders",
+        "when": "explorerViewletFocus && !inputFocus"
     }
 
 ]
