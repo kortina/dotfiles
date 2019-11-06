@@ -8,6 +8,7 @@
   },
   "editor.minimap.enabled": false,
   "editor.quickSuggestionsDelay": 1,
+  "explorer.autoReveal": false,
   "files.autoSave": "off",
   "eslint.autoFixOnSave": true,
   // "eslint.validate": ["javascript", "javascriptreact", "typescript"],
