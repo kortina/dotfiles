@@ -124,6 +124,7 @@ pyenv global 3.7.0
 pyenv rehash
 # see: https://github.com/pyenv/pyenv/issues/530 for CFLAGS tip
 
+brew_install openssl
 brew_install jq
 brew_install tmux
 # brew_install languagetool
@@ -209,7 +210,8 @@ npm_install tslint
 # ruby gems
 ########################################
 test -e ~/.gemrc && grep -q "no-document" ~/.gemrc || echo "gem: --no-document" >> ~/.gemrc
-rbenv versions | grep -q "2\.3\.3" || rbenv install 2.3.3
+# rbenv versions | grep -q "2\.3\.3" || rbenv install 2.3.3
+rbenv versions | grep -q "2\.3\.3" || RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)" rbenv install 2.3.3
 eval "$(rbenv init -)"
 rbenv global 2.3.3
 rbenv rehash
