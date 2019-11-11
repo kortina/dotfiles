@@ -81,9 +81,9 @@ export -f show_error
 
 
 function safely_symlink() {
-    sym_file="$1"
-    targ_file="$2"
-    sym_dir="$3"
+    sym_file="$1" # the symlink we are creating, full path, /Users/kortina/.ssh/config
+    targ_file="$2" # the file the symlink points to, /Users/kortina/dotfiles/.ssh/config
+    sym_dir="$3" # directory containining symlink we are creating, no trailing /, /Users/kortina/.ssh
 
     if test -h "$sym_file" || ! test -e "$sym_file"; then
         if ! test -d "$sym_dir"; then
