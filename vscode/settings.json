@@ -8,6 +8,7 @@
   },
   "editor.minimap.enabled": false,
   "editor.quickSuggestionsDelay": 1,
+  "editor.wordWrap": "on",
   "explorer.autoReveal": false,
   "files.autoSave": "off",
   "eslint.autoFixOnSave": true,
@@ -113,6 +114,7 @@
         }
       ]
     },
+    // clear search buffer
     {
       "after": [],
       "before": [
@@ -122,6 +124,23 @@
       "commands": [
         ":nohl"
       ]
+    },
+    // copy everything in buffer to clipboard
+    {
+      "after": [
+        "g",
+        "g",
+        "V",
+        "G",
+        "\"",
+        "*",
+        "y"
+      ],
+      "before": [
+        "<leader>",
+        "c"
+      ],
+      "commands": []
     },
     {
       "after": [],
@@ -224,9 +243,10 @@
     "terminalCursor.foreground": "#f44271",
     "statusBar.background": "#202225",
   },
-  "workbench.colorTheme": "Tomorrow Night",
   "workbench.startupEditor": "newUntitledFile",
   "workbench.statusBar.visible": true,
   "zenMode.hideStatusBar": false,
-  "python.pythonPath": "~/.pyenv/shims/python"
+  "python.pythonPath": "~/.pyenv/shims/python",
+  "editor.fontFamily": "Consolas, Menlo, Monaco, 'Courier New', monospace",
+  "workbench.colorTheme": "Tomorrow Night"
 }
