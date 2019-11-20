@@ -232,6 +232,7 @@
     }
   ],
   "window.zoomLevel": 0,
+  "window.title": "${activeEditorMedium}${separator}${rootName}",
   "workbench.activityBar.visible": false,
   "workbench.colorCustomizations": {
     "editor.lineHighlightBorder": "#444444",
