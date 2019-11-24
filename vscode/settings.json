@@ -249,5 +249,6 @@
   "zenMode.hideStatusBar": false,
   "python.pythonPath": "~/.pyenv/shims/python",
   "editor.fontFamily": "Consolas, Menlo, Monaco, 'Courier New', monospace",
-  "workbench.colorTheme": "Tomorrow Night"
+  "workbench.colorTheme": "Tomorrow Night",
+  "explorer.confirmDelete": false
 }
