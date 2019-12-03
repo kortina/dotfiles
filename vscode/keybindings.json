@@ -45,6 +45,30 @@
         "command": "workbench.action.focusActiveEditorGroup",
         "when": "terminalFocus"
     },
+    // Create a new terminal tab:
+    {
+        "key": "cmd+t",
+        "command": "workbench.action.terminal.new",
+        "when": "terminalFocus"
+    },
+    // Kill terminal tab:
+    {
+        "key": "cmd+w",
+        "command": "workbench.action.terminal.kill",
+        "when": "terminalFocus"
+    },
+    // Next terminal tab:
+    {
+        "key": "cmd+shift+]",
+        "command": "workbench.action.terminal.focusNext",
+        "when": "terminalFocus"
+    },
+    // Previous terminal tab:
+    {
+        "key": "cmd+shift+[",
+        "command": "workbench.action.terminal.focusPrevious",
+        "when": "terminalFocus"
+    },
     // Exec bash script with runInTerminal
     {
         "key": "ctrl+e",
