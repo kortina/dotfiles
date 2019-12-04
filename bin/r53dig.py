@@ -323,15 +323,27 @@ zone $32.00 $0.00 $83.00 $32.00 Renewed with transfer"""
 tld_prices = [[w[0], w[1]] for w in [l.split(" ") for l in AWS_DOMAINS.split("\n")]]
 
 
-def dig_domain(domain):
-    return subprocess.check_output(["dig", domain], universal_newlines=True)
-
-
-def is_available(domain, verbose=False):
-    o = dig_domain(domain)
+def dig_has_answer(domain, verbose=False):
+    o = subprocess.check_output(["dig", domain], universal_newlines=True)
     if verbose:
         print(o)
-    return "ANSWER: 0," in o
+    return "ANSWER: 0," not in o
+
+
+def whois_registered(domain, verbose=False):
+    o = subprocess.check_output(["whois", domain], universal_newlines=True)
+    if verbose:
+        print(o)
+    return "Updated On" in o
+
+
+def availability(domain, verbose=False):
+    if dig_has_answer(domain, verbose):
+        return "not available (dig)"
+    elif whois_registered(domain, verbose):
+        return "not availalbe (whois)"
+    else:
+        return "AVAILABLE"
 
 
 if __name__ == "__main__":
@@ -350,7 +362,4 @@ if __name__ == "__main__":
         domain_and_price = f"{domain.ljust(16)} {price.ljust(8)}"
 
         print(domain_and_price, end=" ")
-        if is_available(domain, args.verbose):
-            print("AVAILABLE")
-        else:
-            print("not avail")
+        print(availability(domain, args.verbose))
