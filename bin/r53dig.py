@@ -337,6 +337,10 @@ def whois_registered(domain, verbose=False):
         print(o)
     if re.search(r"status:\s*available", o.lower()):
         return False
+    if re.search(r"is available", o.lower()):
+        return False
+    if re.search(r"^available$", o.lower()):
+        return False
     elif "Updated On" in o:
         return True
     elif re.search(r"not found", o.lower()):
@@ -344,10 +348,10 @@ def whois_registered(domain, verbose=False):
     elif re.search(r"no data found", o.lower()):
         return False
     elif re.search(r"status:\s*active", o.lower()):
-        print(o)
+        # print(o)
         return True
     else:
-        print(o)
+        # print(o)
         return False
 
 
