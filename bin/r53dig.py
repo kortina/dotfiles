@@ -2,6 +2,7 @@
 # Utility to check for availability of domain names availabe for registration on AWS Route 53
 import argparse
 import subprocess
+import re
 
 # https://aws.amazon.com/route53/pricing/
 # updated 2019-12-04
@@ -334,7 +335,20 @@ def whois_registered(domain, verbose=False):
     o = subprocess.check_output(["whois", domain], universal_newlines=True)
     if verbose:
         print(o)
-    return "Updated On" in o
+    if re.search(r"status:\s*available", o.lower()):
+        return False
+    elif "Updated On" in o:
+        return True
+    elif re.search(r"not found", o.lower()):
+        return False
+    elif re.search(r"no data found", o.lower()):
+        return False
+    elif re.search(r"status:\s*active", o.lower()):
+        print(o)
+        return True
+    else:
+        print(o)
+        return False
 
 
 def availability(domain, verbose=False):
