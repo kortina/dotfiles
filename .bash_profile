@@ -97,6 +97,7 @@ if command -v pyenv 1>/dev/null 2>&1; then eval "$(pyenv init -)"; fi
 ##################################################
 # javascript
 ##################################################
+
 export PATH="$HOME/.nodenv/bin:$PATH"
 if which nodenv > /dev/null; then eval "$(nodenv init -)"; else echo nodenv not installed; fi
 
@@ -109,6 +110,7 @@ source_if_exists "$HOME/.fzf.conf.bash"
 ##################################################
 # fin
 ##################################################
+export PATH=$HOME/.datacoral/cli/bin:$PATH
 export FIN_SSH_USERNAME="andrew_kortina"
 export FIN_CODE_HOME="$HOME/code"
 fa_bin="/usr/local/bin/fa"
