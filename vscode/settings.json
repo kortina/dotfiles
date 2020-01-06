@@ -246,5 +246,8 @@
   "cSpell.userWords": [
     "asts",
     "selectinload"
-  ]
+  ],
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  }
 }

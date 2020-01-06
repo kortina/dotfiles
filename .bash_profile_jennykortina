@@ -6,8 +6,8 @@ eval "$(_FA_COMPLETE=source fa)"
 
 ### JK aliasas
 alias dotfiles='cd /Users/jennykortina/dotfiles'
-alias sesher='cd /Users/jennykortina/Developer/sesher'
 alias yoga='cd /Users/jennykortina/Developer/sesher-yoga'
+alias wod='cd /Users/jennykortina/Developer/wod-decks'
 alias fin='cd /Users/jennykortina/code/fin-analytics'
 # alias fa='./fa'
 

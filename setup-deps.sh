@@ -129,7 +129,8 @@ brew_install jq
 brew_install tmux
 # brew_install languagetool
 brew_install youtube-dl
-brew_install the_silver_searcher # WAY faster than ack
+# brew_install the_silver_searcher # WAY faster than ack
+brew_install ripgrep
 brew_install rbenv
 brew_install reattach-to-user-namespace
 brew_install vim # need vim8 for ale
@@ -211,7 +212,8 @@ npm_install tslint
 ########################################
 test -e ~/.gemrc && grep -q "no-document" ~/.gemrc || echo "gem: --no-document" >> ~/.gemrc
 # rbenv versions | grep -q "2\.3\.3" || rbenv install 2.3.3
-rbenv versions | grep -q "2\.3\.3" || RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)" rbenv install 2.3.3
+# rbenv versions | grep -q "2\.3\.3" || RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)" rbenv install 2.3.3
+rbenv versions | grep -q "2\.3\.3" ||  rbenv install 2.3.3
 eval "$(rbenv init -)"
 rbenv global 2.3.3
 rbenv rehash

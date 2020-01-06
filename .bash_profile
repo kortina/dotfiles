@@ -12,7 +12,8 @@ export PATH="$GOPATH/bin:$PATH"
 # aliases and bindings
 ##################################################
 # alias SaveScreen='/System/Library/Frameworks/ScreenSaver.framework/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine'
-alias ag='ag --hidden'
+# alias ag='ag --hidden'
+alias g='rg'
 alias dk="docker-compose"
 alias flushdns='sudo dscacheutil -flushcache'
 alias gg='git grep -n --color --heading --break'
@@ -42,7 +43,13 @@ bind '"\M-d": backward-kill-word'
 # pretty bash prompt with git / svn branch name
 ##################################################
 function parse_git_dirty {
-  nothing_message=`git --version | ruby -e 'STDIN.readlines[0].match(/(\d+\.\d+)/); puts ($1.to_f >= 1.8) ? "nothing to commit, working tree clean" : "nothing to commit (working directory clean)"'`
+    git_version="`git --version | grep -E -o '\d\.\d+'`"
+    if (( $(echo "$git_version >= 1.8"|bc -l) )); then 
+        nothing_message="nothing to commit, working tree clean";
+    else echo "l"; 
+        nothing_message="nothing to commit (working directory clean)";
+    fi
+  # nothing_message=`git --version | ruby -e 'STDIN.readlines[0].match(/(\d+\.\d+)/); puts ($1.to_f >= 1.8) ? "nothing to commit, working tree clean" : "nothing to commit (working directory clean)"'`
   [[ $(git status 2> /dev/null | tail -n1) != "$nothing_message" ]] && echo "*"
 }
 function parse_git_branch {
@@ -91,6 +98,7 @@ if command -v pyenv 1>/dev/null 2>&1; then eval "$(pyenv init -)"; fi
 ##################################################
 # javascript
 ##################################################
+
 export PATH="$HOME/.nodenv/bin:$PATH"
 if which nodenv > /dev/null; then eval "$(nodenv init -)"; else echo nodenv not installed; fi
 
