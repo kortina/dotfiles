@@ -79,4 +79,37 @@
         },
         "when": "resourceLangId == shellscript"
     },
+    // navigate search results with alt j/k
+    {
+        "key": "alt+j",
+        "command": "goToNextReferenceFromEmbeddedEditor",
+        "when": "inReferenceSearchEditor"
+    },
+    {
+        "key": "alt+k",
+        "command": "goToPreviousReferenceFromEmbeddedEditor",
+        "when": "inReferenceSearchEditor"
+    },
+    {
+        "key": "alt+j",
+        "command": "search.action.focusNextSearchResult",
+        "when": "hasSearchResult"
+    },
+    {
+        "key": "alt+k",
+        "command": "search.action.focusPreviousSearchResult",
+        "when": "hasSearchResult"
+    },
+    {
+        "key": "alt+j",
+        "command": "goToNextReference",
+        "when": "referenceSearchVisible"
+    },
+    {
+        "key": "alt+k",
+        "command": "goToPreviousReference",
+        "when": "referenceSearchVisible"
+    },
+    // { "key": "alt+j",         "command": "references-view.next",                      "when": "reference-list.hasResult" },
+    // { "key": "alt+k",   "command": "references-view.prev",                      "when": "reference-list.hasResult" },
 ]
