@@ -21,6 +21,8 @@
 		</array>
 		<key>B7F2DEA3-EBDA-4CAB-BBEB-5D61E6E2BC90</key>
 		<array/>
+		<key>CE81E84E-0914-4991-BDF3-43B46B20B1AE</key>
+		<array/>
 	</dict>
 	<key>createdby</key>
 	<string>kortina</string>
@@ -83,6 +85,43 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>applescript</key>
+				<string>-- on alfred_script(q)
+on run
+    try
+        tell application "System Events"
+            set found to 0
+            set p to a reference to (every process whose name = "Electron")
+            repeat with p in (every process whose name = "Electron")
+                set n to name of p
+                log n
+                repeat with w in (every window of p)
+                    set t to title of w
+                    log t
+                    set s to properties of w
+                    log s
+                end repeat
+            end repeat
+        end tell
+    on error err
+        tell me to activate
+        display alert "There was a problem running the script." as critical message err
+    end try
+end run
+-- end alfred_script</string>
+				<key>cachescript</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.applescript</string>
+			<key>uid</key>
+			<string>CE81E84E-0914-4991-BDF3-43B46B20B1AE</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>concurrently</key>
 				<false/>
 				<key>escaping</key>
@@ -129,9 +168,16 @@ cd "$HOME/Google-Drive/_notebook"
 		<key>B7F2DEA3-EBDA-4CAB-BBEB-5D61E6E2BC90</key>
 		<dict>
 			<key>xpos</key>
-			<integer>420</integer>
+			<integer>675</integer>
 			<key>ypos</key>
-			<integer>265</integer>
+			<integer>215</integer>
+		</dict>
+		<key>CE81E84E-0914-4991-BDF3-43B46B20B1AE</key>
+		<dict>
+			<key>xpos</key>
+			<integer>330</integer>
+			<key>ypos</key>
+			<integer>195</integer>
 		</dict>
 	</dict>
 	<key>webaddress</key>
