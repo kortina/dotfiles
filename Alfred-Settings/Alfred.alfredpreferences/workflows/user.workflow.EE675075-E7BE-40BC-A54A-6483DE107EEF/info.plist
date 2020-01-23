@@ -10,7 +10,7 @@
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>3C40EF1E-6D4C-462C-9770-636F4DF2184A</string>
+				<string>B7F2DEA3-EBDA-4CAB-BBEB-5D61E6E2BC90</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -19,6 +19,8 @@
 				<false/>
 			</dict>
 		</array>
+		<key>B7F2DEA3-EBDA-4CAB-BBEB-5D61E6E2BC90</key>
+		<array/>
 	</dict>
 	<key>createdby</key>
 	<string>kortina</string>
@@ -27,7 +29,7 @@
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
-	<string>Hotkey - fsnotes</string>
+	<string>Hotkey - notebook</string>
 	<key>objects</key>
 	<array>
 		<dict>
@@ -78,6 +80,33 @@
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>#query=$1
+#echo -n $query
+
+cd "$HOME/Google-Drive/_notebook"
+/usr/local/bin/code .</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>B7F2DEA3-EBDA-4CAB-BBEB-5D61E6E2BC90</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string></string>
@@ -97,8 +126,15 @@
 			<key>ypos</key>
 			<real>10</real>
 		</dict>
+		<key>B7F2DEA3-EBDA-4CAB-BBEB-5D61E6E2BC90</key>
+		<dict>
+			<key>xpos</key>
+			<integer>420</integer>
+			<key>ypos</key>
+			<integer>265</integer>
+		</dict>
 	</dict>
 	<key>webaddress</key>
-	<string>http://kortina.net</string>
+	<string>http://kortina.nyc</string>
 </dict>
 </plist>
