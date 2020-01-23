@@ -1,9 +1,11 @@
+bierner.markdown-preview-github-styles
 dbaeumer.vscode-eslint
 dzannotti.vscode-babel-coloring
 eamodio.gitlens
 esbenp.prettier-vscode
 flowtype.flow-for-vscode
 hoovercj.ruby-linter
+idleberg.applescript
 IgorSbitnev.error-gutters
 JoeBerria.statusbarerror
 johngraham262.join-comment-aware
@@ -17,3 +19,5 @@ rebornix.ruby
 richie5um2.vscode-sort-json
 sysoev.vscode-open-in-github
 vscodevim.vim
+wingrunr21.vscode-ruby
+yzhang.markdown-all-in-one
