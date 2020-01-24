@@ -8,6 +8,7 @@ idleberg.applescript
 IgorSbitnev.error-gutters
 JoeBerria.statusbarerror
 johngraham262.join-comment-aware
+kisstkondoros.vscode-gutter-preview
 kortina.run-in-terminal
 mauve.terraform
 misogi.ruby-rubocop
