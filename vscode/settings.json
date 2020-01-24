@@ -262,5 +262,5 @@
   "python.pythonPath": "~/.pyenv/shims/python",
   "workbench.colorTheme": "Tomorrow Night",
   "explorer.confirmDelete": false,
-  "editor.fontFamily": "Consolas, Menlo, Monaco, 'Courier New', monospace"
+  "editor.fontFamily": "Monaco, Menlo, Consolas, 'Courier New', monospace"
 }
