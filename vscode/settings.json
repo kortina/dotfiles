@@ -92,13 +92,27 @@
   "vim.hlsearch": true,
   "vim.leader": ",",
   // This does not seem to work:
-  // "vim.insertModeKeyBindings": [
-  //   {
-  //     "before": ["<C-p>"],
-  //     "after": [],
-  //     "commands": [{ "command": "editor.action.triggerSuggest", "args": [] }]
-  //   }
-  // ],
+  "vim.insertModeKeyBindings": [
+    {
+      "before": [
+        "<C-d>"
+      ],
+      "after": [],
+      "commands": [
+        {
+          "command": "editor.action.insertSnippet",
+          "args": {
+            "snippet": "$CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE"
+          }
+        }
+      ]
+    }
+    //   {
+    //     "before": ["<C-p>"],
+    //     "after": [],
+    //     "commands": [{ "command": "editor.action.triggerSuggest", "args": [] }]
+    //   }
+  ],
   "vim.normalModeKeyBindingsNonRecursive": [
     {
       "after": [],
