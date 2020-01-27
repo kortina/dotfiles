@@ -26,6 +26,7 @@
   "eslint.autoFixOnSave": true,
   // "eslint.validate": ["javascript", "javascriptreact", "typescript"],
   "gitlens.codeLens.enabled": false,
+  "gutterpreview.imagePreviewMaxHeight": "200",
   // "prettier.eslintIntegration": true,
   "prettier.jsxBracketSameLine": true,
   "prettier.parser": "flow",
