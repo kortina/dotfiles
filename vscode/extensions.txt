@@ -17,7 +17,6 @@ ms-vscode.Theme-TomorrowKit
 piersdeseilligny.betterfountain
 rebornix.ruby
 richie5um2.vscode-sort-json
-shd101wyy.markdown-preview-enhanced
 sysoev.vscode-open-in-github
 vscodevim.vim
 wingrunr21.vscode-ruby
