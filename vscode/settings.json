@@ -95,7 +95,6 @@
   },
   "vim.hlsearch": true,
   "vim.leader": ",",
-  // This does not seem to work:
   "vim.insertModeKeyBindings": [
     {
       "before": [
@@ -257,6 +256,24 @@
             "name": "exec-file"
           },
           "command": "runInTerminal.run"
+        }
+      ]
+    },
+    // insert a (roughly) title cased version of the filename
+    // eg, for some-file.md, Some File
+    {
+      "before": [
+        ",",
+        "f",
+        "f"
+      ],
+      "after": [],
+      "commands": [
+        {
+          "command": "editor.action.insertSnippet",
+          "args": {
+            "snippet": "${TM_FILENAME_BASE/([A-Za-z]+)([-_]*)/${1:/capitalize}${2:+ }/g}"
+          }
         }
       ]
     }
