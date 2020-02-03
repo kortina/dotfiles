@@ -96,6 +96,7 @@
   "vim.hlsearch": true,
   "vim.leader": ",",
   "vim.insertModeKeyBindings": [
+    // insert the current date, insert mode
     {
       "before": [
         "<C-d>"
@@ -110,11 +111,6 @@
         }
       ]
     }
-    //   {
-    //     "before": ["<C-p>"],
-    //     "after": [],
-    //     "commands": [{ "command": "editor.action.triggerSuggest", "args": [] }]
-    //   }
   ],
   "vim.normalModeKeyBindingsNonRecursive": [
     {
@@ -257,6 +253,21 @@
           },
           "command": "runInTerminal.run"
         }
+      ]
+    },
+    // insert the current date as markdown header, normal mode
+    {
+      "before": [
+        "<leader>",
+        "d"
+      ],
+      "after": [],
+      "commands": [
+        {
+          "command": "editor.action.insertSnippet",
+          "args": {
+            "snippet": "\n# $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE\n\n"
+          }
       ]
     },
     // insert a (roughly) title cased version of the filename
