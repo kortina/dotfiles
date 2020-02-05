@@ -110,6 +110,11 @@
         "command": "goToPreviousReference",
         "when": "referenceSearchVisible"
     },
+    {
+        "key": "alt+n",
+        "command": "workbench.action.tasks.runTask",
+        "args": "New Note"
+    },
     // { "key": "alt+j",         "command": "references-view.next",                      "when": "reference-list.hasResult" },
     // { "key": "alt+k",   "command": "references-view.prev",                      "when": "reference-list.hasResult" },
 ]
