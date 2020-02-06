@@ -9,18 +9,6 @@
   "editor.minimap.enabled": false,
   "editor.quickSuggestionsDelay": 1,
   "editor.wordWrap": "on",
-  "editor.tokenColorCustomizations": {
-    "[Tomorrow Night]": {
-      "textMateRules": [
-        {
-          "scope": "markup.quote.markdown",
-          "settings": {
-            "foreground": "#666"
-          }
-        }
-      ]
-    }
-  },
   "explorer.autoReveal": false,
   "files.autoSave": "off",
   // "eslint.autoFixOnSave": true,
@@ -303,11 +291,30 @@
     "terminalCursor.foreground": "#f44271",
     "statusBar.background": "#202225",
   },
+  "workbench.editor.enablePreviewFromQuickOpen": false,
   "workbench.startupEditor": "newUntitledFile",
   "workbench.statusBar.visible": true,
   "zenMode.hideStatusBar": false,
   "python.pythonPath": "~/.pyenv/shims/python",
   "workbench.colorTheme": "Tomorrow Night",
+  "editor.tokenColorCustomizations": {
+    "[Tomorrow Night]": {
+      "textMateRules": [
+        {
+          "scope": "markup.quote.markdown",
+          "settings": {
+            "foreground": "#666"
+          }
+        },
+        {
+          "scope": "markup.inline.raw",
+          "settings": {
+            "foreground": "#f19999"
+          }
+        }
+      ]
+    }
+  },
   "explorer.confirmDelete": false,
   "editor.fontFamily": "Monaco, Menlo, Consolas, 'Courier New', monospace"
 }
