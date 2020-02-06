@@ -264,7 +264,7 @@
       ]
     },
     // insert a (roughly) title cased version of the filename
-    // eg, for some-file.md, Some File
+    // eg, for `some-file.md`, "Some File"
     {
       "before": [
         ",",
