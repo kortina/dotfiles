@@ -1,4 +1,8 @@
 {
+  "cSpell.enabledLanguageIds": [
+    "markdown",
+    "plaintext"
+  ],
   "diffEditor.renderIndicators": true,
   // "docker-linter.rubocop.enable": true,
   "editor.formatOnSave": true,
