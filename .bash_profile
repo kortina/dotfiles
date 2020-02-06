@@ -13,7 +13,7 @@ export PATH="$GOPATH/bin:$PATH"
 ##################################################
 # alias SaveScreen='/System/Library/Frameworks/ScreenSaver.framework/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine'
 # alias ag='ag --hidden'
-alias g='rg'
+alias g='rg --hidden'
 alias dk="docker-compose"
 alias flushdns='sudo dscacheutil -flushcache'
 alias gg='git grep -n --color --heading --break'
@@ -27,7 +27,8 @@ alias updatedb='sudo /usr/libexec/locate.updatedb'
 alias v='pbpaste | vim -'
 
 export EDITOR=vim
-export FZF_DEFAULT_COMMAND='ag -g ""'
+# export FZF_DEFAULT_COMMAND='ag -g ""'
+export FZF_DEFAULT_COMMAND='rg --files --hidden' # --no-ignore-vcs
 export PS1="\h:\w$ "
 export TERM="xterm-256color"
 
