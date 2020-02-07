@@ -16,4 +16,5 @@ while getopts ":l" opt; do
 done
 
 cmd="cat - | tr '\n' '-' | sed -e 's/[^[:alnum:]]/-/g' | tr -s '-' $lowercase | sed 's/[- \n]*$//g'"
-eval $cmd
+o=$(eval $cmd)
+echo "$o" | tr -d '\n'
