@@ -103,7 +103,7 @@
         }
       ]
     }
-  ],
+  ], // END insert mode commands
   "vim.normalModeKeyBindingsNonRecursive": [
     {
       "after": [],
@@ -115,6 +115,19 @@
         {
           "args": [],
           "command": "editor.action.openLink"
+        }
+      ]
+    },
+    {
+      "after": [],
+      "before": [
+        "<leader>",
+        "s"
+      ],
+      "commands": [
+        {
+          "args": [],
+          "command": "editor.action.inspectTMScopes"
         }
       ]
     },
