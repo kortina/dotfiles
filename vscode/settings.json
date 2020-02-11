@@ -280,8 +280,22 @@
           }
         }
       ]
-    }
-  ],
+    },
+    // open quickfix z=
+    {
+      "after": [],
+      "before": [
+        "z",
+        "="
+      ],
+      "commands": [
+        {
+          "args": [],
+          "command": "editor.action.quickFix"
+        }
+      ]
+    },
+  ], // END normal mode commands
   "window.zoomLevel": 0,
   "window.title": "${activeEditorMedium}${separator}${rootName}",
   "workbench.activityBar.visible": false,
