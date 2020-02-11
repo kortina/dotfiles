@@ -31,7 +31,7 @@
     {
         "key": "ctrl+shift+l",
         "command": "workbench.action.focusActiveEditorGroup",
-        "when": "explorerViewletFocus || filesExplorerFocus || sidebarFocus || focusedView == 'workbench.view.search'"
+        "when": "!(editorFocus || terminalFocus)" // WAS PREVIOUSLY: explorerViewletFocus || filesExplorerFocus || sidebarFocus || focusedView == 'workbench.view.search' || 
     },
     // Move focus down to the terminal:
     {
