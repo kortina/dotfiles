@@ -342,6 +342,19 @@
           "settings": {
             "foreground": "#f19999"
           }
+        },
+        {
+          "scope": "markup.italic.markdown",
+          "settings": {
+            "fontStyle": "italic",
+          }
+        },
+        {
+          "scope": "markup.bold.markdown",
+          "settings": {
+            "fontStyle": "bold",
+            "foreground": "#efefef"
+          }
         }
       ]
     }
