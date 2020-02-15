@@ -1,6 +1,5 @@
 dbaeumer.vscode-eslint
 dzannotti.vscode-babel-coloring
-eamodio.gitlens
 esbenp.prettier-vscode
 flowtype.flow-for-vscode
 hoovercj.ruby-linter
@@ -21,3 +20,4 @@ streetsidesoftware.code-spell-checker
 sysoev.vscode-open-in-github
 vscodevim.vim
 wingrunr21.vscode-ruby
+yzhang.markdown-all-in-one
