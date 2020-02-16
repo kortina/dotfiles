@@ -350,12 +350,24 @@
           }
         },
         {
+          "scope": "punctuation.definition.italic.markdown",
+          "settings": {
+            "foreground": "#555"
+          }
+        },
+        {
           "scope": "markup.bold.markdown",
           "settings": {
             "fontStyle": "bold",
             "foreground": "#efefef"
           }
-        }
+        },
+        {
+          "scope": "punctuation.definition.bold.markdown",
+          "settings": {
+            "foreground": "#555"
+          }
+        },
       ]
     }
   },
