@@ -12,6 +12,10 @@
   },
   "editor.minimap.enabled": false,
   "editor.quickSuggestionsDelay": 1,
+  // during dev show quick suggestions for markdown without ctrl+p
+  "[markdown]": {
+    "editor.quickSuggestions": true
+  },
   "editor.wordWrap": "on",
   "explorer.autoReveal": false,
   "files.autoSave": "off",
@@ -115,19 +119,6 @@
         {
           "args": [],
           "command": "editor.action.openLink"
-        }
-      ]
-    },
-    {
-      "after": [],
-      "before": [
-        "<leader>",
-        "s"
-      ],
-      "commands": [
-        {
-          "args": [],
-          "command": "editor.action.inspectTMScopes"
         }
       ]
     },
@@ -375,6 +366,8 @@
   "editor.fontFamily": "Monaco, Menlo, Consolas, 'Courier New', monospace",
   "cSpell.userWords": [
     "Kortina",
+    "Sundance",
+    "Tarkovsky",
     "autoplay",
     "endfor",
     "venmo"
