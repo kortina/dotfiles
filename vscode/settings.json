@@ -14,7 +14,8 @@
   "editor.quickSuggestionsDelay": 1,
   // during dev show quick suggestions for markdown without ctrl+p
   "[markdown]": {
-    "editor.quickSuggestions": true
+    "editor.quickSuggestions": true,
+    // "editor.wordSeparators": "`~!@$%^&*()=+[{]}\\|;:'\",.<>/?", // remove '#' so tags can be searched. Does not seem to be working....
   },
   "editor.wordWrap": "on",
   "explorer.autoReveal": false,
