@@ -1,4 +1,5 @@
 {
+  // "vscodeMarkdownNotes.workspaceFilenameConvention": "relativePaths",
   "cSpell.enabledLanguageIds": [
     "markdown",
     "plaintext"

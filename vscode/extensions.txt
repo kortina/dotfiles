@@ -9,6 +9,7 @@ JoeBerria.statusbarerror
 johngraham262.join-comment-aware
 kisstkondoros.vscode-gutter-preview
 kortina.run-in-terminal
+kortina.vscode-markdown-notes
 mauve.terraform
 misogi.ruby-rubocop
 ms-python.python
