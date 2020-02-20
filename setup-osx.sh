@@ -138,6 +138,11 @@ defaults write com.apple.finder EmptyTrashSecurely -bool true
 # Show the ~/Library folder
 chflags nohidden ~/Library
 
+# Remove drop shadow from screenshots taken with `cmd+shift+4 space`
+defaults write com.apple.screencapture disable-shadow -bool TRUE
+# Undo:
+# defaults write com.apple.screencapture disable-shadow -bool FALSE; killall SystemUIServer
+
 ###############################################################################
 # Dock, Dashboard, and hot corners                                            #
 ###############################################################################
