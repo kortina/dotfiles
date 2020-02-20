@@ -142,6 +142,8 @@ chflags nohidden ~/Library
 defaults write com.apple.screencapture disable-shadow -bool TRUE
 # Undo:
 # defaults write com.apple.screencapture disable-shadow -bool FALSE; killall SystemUIServer
+# If you hold Option while clicking (after doing the Cmd-Shift-4, Space dance), the saved screenshot will not have the drop shadow.
+# https://apple.stackexchange.com/questions/50860/how-do-i-take-a-screenshot-without-the-shadow-behind-it
 
 ###############################################################################
 # Dock, Dashboard, and hot corners                                            #
