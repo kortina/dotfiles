@@ -18,6 +18,7 @@
     "editor.quickSuggestions": true,
     // "editor.wordSeparators": "`~!@$%^&*()=+[{]}\\|;:'\",.<>/?", // remove '#' so tags can be searched. Does not seem to be working....
   },
+  "editor.acceptSuggestionOnEnter": "off",
   "editor.wordWrap": "on",
   "explorer.autoReveal": false,
   "files.autoSave": "off",

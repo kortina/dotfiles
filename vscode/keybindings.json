@@ -1,5 +1,10 @@
 // Place your key bindings in this file to overwrite the defaults
 [
+    // use shift+enter to accept selected suggestion
+    {
+        "key": "shift+enter",
+        "command": "acceptSelectedSuggestion"
+    },
     {
         "key": "ctrl+p",
         "command": "editor.action.triggerSuggest",
