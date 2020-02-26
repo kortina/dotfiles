@@ -138,6 +138,13 @@ defaults write com.apple.finder EmptyTrashSecurely -bool true
 # Show the ~/Library folder
 chflags nohidden ~/Library
 
+# Remove drop shadow from screenshots taken with `cmd+shift+4 space`
+defaults write com.apple.screencapture disable-shadow -bool TRUE
+# Undo:
+# defaults write com.apple.screencapture disable-shadow -bool FALSE; killall SystemUIServer
+# If you hold Option while clicking (after doing the Cmd-Shift-4, Space dance), the saved screenshot will not have the drop shadow.
+# https://apple.stackexchange.com/questions/50860/how-do-i-take-a-screenshot-without-the-shadow-behind-it
+
 ###############################################################################
 # Dock, Dashboard, and hot corners                                            #
 ###############################################################################
@@ -199,6 +206,13 @@ defaults write com.apple.messageshelper.MessageController SOInputLineSettings -d
 
 # Disable smart quotes as it’s annoying for messages that contain code
 defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "automaticQuoteSubstitutionEnabled" -bool false
+
+
+###############################################################################
+# FSNotes
+###############################################################################
+# use Cmd+Delete for "delete text to beginning of line" you can change the "delete note" hotkey to Cmd+Shift+Delete
+defaults write co.fluder.FSNotes NSUserKeyEquivalents -dict-add 'Delete' '@$\U0008';
 
 ###############################################################################
 # Kill affected applications                                                  #

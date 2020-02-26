@@ -1,5 +1,10 @@
 // Place your key bindings in this file to overwrite the defaults
 [
+    // use shift+enter to accept selected suggestion
+    {
+        "key": "shift+enter",
+        "command": "acceptSelectedSuggestion"
+    },
     {
         "key": "ctrl+p",
         "command": "editor.action.triggerSuggest",
@@ -31,7 +36,7 @@
     {
         "key": "ctrl+shift+l",
         "command": "workbench.action.focusActiveEditorGroup",
-        "when": "explorerViewletFocus || filesExplorerFocus"
+        "when": "!(editorFocus || terminalFocus)" // WAS PREVIOUSLY: explorerViewletFocus || filesExplorerFocus || sidebarFocus || focusedView == 'workbench.view.search' || 
     },
     // Move focus down to the terminal:
     {
@@ -110,6 +115,51 @@
         "key": "cmd+m",
         "command": "workbench.files.action.collapseExplorerFolders",
         "when": "explorerViewletFocus && !inputFocus"
-    }
-
+    },
+    // navigate search results with alt j/k
+    {
+        "key": "alt+j",
+        "command": "goToNextReferenceFromEmbeddedEditor",
+        "when": "inReferenceSearchEditor"
+    },
+    {
+        "key": "alt+k",
+        "command": "goToPreviousReferenceFromEmbeddedEditor",
+        "when": "inReferenceSearchEditor"
+    },
+    {
+        "key": "alt+j",
+        "command": "search.action.focusNextSearchResult",
+        "when": "hasSearchResult"
+    },
+    {
+        "key": "alt+k",
+        "command": "search.action.focusPreviousSearchResult",
+        "when": "hasSearchResult"
+    },
+    {
+        "key": "alt+j",
+        "command": "goToNextReference",
+        "when": "referenceSearchVisible"
+    },
+    {
+        "key": "alt+k",
+        "command": "goToPreviousReference",
+        "when": "referenceSearchVisible"
+    },
+    {
+        "key": "alt+n",
+        "command": "workbench.action.tasks.runTask",
+        "args": "New Note"
+    },
+    {
+        "key": "cmd+k cmd+k",
+        "command": "editor.action.peekDefinition",
+    },
+    {
+        "key": "cmd+k cmd+o",
+        "command": "editor.action.inspectTMScopes",
+    },
+    // { "key": "alt+j",         "command": "references-view.next",                      "when": "reference-list.hasResult" },
+    // { "key": "alt+k",   "command": "references-view.prev",                      "when": "reference-list.hasResult" },
 ]

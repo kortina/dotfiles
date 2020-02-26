@@ -1,4 +1,8 @@
 {
+  "cSpell.enabledLanguageIds": [
+    "markdown",
+    "plaintext"
+  ],
   "diffEditor.renderIndicators": true,
   "editor.formatOnSave": true,
   "editor.codeLens": false,
@@ -11,8 +15,19 @@
   "eslint.autoFixOnSave": true,
   "javascript.validate.enable": false,
   "gitlens.codeLens.enabled": false,
+  // during dev show quick suggestions for markdown without ctrl+p
+  "[markdown]": {
+    "editor.quickSuggestions": true,
+  },
+  "editor.acceptSuggestionOnEnter": "off",
+  "editor.wordWrap": "on",
+  "explorer.autoReveal": false,
+  "files.autoSave": "off",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+  },
+  "gutterpreview.imagePreviewMaxHeight": 200,
   "prettier.jsxBracketSameLine": true,
-  "prettier.parser": "flow",
   "prettier.printWidth": 100,
   "prettier.singleQuote": true,
   "prettier.trailingComma": "es5",
@@ -75,14 +90,23 @@
   },
   "vim.hlsearch": true,
   "vim.leader": ",",
-  // This does not seem to work:
-  // "vim.insertModeKeyBindings": [
-  //   {
-  //     "before": ["<C-p>"],
-  //     "after": [],
-  //     "commands": [{ "command": "editor.action.triggerSuggest", "args": [] }]
-  //   }
-  // ],
+  "vim.insertModeKeyBindings": [
+    // insert the current date, insert mode
+    {
+      "before": [
+        "<C-d>"
+      ],
+      "after": [],
+      "commands": [
+        {
+          "command": "editor.action.insertSnippet",
+          "args": {
+            "snippet": "$CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE"
+          }
+        }
+      ]
+    }
+  ], // END insert mode commands
   "vim.normalModeKeyBindingsNonRecursive": [
     {
       "after": [],
@@ -207,8 +231,56 @@
           "command": "runInTerminal.run"
         }
       ]
-    }
-  ],
+    },
+    // insert the current date as markdown header, normal mode
+    {
+      "before": [
+        "<leader>",
+        "d"
+      ],
+      "after": [],
+      "commands": [
+        {
+          "command": "editor.action.insertSnippet",
+          "args": {
+            "snippet": "\n# $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE\n\n"
+          }
+        }
+      ]
+    },
+    // insert a (roughly) title cased version of the filename
+    // eg, for `some-file.md`, "Some File"
+    {
+      "before": [
+        ",",
+        "f",
+        "f"
+      ],
+      "after": [],
+      "commands": [
+        {
+          "command": "editor.action.insertSnippet",
+          "args": {
+            "snippet": "${TM_FILENAME_BASE/([A-Za-z]+)([-_]*)/${1:/capitalize}${2:+ }/g}"
+          }
+        }
+      ]
+    },
+    // open quickfix z=
+    {
+      "after": [],
+      "before": [
+        "z",
+        "="
+      ],
+      "commands": [
+        {
+          "args": [],
+          "command": "editor.action.quickFix"
+        }
+      ]
+    },
+  ], // END normal mode commands
   "window.zoomLevel": 0,
   "workbench.activityBar.visible": false,
   "workbench.colorCustomizations": {
@@ -254,4 +326,67 @@
     "*.erb": "erb"
   },
   "color-highlight.markerType": "dot-before"
+},
+  "workbench.editor.enablePreviewFromQuickOpen": false,
+  "workbench.startupEditor": "newUntitledFile",
+  "workbench.statusBar.visible": true,
+  "zenMode.hideStatusBar": false,
+  "python.pythonPath": "~/.pyenv/shims/python",
+  "workbench.colorTheme": "Tomorrow Night",
+  "editor.tokenColorCustomizations": {
+    "[Tomorrow Night]": {
+      "textMateRules": [
+        {
+          "scope": "markup.quote.markdown",
+          "settings": {
+            "foreground": "#666"
+          }
+        },
+        {
+          "scope": "markup.inline.raw",
+          "settings": {
+            "foreground": "#f19999"
+          }
+        },
+        {
+          "scope": "markup.italic.markdown",
+          "settings": {
+            "fontStyle": "italic",
+          },
+        },
+        {
+          "scope": "punctuation.definition.italic.markdown",
+          "settings": {
+            "foreground": "#555"
+          }
+        },
+        {
+          "scope": "markup.bold.markdown",
+          "settings": {
+            "fontStyle": "bold",
+            "foreground": "#efefef"
+          }
+        },
+        {
+          "scope": "punctuation.definition.bold.markdown",
+          "settings": {
+            "foreground": "#555"
+          }
+        },
+      ],
+    },
+  },
+  "explorer.confirmDelete": false,
+  "editor.fontFamily": "Monaco, Menlo, Consolas, 'Courier New', monospace",
+  "cSpell.userWords": [
+    "Kortina",
+    "Sundance",
+    "Tarkovsky",
+    "autoplay",
+    "endfor",
+    "venmo"
+  ],
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }

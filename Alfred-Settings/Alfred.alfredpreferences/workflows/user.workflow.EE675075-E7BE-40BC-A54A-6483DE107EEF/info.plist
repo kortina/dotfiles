@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string></string>
+	<key>connections</key>
+	<dict>
+		<key>7038EF8A-6FBB-44BE-B61D-390CB7C6EC4C</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>B7F2DEA3-EBDA-4CAB-BBEB-5D61E6E2BC90</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>C142A52A-2552-426D-943B-6C22D1EC34F7</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>B7F2DEA3-EBDA-4CAB-BBEB-5D61E6E2BC90</key>
+		<array/>
+		<key>CE81E84E-0914-4991-BDF3-43B46B20B1AE</key>
+		<array/>
+	</dict>
+	<key>createdby</key>
+	<string>kortina</string>
+	<key>description</key>
+	<string></string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Hotkey - notebook</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>action</key>
+				<integer>0</integer>
+				<key>argument</key>
+				<integer>0</integer>
+				<key>focusedappvariable</key>
+				<false/>
+				<key>focusedappvariablename</key>
+				<string></string>
+				<key>hotkey</key>
+				<integer>31</integer>
+				<key>hotmod</key>
+				<integer>1179648</integer>
+				<key>hotstring</key>
+				<string>O</string>
+				<key>leftcursor</key>
+				<false/>
+				<key>modsmode</key>
+				<integer>0</integer>
+				<key>relatedAppsMode</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.hotkey</string>
+			<key>uid</key>
+			<string>7038EF8A-6FBB-44BE-B61D-390CB7C6EC4C</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>paths</key>
+				<array>
+					<string>/Applications/FSNotes.app</string>
+				</array>
+				<key>toggle</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.launchfiles</string>
+			<key>uid</key>
+			<string>3C40EF1E-6D4C-462C-9770-636F4DF2184A</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>applescript</key>
+				<string>-- on alfred_script(q)
+on run
+    try
+        tell application "System Events"
+            set found to 0
+            set p to a reference to (every process whose name = "Electron")
+            repeat with p in (every process whose name = "Electron")
+                set n to name of p
+                log n
+                repeat with w in (every window of p)
+                    set t to title of w
+                    log t
+                    set s to properties of w
+                    log s
+                end repeat
+            end repeat
+        end tell
+    on error err
+        tell me to activate
+        display alert "There was a problem running the script." as critical message err
+    end try
+end run
+-- end alfred_script</string>
+				<key>cachescript</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.applescript</string>
+			<key>uid</key>
+			<string>CE81E84E-0914-4991-BDF3-43B46B20B1AE</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>#query=$1
+#echo -n $query
+
+cd "$HOME/Google-Drive/_notebook"
+/usr/local/bin/code .</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>B7F2DEA3-EBDA-4CAB-BBEB-5D61E6E2BC90</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>paths</key>
+				<array>
+					<string>/Applications/Visual Studio Code.app</string>
+				</array>
+				<key>toggle</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.launchfiles</string>
+			<key>uid</key>
+			<string>C142A52A-2552-426D-943B-6C22D1EC34F7</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string></string>
+	<key>uidata</key>
+	<dict>
+		<key>3C40EF1E-6D4C-462C-9770-636F4DF2184A</key>
+		<dict>
+			<key>xpos</key>
+			<integer>520</integer>
+			<key>ypos</key>
+			<integer>55</integer>
+		</dict>
+		<key>7038EF8A-6FBB-44BE-B61D-390CB7C6EC4C</key>
+		<dict>
+			<key>xpos</key>
+			<integer>100</integer>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+		<key>B7F2DEA3-EBDA-4CAB-BBEB-5D61E6E2BC90</key>
+		<dict>
+			<key>xpos</key>
+			<integer>520</integer>
+			<key>ypos</key>
+			<integer>325</integer>
+		</dict>
+		<key>C142A52A-2552-426D-943B-6C22D1EC34F7</key>
+		<dict>
+			<key>xpos</key>
+			<integer>525</integer>
+			<key>ypos</key>
+			<integer>460</integer>
+		</dict>
+		<key>CE81E84E-0914-4991-BDF3-43B46B20B1AE</key>
+		<dict>
+			<key>xpos</key>
+			<integer>520</integer>
+			<key>ypos</key>
+			<integer>190</integer>
+		</dict>
+	</dict>
+	<key>webaddress</key>
+	<string>http://kortina.nyc</string>
+</dict>
+</plist>
