@@ -7,9 +7,9 @@ eval "$(_FA_COMPLETE=source fa)"
 ### JK aliasas
 alias dotfiles='cd /Users/jennykortina/dotfiles'
 alias yoga='cd /Users/jennykortina/Developer/sesher-yoga'
-alias wod='cd /Users/jennykortina/Developer/wod-decks'
+alias cubee='cd /Users/jennykortina/Developer/cubeecraft'
+# alias wod='cd /Users/jennykortina/Developer/wod-decks'
 alias fin='cd /Users/jennykortina/code/fin-analytics'
-# alias fa='./fa'
 
 # rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; else echo rbenv not installed; fi

@@ -249,5 +249,9 @@
   ],
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
-  }
+  },
+  "files.associations": {
+    "*.erb": "erb"
+  },
+  "color-highlight.markerType": "dot-before"
 }
