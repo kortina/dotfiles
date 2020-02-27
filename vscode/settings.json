@@ -1,6 +1,6 @@
 {
   // "vscodeMarkdownNotes.workspaceFilenameConvention": "relativePaths",
-  "cSpell.enabledLanguageIds": ["markdown", "plaintext"],
+  "cSpell.enableFiletypes": ["markdown", "plaintext"],
   "diffEditor.renderIndicators": true,
   // "docker-linter.rubocop.enable": true,
   "editor.formatOnSave": true,
