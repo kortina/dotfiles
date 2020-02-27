@@ -1,9 +1,6 @@
 {
   // "vscodeMarkdownNotes.workspaceFilenameConvention": "relativePaths",
-  "cSpell.enabledLanguageIds": [
-    "markdown",
-    "plaintext"
-  ],
+  "cSpell.enabledLanguageIds": ["markdown", "plaintext"],
   "diffEditor.renderIndicators": true,
   // "docker-linter.rubocop.enable": true,
   "editor.formatOnSave": true,
@@ -15,7 +12,7 @@
   "editor.quickSuggestionsDelay": 1,
   // during dev show quick suggestions for markdown without ctrl+p
   "[markdown]": {
-    "editor.quickSuggestions": true,
+    "editor.quickSuggestions": true
     // "editor.wordSeparators": "`~!@$%^&*()=+[{]}\\|;:'\",.<>/?", // remove '#' so tags can be searched. Does not seem to be working....
   },
   "editor.acceptSuggestionOnEnter": "off",
@@ -24,7 +21,7 @@
   "files.autoSave": "off",
   // "eslint.autoFixOnSave": true,
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true,
+    "source.fixAll.eslint": true
   },
   // "eslint.validate": ["javascript", "javascriptreact", "typescript"],
   // "gitlens.codeLens.enabled": false,
@@ -39,6 +36,7 @@
   "python.linting.flake8Enabled": true,
   // "python.linting.mypyEnabled": true,
   "python.linting.pylintEnabled": false,
+  "python.pythonPath": "~/.pyenv/shims/python",
   "ruby.linter.run": "onSave",
   // "javascript.format.enable": true,
   "runInTerminal.commands": [
@@ -97,9 +95,7 @@
   "vim.insertModeKeyBindings": [
     // insert the current date, insert mode
     {
-      "before": [
-        "<C-d>"
-      ],
+      "before": ["<C-d>"],
       "after": [],
       "commands": [
         {
@@ -114,10 +110,7 @@
   "vim.normalModeKeyBindingsNonRecursive": [
     {
       "after": [],
-      "before": [
-        "g",
-        "l"
-      ],
+      "before": ["g", "l"],
       "commands": [
         {
           "args": [],
@@ -127,10 +120,7 @@
     },
     {
       "after": [],
-      "before": [
-        "<leader>",
-        "e"
-      ],
+      "before": ["<leader>", "e"],
       "commands": [
         {
           "args": [],
@@ -141,38 +131,18 @@
     // clear search buffer
     {
       "after": [],
-      "before": [
-        "<leader>",
-        "/"
-      ],
-      "commands": [
-        ":nohl"
-      ]
+      "before": ["<leader>", "/"],
+      "commands": [":nohl"]
     },
     // copy everything in buffer to clipboard
     {
-      "after": [
-        "g",
-        "g",
-        "V",
-        "G",
-        "\"",
-        "*",
-        "y"
-      ],
-      "before": [
-        "<leader>",
-        "c"
-      ],
+      "after": ["g", "g", "V", "G", "\"", "*", "y"],
+      "before": ["<leader>", "c"],
       "commands": []
     },
     {
       "after": [],
-      "before": [
-        "<leader>",
-        "r",
-        "a"
-      ],
+      "before": ["<leader>", "r", "a"],
       "commands": [
         {
           "command": "runInTerminal.runLast"
@@ -181,11 +151,7 @@
     },
     {
       "after": [],
-      "before": [
-        "<leader>",
-        "r",
-        "l"
-      ],
+      "before": ["<leader>", "r", "l"],
       "commands": [
         {
           "args": {
@@ -197,11 +163,7 @@
     },
     {
       "after": [],
-      "before": [
-        "<leader>",
-        "r",
-        "b"
-      ],
+      "before": ["<leader>", "r", "b"],
       "commands": [
         {
           "args": {
@@ -213,11 +175,7 @@
     },
     {
       "after": [],
-      "before": [
-        "<leader>",
-        "r",
-        "s"
-      ],
+      "before": ["<leader>", "r", "s"],
       "commands": [
         {
           "args": {
@@ -229,10 +187,7 @@
     },
     {
       "after": [],
-      "before": [
-        "<leader>",
-        "a"
-      ],
+      "before": ["<leader>", "a"],
       "commands": [
         {
           "command": "editor.action.marker.nextInFiles"
@@ -241,10 +196,7 @@
     },
     {
       "after": [],
-      "before": [
-        "<leader>",
-        "x"
-      ],
+      "before": ["<leader>", "x"],
       "commands": [
         {
           "args": {
@@ -256,10 +208,7 @@
     },
     // insert the current date as markdown header, normal mode
     {
-      "before": [
-        "<leader>",
-        "d"
-      ],
+      "before": ["<leader>", "d"],
       "after": [],
       "commands": [
         {
@@ -273,11 +222,7 @@
     // insert a (roughly) title cased version of the filename
     // eg, for `some-file.md`, "Some File"
     {
-      "before": [
-        ",",
-        "f",
-        "f"
-      ],
+      "before": [",", "f", "f"],
       "after": [],
       "commands": [
         {
@@ -291,17 +236,14 @@
     // open quickfix z=
     {
       "after": [],
-      "before": [
-        "z",
-        "="
-      ],
+      "before": ["z", "="],
       "commands": [
         {
           "args": [],
           "command": "editor.action.quickFix"
         }
       ]
-    },
+    }
   ], // END normal mode commands
   "window.zoomLevel": 0,
   "window.title": "${activeEditorMedium}${separator}${rootName}",
@@ -314,13 +256,12 @@
     "tab.unfocusedActiveBorderTop": "#444444",
     "tab.unfocusedActiveForeground": "#555555",
     "terminalCursor.foreground": "#f44271",
-    "statusBar.background": "#202225",
+    "statusBar.background": "#202225"
   },
   "workbench.editor.enablePreviewFromQuickOpen": false,
   "workbench.startupEditor": "newUntitledFile",
   "workbench.statusBar.visible": true,
   "zenMode.hideStatusBar": false,
-  "python.pythonPath": "~/.pyenv/shims/python",
   "workbench.colorTheme": "Tomorrow Night",
   "editor.tokenColorCustomizations": {
     "[Tomorrow Night]": {
@@ -340,7 +281,7 @@
         {
           "scope": "markup.italic.markdown",
           "settings": {
-            "fontStyle": "italic",
+            "fontStyle": "italic"
           }
         },
         {
@@ -361,20 +302,13 @@
           "settings": {
             "foreground": "#555"
           }
-        },
+        }
       ]
     }
   },
   "explorer.confirmDelete": false,
   "editor.fontFamily": "Monaco, Menlo, Consolas, 'Courier New', monospace",
-  "cSpell.userWords": [
-    "Kortina",
-    "Sundance",
-    "Tarkovsky",
-    "autoplay",
-    "endfor",
-    "venmo"
-  ],
+  "cSpell.userWords": ["Kortina", "Sundance", "Tarkovsky", "autoplay", "endfor", "venmo"],
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   }
