@@ -128,6 +128,15 @@
         "key": "cmd+k cmd+o",
         "command": "editor.action.inspectTMScopes",
     },
+    {
+        "key": "alt+n",
+        "command": "vscodeMarkdownNotes.newNote",
+    },
+    {
+        "key": "alt+t",
+        "command": "workbench.action.tasks.runTask",
+        "args": "echo"
+    },
     // { "key": "alt+j",         "command": "references-view.next",                      "when": "reference-list.hasResult" },
     // { "key": "alt+k",   "command": "references-view.prev",                      "when": "reference-list.hasResult" },
 ]
