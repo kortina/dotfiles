@@ -137,6 +137,16 @@
         "command": "workbench.action.tasks.runTask",
         "args": "echo"
     },
+    // cmd+b, the default, is the built in shortcut to
+    // Hide / Show Side Bar, so release extension binding:
+    {
+        "key": "cmd+alt+b",
+        "command": "markdown.extension.editing.toggleBold",
+    },
+    {
+        "key": "cmd+b",
+        "command": "workbench.action.toggleSidebarVisibility",
+    },
     // { "key": "alt+j",         "command": "references-view.next",                      "when": "reference-list.hasResult" },
     // { "key": "alt+k",   "command": "references-view.prev",                      "when": "reference-list.hasResult" },
 ]
