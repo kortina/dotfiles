@@ -372,7 +372,7 @@ def availability(domain, timeout, verbose=False):
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser("python r53dig.py")
+    parser = argparse.ArgumentParser("python check_r53.py")
     parser.add_argument("--verbose", "-v", default=0, action="count")
     parser.add_argument(
         "--timeout", default=3, type=int, help="Timeout (seconds) for whois and dig."
