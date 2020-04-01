@@ -17,7 +17,7 @@
         track-upstream = "!git push -u origin `git rev-parse --abbrev-ref HEAD`"
         pc             = "!git push origin `git rev-parse --abbrev-ref HEAD`"
         push-current   = "!git push origin `git rev-parse --abbrev-ref HEAD`"
-        pr = pull-request
+        pr = "!hub pull-request -o -F - --edit < PULL_REQUEST_TEMPLATE.md"
         up = pull --rebase --autostash
         undo-last-commit = reset --soft HEAD~1
         vi = "!vim .git/index"
