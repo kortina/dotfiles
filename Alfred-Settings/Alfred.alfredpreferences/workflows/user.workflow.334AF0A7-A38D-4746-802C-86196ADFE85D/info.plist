@@ -12,7 +12,7 @@
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>5F691244-2FD2-4F60-BEEB-0B9B6A78EBB0</string>
+				<string>4D432A42-DC12-4D2E-85EE-2B6A9D244B54</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -25,7 +25,7 @@
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>5F691244-2FD2-4F60-BEEB-0B9B6A78EBB0</string>
+				<string>4D432A42-DC12-4D2E-85EE-2B6A9D244B54</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -79,6 +79,27 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>window-half-screen-r</string>
+				<key>subtext</key>
+				<string></string>
+				<key>text</key>
+				<string>Window-Half-Screen-R</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>B1055B9D-BBE5-46AB-A688-C836EDA1AF89</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>applescript</key>
 				<string>on alfred_script(q)
 
@@ -103,23 +124,25 @@ end alfred_script</string>
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>argumenttype</key>
-				<integer>2</integer>
-				<key>keyword</key>
-				<string>window-half-screen-r</string>
-				<key>subtext</key>
-				<string></string>
-				<key>text</key>
-				<string>Window-Half-Screen-R</string>
-				<key>withspace</key>
+				<key>concurrently</key>
 				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>$HOME/dotfiles/bin/osx_resize.sh half-right</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.input.keyword</string>
+			<string>alfred.workflow.action.script</string>
 			<key>uid</key>
-			<string>B1055B9D-BBE5-46AB-A688-C836EDA1AF89</string>
+			<string>4D432A42-DC12-4D2E-85EE-2B6A9D244B54</string>
 			<key>version</key>
-			<integer>1</integer>
+			<integer>2</integer>
 		</dict>
 	</array>
 	<key>readme</key>
@@ -133,12 +156,19 @@ end alfred_script</string>
 			<key>ypos</key>
 			<integer>30</integer>
 		</dict>
+		<key>4D432A42-DC12-4D2E-85EE-2B6A9D244B54</key>
+		<dict>
+			<key>xpos</key>
+			<integer>425</integer>
+			<key>ypos</key>
+			<integer>335</integer>
+		</dict>
 		<key>5F691244-2FD2-4F60-BEEB-0B9B6A78EBB0</key>
 		<dict>
 			<key>xpos</key>
-			<integer>500</integer>
+			<integer>575</integer>
 			<key>ypos</key>
-			<integer>160</integer>
+			<integer>245</integer>
 		</dict>
 		<key>B1055B9D-BBE5-46AB-A688-C836EDA1AF89</key>
 		<dict>

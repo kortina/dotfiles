@@ -12,7 +12,7 @@
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>5F691244-2FD2-4F60-BEEB-0B9B6A78EBB0</string>
+				<string>EE3C27A3-3513-4471-AFEA-878B8202D929</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -25,7 +25,7 @@
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>5F691244-2FD2-4F60-BEEB-0B9B6A78EBB0</string>
+				<string>EE3C27A3-3513-4471-AFEA-878B8202D929</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -132,6 +132,29 @@ end alfred_script</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>$HOME/dotfiles/bin/osx_resize.sh 1024x768</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>EE3C27A3-3513-4471-AFEA-878B8202D929</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string></string>
@@ -154,9 +177,16 @@ end alfred_script</string>
 		<key>B1055B9D-BBE5-46AB-A688-C836EDA1AF89</key>
 		<dict>
 			<key>xpos</key>
-			<integer>130</integer>
+			<integer>135</integer>
 			<key>ypos</key>
-			<integer>160</integer>
+			<integer>170</integer>
+		</dict>
+		<key>EE3C27A3-3513-4471-AFEA-878B8202D929</key>
+		<dict>
+			<key>xpos</key>
+			<integer>435</integer>
+			<key>ypos</key>
+			<integer>320</integer>
 		</dict>
 	</dict>
 	<key>webaddress</key>
