@@ -135,7 +135,6 @@ brew_install rbenv
 brew_install reattach-to-user-namespace
 brew_install vim # need vim8 for ale
 brew_install watchman
-brew_install yarn
 
 ########################################
 # cask required for the following, kind of annoyting so removing for now
@@ -206,6 +205,7 @@ npm_install stylelint
 npm_install stylelint-config-recommended
 npm_install typescript
 npm_install tslint
+npm_install yarn
 
 ########################################
 # ruby gems
