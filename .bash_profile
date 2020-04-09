@@ -74,9 +74,10 @@ source_if_exists() {
     [[ -f "$source_file_path" ]] && source "$source_file_path"
 }
 
-source_if_exists "`brew --prefix`/etc/bash_completion"
-source_if_exists "`brew --prefix`/etc/bash_completion.d/rails.bash"
-command -v gulp >/dev/null 2>&1  && eval "$(gulp --completion=bash)"
+brew_prefix="/usr/local" # output of `brew --prefix`
+source_if_exists "$brew_prefix/etc/bash_completion"
+source_if_exists "$brew_prefix/etc/bash_completion.d/rails.bash"
+# command -v gulp >/dev/null 2>&1  && eval "$(gulp --completion=bash)"
 
 ##################################################
 # settings not on github
