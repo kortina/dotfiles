@@ -27,6 +27,10 @@ alias tmux="TERM=screen-256color-bce tmux"
 alias updatedb='sudo /usr/libexec/locate.updatedb'
 alias v='pbpaste | vim -'
 
+function f() {
+    rg --hidden --files | rg "$1"
+}
+
 export EDITOR=vim
 # export FZF_DEFAULT_COMMAND='ag -g ""'
 export FZF_DEFAULT_COMMAND='rg --files --hidden' # --no-ignore-vcs
