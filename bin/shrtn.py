@@ -1,5 +1,36 @@
 #!/usr/bin/env python3
-# Utility to check for availability of domain names availabe for registration on AWS Route 53
+# Very basic URL shortener built with:
+# - python3
+# - s3
+# - cloudfront
+# - route53
+#
+# Configuration
+#
+# export SHRTN_DOMAIN='custom.domain'
+# export SHRTN_AWS_BUCKET='custom.domain'
+# export SHRTN_AWS_ID='__your_id__'
+# export SHRTN_AWS_SECRET='__your_secret__'
+# export SHRTN_AWS_CLOUDFRONT_DISTRIBUTION_ID='__your_dist_id__'
+#
+# Shorten a URL:
+#   shrtn.py https://kortina.nyc/
+#   > https://ark.dance/4HO-Kbh
+#
+# Shorten a URL with custom key:
+#   shrtn.py --key=kortina https://kortina.nyc/
+#   > https://ark.dance/kortina
+#
+# Shorten a URL with custom key, replace if exists
+#   shrtn.py --key=kortina --replace=1 https://kortina.nyc/?a=1
+#   > https://ark.dance/kortina
+#
+# From and back to clipboard (this is what I have as an Alfred shortcut)
+#
+#   shrtn.py --copy-to-clipboard=true clipboard
+#   > shortens the long URL in the clipboard, puts short URL in clipboard
+
+
 import argparse
 import boto3
 from botocore.exceptions import ClientError
