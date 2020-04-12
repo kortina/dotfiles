@@ -31,7 +31,7 @@
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
-	<string>shrtn.py</string>
+	<string>s3_short_url</string>
 	<key>objects</key>
 	<array>
 		<dict>
@@ -74,7 +74,7 @@
 				<integer>100</integer>
 				<key>script</key>
 				<string>test -e $HOME/.bash_profile &amp;&amp; source $HOME/.bash_profile
-shrtn.py --copy-to-clipboard=true clipboard</string>
+s3_short_url.py --copy-to-clipboard=true clipboard</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>

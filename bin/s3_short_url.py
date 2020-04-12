@@ -7,27 +7,27 @@
 #
 # Configuration
 #
-# export SHRTN_DOMAIN='custom.domain'
-# export SHRTN_AWS_BUCKET='custom.domain'
-# export SHRTN_AWS_ID='__your_id__'
-# export SHRTN_AWS_SECRET='__your_secret__'
-# export SHRTN_AWS_CLOUDFRONT_DISTRIBUTION_ID='__your_dist_id__'
+# export S3_SHORT_URL_DOMAIN='custom.domain'
+# export S3_SHORT_URL_AWS_BUCKET='custom.domain'
+# export S3_SHORT_URL_AWS_ID='__your_id__'
+# export S3_SHORT_URL_AWS_SECRET='__your_secret__'
+# export S3_SHORT_URL_AWS_CLOUDFRONT_DISTRIBUTION_ID='__your_dist_id__'
 #
 # Shorten a URL:
-#   shrtn.py https://kortina.nyc/
+#   s3_short_url.py https://kortina.nyc/
 #   > https://ark.dance/4HO-Kbh
 #
 # Shorten a URL with custom key:
-#   shrtn.py --key=kortina https://kortina.nyc/
+#   s3_short_url.py --key=kortina https://kortina.nyc/
 #   > https://ark.dance/kortina
 #
 # Shorten a URL with custom key, replace if exists
-#   shrtn.py --key=kortina --replace=1 https://kortina.nyc/?a=1
+#   s3_short_url.py --key=kortina --replace=1 https://kortina.nyc/?a=1
 #   > https://ark.dance/kortina
 #
 # From and back to clipboard (this is what I have as an Alfred shortcut)
 #
-#   shrtn.py --copy-to-clipboard=true clipboard
+#   s3_short_url.py --copy-to-clipboard=true clipboard
 #   > shortens the long URL in the clipboard, puts short URL in clipboard
 
 
@@ -123,7 +123,7 @@ def _time_based_key():
 
 def _cloudfront_invalidate(key):
     # print("_cloudfront_invalidate")
-    dist_id = os.environ.get("SHRTN_AWS_CLOUDFRONT_DISTRIBUTION_ID")
+    dist_id = os.environ.get("S3_SHORT_URL_AWS_CLOUDFRONT_DISTRIBUTION_ID")
     if dist_id in [None, ""]:
         return
     client = boto3.client(
@@ -154,7 +154,7 @@ def _exists(bucket, key):
             raise
 
 
-def shrtn(url, bucket, base_url=None, key=None, replace_duplicate_key=False):
+def s3_short_url(url, bucket, base_url=None, key=None, replace_duplicate_key=False):
     # generate a new short-url that redirects to `url`
     if key in [None, ""]:
         key = _time_based_key()
@@ -210,7 +210,7 @@ def _get_required_env_var(var):
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser("python shrtn.py")
+    parser = argparse.ArgumentParser("python s3_short_url.py")
     parser.add_argument("--verbose", "-v", default=0, action="count")
     parser.add_argument(
         "--key",
@@ -267,19 +267,19 @@ if __name__ == "__main__":
     # custom.domain.s3.amazonaws.com
     # You **MUST** instead use the format:
     # custom.domain.s3-website-us-east-1.amazonaws.com
-    domain = os.environ.get("SHRTN_DOMAIN")
-    bucket = _get_required_env_var("SHRTN_AWS_BUCKET")
+    domain = os.environ.get("S3_SHORT_URL_DOMAIN")
+    bucket = _get_required_env_var("S3_SHORT_URL_AWS_BUCKET")
     proto = "http" if args.http_urls else "https"
     base_url = f"{proto}://s3.amazonaws.com/{bucket}/"
     if domain not in [None, ""]:
         base_url = f"{proto}://{domain}/"
-    aws_id = _get_required_env_var("SHRTN_AWS_ID")
-    aws_secret = _get_required_env_var("SHRTN_AWS_SECRET")
+    aws_id = _get_required_env_var("S3_SHORT_URL_AWS_ID")
+    aws_secret = _get_required_env_var("S3_SHORT_URL_AWS_SECRET")
 
     S3_CLIENT = boto3.client(
         "s3", aws_access_key_id=aws_id, aws_secret_access_key=aws_secret
     )
-    short = shrtn(
+    short = s3_short_url(
         url=url,
         bucket=bucket,
         base_url=base_url,
@@ -291,4 +291,4 @@ if __name__ == "__main__":
     if args.copy_to_clipboard:
         copy_to_clipboard(short)
         text = f"{text} copied to clipboard."
-    notify_osx(f"shrtn.py {url}", text)
+    notify_osx(f"s3_short_url.py {url}", text)
