@@ -193,6 +193,7 @@ npm_install eslint-plugin-react
 npm_install eslint-plugin-flowtype
 npm_install eslint-plugin-fin-eslint-flow-enforcement
 npm_install babel-eslint
+npm_install h2m # tool for downlaoding webpage as md file
 npm_install livedown
 npm_install prettier
 npm_install remark
