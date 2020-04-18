@@ -28,7 +28,7 @@
     "source.fixAll.eslint": true
   },
   // "eslint.validate": ["javascript", "javascriptreact", "typescript"],
-  // "gitlens.codeLens.enabled": false,
+  "gitlens.codeLens.enabled": false,
   "gutterpreview.imagePreviewMaxHeight": 200,
   // "prettier.eslintIntegration": true,
   "prettier.jsxBracketSameLine": true,
@@ -369,14 +369,27 @@
   "explorer.confirmDelete": false,
   "editor.fontFamily": "Monaco, Menlo, Consolas, 'Courier New', monospace",
   "cSpell.userWords": [
+    "Backoff",
     "Kortina",
     "Sundance",
     "Tarkovsky",
     "autoplay",
     "endfor",
+    "finxpc",
+    "graphql",
     "venmo"
   ],
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "files.associations": {
+    "*.erb": "erb"
+  },
+  //JK Customizations START
+  "workbench.iconTheme": "vs-minimal",
+  "explorer.openEditors.visible": 0,
+  // andrew you should add to your files b/c  it makes typescript not error
+  // https://github.com/Microsoft/vscode/issues/36654
+  "javascript.validate.enable": false
+  //JK Customizations END
 }
