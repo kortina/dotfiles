@@ -324,15 +324,19 @@ zone $32.00 $0.00 $83.00 $32.00 Renewed with transfer"""
 tld_prices = [[w[0], w[1]] for w in [l.split(" ") for l in AWS_DOMAINS.split("\n")]]
 
 
-def dig_has_answer(domain, verbose=False):
-    o = subprocess.check_output(["dig", domain], universal_newlines=True)
+def dig_has_answer(domain, verbose=False, timeout=None):
+    o = subprocess.check_output(
+        ["dig", domain], universal_newlines=True, timeout=timeout
+    )
     if verbose:
         print(o)
     return "ANSWER: 0," not in o
 
 
-def whois_registered(domain, verbose=False):
-    o = subprocess.check_output(["whois", domain], universal_newlines=True)
+def whois_registered(domain, verbose=False, timeout=None):
+    o = subprocess.check_output(
+        ["whois", domain], universal_newlines=True, timeout=timeout
+    )
     if verbose:
         print(o)
     if re.search(r"status:\s*available", o.lower()):
@@ -355,21 +359,43 @@ def whois_registered(domain, verbose=False):
         return False
 
 
-def availability(domain, verbose=False):
-    if dig_has_answer(domain, verbose):
-        return "not available (dig)"
-    elif whois_registered(domain, verbose):
-        return "not availalbe (whois)"
-    else:
-        return "AVAILABLE"
+def availability(domain, timeout, verbose=False):
+    try:
+        if dig_has_answer(domain, verbose, timeout):
+            return "not available (dig)"
+        elif whois_registered(domain, verbose, timeout):
+            return "not availalbe (whois)"
+        else:
+            return "AVAILABLE"
+    except subprocess.TimeoutExpired:
+        return "timeout error ({}s)".format(timeout)
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser("python r53dig.py")
+    parser = argparse.ArgumentParser("python check_r53.py")
     parser.add_argument("--verbose", "-v", default=0, action="count")
+    parser.add_argument(
+        "--timeout", default=3, type=int, help="Timeout (seconds) for whois and dig."
+    )
     parser.add_argument("--max-len-tld", "-m", dest="max_len_tld", type=int, default=4)
+    parser.add_argument(
+        "--only",
+        dest="only",
+        type=str,
+        default=None,
+        help="csv of tlds to check (if you don't want to check all of them)",
+    )
     parser.add_argument("domain", type=str, help="domain name to check")
     args = parser.parse_args()
+    if args.only:
+        print("Restricting search to only tlds: {}".format(args.only))
+        tlds = [t.strip() for t in args.only.split(",")]
+
+        def f(tuple):
+            return tuple[0] in tlds
+
+        tld_prices = list(filter(f, tld_prices))
+
     for p in tld_prices:
         tld = p[0]
         # don't check domains greater than max-length tld:
@@ -380,4 +406,4 @@ if __name__ == "__main__":
         domain_and_price = f"{domain.ljust(16)} {price.ljust(8)}"
 
         print(domain_and_price, end=" ")
-        print(availability(domain, args.verbose))
+        print(availability(domain, args.timeout, args.verbose))

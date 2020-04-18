@@ -3,24 +3,18 @@
 <plist version="1.0">
 <dict>
 	<key>bundleid</key>
-	<string>net.kortina.alfred.hotkey-chrome</string>
+	<string></string>
+	<key>category</key>
+	<string>Internet</string>
 	<key>connections</key>
 	<dict>
-		<key>7038EF8A-6FBB-44BE-B61D-390CB7C6EC4C</key>
+		<key>1A7BFFE8-7230-4FC8-8A2A-E407B3B2E0FF</key>
+		<array/>
+		<key>774F59AC-2FDF-491C-8BC1-ABBEB34332AE</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>496C15FC-1578-4688-8163-B3F16B792F56</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-			<dict>
-				<key>destinationuid</key>
-				<string>33D04B61-71CD-4EBC-88A1-A82E4A0D1ABB</string>
+				<string>1A7BFFE8-7230-4FC8-8A2A-E407B3B2E0FF</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -33,30 +27,13 @@
 	<key>createdby</key>
 	<string>kortina</string>
 	<key>description</key>
-	<string></string>
+	<string>shorten URL in clipboard</string>
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
-	<string>Hotkey - VSCode</string>
+	<string>s3_short_url</string>
 	<key>objects</key>
 	<array>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>paths</key>
-				<array>
-					<string>/Applications/Visual Studio Code.app</string>
-				</array>
-				<key>toggle</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.launchfiles</string>
-			<key>uid</key>
-			<string>496C15FC-1578-4688-8163-B3F16B792F56</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
 		<dict>
 			<key>config</key>
 			<dict>
@@ -69,11 +46,11 @@
 				<key>focusedappvariablename</key>
 				<string></string>
 				<key>hotkey</key>
-				<integer>40</integer>
+				<integer>32</integer>
 				<key>hotmod</key>
-				<integer>1179648</integer>
+				<integer>393216</integer>
 				<key>hotstring</key>
-				<string>K</string>
+				<string>U</string>
 				<key>leftcursor</key>
 				<false/>
 				<key>modsmode</key>
@@ -84,7 +61,7 @@
 			<key>type</key>
 			<string>alfred.workflow.trigger.hotkey</string>
 			<key>uid</key>
-			<string>7038EF8A-6FBB-44BE-B61D-390CB7C6EC4C</string>
+			<string>774F59AC-2FDF-491C-8BC1-ABBEB34332AE</string>
 			<key>version</key>
 			<integer>2</integer>
 		</dict>
@@ -94,12 +71,12 @@
 				<key>concurrently</key>
 				<false/>
 				<key>escaping</key>
-				<integer>102</integer>
+				<integer>100</integer>
 				<key>script</key>
-				<string># backup in case alfred does not link into focus
-/usr/local/bin/code</string>
+				<string>test -e $HOME/.bash_profile &amp;&amp; source $HOME/.bash_profile
+s3_short_url.py --copy-to-clipboard=true clipboard</string>
 				<key>scriptargtype</key>
-				<integer>1</integer>
+				<integer>0</integer>
 				<key>scriptfile</key>
 				<string></string>
 				<key>type</key>
@@ -108,38 +85,37 @@
 			<key>type</key>
 			<string>alfred.workflow.action.script</string>
 			<key>uid</key>
-			<string>33D04B61-71CD-4EBC-88A1-A82E4A0D1ABB</string>
+			<string>1A7BFFE8-7230-4FC8-8A2A-E407B3B2E0FF</string>
 			<key>version</key>
 			<integer>2</integer>
 		</dict>
 	</array>
 	<key>readme</key>
-	<string></string>
+	<string>export NOTE_TO_SELF_FROM=“..@gmail.com"
+export NOTE_TO_SELF_TO=“..@in.getfin.com"
+export NOTE_TO_SELF_LOG="$HOME/Dropbox/_/notes-to-self.log"
+export NOTE_TO_SELF_DIR="$HOME/src/bakpak/ses-emailer-cli"
+
+export AMAZON_ACCESS_KEY_ID=‘..’
+export AMAZON_SECRET_KEY=‘..’</string>
 	<key>uidata</key>
 	<dict>
-		<key>33D04B61-71CD-4EBC-88A1-A82E4A0D1ABB</key>
-		<dict>
-			<key>xpos</key>
-			<integer>455</integer>
-			<key>ypos</key>
-			<integer>250</integer>
-		</dict>
-		<key>496C15FC-1578-4688-8163-B3F16B792F56</key>
+		<key>1A7BFFE8-7230-4FC8-8A2A-E407B3B2E0FF</key>
 		<dict>
 			<key>xpos</key>
 			<integer>500</integer>
 			<key>ypos</key>
-			<real>10</real>
+			<real>130</real>
 		</dict>
-		<key>7038EF8A-6FBB-44BE-B61D-390CB7C6EC4C</key>
+		<key>774F59AC-2FDF-491C-8BC1-ABBEB34332AE</key>
 		<dict>
 			<key>xpos</key>
 			<integer>100</integer>
 			<key>ypos</key>
-			<integer>60</integer>
+			<real>10</real>
 		</dict>
 	</dict>
 	<key>webaddress</key>
-	<string>http://kortina.net</string>
+	<string>http://kortina.nyc/</string>
 </dict>
 </plist>

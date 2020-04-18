@@ -21,7 +21,7 @@ code_dirs=(
 for code_dir in "${code_dirs[@]}"; do
     echo "code_dir dir: $code_dir"
 
-    for f in `ls | grep json`; do 
+    for f in `ls | grep "json\|snippets"`; do 
         SYM_FILE="$code_dir/$f"
         TARG_FILE="$vscode_dotfiles/$f"
         SYM_DIR="$code_dir"

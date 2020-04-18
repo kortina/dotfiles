@@ -16,11 +16,21 @@ def main():
     if c is None:
         downloads = os.path.join(os.environ.get("HOME"), "Downloads")
         csvs = list(filter(lambda x: re.match(r"^Analytics", x), os.listdir(downloads)))
-        csvs.reverse()  # csvs are named w dates, so reverse to make first one most recent
+        csvs.sort(
+            reverse=True
+        )  # csvs are named w dates, so reverse to make first one most recent
         c = csvs[0]
         if c is None:
             print("No csv files in ~/Downloads and no `input_csv` arg specified.")
             return
+        else:
+            i = 0
+            for c in csvs:
+                s = ""
+                if i == 0:
+                    s = "* SELECTED"
+                i = i + 1
+                print("{} {}".format(c, s))
         c = os.path.join(downloads, c)
     with open(c) as f:
         lines = f.readlines()[6:]

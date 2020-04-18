@@ -1,3 +1,4 @@
+export BASH_SILENCE_DEPRECATION_WARNING=1
 ##################################################
 # path adjustments
 ##################################################
@@ -25,6 +26,10 @@ alias t="bundle exec rspec --color"
 alias tmux="TERM=screen-256color-bce tmux"
 alias updatedb='sudo /usr/libexec/locate.updatedb'
 alias v='pbpaste | vim -'
+
+function f() {
+    rg --hidden --files | rg "$1"
+}
 
 export EDITOR=vim
 # export FZF_DEFAULT_COMMAND='ag -g ""'
@@ -73,9 +78,10 @@ source_if_exists() {
     [[ -f "$source_file_path" ]] && source "$source_file_path"
 }
 
-source_if_exists "`brew --prefix`/etc/bash_completion"
-source_if_exists "`brew --prefix`/etc/bash_completion.d/rails.bash"
-command -v gulp >/dev/null 2>&1  && eval "$(gulp --completion=bash)"
+brew_prefix="/usr/local" # output of `brew --prefix`
+source_if_exists "$brew_prefix/etc/bash_completion"
+source_if_exists "$brew_prefix/etc/bash_completion.d/rails.bash"
+# command -v gulp >/dev/null 2>&1  && eval "$(gulp --completion=bash)"
 
 ##################################################
 # settings not on github
