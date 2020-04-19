@@ -116,11 +116,6 @@
         "when": "referenceSearchVisible"
     },
     {
-        "key": "alt+n",
-        "command": "workbench.action.tasks.runTask",
-        "args": "New Note"
-    },
-    {
         "key": "cmd+k cmd+k",
         "command": "editor.action.peekDefinition",
     },
@@ -129,7 +124,7 @@
         "command": "editor.action.inspectTMScopes",
     },
     {
-        "key": "alt+n",
+        "key": "alt+shift+n",
         "command": "vscodeMarkdownNotes.newNote",
     },
     {
