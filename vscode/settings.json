@@ -114,6 +114,7 @@
     }
   ], // END insert mode commands
   "vim.normalModeKeyBindingsNonRecursive": [
+    // open link under cursor
     {
       "after": [],
       "before": [
@@ -127,6 +128,7 @@
         }
       ]
     },
+    // go to next error marker
     {
       "after": [],
       "before": [
@@ -168,6 +170,7 @@
       ],
       "commands": []
     },
+    // run in terminal 'again'
     {
       "after": [],
       "before": [
@@ -181,6 +184,7 @@
         }
       ]
     },
+    // run in terminal 'line'
     {
       "after": [],
       "before": [
@@ -197,6 +201,7 @@
         }
       ]
     },
+    // run in terminal 'buffer'
     {
       "after": [],
       "before": [
@@ -213,6 +218,7 @@
         }
       ]
     },
+    // run in terminal 'suite'
     {
       "after": [],
       "before": [
@@ -229,6 +235,7 @@
         }
       ]
     },
+    // goto next error flag
     {
       "after": [],
       "before": [
@@ -241,6 +248,7 @@
         }
       ]
     },
+    // run the current file in terminal
     {
       "after": [],
       "before": [
@@ -303,7 +311,25 @@
           "command": "editor.action.quickFix"
         }
       ]
-    }
+    },
+    // go to the top, enter some newlines, and enter insert mode
+    // useful for prepending new entries to journal, eg
+    {
+      "after": [
+        "g",
+        "g",
+        "j",
+        "j",
+        "O",
+        "<Esc>",
+        "O"
+      ],
+      "before": [
+        "<leader>",
+        "g"
+      ],
+      "commands": []
+    },
   ], // END normal mode commands
   "window.zoomLevel": 0,
   "window.title": "${activeEditorMedium}${separator}${rootName}",
