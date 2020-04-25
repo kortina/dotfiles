@@ -27,6 +27,7 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
+  "markdown.preview.fontSize": 18,
   // "eslint.validate": ["javascript", "javascriptreact", "typescript"],
   // "gitlens.codeLens.enabled": false,
   "gutterpreview.imagePreviewMaxHeight": 200,
