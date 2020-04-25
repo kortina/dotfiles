@@ -161,6 +161,7 @@ pip_install mock # python 2.7
 pip_install nose
 pip_install nose-run-line-number "git+https://github.com/kortina/nose-run-line-number.git@ak-python3-compatibility" # fork w py3 support
 pip_install pre-commit
+pip_install screenplain
 pip_install watchdog
 pip_install xlsx2csv
 
