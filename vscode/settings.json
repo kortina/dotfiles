@@ -375,9 +375,12 @@
     "Tarkovsky",
     "autoplay",
     "boto",
+    "daterange",
     "endfor",
     "finxpc",
     "graphql",
+    "noqa",
+    "selectinload",
     "venmo"
   ],
   "[typescript]": {
@@ -387,6 +390,7 @@
     "*.erb": "erb"
   },
   //JK Customizations START
+  "editor.acceptSuggestionOnEnter": "on",
   "workbench.iconTheme": "vs-minimal",
   "explorer.openEditors.visible": 0,
   // andrew you should add to your files b/c  it makes typescript not error
