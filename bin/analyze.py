@@ -15,7 +15,9 @@ def main():
     c = args.input_csv
     if c is None:
         downloads = os.path.join(os.environ.get("HOME"), "Downloads")
-        csvs = list(filter(lambda x: re.match(r"^Analytics", x), os.listdir(downloads)))
+        csvs = list(
+            filter(lambda x: re.search(r"^Analytics", x), os.listdir(downloads))
+        )
         csvs.sort(
             reverse=True
         )  # csvs are named w dates, so reverse to make first one most recent
