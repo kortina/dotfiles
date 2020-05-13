@@ -349,7 +349,6 @@
   "workbench.startupEditor": "newUntitledFile",
   "workbench.statusBar.visible": true,
   "zenMode.hideStatusBar": false,
-  "workbench.colorTheme": "Tomorrow Night",
   "editor.tokenColorCustomizations": {
     "[Tomorrow Night]": {
       "textMateRules": [
@@ -406,5 +405,6 @@
   ],
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "workbench.colorTheme": "Tomorrow Night"
 }
