@@ -66,7 +66,7 @@ coffee $32.00 $0.00 $83.00 $32.00 Renewed with transfer
 college $69.00 $0.00 $436.00 $69.00 Renewed with transfer
 com $12.00 $0.00 $66.00 $12.00 Renewed with transfer
 com.ar $76.00* $76.00 Not supported Not supported Not supported
-com.au $15.00 $40.00 $60.00 $0.00 No change
+com.au $15.00 $40.00 $15.00 $0.00 No change
 com.br $58.00* $58.00 Not supported Not supported Not supported
 com.mx $34.00 $0.00 $67.00 $34.00 Renewed with transfer
 com.sg $47.00* $47.00 Not supported Not supported Not supported
@@ -82,6 +82,7 @@ coupons $51.00 $0.00 $108.00 $51.00 Renewed with transfer
 credit $94.00 $0.00 $145.00 $94.00 Renewed with transfer
 creditcard $141.00 $0.00 $190.00 $141.00 Renewed with transfer
 cruises $49.00 $0.00 $100.00 $49.00 Renewed with transfer
+cz $10.00 $0.00 $10.00 $0.00 No change
 dance $22.00 $0.00 $76.00 $22.00 Renewed with transfer
 dating $49.00 $0.00 $100.00 $49.00 Renewed with transfer
 de $9.00 $0.00 $9.00 $9.00 Renewed with transfer
@@ -205,7 +206,7 @@ movie $306.00 $0.00 $355.00 $306.00 Renewed with transfer
 mx $34.00 $0.00 $67.00 $34.00 Renewed with transfer
 name $9.00 $0.00 $64.00 $9.00 Renewed with transfer
 net $11.00 $0.00 $67.00 $11.00 Renewed with transfer
-net.au $15.00 $40.00 $60.00 $0.00 No change
+net.au $15.00 $40.00 $15.00 $0.00 No change
 net.nz $24.00 $0.00 $24.00 $24.00 Renewed with transfer
 network $19.00 $0.00 $73.00 $19.00 Renewed with transfer
 news $23.00 $0.00 $82.00 $23.00 Renewed with transfer
@@ -319,7 +320,6 @@ world $29.00 $0.00 $83.00 $29.00 Renewed with transfer
 wtf $29.00 $0.00 $83.00 $29.00 Renewed with transfer
 xyz $12.00 $0.00 $80.00 $12.00 Renewed with transfer
 zone $32.00 $0.00 $83.00 $32.00 Renewed with transfer"""
-
 
 tld_prices = [[w[0], w[1]] for w in [l.split(" ") for l in AWS_DOMAINS.split("\n")]]
 
