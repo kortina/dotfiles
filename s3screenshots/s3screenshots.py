@@ -87,7 +87,6 @@ class S3ScreenshotHandler(RegexMatchingEventHandler):
         return "".join(random.choice(chars) for _ in range(size))
 
     def _matches_a_pattern(self, filename):
-        logging.info("_matches_a_pattern")
         if self._match_groups(filename) is not None:
             return True
         if re.search(REGEX_MANUAL, filename):
@@ -131,7 +130,6 @@ class S3ScreenshotHandler(RegexMatchingEventHandler):
     def _mv_and_upload_file(self, filepath):
         # skip if our regex didn't match the screenshot
         if not self._matches_a_pattern(os.path.basename(filepath)):
-            logging.info(f"does not match a pattern {filepath}")
             return
         new_filepath = self._new_filepath(filepath)
         # mv
