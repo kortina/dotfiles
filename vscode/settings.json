@@ -21,6 +21,9 @@
   "editor.wordWrap": "on",
   "explorer.autoReveal": false,
   "files.autoSave": "off",
+  "files.associations": {
+    "*.dpl": "sql"
+  },
   // "eslint.autoFixOnSave": true,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
