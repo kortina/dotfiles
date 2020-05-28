@@ -110,6 +110,7 @@ brew_install rails-completion
 brew_install git-lfs
 brew_install fzf
 brew_install fswatch
+brew_install coreutils
 
 brew_install ctop
 brew_install ctags
