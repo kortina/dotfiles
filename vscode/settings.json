@@ -53,6 +53,15 @@
       "name": "exec-file"
     },
     //////////////////////
+    // jest typescript
+    //////////////////////
+    // rspec: test suite
+    {
+      "cmd": "npx jest",
+      "match": "\\.ts$",
+      "name": "s"
+    },
+    //////////////////////
     // ruby
     //////////////////////
     // rspec: test line
