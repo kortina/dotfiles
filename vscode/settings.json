@@ -1,5 +1,7 @@
 {
   // "vscodeMarkdownNotes.workspaceFilenameConvention": "relativePaths",
+  // "vscodeMarkdownNotes.noteCompletionConvention": "", // toSpaces noExtension
+  // "vscodeMarkdownNotes.slugifyCharacter": "NONE",
   "cSpell.enableFiletypes": ["markdown", "plaintext"],
   "diffEditor.renderIndicators": true,
   // "docker-linter.rubocop.enable": true,
@@ -55,7 +57,7 @@
     //////////////////////
     // jest typescript
     //////////////////////
-    // rspec: test suite
+    // jest: test suite
     {
       "cmd": "npx jest",
       "match": "\\.ts$",
