@@ -110,6 +110,7 @@ brew_install rails-completion
 brew_install git-lfs
 brew_install fzf
 brew_install fswatch
+brew_install coreutils
 
 brew_install ctop
 brew_install ctags
@@ -161,6 +162,7 @@ pip_install mock # python 2.7
 pip_install nose
 pip_install nose-run-line-number "git+https://github.com/kortina/nose-run-line-number.git@ak-python3-compatibility" # fork w py3 support
 pip_install pre-commit
+pip_install screenplain
 pip_install watchdog
 pip_install xlsx2csv
 
@@ -193,6 +195,7 @@ npm_install eslint-plugin-react
 npm_install eslint-plugin-flowtype
 npm_install eslint-plugin-fin-eslint-flow-enforcement
 npm_install babel-eslint
+npm_install h2m # tool for downlaoding webpage as md file
 npm_install livedown
 npm_install prettier
 npm_install remark

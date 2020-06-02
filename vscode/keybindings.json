@@ -1,184 +1,204 @@
 // Place your key bindings in this file to overwrite the defaults
 [
-    // use shift+enter to accept selected suggestion
-    {
-        "key": "shift+enter",
-        "command": "acceptSelectedSuggestion"
+  // use shift+enter to accept selected suggestion
+  {
+    "key": "shift+enter",
+    "command": "acceptSelectedSuggestion"
+  },
+  {
+    "key": "ctrl+p",
+    "command": "editor.action.triggerSuggest",
+    "when": "editorFocus"
+  },
+  {
+    "key": "ctrl+a ctrl+o",
+    "command": "workbench.action.toggleMaximizedPanel"
+  },
+  // Move focus in editor to right
+  {
+    "key": "ctrl+l",
+    "command": "workbench.action.focusNextGroup",
+    "when": "editorFocus"
+  },
+  // Move focus in editor to left
+  {
+    "key": "ctrl+h",
+    "command": "workbench.action.focusPreviousGroup",
+    "when": "editorFocus"
+  },
+  // Move focus from editor left to explorer
+  {
+    "key": "ctrl+shift+h",
+    "command": "workbench.view.explorer",
+    "when": "!explorerViewletFocus"
+  },
+  // Move focus from explore right to editor:
+  {
+    "key": "ctrl+shift+l",
+    "command": "workbench.action.focusActiveEditorGroup",
+    "when": "!(editorFocus || terminalFocus)" // WAS PREVIOUSLY: explorerViewletFocus || filesExplorerFocus || sidebarFocus || focusedView == 'workbench.view.search' ||
+  },
+  // Move focus down to the terminal:
+  {
+    "key": "ctrl+shift+j",
+    "command": "workbench.action.terminal.focus",
+    "when": "editorFocus"
+  },
+  // Move focus up to editor:
+  {
+    "key": "ctrl+shift+k",
+    "command": "workbench.action.focusActiveEditorGroup",
+    "when": "terminalFocus"
+  },
+  // Create a new terminal tab:
+  {
+    "key": "cmd+t",
+    "command": "workbench.action.terminal.new",
+    "when": "terminalFocus"
+  },
+  // Kill terminal tab:
+  {
+    "key": "cmd+w",
+    "command": "workbench.action.terminal.kill",
+    "when": "terminalFocus"
+  },
+  // Next terminal tab:
+  {
+    "key": "cmd+shift+]",
+    "command": "workbench.action.terminal.focusNext",
+    "when": "terminalFocus"
+  },
+  // Previous terminal tab:
+  {
+    "key": "cmd+shift+[",
+    "command": "workbench.action.terminal.focusPrevious",
+    "when": "terminalFocus"
+  },
+  // Exec bash script with runInTerminal
+  {
+    "key": "ctrl+e",
+    "command": "runInTerminal.run",
+    "args": {
+      "cmd": "/usr/bin/env bash ${relativeFile}",
+      "match": ".*"
     },
-    {
-        "key": "ctrl+p",
-        "command": "editor.action.triggerSuggest",
-        "when": "editorFocus"
-    },
-    {
-        "key": "ctrl+a ctrl+o",
-        "command": "workbench.action.toggleMaximizedPanel"
-    },
-    // Move focus in editor to right
-    {
-        "key": "ctrl+l",
-        "command": "workbench.action.focusNextGroup",
-        "when": "editorFocus"
-    },
-    // Move focus in editor to left
-    {
-        "key": "ctrl+h",
-        "command": "workbench.action.focusPreviousGroup",
-        "when": "editorFocus"
-    },
-    // Move focus from editor left to explorer
-    {
-        "key": "ctrl+shift+h",
-        "command": "workbench.view.explorer",
-        "when": "!explorerViewletFocus"
-    },
-    // Move focus from explore right to editor:
-    {
-        "key": "ctrl+shift+l",
-        "command": "workbench.action.focusActiveEditorGroup",
-        "when": "!(editorFocus || terminalFocus)" // WAS PREVIOUSLY: explorerViewletFocus || filesExplorerFocus || sidebarFocus || focusedView == 'workbench.view.search' || 
-    },
-    // Move focus down to the terminal:
-    {
-        "key": "ctrl+shift+j",
-        "command": "workbench.action.terminal.focus",
-        "when": "editorFocus"
-    },
-    // Move focus up to editor:
-    {
-        "key": "ctrl+shift+k",
-        "command": "workbench.action.focusActiveEditorGroup",
-        "when": "terminalFocus"
-    },
-    // Create a new terminal tab:
-    {
-        "key": "cmd+t",
-        "command": "workbench.action.terminal.new",
-        "when": "terminalFocus"
-    },
-    // Kill terminal tab:
-    {
-        "key": "cmd+w",
-        "command": "workbench.action.terminal.kill",
-        "when": "terminalFocus"
-    },
-    // Next terminal tab:
-    {
-        "key": "cmd+shift+]",
-        "command": "workbench.action.terminal.focusNext",
-        "when": "terminalFocus"
-    },
-    // Previous terminal tab:
-    {
-        "key": "cmd+shift+[",
-        "command": "workbench.action.terminal.focusPrevious",
-        "when": "terminalFocus"
-    },
-    // Exec bash script with runInTerminal
-    {
-        "key": "ctrl+e",
-        "command": "runInTerminal.run",
-        "args": {
-            "cmd": "/usr/bin/env bash ${relativeFile}",
-            "match": ".*"
-        },
-        "when": "resourceLangId == shellscript"
-    },
-    // nerdtree like binds
-    // https://stackoverflow.com/questions/48203523/how-to-create-file-in-current-explorer-directory-in-vs-code-using-only-keys
-    {
-        "key": "enter",
-        "command": "list.select",
-        "when": "explorerViewletFocus && !inputFocus"
-    },
-    {
-        "key": "m a",
-        "command": "explorer.newFile",
-        "when": "explorerViewletFocus && !inputFocus"
-    },
-    {
-        "key": "m f",
-        "command": "explorer.newFolder",
-        "when": "explorerViewletFocus && !inputFocus"
-    },
-    {
-        "key": "m d",
-        "command": "deleteFile",
-        "when": "explorerViewletFocus && !inputFocus"
-    },
-    {
-        "key": "ctrl+l",
-        "command": "workbench.action.nextEditor",
-        "when": "explorerViewletFocus && !inputFocus"
-    },
-    {
-        "key": "cmd+m",
-        "command": "workbench.files.action.collapseExplorerFolders",
-        "when": "explorerViewletFocus && !inputFocus"
-    },
-    // navigate search results with alt j/k
-    {
-        "key": "alt+j",
-        "command": "goToNextReferenceFromEmbeddedEditor",
-        "when": "inReferenceSearchEditor"
-    },
-    {
-        "key": "alt+k",
-        "command": "goToPreviousReferenceFromEmbeddedEditor",
-        "when": "inReferenceSearchEditor"
-    },
-    {
-        "key": "alt+j",
-        "command": "search.action.focusNextSearchResult",
-        "when": "hasSearchResult"
-    },
-    {
-        "key": "alt+k",
-        "command": "search.action.focusPreviousSearchResult",
-        "when": "hasSearchResult"
-    },
-    {
-        "key": "alt+j",
-        "command": "goToNextReference",
-        "when": "referenceSearchVisible"
-    },
-    {
-        "key": "alt+k",
-        "command": "goToPreviousReference",
-        "when": "referenceSearchVisible"
-    },
-    {
-        "key": "alt+n",
-        "command": "workbench.action.tasks.runTask",
-        "args": "New Note"
-    },
-    {
-        "key": "cmd+k cmd+k",
-        "command": "editor.action.peekDefinition",
-    },
-    {
-        "key": "cmd+k cmd+o",
-        "command": "editor.action.inspectTMScopes",
-    },
-    {
-        "key": "alt+n",
-        "command": "vscodeMarkdownNotes.newNote",
-    },
-    {
-        "key": "alt+t",
-        "command": "workbench.action.tasks.runTask",
-        "args": "echo"
-    },
-    // cmd+b, the default, is the built in shortcut to
-    // Hide / Show Side Bar, so release extension binding:
-    {
-        "key": "cmd+alt+b",
-        "command": "markdown.extension.editing.toggleBold",
-    },
-    {
-        "key": "cmd+b",
-        "command": "workbench.action.toggleSidebarVisibility",
-    },
-    // { "key": "alt+j",         "command": "references-view.next",                      "when": "reference-list.hasResult" },
-    // { "key": "alt+k",   "command": "references-view.prev",                      "when": "reference-list.hasResult" },
+    "when": "resourceLangId == shellscript"
+  },
+  // navigate search results with alt j/k
+  {
+    "key": "alt+j",
+    "command": "goToNextReferenceFromEmbeddedEditor",
+    "when": "inReferenceSearchEditor"
+  },
+  {
+    "key": "alt+k",
+    "command": "goToPreviousReferenceFromEmbeddedEditor",
+    "when": "inReferenceSearchEditor"
+  },
+  {
+    "key": "alt+j",
+    "command": "search.action.focusNextSearchResult",
+    "when": "hasSearchResult"
+  },
+  {
+    "key": "alt+k",
+    "command": "search.action.focusPreviousSearchResult",
+    "when": "hasSearchResult"
+  },
+  {
+    "key": "alt+j",
+    "command": "goToNextReference",
+    "when": "referenceSearchVisible"
+  },
+  {
+    "key": "alt+k",
+    "command": "goToPreviousReference",
+    "when": "referenceSearchVisible"
+  },
+  {
+    "key": "cmd+k cmd+k",
+    "command": "editor.action.peekDefinition"
+  },
+  {
+    "key": "cmd+k cmd+o",
+    "command": "editor.action.inspectTMScopes"
+  },
+  {
+    "key": "alt+shift+n",
+    "command": "vscodeMarkdownNotes.newNote"
+  },
+  {
+    "key": "alt+t",
+    "command": "workbench.action.tasks.runTask",
+    "args": "echo"
+  },
+  // cmd+b, the default, is the built in shortcut to
+  // Hide / Show Side Bar, so release extension binding:
+  {
+    "key": "cmd+alt+b",
+    "command": "markdown.extension.editing.toggleBold"
+  },
+  {
+    "key": "cmd+b",
+    "command": "workbench.action.toggleSidebarVisibility"
+  },
+  {
+    "key": "cmd+k cmd+n",
+    "command": "editor.action.referenceSearch.trigger"
+  },
+  {
+    "key": "ctrl+alt+r",
+    "command": "references-view.find",
+    "when": "editorHasReferenceProvider"
+  },
+  {
+    "key": "shift+alt+f12",
+    "command": "-references-view.find",
+    "when": "editorHasReferenceProvider"
+  },
+  {
+    "key": "cmd+k cmd+r",
+    "command": "-workbench.action.keybindingsReference"
+  },
+  {
+    "key": "cmd+k cmd+r",
+    "command": "-workbench.action.keybindingsReference"
+  },
+  {
+    "key": "cmd+k cmd+r",
+    "command": "-workbench.action.keybindingsReference"
+  },
+  {
+    "key": "shift+alt+f12",
+    "command": "-references-view.find",
+    "when": "editorHasReferenceProvider"
+  },
+  {
+    "key": "cmd+k cmd+r",
+    "command": "-workbench.action.keybindingsReference"
+  },
+  {
+    "key": "cmd+k cmd+r",
+    "command": "-workbench.action.keybindingsReference"
+  },
+  {
+    "key": "cmd+k cmd+r",
+    "command": "-workbench.action.keybindingsReference"
+  },
+  {
+    "key": "cmd+k cmd+r",
+    "command": "-workbench.action.keybindingsReference"
+  },
+  {
+    "key": "shift+alt+f12",
+    "command": "-references-view.find",
+    "when": "editorHasReferenceProvider"
+  },
+  {
+    "key": "shift+alt+f12",
+    "command": "-references-view.find",
+    "when": "editorHasReferenceProvider"
+  }
+  // { "key": "alt+j",         "command": "references-view.next",                      "when": "reference-list.hasResult" },
+  // { "key": "alt+k",   "command": "references-view.prev",                      "when": "reference-list.hasResult" },
 ]

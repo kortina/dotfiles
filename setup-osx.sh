@@ -1,4 +1,12 @@
 #!/usr/bin/env bash
+#
+# One good way to discover defaults paths / values is this:
+#
+#   defaults read > before
+#   # 🧐 make some changes in System Preferences
+#   defaults read > after
+#   diff before after
+#
 set -e
 echo "##### $(basename $BASH_SOURCE) #####"
 DOTFILES_ROOT="`pwd`"
@@ -207,6 +215,8 @@ defaults write com.apple.messageshelper.MessageController SOInputLineSettings -d
 # Disable smart quotes as it’s annoying for messages that contain code
 defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "automaticQuoteSubstitutionEnabled" -bool false
 
+# Turn volume level for alerts way down:
+defaults write com.apple.sound.beep.volume -float 0.05
 
 ###############################################################################
 # FSNotes

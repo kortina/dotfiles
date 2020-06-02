@@ -22,23 +22,27 @@ if [ "$dimensions" = "full" ]; then
     x="0" # item 1 of b
     y="0"
     width="item 3 of b";
+    top_right="$width";
     height="$full_height";
     strategy_3='click (button 1 of window 1 where subrole is "AXZoomButton")'
 elif [ "$dimensions" = "half-left" ]; then
     x="0"
     y="0"
-    width="(item 3 of b) / 2";
+    width="(item 3 of b) / 2"; # top right of screen / 2
+    top_right="(item 3 of b)"; # match top right of screen
     height="$full_height";
 elif [ "$dimensions" = "half-right" ]; then
     x="(item 3 of b) / 2"
     y="0"
-    width="(item 3 of b)"; # why is this not divided by 2? ¯\_(ツ)_/¯
+    width="(item 3 of b) / 2"; # top right of screen / 2
+    top_right="(item 3 of b)"; # why is this not divided by 2? ¯\_(ツ)_/¯
     height="$full_height";
 else
     x="0"
     y="0"
-    width=`echo "$dimensions" | awk -F 'x' '{print $1}'`
-    height=`echo "$dimensions" | awk -F 'x' '{print $2}'`
+    width=`echo "$dimensions" | awk -F 'x' '{print $1}'`;
+    top_right="$width";
+    height=`echo "$dimensions" | awk -F 'x' '{print $2}'`;
 fi
 
 if [ "$height" = "" ]
@@ -48,20 +52,26 @@ fi
 
 # echo "{ $x, $y, $width, $height }"
 
+# NB:
+# 1. Setting the bounds, we must set the top-right x-coord of the window.
+# 2. Setting width we must compute desired width from the screen bounds, but only set top left
+# coord.
 osascript <<EOF
 try
+    -- b = bounds of desktop
     tell application "Finder" to set b to bounds of window of desktop
-        try
-            tell application (path to frontmost application as text)
-                set bounds of window 1 to { $x, $y, $width, $height }
-                -- display notification "strategy 1 $x"
-            end tell
-        on error
-            tell application "System Events" to tell window 1 of (process 1 where it is frontmost)
+    try
+        tell application (path to frontmost application as text)
+            set bounds of window 1 to { $x, $y, $top_right, $height }
+            -- display notification "strategy 1"
+        end tell
+    on error
+        tell application "System Events" to tell window 1 of (process 1 where it is frontmost)
             try
                 set position to { $x, $y }
+                -- set w to $b
                 set size to { $width, $height }
-                -- display notification "strategy 2"
+                -- display notification "strategy 2: x:$x, y:$y, w:$w, h:$height"
             on error
                 $strategy_3
                 -- display notification "strategy 3"

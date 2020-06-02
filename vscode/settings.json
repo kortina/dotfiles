@@ -1,9 +1,8 @@
 {
   // "vscodeMarkdownNotes.workspaceFilenameConvention": "relativePaths",
-  "cSpell.enableFiletypes": [
-    "markdown",
-    "plaintext"
-  ],
+  // "vscodeMarkdownNotes.noteCompletionConvention": "", // toSpaces noExtension
+  // "vscodeMarkdownNotes.slugifyCharacter": "NONE",
+  "cSpell.enableFiletypes": ["markdown", "plaintext"],
   "diffEditor.renderIndicators": true,
   // "docker-linter.rubocop.enable": true,
   "editor.formatOnSave": true,
@@ -16,17 +15,22 @@
   // during dev show quick suggestions for markdown without ctrl+p
   "[markdown]": {
     "editor.quickSuggestions": true,
-    "editor.tabSize": 2,
+    "editor.wordBasedSuggestions": false,
+    "editor.tabSize": 2
     // "editor.wordSeparators": "`~!@$%^&*()=+[{]}\\|;:'\",.<>/?", // remove '#' so tags can be searched. Does not seem to be working....
   },
   "editor.acceptSuggestionOnEnter": "off",
   "editor.wordWrap": "on",
   "explorer.autoReveal": false,
   "files.autoSave": "off",
+  "files.associations": {
+    "*.dpl": "sql"
+  },
   // "eslint.autoFixOnSave": true,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
+  "markdown.preview.fontSize": 18,
   // "eslint.validate": ["javascript", "javascriptreact", "typescript"],
   "gitlens.codeLens.enabled": false,
   "gutterpreview.imagePreviewMaxHeight": 200,
@@ -49,6 +53,15 @@
       "cmd": "${relativeFile}",
       "match": ".*",
       "name": "exec-file"
+    },
+    //////////////////////
+    // jest typescript
+    //////////////////////
+    // jest: test suite
+    {
+      "cmd": "npx jest",
+      "match": "\\.ts$",
+      "name": "s"
     },
     //////////////////////
     // ruby
@@ -99,9 +112,7 @@
   "vim.insertModeKeyBindings": [
     // insert the current date, insert mode
     {
-      "before": [
-        "<C-d>"
-      ],
+      "before": ["<C-d>"],
       "after": [],
       "commands": [
         {
@@ -114,12 +125,10 @@
     }
   ], // END insert mode commands
   "vim.normalModeKeyBindingsNonRecursive": [
+    // open link under cursor
     {
       "after": [],
-      "before": [
-        "g",
-        "l"
-      ],
+      "before": ["g", "l"],
       "commands": [
         {
           "args": [],
@@ -127,12 +136,10 @@
         }
       ]
     },
+    // go to next error marker
     {
       "after": [],
-      "before": [
-        "<leader>",
-        "e"
-      ],
+      "before": ["<leader>", "e"],
       "commands": [
         {
           "args": [],
@@ -143,51 +150,29 @@
     // clear search buffer
     {
       "after": [],
-      "before": [
-        "<leader>",
-        "/"
-      ],
-      "commands": [
-        ":nohl"
-      ]
+      "before": ["<leader>", "/"],
+      "commands": [":nohl"]
     },
     // copy everything in buffer to clipboard
     {
-      "after": [
-        "g",
-        "g",
-        "V",
-        "G",
-        "\"",
-        "*",
-        "y"
-      ],
-      "before": [
-        "<leader>",
-        "c"
-      ],
+      "after": ["g", "g", "V", "G", "\"", "*", "y"],
+      "before": ["<leader>", "c"],
       "commands": []
     },
+    // run in terminal 'again'
     {
       "after": [],
-      "before": [
-        "<leader>",
-        "r",
-        "a"
-      ],
+      "before": ["<leader>", "r", "a"],
       "commands": [
         {
           "command": "runInTerminal.runLast"
         }
       ]
     },
+    // run in terminal 'line'
     {
       "after": [],
-      "before": [
-        "<leader>",
-        "r",
-        "l"
-      ],
+      "before": ["<leader>", "r", "l"],
       "commands": [
         {
           "args": {
@@ -197,13 +182,10 @@
         }
       ]
     },
+    // run in terminal 'buffer'
     {
       "after": [],
-      "before": [
-        "<leader>",
-        "r",
-        "b"
-      ],
+      "before": ["<leader>", "r", "b"],
       "commands": [
         {
           "args": {
@@ -213,13 +195,10 @@
         }
       ]
     },
+    // run in terminal 'suite'
     {
       "after": [],
-      "before": [
-        "<leader>",
-        "r",
-        "s"
-      ],
+      "before": ["<leader>", "r", "s"],
       "commands": [
         {
           "args": {
@@ -229,24 +208,20 @@
         }
       ]
     },
+    // goto next error flag
     {
       "after": [],
-      "before": [
-        "<leader>",
-        "a"
-      ],
+      "before": ["<leader>", "a"],
       "commands": [
         {
           "command": "editor.action.marker.nextInFiles"
         }
       ]
     },
+    // run the current file in terminal
     {
       "after": [],
-      "before": [
-        "<leader>",
-        "x"
-      ],
+      "before": ["<leader>", "x"],
       "commands": [
         {
           "args": {
@@ -256,30 +231,10 @@
         }
       ]
     },
-    // insert the current date as markdown header, normal mode
-    {
-      "before": [
-        "<leader>",
-        "d"
-      ],
-      "after": [],
-      "commands": [
-        {
-          "command": "editor.action.insertSnippet",
-          "args": {
-            "snippet": "\n# $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE\n\n"
-          }
-        }
-      ]
-    },
     // insert a (roughly) title cased version of the filename
     // eg, for `some-file.md`, "Some File"
     {
-      "before": [
-        ",",
-        "f",
-        "f"
-      ],
+      "before": [",", "f", "f"],
       "after": [],
       "commands": [
         {
@@ -293,14 +248,44 @@
     // open quickfix z=
     {
       "after": [],
-      "before": [
-        "z",
-        "="
-      ],
+      "before": ["z", "="],
       "commands": [
         {
           "args": [],
           "command": "editor.action.quickFix"
+        }
+      ]
+    },
+    // go to the top, enter some newlines, and enter insert mode
+    // useful for prepending new entries to journal, eg
+    {
+      "after": ["g", "g", "j", "j", "O", "<Esc>", "O"],
+      "before": ["<leader>", "g"],
+      "commands": []
+    },
+    // insert the current date as markdown header, normal mode
+    {
+      "before": ["<leader>", "t"],
+      "after": [],
+      "commands": [
+        {
+          "command": "editor.action.insertSnippet",
+          "args": {
+            "snippet": "\n# $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE\n\n"
+          }
+        }
+      ]
+    },
+    // insert the current date as markdown header NEAR TOP OF FILE
+    {
+      "before": ["<leader>", "d"],
+      "after": ["g", "g", "j", "j", "O"],
+      "commands": [
+        {
+          "command": "editor.action.insertSnippet",
+          "args": {
+            "snippet": "# $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE\n\n"
+          }
         }
       ]
     }
@@ -322,7 +307,6 @@
   "workbench.startupEditor": "newUntitledFile",
   "workbench.statusBar.visible": true,
   "zenMode.hideStatusBar": false,
-  "workbench.colorTheme": "Tomorrow Night",
   "editor.tokenColorCustomizations": {
     "[Tomorrow Night]": {
       "textMateRules": [
@@ -370,7 +354,9 @@
   "editor.fontFamily": "Monaco, Menlo, Consolas, 'Courier New', monospace",
   "cSpell.userWords": [
     "Backoff",
+    "Decompiling",
     "Kortina",
+    "Stiglitz",
     "Sundance",
     "Tarkovsky",
     "Timeframe",
@@ -382,6 +368,7 @@
     "graphql",
     "noqa",
     "selectinload",
+    "neurochemistry",
     "venmo"
   ],
   "[typescript]": {
@@ -393,6 +380,7 @@
   //JK Customizations START
   "editor.acceptSuggestionOnEnter": "on",
   "workbench.iconTheme": "vs-minimal",
+  "workbench.colorTheme": "Tomorrow Night",
   "explorer.openEditors.visible": 0,
   // andrew you should add to your files b/c  it makes typescript not error
   // https://github.com/Microsoft/vscode/issues/36654
