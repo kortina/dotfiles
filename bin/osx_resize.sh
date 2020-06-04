@@ -29,7 +29,7 @@ elif [ "$dimensions" = "half-left" ]; then
     x="0"
     y="0"
     width="(item 3 of b) / 2"; # top right of screen / 2
-    top_right="(item 3 of b)"; # match top right of screen
+    top_right="(item 3 of b) / 2"; # match top right of screen / 2
     height="$full_height";
 elif [ "$dimensions" = "half-right" ]; then
     x="(item 3 of b) / 2"
@@ -63,7 +63,7 @@ try
     try
         tell application (path to frontmost application as text)
             set bounds of window 1 to { $x, $y, $top_right, $height }
-            -- display notification "strategy 1"
+            -- display notification "strategy 1: set bounds x:$x, y:$y, top_right: $top_right, h:$height"
         end tell
     on error
         tell application "System Events" to tell window 1 of (process 1 where it is frontmost)
@@ -71,10 +71,10 @@ try
                 set position to { $x, $y }
                 -- set w to $b
                 set size to { $width, $height }
-                -- display notification "strategy 2: x:$x, y:$y, w:$w, h:$height"
+                -- display notification "strategy 2: x:$x, y:$y, w:$width, h:$height"
             on error
                 $strategy_3
-                -- display notification "strategy 3"
+                -- display notification "strategy 3: $strategy_3"
             end try
         end tell
     end try
