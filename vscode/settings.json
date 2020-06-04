@@ -33,7 +33,7 @@
   "markdown.preview.fontSize": 18,
   // "eslint.validate": ["javascript", "javascriptreact", "typescript"],
   // "gitlens.codeLens.enabled": false,
-  "gutterpreview.imagePreviewMaxHeight": 200,
+  "gutterpreview.imagePreviewMaxHeight": 270,
   // "prettier.eslintIntegration": true,
   "prettier.jsxBracketSameLine": true,
   // "prettier.parser": "flow",
@@ -361,8 +361,11 @@
     "autoplay",
     "boto",
     "endfor",
+    "financialization",
+    "incentivizes",
     "neurochemistry",
-    "venmo"
+    "venmo",
+    "waldenponding"
   ],
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
