@@ -361,11 +361,9 @@
     "autoplay",
     "boto",
     "endfor",
-    "financialization",
-    "incentivizes",
     "neurochemistry",
-    "venmo",
-    "waldenponding"
+    "nodenv",
+    "venmo"
   ],
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
