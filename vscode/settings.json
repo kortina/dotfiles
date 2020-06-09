@@ -34,6 +34,7 @@
   // "eslint.validate": ["javascript", "javascriptreact", "typescript"],
   "gitlens.codeLens.enabled": false,
   "gutterpreview.imagePreviewMaxHeight": 200,
+  "gutterpreview.imagePreviewMaxHeight": 270,
   // "prettier.eslintIntegration": true,
   "prettier.jsxBracketSameLine": true,
   // "prettier.parser": "flow",
@@ -368,8 +369,11 @@
     "graphql",
     "noqa",
     "selectinload",
+    "financialization",
+    "incentivizes",
     "neurochemistry",
-    "venmo"
+    "venmo",
+    "waldenponding"
   ],
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -381,9 +385,6 @@
   "editor.acceptSuggestionOnEnter": "on",
   "workbench.iconTheme": "vs-minimal",
   "workbench.colorTheme": "Tomorrow Night",
-  "explorer.openEditors.visible": 0,
-  // andrew you should add to your files b/c  it makes typescript not error
-  // https://github.com/Microsoft/vscode/issues/36654
-  "javascript.validate.enable": false
+  "explorer.openEditors.visible": 0
   //JK Customizations END
 }
