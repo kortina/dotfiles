@@ -25,6 +25,10 @@
 #   s3_short_url.py --key=kortina --replace=1 https://kortina.nyc/?a=1
 #   > https://ark.dance/kortina
 #
+# Shorten a URL, adding the target domain to the key
+#   s3_short_url.py --prefix-key-with-domain=1 https://kortina.nyc/?a=1
+#   > https://ark.dance/kortina.nyc/LOwL-2YP
+#
 # From and back to clipboard (this is what I have as an Alfred shortcut)
 #
 #   s3_short_url.py --copy-to-clipboard=true clipboard
@@ -38,9 +42,11 @@ import os
 import subprocess
 import random
 import time
+from urllib.parse import urlparse
 
 T_ZERO = 1586654125.0
 S3_CLIENT = None
+DEBUG = False
 
 
 def get_clipboard():
@@ -64,10 +70,9 @@ def notify_osx(title, text):
     process.communicate(s.encode("utf-8"))
 
 
-# Ref: https://stackoverflow.com/questions/561486/how-to-convert-an-integer-to-the-shortest-url-safe-string-in-python/561809#561809
-ALPHABET = (
-    "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz_"
-)  # Use "-"" for separator from rnd
+# Ref _int_to_str / _str_to_int: https://ark.dance/LOjf-bbU
+# Use "-"" for separator from rnd
+ALPHABET = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz_"
 
 
 def _int_to_str(n):
@@ -121,6 +126,15 @@ def _time_based_key():
     return f"{_time_to_str()}-{_rnd()}"
 
 
+def _domain(url):
+    return urlparse(url).netloc
+
+
+def _prefix_key_with_domain(url, key):
+    d = _domain(url)
+    return f"{d}/{key}"
+
+
 def _cloudfront_invalidate(key):
     # print("_cloudfront_invalidate")
     dist_id = os.environ.get("S3_SHORT_URL_AWS_CLOUDFRONT_DISTRIBUTION_ID")
@@ -130,7 +144,8 @@ def _cloudfront_invalidate(key):
         "cloudfront", aws_access_key_id=aws_id, aws_secret_access_key=aws_secret
     )
     caller_reference = f"{int(time.time())}-{key}"
-    # This does seem to correctly invalidate CloudFront, but I think because the redirect is a 301 my browser is still caching the original...
+    # This does seem to correctly invalidate CloudFront,
+    # but I think because the redirect is a 301 my browser is still caching the original...
     response = client.create_invalidation(
         DistributionId=dist_id,
         InvalidationBatch={
@@ -138,7 +153,8 @@ def _cloudfront_invalidate(key):
             "CallerReference": caller_reference,
         },
     )
-    # print(response)
+    if DEBUG:
+        print(response)
 
 
 def _exists(bucket, key):
@@ -154,7 +170,14 @@ def _exists(bucket, key):
             raise
 
 
-def s3_short_url(url, bucket, base_url=None, key=None, replace_duplicate_key=False):
+def s3_short_url(
+    url,
+    bucket,
+    base_url=None,
+    key=None,
+    replace_duplicate_key=False,
+    prefix_key_with_domain=False,
+):
     # generate a new short-url that redirects to `url`
     if key in [None, ""]:
         key = _time_based_key()
@@ -166,6 +189,8 @@ def s3_short_url(url, bucket, base_url=None, key=None, replace_duplicate_key=Fal
             if c in alpha:
                 _key = _key + c
         key = _key
+    if prefix_key_with_domain:
+        key = _prefix_key_with_domain(url, key)
 
     client = S3_CLIENT
     existing = _exists(bucket, key)
@@ -184,7 +209,8 @@ def s3_short_url(url, bucket, base_url=None, key=None, replace_duplicate_key=Fal
         Key=key,
         WebsiteRedirectLocation=url,
     )
-    # print(response)
+    if DEBUG:
+        print(response)
     short = f"{base_url}{key}"
     print(short)
     return short
@@ -227,6 +253,13 @@ if __name__ == "__main__":
         type=_str2bool,
         default=False,
         help="If key already points to a URL, replace it. Defaults to 'false'",
+    )
+    parser.add_argument(
+        "--prefix-key-with-domain",
+        dest="prefix_key_with_domain",
+        type=_str2bool,
+        default=False,
+        help="Add domain to key, eg, instead of /key /github.com/key - Defaults to 'false'",
     )
     # Setting up https requires some additional AWS configuration.
     # See: https://medium.com/@sbuckpesch/setup-aws-s3-static-website-hosting-using-ssl-acm-34d41d32e394
@@ -285,6 +318,7 @@ if __name__ == "__main__":
         base_url=base_url,
         key=args.key,
         replace_duplicate_key=args.replace_duplicate_key,
+        prefix_key_with_domain=args.prefix_key_with_domain,
     )
     text = f"{short}"
 
