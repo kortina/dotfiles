@@ -74,7 +74,7 @@
 				<integer>100</integer>
 				<key>script</key>
 				<string>test -e $HOME/.bash_profile &amp;&amp; source $HOME/.bash_profile
-s3_short_url.py --copy-to-clipboard=true clipboard</string>
+s3_short_url.py --prefix-key-with-domain=1 --copy-to-clipboard=true clipboard</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
