@@ -5,6 +5,7 @@ dzannotti.vscode-babel-coloring
 eamodio.gitlens
 esbenp.prettier-vscode
 flowtype.flow-for-vscode
+hashicorp.terraform
 hoovercj.ruby-linter
 idleberg.applescript
 IgorSbitnev.error-gutters
@@ -13,7 +14,6 @@ johngraham262.join-comment-aware
 kisstkondoros.vscode-gutter-preview
 kortina.run-in-terminal
 kortina.vscode-markdown-notes
-mauve.terraform
 misogi.ruby-rubocop
 ms-python.python
 ms-vscode.Theme-TomorrowKit
@@ -25,5 +25,6 @@ streetsidesoftware.code-spell-checker
 sysoev.vscode-open-in-github
 vscode-icons-team.vscode-icons
 vscodevim.vim
+wayou.vscode-todo-highlight
 wingrunr21.vscode-ruby
 yzhang.markdown-all-in-one

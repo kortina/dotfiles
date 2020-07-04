@@ -376,6 +376,9 @@
     "selectinload",
     "venmo",
     "waldenponding"
+    "neurochemistry",
+    "nodenv",
+    "venmo"
   ],
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
