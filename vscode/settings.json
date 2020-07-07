@@ -49,6 +49,9 @@
   // "python.linting.mypyEnabled": true,
   "python.linting.pylintEnabled": false,
   "python.pythonPath": "~/.pyenv/shims/python",
+  "[python]": {
+    "files.trimFinalNewlines": true
+  },
   "ruby.linter.run": "onSave",
   // "javascript.format.enable": true,
   "runInTerminal.commands": [
