@@ -1,7 +1,8 @@
 {
-  // "vscodeMarkdownNotes.workspaceFilenameConvention": "relativePaths",
+  // "vscodeMarkdownNotes.defaultFileExtension": "mdx",
   // "vscodeMarkdownNotes.noteCompletionConvention": "", // toSpaces noExtension
   // "vscodeMarkdownNotes.slugifyCharacter": "NONE",
+  // "vscodeMarkdownNotes.workspaceFilenameConvention": "relativePaths",
   "cSpell.enableFiletypes": ["markdown", "plaintext"],
   "diffEditor.renderIndicators": true,
   // "docker-linter.rubocop.enable": true,
@@ -26,12 +27,15 @@
   "files.associations": {
     "*.dpl": "sql"
   },
-  // "eslint.autoFixOnSave": true,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
-  "markdown.preview.fontSize": 18,
+  // "eslint.autoFixOnSave": true,
+  // "eslint.options": {
+  //   "extensions": [".js", ".jsx", ".md", ".mdx", ".ts", ".tsx"]
+  // },
   // "eslint.validate": ["javascript", "javascriptreact", "typescript"],
+  "markdown.preview.fontSize": 18,
   // "gitlens.codeLens.enabled": false,
   "gutterpreview.imagePreviewMaxHeight": 270,
   // "prettier.eslintIntegration": true,
@@ -353,6 +357,7 @@
   "explorer.confirmDelete": false,
   "editor.fontFamily": "Monaco, Menlo, Consolas, 'Courier New', monospace",
   "cSpell.userWords": [
+    "Bretton",
     "Decompiling",
     "Kortina",
     "Stiglitz",
@@ -361,6 +366,7 @@
     "autoplay",
     "boto",
     "endfor",
+    "financialization",
     "neurochemistry",
     "nodenv",
     "venmo"
