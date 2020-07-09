@@ -3,14 +3,14 @@
 <plist version="1.0">
 <dict>
 	<key>bundleid</key>
-	<string>net.kortina.alfred.hotkey-strip-pasteboard</string>
+	<string></string>
 	<key>connections</key>
 	<dict>
 		<key>07A721AC-9BD8-4DB5-BA51-E33252CEB3B0</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>D5BC59B5-B2EB-4F2B-A3F5-671FCD92A3BC</string>
+				<string>C3A4990C-620A-4214-80AD-42FD7180EA8E</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -19,7 +19,20 @@
 				<false/>
 			</dict>
 		</array>
-		<key>26CB21AC-D4B7-4D7E-8674-B243FF9C501D</key>
+		<key>17181DC0-85BB-47AE-9C8D-BBC0160E561C</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>C3A4990C-620A-4214-80AD-42FD7180EA8E</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>C3A4990C-620A-4214-80AD-42FD7180EA8E</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
@@ -36,7 +49,7 @@
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>60C34CFD-6AA4-404C-B997-5083D57F0D88</string>
+				<string>6554608F-15D4-4843-857D-9402536E3BD0</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -49,11 +62,11 @@
 	<key>createdby</key>
 	<string>kortina</string>
 	<key>description</key>
-	<string>Strip pasteboard formatting, converting to plain text</string>
+	<string>Slugify pasteboard</string>
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
-	<string>Hotkey - Strip Pasteboard</string>
+	<string>Hotkey - Slugify Pasteboard</string>
 	<key>objects</key>
 	<array>
 		<dict>
@@ -68,11 +81,11 @@
 				<key>focusedappvariablename</key>
 				<string></string>
 				<key>hotkey</key>
-				<integer>9</integer>
+				<integer>40</integer>
 				<key>hotmod</key>
-				<integer>1179648</integer>
+				<integer>1572864</integer>
 				<key>hotstring</key>
-				<string>V</string>
+				<string>K</string>
 				<key>leftcursor</key>
 				<false/>
 				<key>modsmode</key>
@@ -90,6 +103,32 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>#!/usr/bin/env bash
+
+test -e $HOME/.bash_profile &amp;&amp; source $HOME/.bash_profile
+pbpaste | slugify.sh</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>C3A4990C-620A-4214-80AD-42FD7180EA8E</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>lastpathcomponent</key>
 				<false/>
 				<key>onlyshowifquerypopulated</key>
@@ -99,12 +138,12 @@
 				<key>text</key>
 				<string>{query}</string>
 				<key>title</key>
-				<string>Stripped Pasteboard</string>
+				<string>Slugified</string>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.output.notification</string>
 			<key>uid</key>
-			<string>60C34CFD-6AA4-404C-B997-5083D57F0D88</string>
+			<string>6554608F-15D4-4843-857D-9402536E3BD0</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -131,18 +170,18 @@
 				<key>argumenttype</key>
 				<integer>0</integer>
 				<key>keyword</key>
-				<string>strip</string>
+				<string>slugify</string>
 				<key>subtext</key>
 				<string></string>
 				<key>text</key>
-				<string>Strip Pasteboard</string>
+				<string>Slugify Pasteboard</string>
 				<key>withspace</key>
 				<false/>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.input.keyword</string>
 			<key>uid</key>
-			<string>26CB21AC-D4B7-4D7E-8674-B243FF9C501D</string>
+			<string>17181DC0-85BB-47AE-9C8D-BBC0160E561C</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -154,30 +193,37 @@
 		<key>07A721AC-9BD8-4DB5-BA51-E33252CEB3B0</key>
 		<dict>
 			<key>xpos</key>
-			<integer>240</integer>
+			<integer>150</integer>
 			<key>ypos</key>
-			<integer>145</integer>
+			<integer>45</integer>
 		</dict>
-		<key>26CB21AC-D4B7-4D7E-8674-B243FF9C501D</key>
+		<key>17181DC0-85BB-47AE-9C8D-BBC0160E561C</key>
 		<dict>
 			<key>xpos</key>
-			<integer>250</integer>
+			<integer>160</integer>
 			<key>ypos</key>
-			<integer>310</integer>
+			<integer>180</integer>
 		</dict>
-		<key>60C34CFD-6AA4-404C-B997-5083D57F0D88</key>
+		<key>6554608F-15D4-4843-857D-9402536E3BD0</key>
 		<dict>
 			<key>xpos</key>
-			<integer>805</integer>
+			<integer>835</integer>
 			<key>ypos</key>
-			<integer>145</integer>
+			<integer>110</integer>
+		</dict>
+		<key>C3A4990C-620A-4214-80AD-42FD7180EA8E</key>
+		<dict>
+			<key>xpos</key>
+			<integer>420</integer>
+			<key>ypos</key>
+			<integer>110</integer>
 		</dict>
 		<key>D5BC59B5-B2EB-4F2B-A3F5-671FCD92A3BC</key>
 		<dict>
 			<key>xpos</key>
-			<integer>565</integer>
+			<integer>610</integer>
 			<key>ypos</key>
-			<integer>145</integer>
+			<integer>110</integer>
 		</dict>
 	</dict>
 	<key>webaddress</key>
