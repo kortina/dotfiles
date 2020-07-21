@@ -44,6 +44,8 @@ PROMPT_COMMAND='history -a'
 
 # use option delete to delete previous word
 bind '"\M-d": backward-kill-word'
+# use ctrl-k to completely clear the screen / delete scroll history, like ⌘+k in mac terminal
+bind '"\C-k": "printf \\\\33c\\\\e[3;\n"'
 
 ##################################################
 # pretty bash prompt with git / svn branch name
