@@ -21,6 +21,7 @@
   up = pull --rebase --autostash
   undo-last-commit = reset --soft HEAD~1
   vi = "!vim .git/index"
+  behind-by = "!git fetch origin && git rev-list --left-only --count origin/master...@"
 [merge]
   tool = opendiff
 [core]
