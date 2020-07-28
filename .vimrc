@@ -3,7 +3,6 @@ filetype off
 
 " vim-plug  *****************************************************************
 call plug#begin('~/.vim/plugged')
-Plug 'ambv/black'
 Plug 'benmills/vimux'
 Plug 'bogado/file-line'
 Plug 'dcosson/vimux-nose-test2'
@@ -22,6 +21,7 @@ Plug 'nvie/vim-flake8'
 Plug 'pangloss/vim-javascript'
 Plug 'pgr0ss/vimux-ruby-test'
 Plug 'plasticboy/vim-markdown'
+Plug 'psf/black'
 Plug 'rainerborene/vim-reek'
 Plug 'reedes/vim-pencil'
 Plug 'reedes/vim-textobj-sentence'
