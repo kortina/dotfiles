@@ -63,10 +63,10 @@ defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 
 # Set a fast keyboard repeat rate
-defaults write NSGlobalDomain KeyRepeat -int 2
+defaults write NSGlobalDomain KeyRepeat -int 1
 
 # Set a fast delay until repeat
-defaults write NSGlobalDomain InitialKeyRepeat -int 15
+defaults write NSGlobalDomain InitialKeyRepeat -int 10
 
 ###############################################################################
 # Terminal
