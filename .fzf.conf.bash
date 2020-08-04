@@ -39,7 +39,7 @@ gt() {
         --preview 'git show --color=always {} | head -'$LINES
 }
 
-gh() {
+ghb() {
     is_in_git_repo || return
     git log --date=short --format="%C(green)%C(bold)%cd %C(auto)%h%d %s (%an)" --graph --color=always |
     fzf-down --ansi --no-sort --reverse --multi --bind 'ctrl-s:toggle-sort' \

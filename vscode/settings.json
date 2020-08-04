@@ -3,6 +3,7 @@
   // "vscodeMarkdownNotes.noteCompletionConvention": "", // toSpaces noExtension
   // "vscodeMarkdownNotes.slugifyCharacter": "NONE",
   // "vscodeMarkdownNotes.workspaceFilenameConvention": "relativePaths",
+  // "vscodeMarkdownNotes.newNoteTemplate": "# ${noteName}\n\n${timestamp}",
   "cSpell.enableFiletypes": ["markdown", "plaintext"],
   "diffEditor.renderIndicators": true,
   // "docker-linter.rubocop.enable": true,
@@ -362,6 +363,7 @@
   "cSpell.userWords": [
     "Backoff",
     "Bretton",
+    "COVID",
     "Decompiling",
     "Kortina",
     "Stiglitz",
@@ -371,6 +373,7 @@
     "autoplay",
     "boto",
     "daterange",
+    "disintermediate",
     "endfor",
     "financialization",
     "finxpc",

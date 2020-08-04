@@ -12,8 +12,8 @@ def main():
         "-i", "--input_csv", type=str, help="input csv file", default=None
     )
     args = parser.parse_args()
-    c = args.input_csv
-    if c is None:
+    selected = args.input_csv
+    if selected is None:
         downloads = os.path.join(os.environ.get("HOME"), "Downloads")
         csvs = list(
             filter(lambda x: re.search(r"^Analytics", x), os.listdir(downloads))
@@ -21,20 +21,21 @@ def main():
         csvs.sort(
             reverse=True
         )  # csvs are named w dates, so reverse to make first one most recent
-        c = csvs[0]
-        if c is None:
+        selected = csvs[0]
+        if selected is None:
             print("No csv files in ~/Downloads and no `input_csv` arg specified.")
             return
         else:
             i = 0
-            for c in csvs:
+            for v in csvs:
                 s = ""
                 if i == 0:
                     s = "* SELECTED"
+                    selected = v  # set the selected CSV
                 i = i + 1
-                print("{} {}".format(c, s))
-        c = os.path.join(downloads, c)
-    with open(c) as f:
+                print("{} {}".format(v, s))
+        selected = os.path.join(downloads, selected)
+    with open(selected) as f:
         lines = f.readlines()[6:]
         reader = csv.DictReader(lines)
         print("Users\tAvg. Session\tURL")

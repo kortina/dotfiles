@@ -8,19 +8,20 @@
 	ll = log -p
 	st = status
 	tree = log --graph --decorate --pretty=oneline --abbrev-commit --all
-        browse-file = !sh -c 'hub browse -- blob/master/$1' -
-        browse-commit = !sh -c 'hub browse -- commit/$1' -
-        cob = "!git checkout -b $1 && git push -u origin"
-        delete-merged = "!git fetch origin && git branch -d $(git branch --merged | grep -v '*' | grep -v master) 2>&1 | grep -v fatal"
-        local-branches = !git branch -vv | cut -c 3- | awk '$3 !~/\\[/ { print $1 }'
-        pcu            = "!git push -u origin `git rev-parse --abbrev-ref HEAD`"
-        track-upstream = "!git push -u origin `git rev-parse --abbrev-ref HEAD`"
-        pc             = "!git push origin `git rev-parse --abbrev-ref HEAD`"
-        push-current   = "!git push origin `git rev-parse --abbrev-ref HEAD`"
-        pr = "!cat .github/PULL_REQUEST_TEMPLATE.md PULL_REQUEST_TEMPLATE.md 2>/dev/null | hub pull-request --edit -o -F -"
-        up = pull --rebase --autostash
-        undo-last-commit = reset --soft HEAD~1
-        vi = "!vim .git/index"
+  browse-file = !sh -c 'hub browse -- blob/master/$1' -
+  browse-commit = !sh -c 'hub browse -- commit/$1' -
+  cob = "!git checkout -b $1 && git push -u origin"
+  delete-merged = "!git fetch origin && git branch -d $(git branch --merged | grep -v '*' | grep -v master) 2>&1 | grep -v fatal"
+  local-branches = !git branch -vv | cut -c 3- | awk '$3 !~/\\[/ { print $1 }'
+  pcu            = "!git push -u origin `git rev-parse --abbrev-ref HEAD`"
+  track-upstream = "!git push -u origin `git rev-parse --abbrev-ref HEAD`"
+  pc             = "!git push origin `git rev-parse --abbrev-ref HEAD`"
+  push-current   = "!git push origin `git rev-parse --abbrev-ref HEAD`"
+  pr = "!cat .github/PULL_REQUEST_TEMPLATE.md PULL_REQUEST_TEMPLATE.md 2>/dev/null | hub pull-request --edit -o -F -"
+  up = pull --rebase --autostash
+  undo-last-commit = reset --soft HEAD~1
+  vi = "!vim .git/index"
+  behind-by = "!git fetch origin && git rev-list --left-only --count origin/master...@"
 [merge]
   tool = opendiff
 [core]
