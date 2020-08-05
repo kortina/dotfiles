@@ -1,6 +1,6 @@
 {
   // "vscodeMarkdownNotes.defaultFileExtension": "mdx",
-  // "vscodeMarkdownNotes.noteCompletionConvention": "", // toSpaces noExtension
+  // "vscodeMarkdownNotes.noteCompletionConvention": "toSpaces", // rawFilename, toSpaces noExtension
   // "vscodeMarkdownNotes.slugifyCharacter": "NONE",
   // "vscodeMarkdownNotes.workspaceFilenameConvention": "relativePaths",
   // "vscodeMarkdownNotes.newNoteTemplate": "# ${noteName}\n\n${timestamp}",
@@ -388,6 +388,7 @@
     "waldenponding"
     "neurochemistry",
     "nodenv",
+    "noqa",
     "venmo"
   ],
   "[typescript]": {
