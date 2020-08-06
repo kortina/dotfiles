@@ -68,6 +68,16 @@ defaults write NSGlobalDomain KeyRepeat -int 1
 # Set a fast delay until repeat
 defaults write NSGlobalDomain InitialKeyRepeat -int 10
 
+defaults write -g NSAutomaticCapitalizationEnabled -int 0
+defaults write -g NSAutomaticDashSubstitutionEnabled -int 0
+defaults write -g NSAutomaticPeriodSubstitutionEnabled -int 0
+defaults write -g NSAutomaticQuoteSubstitutionEnabled -int 0
+defaults write -g NSAutomaticSpellingCorrectionEnabled -int 0
+defaults write -g WebAutomaticSpellingCorrectionEnabled -int 0
+
+# disable swipe to go back in Chrome
+defaults write com.google.Chrome AppleEnableSwipeNavigateWithScrolls -bool FALSE
+
 ###############################################################################
 # Terminal
 ###############################################################################
@@ -234,6 +244,3 @@ killall SystemUIServer
 killall Dock
 
 echo "Done. Note that some of these changes require a logout/restart to take effect."
-
-# disable swipe to go back in Chrome
-defaults write com.google.Chrome AppleEnableSwipeNavigateWithScrolls -bool FALSE
