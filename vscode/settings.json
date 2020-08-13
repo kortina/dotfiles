@@ -4,6 +4,7 @@
   // "vscodeMarkdownNotes.slugifyCharacter": "NONE",
   // "vscodeMarkdownNotes.workspaceFilenameConvention": "relativePaths",
   // "vscodeMarkdownNotes.newNoteTemplate": "# ${noteName}\n\n${timestamp}",
+  // "vscodeMarkdownNotes.triggerSuggestOnReplacement": false,
   "cSpell.enableFiletypes": ["markdown", "plaintext"],
   "diffEditor.renderIndicators": true,
   // "docker-linter.rubocop.enable": true,
