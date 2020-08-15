@@ -103,32 +103,6 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>concurrently</key>
-				<false/>
-				<key>escaping</key>
-				<integer>102</integer>
-				<key>script</key>
-				<string>#!/usr/bin/env bash
-
-test -e $HOME/.bash_profile &amp;&amp; source $HOME/.bash_profile
-pbpaste | slugify.sh</string>
-				<key>scriptargtype</key>
-				<integer>1</integer>
-				<key>scriptfile</key>
-				<string></string>
-				<key>type</key>
-				<integer>0</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>C3A4990C-620A-4214-80AD-42FD7180EA8E</string>
-			<key>version</key>
-			<integer>2</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>lastpathcomponent</key>
 				<false/>
 				<key>onlyshowifquerypopulated</key>
@@ -167,8 +141,34 @@ pbpaste | slugify.sh</string>
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>argumenttype</key>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>#!/usr/bin/env bash
+
+test -e $HOME/.bash_profile &amp;&amp; source $HOME/.bash_profile
+pbpaste | slugify.sh</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
 				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>C3A4990C-620A-4214-80AD-42FD7180EA8E</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
 				<key>keyword</key>
 				<string>slugify</string>
 				<key>subtext</key>
