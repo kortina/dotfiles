@@ -150,87 +150,16 @@
     "key": "ctrl+alt+r",
     "command": "references-view.find",
     "when": "editorHasReferenceProvider"
-  },
-  {
-    "key": "shift+alt+f12",
-    "command": "-references-view.find",
-    "when": "editorHasReferenceProvider"
-  },
-  {
-    "key": "cmd+k cmd+r",
-    "command": "-workbench.action.keybindingsReference"
-  },
-  {
-    "key": "cmd+k cmd+r",
-    "command": "-workbench.action.keybindingsReference"
-  },
-  {
-    "key": "cmd+k cmd+r",
-    "command": "-workbench.action.keybindingsReference"
-  },
-  {
-    "key": "shift+alt+f12",
-    "command": "-references-view.find",
-    "when": "editorHasReferenceProvider"
-  },
-  {
-    "key": "cmd+k cmd+r",
-    "command": "-workbench.action.keybindingsReference"
-  },
-  {
-    "key": "cmd+k cmd+r",
-    "command": "-workbench.action.keybindingsReference"
-  },
-  {
-    "key": "cmd+k cmd+r",
-    "command": "-workbench.action.keybindingsReference"
-  },
-  {
-    "key": "cmd+k cmd+r",
-    "command": "-workbench.action.keybindingsReference"
-  },
-  {
-    "key": "shift+alt+f12",
-    "command": "-references-view.find",
-    "when": "editorHasReferenceProvider"
-  },
-  {
-    "key": "shift+alt+f12",
-    "command": "-references-view.find",
-    "when": "editorHasReferenceProvider"
-  },
-  //JK CUSTOM START
-  // nerdtree like binds
-  // https://stackoverflow.com/questions/48203523/how-to-create-file-in-current-explorer-directory-in-vs-code-using-only-keys
-  {
-    "key": "enter",
-    "command": "list.select",
-    "when": "explorerViewletFocus && !inputFocus"
-  },
-  {
-    "key": "m a",
-    "command": "explorer.newFile",
-    "when": "explorerViewletFocus && !inputFocus"
-  },
-  {
-    "key": "m f",
-    "command": "explorer.newFolder",
-    "when": "explorerViewletFocus && !inputFocus"
-  },
-  {
-    "key": "m d",
-    "command": "deleteFile",
-    "when": "explorerViewletFocus && !inputFocus"
-  },
-  {
-    "key": "ctrl+l",
-    "command": "workbench.action.nextEditor",
-    "when": "explorerViewletFocus && !inputFocus"
-  },
-  {
-    "key": "cmd+m",
-    "command": "workbench.files.action.collapseExplorerFolders",
-    "when": "explorerViewletFocus && !inputFocus"
   }
-  //JK CUSTOM END
+  // {
+  //   "key": "cmd+k cmd+r",
+  //   "command": "-workbench.action.keybindingsReference"
+  // },
+  // {
+  //   "key": "shift+alt+f12",
+  //   "command": "-references-view.find",
+  //   "when": "editorHasReferenceProvider"
+  // }
+  // { "key": "alt+j",         "command": "references-view.next",                      "when": "reference-list.hasResult" },
+  // { "key": "alt+k",   "command": "references-view.prev",                      "when": "reference-list.hasResult" },
 ]
