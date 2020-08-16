@@ -5,6 +5,7 @@
   // "vscodeMarkdownNotes.workspaceFilenameConvention": "relativePaths",
   // "vscodeMarkdownNotes.newNoteTemplate": "# ${noteName}\n\n${timestamp}",
   // "vscodeMarkdownNotes.triggerSuggestOnReplacement": false,
+  "vscodeMarkdownNotes.allowPipedWikiLinks": true,
   "cSpell.enableFiletypes": ["markdown", "plaintext"],
   "diffEditor.renderIndicators": true,
   // "docker-linter.rubocop.enable": true,

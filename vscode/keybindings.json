@@ -150,55 +150,16 @@
     "key": "ctrl+alt+r",
     "command": "references-view.find",
     "when": "editorHasReferenceProvider"
-  },
-  {
-    "key": "shift+alt+f12",
-    "command": "-references-view.find",
-    "when": "editorHasReferenceProvider"
-  },
-  {
-    "key": "cmd+k cmd+r",
-    "command": "-workbench.action.keybindingsReference"
-  },
-  {
-    "key": "cmd+k cmd+r",
-    "command": "-workbench.action.keybindingsReference"
-  },
-  {
-    "key": "cmd+k cmd+r",
-    "command": "-workbench.action.keybindingsReference"
-  },
-  {
-    "key": "shift+alt+f12",
-    "command": "-references-view.find",
-    "when": "editorHasReferenceProvider"
-  },
-  {
-    "key": "cmd+k cmd+r",
-    "command": "-workbench.action.keybindingsReference"
-  },
-  {
-    "key": "cmd+k cmd+r",
-    "command": "-workbench.action.keybindingsReference"
-  },
-  {
-    "key": "cmd+k cmd+r",
-    "command": "-workbench.action.keybindingsReference"
-  },
-  {
-    "key": "cmd+k cmd+r",
-    "command": "-workbench.action.keybindingsReference"
-  },
-  {
-    "key": "shift+alt+f12",
-    "command": "-references-view.find",
-    "when": "editorHasReferenceProvider"
-  },
-  {
-    "key": "shift+alt+f12",
-    "command": "-references-view.find",
-    "when": "editorHasReferenceProvider"
   }
+  // {
+  //   "key": "cmd+k cmd+r",
+  //   "command": "-workbench.action.keybindingsReference"
+  // },
+  // {
+  //   "key": "shift+alt+f12",
+  //   "command": "-references-view.find",
+  //   "when": "editorHasReferenceProvider"
+  // }
   // { "key": "alt+j",         "command": "references-view.next",                      "when": "reference-list.hasResult" },
   // { "key": "alt+k",   "command": "references-view.prev",                      "when": "reference-list.hasResult" },
 ]
