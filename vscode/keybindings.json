@@ -147,7 +147,7 @@
     "command": "editor.action.referenceSearch.trigger"
   },
   {
-    "key": "ctrl+alt+r",
+    "key": "cmd+k cmd+f",
     "command": "references-view.find",
     "when": "editorHasReferenceProvider"
   }
