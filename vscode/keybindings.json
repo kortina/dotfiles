@@ -127,10 +127,17 @@
     "key": "alt+shift+n",
     "command": "vscodeMarkdownNotes.newNote"
   },
+  // example of running a task with a keyboard shortcut
   {
     "key": "alt+t",
     "command": "workbench.action.tasks.runTask",
     "args": "echo"
+  },
+  {
+    "key": "alt+j",
+    "command": "workbench.action.tasks.runTask",
+    "args": "Open Journal",
+    "when": "!inReferenceSearchEditor && !hasSearchResult"
   },
   // cmd+b, the default, is the built in shortcut to
   // Hide / Show Side Bar, so release extension binding:
