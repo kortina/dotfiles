@@ -23,6 +23,9 @@
     "editor.tabSize": 2
     // "editor.wordSeparators": "`~!@$%^&*()=+[{]}\\|;:'\",.<>/?", // remove '#' so tags can be searched. Does not seem to be working....
   },
+  "[fountain]": {
+    "editor.wordBasedSuggestions": true
+  },
   "editor.acceptSuggestionOnEnter": "off",
   "editor.wordWrap": "on",
   "explorer.autoReveal": false,
