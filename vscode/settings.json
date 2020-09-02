@@ -55,6 +55,7 @@
   // "python.linting.mypyEnabled": true,
   "python.linting.pylintEnabled": false,
   "python.pythonPath": "~/.pyenv/shims/python",
+  "python.defaultInterpreterPath": "~/.pyenv/shims/python",
   "[python]": {
     "files.trimFinalNewlines": true
   },
@@ -372,6 +373,7 @@
     "Guantanumera",
     "Kaneda",
     "Kortina",
+    "Ponzi",
     "Stiglitz",
     "Sundance",
     "Tarkovsky",
