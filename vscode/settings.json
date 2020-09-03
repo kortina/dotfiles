@@ -398,6 +398,7 @@
     "neurochemistry",
     "nodenv",
     "noqa",
+    "predistribution",
     "venmo"
   ],
   "[typescript]": {
