@@ -140,12 +140,16 @@ brew_install vim # need vim8 for ale
 brew_install watchman
 
 ########################################
-# customize bash shell (for fast git status)
+# customize shell (for fast git status)
 ########################################
 brew_install romkatv/gitstatus/gitstatus
-u="`id -u -n`" # get username
-sudo chsh -s /usr/local/bin/bash # root: set bash as shell
-sudo chsh -s /usr/local/bin/bash "$u" # user: set bash as shell
+test -e ~/src/powerlevel10k || git clone --depth=1 https://gitee.com/romkatv/powerlevel10k.git ~/src/powerlevel10k
+
+_user="`id -u -n`" # get username
+_shell="/usr/local/bin/bash"
+_shell="/bin/zsh"
+sudo chsh -s "$_shell" # set shell for root
+sudo chsh -s "$_shell" "$_user" # set shell for $_user
 
 ########################################
 # cask required for the following, kind of annoyting so removing for now
