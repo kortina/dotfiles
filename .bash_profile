@@ -50,25 +50,11 @@ bind '"\C-k": "printf \\\\33c\\\\e[3;\n"'
 ##################################################
 # pretty bash prompt with git / svn branch name
 ##################################################
-function parse_git_dirty {
-    git_version="`git --version | grep -E -o '\d\.\d+'`"
-    if (( $(echo "$git_version >= 1.8"|bc -l) )); then 
-        nothing_message="nothing to commit, working tree clean";
-    else echo "l"; 
-        nothing_message="nothing to commit (working directory clean)";
-    fi
-  # nothing_message=`git --version | ruby -e 'STDIN.readlines[0].match(/(\d+\.\d+)/); puts ($1.to_f >= 1.8) ? "nothing to commit, working tree clean" : "nothing to commit (working directory clean)"'`
-  [[ $(git status 2> /dev/null | tail -n1) != "$nothing_message" ]] && echo "*"
-}
-function parse_git_branch {
-  git branch 2> /dev/null | sed -e "/^[^*]/d" -e "s/* \(.*\)/(\1$(parse_git_dirty))/"
-}
-function parse_svn_branch {
-        svn info 2> /dev/null | grep URL | sed -e "s/.*\/\(.*\)$/(\1)/"
-}
+source /usr/local/opt/gitstatus/gitstatus.prompt.sh
+# PS1='\w ${GITSTATUS_PROMPT}\n\$ ' # directory followed by git status and $/# (normal/root)
 PS1="\n\
 \[\033[0;32m\]\u$DIM \[\033[0;37m\]@ \[\033[0;33m\]\h 
-\[\033[0;35m\]\$PWD \[\033[0;37m\]\$(parse_git_branch 2> /dev/null)\$(parse_svn_branch 2> /dev/null)$ " && export PS1
+\[\033[0;35m\]\$PWD \[\033[0;37m\]\${GITSTATUS_PROMPT}$ " && export PS1
 
 
 ##################################################

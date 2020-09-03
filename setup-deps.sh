@@ -103,6 +103,7 @@ sudo chown -R $(whoami) $(brew --prefix)/* # need to do this on High Sierra inst
 ########################################
 # xcode-select --install # must be install via app store now
 
+brew_install bash
 brew_install cmake
 brew_install git # so that it has completion
 brew_install bash-completion
@@ -137,6 +138,14 @@ brew_install rbenv
 brew_install reattach-to-user-namespace
 brew_install vim # need vim8 for ale
 brew_install watchman
+
+########################################
+# customize bash shell (for fast git status)
+########################################
+brew_install romkatv/gitstatus/gitstatus
+u="`id -u -n`" # get username
+sudo chsh -s /usr/local/bin/bash # root: set bash as shell
+sudo chsh -s /usr/local/bin/bash "$u" # user: set bash as shell
 
 ########################################
 # cask required for the following, kind of annoyting so removing for now
