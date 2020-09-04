@@ -138,6 +138,7 @@ brew_install rbenv
 brew_install reattach-to-user-namespace
 brew_install vim # need vim8 for ale
 brew_install watchman
+brew_install zsh-syntax-highlighting
 
 ########################################
 # customize shell (for fast git status)
