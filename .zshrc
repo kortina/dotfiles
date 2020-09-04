@@ -9,6 +9,7 @@ source ~/src/powerlevel10k/powerlevel10k.zsh-theme
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+
 autoload -Uz compinit
 compinit
 source $HOME/._profile.sh
@@ -17,6 +18,7 @@ source $HOME/._profile.sh
 # up and down to search history with prefix from cursor
 bindkey "^[[A" history-beginning-search-backward
 bindkey "^[[B" history-beginning-search-forward
+bindkey " " magic-space # do history expansion on space
 
 # by default: export WORDCHARS='*?_-.[]~=/&;!#$%^(){}<>'
 # we take out the slash, period, angle brackets, dash here.
@@ -33,3 +35,8 @@ setopt    incappendhistory  # Immediately append to the history file, not just w
 # fin
 ##################################################
 eval "$(_FA_COMPLETE=source_zsh fa)"
+
+
+##################################################
+# more zsh
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
