@@ -89,4 +89,4 @@ export PATH=$HOME/.datacoral/cli/bin:$PATH
 export FIN_SSH_USERNAME="andrew_kortina"
 export FIN_CODE_HOME="$HOME/code"
 fa_bin="/usr/local/bin/fa"
-test -h $fa_bin ||  ln -s "$FIN_CODE_HOME/fin-dev/fa" $fa_bin # is this backwards? #
+test -h $fa_bin ||  ln -s "$FIN_CODE_HOME/fin-dev/fa" $fa_bin
