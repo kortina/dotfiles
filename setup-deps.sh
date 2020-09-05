@@ -144,7 +144,6 @@ brew_install zsh-syntax-highlighting
 # customize shell (for fast git status)
 ########################################
 brew_install romkatv/gitstatus/gitstatus
-test -e ~/src/powerlevel10k || git clone --depth=1 https://gitee.com/romkatv/powerlevel10k.git ~/src/powerlevel10k
 
 _user="`id -u -n`" # get username
 _shell="/usr/local/bin/bash"
