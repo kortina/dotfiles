@@ -20,6 +20,7 @@ source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 fpath=($HOME/.zsh/completion $HOME/.zsh/zsh-completions $fpath)
 autoload -Uz compinit
 compinit -i
+setopt magicequalsubst
 source $HOME/.profile
 
 # fzf
