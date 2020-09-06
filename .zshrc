@@ -25,16 +25,19 @@ source $HOME/.profile
 # fzf
 [ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
 
+# vim mode
+bindkey -v
+export KEYTIMEOUT=1
+
 # up and down to search history with prefix from cursor
 bindkey "^[[A" history-beginning-search-backward
 bindkey "^[[B" history-beginning-search-forward
 
+# alt+backspace delete word (needed to add after setting vim mode)
+bindkey '^[^?' backward-kill-word
+
 # expand history variables on space
 bindkey " " magic-space
-
-# vim mode
-bindkey -v
-export KEYTIMEOUT=1
 
 # export WORDCHARS='*?_-.[]~=/&;!#$%^(){}<>' # default
 export   WORDCHARS='*?_-[]~=&;!#$%^(){}'
