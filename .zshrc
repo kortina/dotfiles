@@ -35,6 +35,9 @@ bindkey "^[[B" history-beginning-search-forward
 
 # alt+backspace delete word (needed to add after setting vim mode)
 bindkey '^[^?' backward-kill-word
+# alt arrows to move by word (needed to add after setting vim mode)
+bindkey "^[f" forward-word
+bindkey "^[b" backward-word
 
 # expand history variables on space
 bindkey " " magic-space
