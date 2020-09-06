@@ -5,30 +5,43 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# theme
 source $HOME/dotfiles/themes/powerlevel10k/powerlevel10k.zsh-theme
+
 # To customize prompt, run `p10k configure` or edit $HOME/.p10k.zsh.
 [[ ! -f $HOME/.p10k.zsh ]] || source $HOME/.p10k.zsh
 
-
+# syntax highlight commands
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 ##################################################
-# completions
+# completions and key-bindings
 ##################################################
 fpath=($HOME/.zsh/completion $HOME/.zsh/zsh-completions $fpath)
-
 autoload -Uz compinit
 compinit -i
 source $HOME/.profile
 
+# fzf
 [ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
+
 # up and down to search history with prefix from cursor
 bindkey "^[[A" history-beginning-search-backward
 bindkey "^[[B" history-beginning-search-forward
-bindkey " " magic-space # do history expansion on space
 
-# by default: export WORDCHARS='*?_-.[]~=/&;!#$%^(){}<>'
-# we take out the slash, period, angle brackets, dash here.
-export WORDCHARS='*?_-[]~=&;!#$%^(){}'
+# expand history variables on space
+bindkey " " magic-space
+
+# vim mode
+bindkey -v
+export KEYTIMEOUT=1
+
+# export WORDCHARS='*?_-.[]~=/&;!#$%^(){}<>' # default
+export   WORDCHARS='*?_-[]~=&;!#$%^(){}'
+
+##################################################
+# history
+##################################################
 HISTSIZE=500000             # How many lines of history to keep in memory
 HISTFILE=$HOME/.zsh_history     # Where to save history to disk
 SAVEHIST=500000             # Number of history entries to save to disk
@@ -47,8 +60,3 @@ eval "$(_FA_COMPLETE=source_zsh fa)"
 ##################################################
 export PATH="$PATH:$HOME/src/sq"
 eval "$(_SQ_COMPLETE=source_zsh sq)"
-
-
-##################################################
-# more zsh
-source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
