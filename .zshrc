@@ -22,10 +22,6 @@ autoload -Uz compinit
 compinit -i
 setopt magicequalsubst
 source $HOME/.profile
-
-# fzf
-[ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
-
 # vim mode
 bindkey -v
 export KEYTIMEOUT=1
@@ -45,6 +41,9 @@ bindkey " " magic-space
 
 # export WORDCHARS='*?_-.[]~=/&;!#$%^(){}<>' # default
 export   WORDCHARS='*?_-[]~=&;!#$%^(){}'
+
+# fzf
+[ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
 
 ##################################################
 # history
