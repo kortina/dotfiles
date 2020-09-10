@@ -20,6 +20,10 @@ source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 fpath=($HOME/.zsh/completion $HOME/.zsh/zsh-completions $fpath)
 autoload -Uz compinit
 compinit -i
+setopt auto_list
+unsetopt always_last_prompt # important! https://github.com/pallets/click/issues/1667
+setopt no_menu_complete
+setopt no_auto_menu
 setopt magicequalsubst
 source $HOME/.profile
 # vim mode
