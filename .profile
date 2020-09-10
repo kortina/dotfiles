@@ -90,3 +90,8 @@ export FIN_SSH_USERNAME="andrew_kortina"
 export FIN_CODE_HOME="$HOME/code"
 fa_bin="/usr/local/bin/fa"
 test -h $fa_bin ||  ln -s "$FIN_CODE_HOME/fin-dev/fa" $fa_bin
+
+##################################################
+# JK Custom
+##################################################
+[[ -f ~/.bash_profile_jennykortina ]] && source ~/.bash_profile_jennykortina

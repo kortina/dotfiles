@@ -1,8 +1,8 @@
 export FIN_SSH_USERNAME="jenny_kortina"
 export FIN_HOME="$HOME/code/fin-core-beta"
 export FIN_CODE_HOME="$HOME/code"
-fa_bin="/usr/local/bin/fa"
-eval "$(_FA_COMPLETE=source fa)"
+# fa_bin="/usr/local/bin/fa"
+# eval "$(_FA_COMPLETE=source fa)"
 
 ### JK aliasas
 alias dotfiles='cd /Users/jennykortina/dotfiles'
