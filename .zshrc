@@ -20,6 +20,10 @@ source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 fpath=($HOME/.zsh/completion $HOME/.zsh/zsh-completions $fpath)
 autoload -Uz compinit
 compinit -i
+setopt auto_list
+unsetopt always_last_prompt # important! https://github.com/pallets/click/issues/1667
+setopt no_menu_complete
+setopt no_auto_menu
 setopt magicequalsubst
 source $HOME/.profile
 # vim mode
@@ -67,4 +71,8 @@ eval "$(_FA_COMPLETE=source_zsh fa)"
 if [ "`id -u -n`" = "kortina" ] ; then 
   export PATH="$PATH:$HOME/src/sq"
   eval "$(_SQ_COMPLETE=source_zsh sq)"
+
+  # test
+  export PATH="$PATH:$HOME/src"
+  eval "$(_CK_COMPLETE=source_zsh ck)"
 fi
