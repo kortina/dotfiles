@@ -33,7 +33,6 @@ command_exists kubectl && source <(kubectl completion bash) &
 source_if_exists "$HOME/.fzf.bash"
 source_if_exists "$HOME/.fzf.conf.bash"
 
-
 ##################################################
 # fin
 ##################################################
@@ -55,8 +54,3 @@ eval "$(_FA_COMPLETE=source fa)"
 #   echo $function_name
 #   echo "$function"
 # }
-
-##################################################
-# JK Custom
-##################################################
-[[ -f ~/.bash_profile_jennykortina ]] && source ~/.bash_profile_jennykortina

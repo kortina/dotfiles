@@ -64,5 +64,7 @@ eval "$(_FA_COMPLETE=source_zsh fa)"
 ##################################################
 # sq
 ##################################################
-export PATH="$PATH:$HOME/src/sq"
-eval "$(_SQ_COMPLETE=source_zsh sq)"
+if [ "`id -u -n`" = "kortina" ] ; then 
+  export PATH="$PATH:$HOME/src/sq"
+  eval "$(_SQ_COMPLETE=source_zsh sq)"
+fi
