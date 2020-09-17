@@ -116,6 +116,7 @@
   ],
   "terminal.integrated.cursorBlinking": true,
   "terminal.integrated.cursorStyle": "block",
+  "terminal.integrated.fontFamily": "MesloLGS NF",
   // "vim.disableAnnoyingNeovimMessage": true,
   "vim.handleKeys": {
     "<C-a>": false,
