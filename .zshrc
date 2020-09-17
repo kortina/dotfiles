@@ -15,9 +15,27 @@ source $HOME/dotfiles/themes/powerlevel10k/powerlevel10k.zsh-theme
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 ##################################################
-# completions and key-bindings
+# completions
 ##################################################
+source $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 fpath=($HOME/.zsh/completion $HOME/.zsh/zsh-completions $fpath)
+
+# ssh host completions
+# https://serverfault.com/a/170481
+h=()
+if [[ -r ~/.ssh/config ]]; then
+  h=($h ${${${(@M)${(f)"$(cat ~/.ssh/config)"}:#Host *}#Host }:#*[*?]*})
+fi
+# if [[ -r ~/.ssh/known_hosts ]]; then
+#   h=($h ${${${(f)"$(cat ~/.ssh/known_hosts{,2} || true)"}%%\ *}%%,*}) 2>/dev/null
+# fi
+if [[ $#h -gt 0 ]]; then
+  zstyle ':completion:*:ssh:*' hosts $h
+  zstyle ':completion:*:slogin:*' hosts $h
+  zstyle ':completion:*:ssh:*' ignored-patterns '_*'
+  zstyle ':completion:*:slogin:*' ignored-patterns '_*'
+fi
+
 autoload -Uz compinit
 compinit -i
 setopt auto_list
@@ -25,6 +43,10 @@ unsetopt always_last_prompt # important! https://github.com/pallets/click/issues
 setopt no_menu_complete
 setopt no_auto_menu
 setopt magicequalsubst
+
+##################################################
+# key-bindings
+##################################################
 source $HOME/.profile
 # vim mode
 bindkey -v
@@ -72,4 +94,7 @@ eval "$(_FA_COMPLETE=source_zsh fa)"
 if [ "`id -u -n`" = "kortina" ] ; then 
   export PATH="$PATH:$HOME/src/sq"
   eval "$(_SQ_COMPLETE=source_zsh sq)"
+
+  test -e $HOME/src/ck && export PATH="$PATH:$HOME/src"
+  test -e $HOME/src/ck && eval "$(_CK_COMPLETE=source_zsh ck)"
 fi
