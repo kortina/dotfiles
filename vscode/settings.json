@@ -5,7 +5,9 @@
   // "vscodeMarkdownNotes.workspaceFilenameConvention": "relativePaths",
   // "vscodeMarkdownNotes.newNoteTemplate": "# ${noteName}\n\n${timestamp}",
   // "vscodeMarkdownNotes.triggerSuggestOnReplacement": false,
-  "vscodeMarkdownNotes.allowPipedWikiLinks": true,
+  // "vscodeMarkdownNotes.allowPipedWikiLinks": true,
+  // "vscodeMarkdownNotes.pipedWikiLinksSyntax": "desc|file",
+  // "vscodeMarkdownNotes.slugifyMethod": "github",
   "cSpell.enableFiletypes": ["markdown", "plaintext"],
   "diffEditor.renderIndicators": true,
   // "docker-linter.rubocop.enable": true,
@@ -368,6 +370,7 @@
   "explorer.confirmDelete": false,
   "editor.fontFamily": "Monaco, Menlo, Consolas, 'Courier New', monospace",
   "cSpell.userWords": [
+    "Arendt",
     "Bretton",
     "COVID",
     "Decompiling",
@@ -393,5 +396,8 @@
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "workbench.colorTheme": "Tomorrow Night"
+  "workbench.colorTheme": "Tomorrow Night",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }
