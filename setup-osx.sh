@@ -11,6 +11,9 @@ set -e
 echo "##### $(basename $BASH_SOURCE) #####"
 DOTFILES_ROOT="`pwd`"
 
+# allow touch id instead of password for sudo:
+ grep -q pam_tid.so /etc/pam.d/sudo || echo "auth       sufficient     pam_tid.so" | sudo tee -a /etc/pam.d/sudo
+
 cp themes/fonts/* "$HOME/Library/Fonts/"
 
 # format clock in menubar
