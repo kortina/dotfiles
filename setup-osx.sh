@@ -241,6 +241,16 @@ defaults write com.apple.sound.beep.volume -float 0.05
 defaults write co.fluder.FSNotes NSUserKeyEquivalents -dict-add 'Delete' '@$\U0008';
 
 ###############################################################################
+# Safari
+###############################################################################
+
+# stop show adds for websites on safari open
+defaults write com.apple.Safari HomePage -string "about:blank" # Empty
+defaults write com.apple.Safari NewTabBehavior -int 1 # Empty
+defaults write com.apple.Safari NewWindowBehavior -int 1 # Empty
+
+
+###############################################################################
 # Kill affected applications                                                  #
 ###############################################################################
 
