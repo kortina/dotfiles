@@ -72,7 +72,7 @@ defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 defaults write NSGlobalDomain KeyRepeat -int 1
 
 # Set a fast delay until repeat
-defaults write NSGlobalDomain InitialKeyRepeat -int 10
+defaults write NSGlobalDomain InitialKeyRepeat -int 15
 
 defaults write -g NSAutomaticCapitalizationEnabled -int 0
 defaults write -g NSAutomaticDashSubstitutionEnabled -int 0
