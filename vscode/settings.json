@@ -413,6 +413,9 @@
   "editor.acceptSuggestionOnEnter": "on",
   "workbench.iconTheme": "vs-minimal",
   "workbench.colorTheme": "Tomorrow Night",
-  "explorer.openEditors.visible": 0
+  "explorer.openEditors.visible": 0,
+  "files.associations": {
+    "*.html.erb": "html"
+ }
   //JK Customizations END
 }
