@@ -11,6 +11,12 @@ set -e
 echo "##### $(basename $BASH_SOURCE) #####"
 DOTFILES_ROOT="`pwd`"
 
+# allow touch id instead of password for sudo:
+l="auth       sufficient     pam_tid.so"
+f="/etc/pam.d/sudo"
+t="/tmp/sudo"
+grep -q pam_tid.so $f || (  echo "$l" > $t && cat "$f" >> $t && sudo mv $t $f  )
+
 cp themes/fonts/* "$HOME/Library/Fonts/"
 
 # format clock in menubar
@@ -66,7 +72,7 @@ defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 defaults write NSGlobalDomain KeyRepeat -int 1
 
 # Set a fast delay until repeat
-defaults write NSGlobalDomain InitialKeyRepeat -int 10
+defaults write NSGlobalDomain InitialKeyRepeat -int 15
 
 defaults write -g NSAutomaticCapitalizationEnabled -int 0
 defaults write -g NSAutomaticDashSubstitutionEnabled -int 0
@@ -233,6 +239,16 @@ defaults write com.apple.sound.beep.volume -float 0.05
 ###############################################################################
 # use Cmd+Delete for "delete text to beginning of line" you can change the "delete note" hotkey to Cmd+Shift+Delete
 defaults write co.fluder.FSNotes NSUserKeyEquivalents -dict-add 'Delete' '@$\U0008';
+
+###############################################################################
+# Safari
+###############################################################################
+
+# stop show adds for websites on safari open
+defaults write com.apple.Safari HomePage -string "about:blank" # Empty
+defaults write com.apple.Safari NewTabBehavior -int 1 # Empty
+defaults write com.apple.Safari NewWindowBehavior -int 1 # Empty
+
 
 ###############################################################################
 # Kill affected applications                                                  #

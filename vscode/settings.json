@@ -5,7 +5,9 @@
   // "vscodeMarkdownNotes.workspaceFilenameConvention": "relativePaths",
   // "vscodeMarkdownNotes.newNoteTemplate": "# ${noteName}\n\n${timestamp}",
   // "vscodeMarkdownNotes.triggerSuggestOnReplacement": false,
-  "vscodeMarkdownNotes.allowPipedWikiLinks": true,
+  // "vscodeMarkdownNotes.allowPipedWikiLinks": true,
+  // "vscodeMarkdownNotes.pipedWikiLinksSyntax": "desc|file",
+  // "vscodeMarkdownNotes.slugifyMethod": "github",
   "cSpell.enableFiletypes": ["markdown", "plaintext"],
   "diffEditor.renderIndicators": true,
   // "docker-linter.rubocop.enable": true,
@@ -369,6 +371,7 @@
   "editor.fontFamily": "Monaco, Menlo, Consolas, 'Courier New', monospace",
   "cSpell.userWords": [
     "Backoff",
+    "Arendt",
     "Bretton",
     "COVID",
     "Decompiling",
@@ -396,7 +399,7 @@
     "papaparse",
     "selectinload",
     "venmo",
-    "waldenponding"
+    "waldenponding",
     "neurochemistry",
     "nodenv",
     "noqa",
@@ -409,6 +412,9 @@
   "files.associations": {
     "*.erb": "erb"
   },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   //JK Customizations START
   "editor.acceptSuggestionOnEnter": "on",
   "workbench.iconTheme": "vs-minimal",
@@ -416,6 +422,6 @@
   "explorer.openEditors.visible": 0,
   "files.associations": {
     "*.html.erb": "html"
- }
+  }
   //JK Customizations END
 }

@@ -15,6 +15,7 @@
   local-branches = !git branch -vv | cut -c 3- | awk '$3 !~/\\[/ { print $1 }'
   pcu            = "!git push -u origin `git rev-parse --abbrev-ref HEAD`"
   track-upstream = "!git push -u origin `git rev-parse --abbrev-ref HEAD`"
+  pb-last-commit = "!git log -1 --pretty=%B | pbcopy"
   pc             = "!git push origin `git rev-parse --abbrev-ref HEAD`"
   push-current   = "!git push origin `git rev-parse --abbrev-ref HEAD`"
   pr = "!cat .github/PULL_REQUEST_TEMPLATE.md PULL_REQUEST_TEMPLATE.md 2>/dev/null | hub pull-request --edit -o -F -"
