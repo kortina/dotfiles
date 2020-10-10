@@ -71,6 +71,9 @@ export   WORDCHARS='*?_-[]~=&;!#$%^(){}'
 # fzf
 [ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
 
+# allow # characters as comments on command line
+setopt interactivecomments
+
 ##################################################
 # history
 ##################################################
