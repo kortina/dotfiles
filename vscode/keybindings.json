@@ -157,6 +157,11 @@
     "key": "cmd+k cmd+f",
     "command": "references-view.find",
     "when": "editorHasReferenceProvider"
+  },
+  {
+    "key": "cmd+k cmd+k",
+    "when": "terminalFocus",
+    "command": "workbench.action.terminal.clear"
   }
   // {
   //   "key": "cmd+k cmd+r",
