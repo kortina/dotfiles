@@ -19,6 +19,7 @@
   pc             = "!git push origin `git rev-parse --abbrev-ref HEAD`"
   push-current   = "!git push origin `git rev-parse --abbrev-ref HEAD`"
   pr = "!cat .github/PULL_REQUEST_TEMPLATE.md PULL_REQUEST_TEMPLATE.md 2>/dev/null | hub pull-request --edit -o -F -"
+  pr-last-commit = "!git log -1 --pretty=%B 2>/dev/null | hub pull-request --edit -o -F -"
   up = pull --rebase --autostash
   undo-last-commit = reset --soft HEAD~1
   vi = "!vim .git/index"

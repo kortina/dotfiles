@@ -16,6 +16,7 @@ export PATH="$GOPATH/bin:$PATH"
 # alias SaveScreen='/System/Library/Frameworks/ScreenSaver.framework/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine'
 # alias ag='ag --hidden'
 alias g='rg --hidden'
+alias diff='PAGER=cat git diff --no-index'
 alias dk="docker-compose"
 alias flushdns='sudo dscacheutil -flushcache'
 alias gg='git grep -n --color --heading --break'
@@ -90,6 +91,5 @@ export FIN_SSH_USERNAME="andrew_kortina"
 export FIN_CODE_HOME="$HOME/code"
 fa_bin="/usr/local/bin/fa"
 test -h $fa_bin ||  ln -s "$FIN_CODE_HOME/fin-dev/fa" $fa_bin
-
 
 [[ -f ~/.bash_profile_jennykortina ]] && source ~/.bash_profile_jennykortina
