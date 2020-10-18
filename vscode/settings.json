@@ -33,7 +33,7 @@
   "explorer.autoReveal": false,
   "files.autoSave": "off",
   "files.associations": {
-    "*.dpl": "sql"
+    "*.dpl": "sql",
   },
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
@@ -370,7 +370,6 @@
   "explorer.confirmDelete": false,
   "editor.fontFamily": "Monaco, Menlo, Consolas, 'Courier New', monospace",
   "cSpell.userWords": [
-    "Backoff",
     "Arendt",
     "Bretton",
     "COVID",
@@ -382,24 +381,12 @@
     "Stiglitz",
     "Sundance",
     "Tarkovsky",
-    "Timeframe",
     "autoplay",
     "boto",
-    "daterange",
     "disintermediate",
     "endfor",
     "ffmpeg",
     "financialization",
-    "finxpc",
-    "graphql",
-    "incentivizes",
-    "neurochemistry",
-    "noqa",
-    "orgs",
-    "papaparse",
-    "selectinload",
-    "venmo",
-    "waldenponding",
     "neurochemistry",
     "nodenv",
     "noqa",
@@ -409,19 +396,20 @@
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "files.associations": {
-    "*.erb": "erb"
-  },
+  "workbench.colorTheme": "Tomorrow Night",
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   //JK Customizations START
   "editor.acceptSuggestionOnEnter": "on",
   "workbench.iconTheme": "vs-minimal",
-  "workbench.colorTheme": "Tomorrow Night",
   "explorer.openEditors.visible": 0,
   "files.associations": {
-    "*.html.erb": "html"
+      "*.html.erb": "html",
+      "*.erb": "erb"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
   }
   //JK Customizations END
 }
