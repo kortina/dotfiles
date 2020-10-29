@@ -24,6 +24,7 @@ alias grep='grep -i --color=auto'
 alias ls='ls -G'
 alias pidawk="awk '{print \$2}'"
 alias pluginstall='vim +PlugInstall +qall'
+alias renew_dchp_lease='ipconfig getpacket en0 2>&1 > /tmp/before; echo "add State:/Network/Interface/en0/RefreshConfiguration temporary" | sudo scutil; ipconfig getpacket en0 2>&1 > /tmp/after; diff before after;'
 alias t="bundle exec rspec --color"
 alias tmux="TERM=screen-256color-bce tmux"
 alias updatedb='sudo /usr/libexec/locate.updatedb'
