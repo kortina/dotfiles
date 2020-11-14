@@ -16,17 +16,19 @@ vscode_dotfiles="$DOTFILES_ROOT/vscode"
 cd "$vscode_dotfiles"
 code_dirs=(
     "$HOME/Library/Application Support/Code/User"
+    "$HOME/Library/Application Support/Code - Insiders/User"
 )
 
 for code_dir in "${code_dirs[@]}"; do
-    echo "code_dir dir: $code_dir"
-
-    for f in `ls | grep "json\|snippets"`; do 
-        SYM_FILE="$code_dir/$f"
-        TARG_FILE="$vscode_dotfiles/$f"
-        SYM_DIR="$code_dir"
-        safely_symlink "$SYM_FILE" "$TARG_FILE" "$SYM_DIR"
-    done
+    if [[ -e "$code_dir" ]]; then
+        echo "code_dir dir: $code_dir"
+        for f in `ls | grep "json\|snippets"`; do 
+            SYM_FILE="$code_dir/$f"
+            TARG_FILE="$vscode_dotfiles/$f"
+            SYM_DIR="$code_dir"
+            safely_symlink "$SYM_FILE" "$TARG_FILE" "$SYM_DIR"
+        done
+    fi
 done
 
 for VARIANT in "code" \
