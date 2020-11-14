@@ -7,6 +7,7 @@
 		<string>Keychain Access</string>
 		<string>SecurityAgent</string>
 		<string>Wallet</string>
+		<string>1Password 7</string>
 	</array>
 	<key>hotkey</key>
 	<dict>
