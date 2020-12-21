@@ -101,3 +101,4 @@ if [ "`id -u -n`" = "kortina" ] ; then
   test -e $HOME/src/ck && export PATH="$PATH:$HOME/src"
   test -e $HOME/src/ck && eval "$(_CK_COMPLETE=source_zsh ck)"
 fi
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

@@ -161,7 +161,7 @@ cd "$HOME/Google-Drive/_notebook"
 			<dict>
 				<key>paths</key>
 				<array>
-					<string>/Applications/Visual Studio Code.app</string>
+					<string>/Applications/Visual Studio Code - Insiders.app</string>
 				</array>
 				<key>toggle</key>
 				<false/>
@@ -170,6 +170,23 @@ cd "$HOME/Google-Drive/_notebook"
 			<string>alfred.workflow.action.launchfiles</string>
 			<key>uid</key>
 			<string>C142A52A-2552-426D-943B-6C22D1EC34F7</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>paths</key>
+				<array>
+					<string>/Applications/Visual Studio Code.app</string>
+				</array>
+				<key>toggle</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.launchfiles</string>
+			<key>uid</key>
+			<string>4FAB68E9-D4DC-4BB3-A5EE-FA7E302779E9</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -184,6 +201,13 @@ cd "$HOME/Google-Drive/_notebook"
 			<integer>520</integer>
 			<key>ypos</key>
 			<integer>55</integer>
+		</dict>
+		<key>4FAB68E9-D4DC-4BB3-A5EE-FA7E302779E9</key>
+		<dict>
+			<key>xpos</key>
+			<integer>285</integer>
+			<key>ypos</key>
+			<integer>520</integer>
 		</dict>
 		<key>7038EF8A-6FBB-44BE-B61D-390CB7C6EC4C</key>
 		<dict>
@@ -204,7 +228,7 @@ cd "$HOME/Google-Drive/_notebook"
 			<key>xpos</key>
 			<integer>525</integer>
 			<key>ypos</key>
-			<integer>460</integer>
+			<integer>455</integer>
 		</dict>
 		<key>CE81E84E-0914-4991-BDF3-43B46B20B1AE</key>
 		<dict>
