@@ -45,7 +45,7 @@
 			<dict>
 				<key>paths</key>
 				<array>
-					<string>/Applications/Visual Studio Code.app</string>
+					<string>/Applications/Visual Studio Code - Insiders.app</string>
 				</array>
 				<key>toggle</key>
 				<false/>
@@ -87,6 +87,23 @@
 			<string>7038EF8A-6FBB-44BE-B61D-390CB7C6EC4C</string>
 			<key>version</key>
 			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>paths</key>
+				<array>
+					<string>/Applications/Visual Studio Code.app</string>
+				</array>
+				<key>toggle</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.launchfiles</string>
+			<key>uid</key>
+			<string>AE490910-C53F-4D59-A3B6-1ED961D16D2B</string>
+			<key>version</key>
+			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -137,6 +154,13 @@
 			<integer>100</integer>
 			<key>ypos</key>
 			<integer>60</integer>
+		</dict>
+		<key>AE490910-C53F-4D59-A3B6-1ED961D16D2B</key>
+		<dict>
+			<key>xpos</key>
+			<integer>465</integer>
+			<key>ypos</key>
+			<integer>130</integer>
 		</dict>
 	</dict>
 	<key>webaddress</key>

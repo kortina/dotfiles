@@ -5,7 +5,7 @@
   // "vscodeMarkdownNotes.workspaceFilenameConvention": "relativePaths",
   // "vscodeMarkdownNotes.newNoteTemplate": "# ${noteName}\n\n${timestamp}",
   // "vscodeMarkdownNotes.triggerSuggestOnReplacement": false,
-  // "vscodeMarkdownNotes.allowPipedWikiLinks": true,
+  "vscodeMarkdownNotes.allowPipedWikiLinks": true,
   // "vscodeMarkdownNotes.pipedWikiLinksSyntax": "desc|file",
   // "vscodeMarkdownNotes.slugifyMethod": "github",
   "cSpell.enableFiletypes": ["markdown", "plaintext"],
@@ -22,7 +22,9 @@
   "[markdown]": {
     "editor.quickSuggestions": true,
     "editor.wordBasedSuggestions": false,
-    "editor.tabSize": 2
+    "editor.tabSize": 2,
+    "editor.wordWrap": "bounded",
+    "editor.wordWrapColumn": 75,
     // "editor.wordSeparators": "`~!@$%^&*()=+[{]}\\|;:'\",.<>/?", // remove '#' so tags can be searched. Does not seem to be working....
   },
   "[fountain]": {
@@ -306,8 +308,7 @@
         }
       ]
     }
-  ], // END normal mode commands
-  "window.zoomLevel": 0,
+  ],
   "window.title": "${activeEditorMedium}${separator}${rootName}",
   "workbench.activityBar.visible": false,
   "workbench.colorCustomizations": {
@@ -379,7 +380,6 @@
     "Kortina",
     "Ponzi",
     "Stiglitz",
-    "Sundance",
     "Tarkovsky",
     "autoplay",
     "boto",
@@ -387,11 +387,20 @@
     "endfor",
     "ffmpeg",
     "financialization",
+    "finxpc",
+    "hmac",
+    "iframe",
+    "infantilizes",
+    "logline",
     "neurochemistry",
     "nodenv",
     "noqa",
+    "pharma",
     "predistribution",
-    "venmo"
+    "soundcloud",
+    "sundance",
+    "venmo",
+    "youtube"
   ],
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -419,3 +428,11 @@
   ]
   //JK Customizations END
 }
+  // "workbench.editorAssociations": [
+  //   {
+  //     "viewType": "jupyter-notebook",
+  //     "filenamePattern": "*.ipynb"
+  //   }
+  // ],
+  // "window.zoomLevel": 2
+// }
