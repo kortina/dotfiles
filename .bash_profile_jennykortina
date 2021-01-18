@@ -7,8 +7,8 @@ export FIN_CODE_HOME="$HOME/code"
 ### JK aliasas
 alias dotfiles='cd /Users/jennykortina/dotfiles'
 alias fin='cd /Users/jennykortina/code/fin-analytics'
-
 alias cubee='cd /Users/jennykortina/Developer/cubeecraft'
+alias pumpalytics='cd /Users/jennykortina/Developer/pumpalytics'
 
 # rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; else echo rbenv not installed; fi
