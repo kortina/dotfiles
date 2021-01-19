@@ -379,6 +379,7 @@
     "Kaneda",
     "Kortina",
     "Ponzi",
+    "Prolly",
     "Stiglitz",
     "Tarkovsky",
     "autoplay",
@@ -415,5 +416,5 @@
       "filenamePattern": "*.ipynb"
     }
   ],
-  "window.zoomLevel": 2
+  "window.zoomLevel": 1
 }
