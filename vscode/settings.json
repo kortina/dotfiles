@@ -415,6 +415,5 @@
       "viewType": "jupyter-notebook",
       "filenamePattern": "*.ipynb"
     }
-  ],
-  "window.zoomLevel": 1
+  ]
 }
