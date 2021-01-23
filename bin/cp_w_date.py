@@ -6,7 +6,13 @@ import subprocess
 
 
 def main():
-    parser = argparse.ArgumentParser("cp_w_date.py")
+    parser = argparse.ArgumentParser(
+        description="""Given a file, such as,
+        README.md
+        create a copy of that file with a date/timestamp:
+        README--2021-01-23--10-34.md
+    """
+    )
     parser.add_argument(
         "file", type=str, help="file", default=None,
     )
