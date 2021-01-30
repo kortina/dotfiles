@@ -61,6 +61,7 @@
   "python.formatting.provider": "black",
   "python.linting.flake8Enabled": true,
   "python.linting.mypyEnabled": true,
+  "python.languageServer": "Pylance",
   "python.linting.pylintEnabled": false,
   "python.pythonPath": "~/.pyenv/shims/python",
   "python.defaultInterpreterPath": "~/.pyenv/shims/python",
