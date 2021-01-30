@@ -83,6 +83,8 @@ defaults write -g WebAutomaticSpellingCorrectionEnabled -int 0
 
 # disable swipe to go back in Chrome
 defaults write com.google.Chrome AppleEnableSwipeNavigateWithScrolls -bool FALSE
+# enable Reader Mode with Chrome Distiller at:
+# chrome://flags/#enable-reader-mode
 
 ###############################################################################
 # Terminal
