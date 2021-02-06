@@ -312,6 +312,18 @@
           }
         }
       ]
+    },
+    // insert a horizontal rule
+    {
+      "before": ["<leader>", "h"],
+      "commands": [
+        {
+          "command": "editor.action.insertSnippet",
+          "args": {
+            "snippet": "\n---\n\n"
+          }
+        }
+      ]
     }
   ],
   "window.title": "${activeEditorMedium}${separator}${rootName}",
@@ -337,6 +349,18 @@
           "scope": "markup.quote.markdown",
           "settings": {
             "foreground": "#666"
+          }
+        },
+        {
+          "scope": "meta.image.inline.markdown",
+          "settings": {
+            "foreground": "#2a6140"
+          }
+        },
+        {
+          "scope": "meta.image.inline.markdown string.other.link.description.markdown",
+          "settings": {
+            "foreground": "#449965"
           }
         },
         {
