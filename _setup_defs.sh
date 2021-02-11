@@ -133,9 +133,9 @@ cask_install() {
 
 NPM_LIST_G=""
 npm_install() {
+    set +e
     test -z "$NPM_LIST_G" && NPM_LIST_G=$(npm list -g)
     formula="$1"
-    set +e
     already_installed="no"
     echo "$NPM_LIST_G" | grep -q "$formula@" && already_installed="yes"
     set -e
