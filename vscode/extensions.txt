@@ -1,7 +1,6 @@
 bierner.emojisense
 bierner.markdown-checkbox
 buenon.scratchpads
-ckolkman.vscode-postgres
 codespaces-contrib.codeswing
 dbaeumer.vscode-eslint
 dzannotti.vscode-babel-coloring
