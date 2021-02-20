@@ -383,6 +383,7 @@
     "Tarkovsky",
     "autoplay",
     "boto",
+    "buildpacks",
     "disintermediate",
     "endfor",
     "ffmpeg",
@@ -396,6 +397,7 @@
     "nodenv",
     "noqa",
     "pharma",
+    "precompile",
     "predistribution",
     "soundcloud",
     "sundance",
@@ -420,12 +422,8 @@
   "[html]": {
     "editor.defaultFormatter": "vscode.html-language-features"
   },
-  "workbench.editorAssociations": [
-    {
-      "viewType": "jupyter.notebook.ipynb",
-      "filenamePattern": "*.ipynb"
-    }
-  ]
+  "typescript.suggest.paths": false ,
+  "workbench.editorAssociations": []
   //JK Customizations END
 }
   // "workbench.editorAssociations": [
