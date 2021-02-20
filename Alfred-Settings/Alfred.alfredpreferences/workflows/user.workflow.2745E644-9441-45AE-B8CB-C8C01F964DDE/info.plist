@@ -12,7 +12,7 @@
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>CAD41F33-E128-4E9A-8305-62DB3F4FE0BE</string>
+				<string>98B44F7A-308D-42A1-B9B6-81377CF2484F</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -25,7 +25,7 @@
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>CAD41F33-E128-4E9A-8305-62DB3F4FE0BE</string>
+				<string>98B44F7A-308D-42A1-B9B6-81377CF2484F</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -38,11 +38,11 @@
 	<key>createdby</key>
 	<string>kortina</string>
 	<key>description</key>
-	<string>Set Window to Half Width / Full Height of Screen</string>
+	<string>Set w x h of Front Window</string>
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
-	<string>Window - Half Screen L</string>
+	<string>Window - 1280 x 640</string>
 	<key>objects</key>
 	<array>
 		<dict>
@@ -57,11 +57,9 @@
 				<key>focusedappvariablename</key>
 				<string></string>
 				<key>hotkey</key>
-				<integer>42</integer>
+				<integer>0</integer>
 				<key>hotmod</key>
-				<integer>393216</integer>
-				<key>hotstring</key>
-				<string>|</string>
+				<integer>0</integer>
 				<key>leftcursor</key>
 				<false/>
 				<key>modsmode</key>
@@ -79,38 +77,14 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>applescript</key>
-				<string>on alfred_script(q)
-
-try
-    tell application "Finder" to set b to bounds of window of desktop
-        tell application (path to frontmost application as text)
-            set bounds of window 1 to {0, 22, (item 3 of b) / 2, item 4 of b}
-        end tell
-end try
-
-end alfred_script</string>
-				<key>cachescript</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.applescript</string>
-			<key>uid</key>
-			<string>5F691244-2FD2-4F60-BEEB-0B9B6A78EBB0</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>argumenttype</key>
 				<integer>2</integer>
 				<key>keyword</key>
-				<string>window-half-screen-r</string>
+				<string>window-1280</string>
 				<key>subtext</key>
 				<string></string>
 				<key>text</key>
-				<string>Window-Half-Screen-R</string>
+				<string>window-1280</string>
 				<key>withspace</key>
 				<false/>
 			</dict>
@@ -129,7 +103,7 @@ end alfred_script</string>
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>script</key>
-				<string>$HOME/dotfiles/bin/osx_resize.sh half-left</string>
+				<string>$HOME/dotfiles/bin/osx_resize.sh 1280x640</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
@@ -140,7 +114,7 @@ end alfred_script</string>
 			<key>type</key>
 			<string>alfred.workflow.action.script</string>
 			<key>uid</key>
-			<string>CAD41F33-E128-4E9A-8305-62DB3F4FE0BE</string>
+			<string>98B44F7A-308D-42A1-B9B6-81377CF2484F</string>
 			<key>version</key>
 			<integer>2</integer>
 		</dict>
@@ -156,12 +130,12 @@ end alfred_script</string>
 			<key>ypos</key>
 			<integer>30</integer>
 		</dict>
-		<key>5F691244-2FD2-4F60-BEEB-0B9B6A78EBB0</key>
+		<key>98B44F7A-308D-42A1-B9B6-81377CF2484F</key>
 		<dict>
 			<key>xpos</key>
-			<integer>500</integer>
+			<integer>380</integer>
 			<key>ypos</key>
-			<integer>160</integer>
+			<integer>265</integer>
 		</dict>
 		<key>B1055B9D-BBE5-46AB-A688-C836EDA1AF89</key>
 		<dict>
@@ -169,13 +143,6 @@ end alfred_script</string>
 			<integer>130</integer>
 			<key>ypos</key>
 			<integer>160</integer>
-		</dict>
-		<key>CAD41F33-E128-4E9A-8305-62DB3F4FE0BE</key>
-		<dict>
-			<key>xpos</key>
-			<integer>515</integer>
-			<key>ypos</key>
-			<integer>335</integer>
 		</dict>
 	</dict>
 	<key>webaddress</key>

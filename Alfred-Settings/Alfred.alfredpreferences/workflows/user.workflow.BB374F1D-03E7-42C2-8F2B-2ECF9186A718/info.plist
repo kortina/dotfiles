@@ -39,7 +39,7 @@
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
-	<string>Hotkey - notebook</string>
+	<string>Hotkey - journal</string>
 	<key>objects</key>
 	<array>
 		<dict>
@@ -54,11 +54,11 @@
 				<key>focusedappvariablename</key>
 				<string></string>
 				<key>hotkey</key>
-				<integer>31</integer>
+				<integer>38</integer>
 				<key>hotmod</key>
 				<integer>1179648</integer>
 				<key>hotstring</key>
-				<string>O</string>
+				<string>J</string>
 				<key>leftcursor</key>
 				<false/>
 				<key>modsmode</key>
@@ -85,7 +85,7 @@
 #echo -n $query
 
 cd "$HOME/Google-Drive/_notebook"
-/usr/local/bin/code .</string>
+.vscode/open-journal.sh</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>

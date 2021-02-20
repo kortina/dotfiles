@@ -20,7 +20,11 @@
   "editor.quickSuggestionsDelay": 1,
   // during dev show quick suggestions for markdown without ctrl+p
   "[markdown]": {
-    "editor.quickSuggestions": true,
+    "editor.quickSuggestions": {
+      "other": true,
+      "comments": true,
+      "strings": true
+    },
     "editor.wordBasedSuggestions": false,
     "editor.tabSize": 2,
     "editor.wordWrap": "bounded",
@@ -56,7 +60,8 @@
   "prettier.trailingComma": "es5",
   "python.formatting.provider": "black",
   "python.linting.flake8Enabled": true,
-  // "python.linting.mypyEnabled": true,
+  "python.linting.mypyEnabled": true,
+  "python.languageServer": "Pylance",
   "python.linting.pylintEnabled": false,
   "python.pythonPath": "~/.pyenv/shims/python",
   "python.defaultInterpreterPath": "~/.pyenv/shims/python",
@@ -307,6 +312,18 @@
           }
         }
       ]
+    },
+    // insert a horizontal rule
+    {
+      "before": ["<leader>", "h"],
+      "commands": [
+        {
+          "command": "editor.action.insertSnippet",
+          "args": {
+            "snippet": "\n---\n\n"
+          }
+        }
+      ]
     }
   ],
   "window.title": "${activeEditorMedium}${separator}${rootName}",
@@ -332,6 +349,18 @@
           "scope": "markup.quote.markdown",
           "settings": {
             "foreground": "#666"
+          }
+        },
+        {
+          "scope": "meta.image.inline.markdown",
+          "settings": {
+            "foreground": "#2a6140"
+          }
+        },
+        {
+          "scope": "meta.image.inline.markdown string.other.link.description.markdown",
+          "settings": {
+            "foreground": "#449965"
           }
         },
         {
@@ -375,17 +404,26 @@
     "Bretton",
     "COVID",
     "Decompiling",
-    "Guantanumera",
+    "Emeryville",
+    "Frankl",
+    "Guantanamera",
+    "Iqram",
     "Kaneda",
     "Kortina",
+    "Laderman",
+    "Mierle",
+    "Phillipsburg",
     "Ponzi",
+    "Prolly",
     "Stiglitz",
     "Tarkovsky",
+    "Ukeles",
     "autoplay",
     "boto",
     "buildpacks",
     "disintermediate",
     "endfor",
+    "factionalize",
     "ffmpeg",
     "financialization",
     "finxpc",
@@ -393,6 +431,7 @@
     "iframe",
     "infantilizes",
     "logline",
+    "miscalibrated",
     "neurochemistry",
     "nodenv",
     "noqa",
@@ -402,6 +441,7 @@
     "soundcloud",
     "sundance",
     "venmo",
+    "vetocracy",
     "youtube"
   ],
   "[typescript]": {
@@ -423,8 +463,13 @@
     "editor.defaultFormatter": "vscode.html-language-features"
   },
   "typescript.suggest.paths": false ,
-  "workbench.editorAssociations": []
-  //JK Customizations END
+  // "workbench.editorAssociations": []
+  "workbench.editorAssociations": [
+    {
+      "viewType": "jupyter-notebook",
+      "filenamePattern": "*.ipynb"
+    }
+  ]
 }
   // "workbench.editorAssociations": [
   //   {

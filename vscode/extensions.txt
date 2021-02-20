@@ -1,5 +1,9 @@
 aliariff.vscode-erb-beautify
 CoenraadS.bracket-pair-colorizer
+bierner.emojisense
+bierner.markdown-checkbox
+buenon.scratchpads
+codespaces-contrib.codeswing
 dbaeumer.vscode-eslint
 dzannotti.vscode-babel-coloring
 eamodio.gitlens
@@ -15,9 +19,13 @@ kisstkondoros.vscode-gutter-preview
 kortina.run-in-terminal
 kortina.vscode-markdown-notes
 misogi.ruby-rubocop
+ms-azuretools.vscode-docker
 ms-python.python
+ms-python.vscode-pylance
+ms-toolsai.jupyter
 ms-vscode.Theme-TomorrowKit
 naumovs.color-highlight
+pepri.subtitles-editor
 piersdeseilligny.betterfountain
 rebornix.ruby
 richie5um2.vscode-sort-json
@@ -25,6 +33,8 @@ streetsidesoftware.code-spell-checker
 sysoev.vscode-open-in-github
 vscode-icons-team.vscode-icons
 vscodevim.vim
+vsls-contrib.codetour
+vsls-contrib.gistfs
 wayou.vscode-todo-highlight
 wingrunr21.vscode-ruby
 yzhang.markdown-all-in-one
