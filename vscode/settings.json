@@ -324,6 +324,18 @@
           }
         }
       ]
+    },
+    // move paragraph down / FIXME: working fully?
+    {
+      "before": ["≥"], // alt + .
+      "after": ["{", "V", "}", "k", "d", "}", "k", "p", "j"],
+      "commands": []
+    },
+    // move paragraph down / FIXME: working fully?
+    {
+      "before": ["≤"], // alt + ,
+      "after": ["}", "V", "{", "j", "d", "{", "{", "p"],
+      "commands": []
     }
   ],
   "window.title": "${activeEditorMedium}${separator}${rootName}",
@@ -403,16 +415,20 @@
     "Acquemini",
     "Adderrall",
     "Arendt",
+    "Asha",
     "Barbes",
     "Braimah",
     "Bretton",
     "COVID",
     "Cabeza",
+    "Citi",
     "Corea",
     "Corea's",
     "D'Angelo",
     "Decompiling",
     "Djovamin",
+    "Drom",
+    "Dunkin",
     "Emeryville",
     "Frankl",
     "Goedel's",
@@ -447,6 +463,7 @@
     "Sanabria",
     "Schmidhuber's",
     "Seaton",
+    "Soundsystem",
     "Spotify",
     "Stiglitz",
     "Talib",
@@ -476,6 +493,7 @@
     "pharma",
     "predistribution",
     "rgen",
+    "rouler",
     "soundcloud",
     "subak",
     "sundance",
