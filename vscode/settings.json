@@ -325,16 +325,16 @@
         }
       ]
     },
-    // move paragraph down / FIXME: working fully?
+    // move paragraph down
     {
       "before": ["≥"], // alt + .
-      "after": ["{", "V", "}", "k", "d", "}", "k", "p", "j"],
+      "after": ["{", "V", "}", "k", "\"", "z", "d", "}", "k", "\"", "z", "p", "j"],
       "commands": []
     },
-    // move paragraph down / FIXME: working fully?
+    // move paragraph down
     {
       "before": ["≤"], // alt + ,
-      "after": ["}", "V", "{", "j", "d", "{", "{", "p"],
+      "after": ["}", "V", "{", "j", "\"", "z", "d", "{", "{", "\"", "z", "p"],
       "commands": []
     }
   ],
@@ -431,6 +431,7 @@
     "Dunkin",
     "Emeryville",
     "Frankl",
+    "Fremery",
     "Goedel's",
     "Gramith's",
     "Guantanamera",
