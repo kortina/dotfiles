@@ -35,7 +35,7 @@ on dismiss_notification_center(n)
             end repeat
         end tell
     end tell
-    log "performedAction: " & performedAction
+    # log "performedAction: " & performedAction
     if performedAction
         # for some reason, the loop doesn't close them all when grouped, so
         # we need to recurse. But, first we have to sleep to allow notif to re-appear:
