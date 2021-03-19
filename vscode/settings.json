@@ -85,6 +85,14 @@
       "match": ".*",
       "name": "exec-file"
     },
+    // make a copy of the current file, with the date, eg:
+    // cp note.txt note--2021-03-19--10-39.txt
+    // see: https://github.com/kortina/dotfiles/blob/master/bin/cpd.py
+    {
+      "cmd": "cd ${fileDirname} && cpd.py ${relativeFile}",
+      "match": ".*",
+      "name": "dup_with_date"
+    },
     //////////////////////
     // jest typescript
     //////////////////////
@@ -144,7 +152,9 @@
   "vim.insertModeKeyBindings": [
     // insert the current date, insert mode
     {
-      "before": ["<C-d>"],
+      "before": [
+        "<C-d>"
+      ],
       "after": [],
       "commands": [
         {
@@ -160,7 +170,10 @@
     // open link under cursor
     {
       "after": [],
-      "before": ["g", "l"],
+      "before": [
+        "g",
+        "l"
+      ],
       "commands": [
         {
           "args": [],
@@ -171,7 +184,10 @@
     // go to next error marker
     {
       "after": [],
-      "before": ["<leader>", "e"],
+      "before": [
+        "<leader>",
+        "e"
+      ],
       "commands": [
         {
           "args": [],
@@ -182,19 +198,56 @@
     // clear search buffer
     {
       "after": [],
-      "before": ["<leader>", "/"],
-      "commands": [":nohl"]
+      "before": [
+        "<leader>",
+        "/"
+      ],
+      "commands": [
+        ":nohl"
+      ]
     },
     // copy everything in buffer to clipboard
     {
-      "after": ["g", "g", "V", "G", "\"", "*", "y"],
-      "before": ["<leader>", "c"],
+      "after": [
+        "g",
+        "g",
+        "V",
+        "G",
+        "\"",
+        "*",
+        "y"
+      ],
+      "before": [
+        "<leader>",
+        "c"
+      ],
       "commands": []
+    },
+    // run in terminal 'dup_with_date'
+    {
+      "after": [],
+      "before": [
+        "<leader>",
+        "d",
+        "d"
+      ],
+      "commands": [
+        {
+          "args": {
+            "name": "dup_with_date"
+          },
+          "command": "runInTerminal.run"
+        }
+      ]
     },
     // run in terminal 'again'
     {
       "after": [],
-      "before": ["<leader>", "r", "a"],
+      "before": [
+        "<leader>",
+        "r",
+        "a"
+      ],
       "commands": [
         {
           "command": "runInTerminal.runLast"
@@ -204,7 +257,11 @@
     // run in terminal 'line'
     {
       "after": [],
-      "before": ["<leader>", "r", "l"],
+      "before": [
+        "<leader>",
+        "r",
+        "l"
+      ],
       "commands": [
         {
           "args": {
@@ -217,7 +274,11 @@
     // run in terminal 'buffer'
     {
       "after": [],
-      "before": ["<leader>", "r", "b"],
+      "before": [
+        "<leader>",
+        "r",
+        "b"
+      ],
       "commands": [
         {
           "args": {
@@ -230,7 +291,11 @@
     // run in terminal 'suite'
     {
       "after": [],
-      "before": ["<leader>", "r", "s"],
+      "before": [
+        "<leader>",
+        "r",
+        "s"
+      ],
       "commands": [
         {
           "args": {
@@ -243,7 +308,10 @@
     // goto next error flag
     {
       "after": [],
-      "before": ["<leader>", "a"],
+      "before": [
+        "<leader>",
+        "a"
+      ],
       "commands": [
         {
           "command": "editor.action.marker.nextInFiles"
@@ -253,7 +321,10 @@
     // run the current file in terminal
     {
       "after": [],
-      "before": ["<leader>", "x"],
+      "before": [
+        "<leader>",
+        "x"
+      ],
       "commands": [
         {
           "args": {
@@ -266,7 +337,11 @@
     // insert a (roughly) title cased version of the filename
     // eg, for `some-file.md`, "Some File"
     {
-      "before": [",", "f", "f"],
+      "before": [
+        ",",
+        "f",
+        "f"
+      ],
       "after": [],
       "commands": [
         {
@@ -280,7 +355,10 @@
     // open quickfix z=
     {
       "after": [],
-      "before": ["z", "="],
+      "before": [
+        "z",
+        "="
+      ],
       "commands": [
         {
           "args": [],
@@ -291,13 +369,27 @@
     // go to the top, enter some newlines, and enter insert mode
     // useful for prepending new entries to journal, eg
     {
-      "after": ["g", "g", "j", "j", "O", "<Esc>", "O"],
-      "before": ["<leader>", "g"],
+      "after": [
+        "g",
+        "g",
+        "j",
+        "j",
+        "O",
+        "<Esc>",
+        "O"
+      ],
+      "before": [
+        "<leader>",
+        "g"
+      ],
       "commands": []
     },
     // insert the current date as markdown header, normal mode
     {
-      "before": ["<leader>", "t"],
+      "before": [
+        "<leader>",
+        "t"
+      ],
       "after": [],
       "commands": [
         {
@@ -310,8 +402,17 @@
     },
     // insert the current date as markdown header NEAR TOP OF FILE
     {
-      "before": ["<leader>", "d"],
-      "after": ["g", "g", "j", "j", "O"],
+      "before": [
+        "<leader>",
+        "d"
+      ],
+      "after": [
+        "g",
+        "g",
+        "j",
+        "j",
+        "O"
+      ],
       "commands": [
         {
           "command": "editor.action.insertSnippet",
@@ -323,7 +424,10 @@
     },
     // insert a horizontal rule
     {
-      "before": ["<leader>", "h"],
+      "before": [
+        "<leader>",
+        "h"
+      ],
       "commands": [
         {
           "command": "editor.action.insertSnippet",
@@ -335,14 +439,45 @@
     },
     // move paragraph down
     {
-      "before": ["≥"], // alt + .
-      "after": ["{", "V", "}", "k", "\"", "z", "d", "}", "k", "\"", "z", "p", "j"],
+      "before": [
+        "≥"
+      ], // alt + .
+      "after": [
+        "{",
+        "V",
+        "}",
+        "k",
+        "\"",
+        "z",
+        "d",
+        "}",
+        "k",
+        "\"",
+        "z",
+        "p",
+        "j"
+      ],
       "commands": []
     },
     // move paragraph down
     {
-      "before": ["≤"], // alt + ,
-      "after": ["}", "V", "{", "j", "\"", "z", "d", "{", "{", "\"", "z", "p"],
+      "before": [
+        "≤"
+      ], // alt + ,
+      "after": [
+        "}",
+        "V",
+        "{",
+        "j",
+        "\"",
+        "z",
+        "d",
+        "{",
+        "{",
+        "\"",
+        "z",
+        "p"
+      ],
       "commands": []
     }
   ],
@@ -491,6 +626,7 @@
     "disintermediate",
     "dropcam",
     "endfor",
+    "ergodicity",
     "factionalize",
     "ffmpeg",
     "financialization",
