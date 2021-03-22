@@ -33,6 +33,10 @@
     "editor.tabSize": 2,
     "editor.wordWrap": "bounded",
     "editor.wordWrapColumn": 75,
+    "editor.fontLigatures": true,
+    "editor.fontSize": 16,
+    "editor.lineHeight": 26,
+    "editor.lineNumbers": "off",
     // "editor.wordSeparators": "`~!@$%^&*()=+[{]}\\|;:'\",.<>/?", // remove '#' so tags can be searched. Does not seem to be working....
   },
   "[fountain]": {
@@ -40,6 +44,10 @@
     "editor.tabSize": 2,
     "editor.wordWrap": "bounded",
     "editor.wordWrapColumn": 63,
+    "editor.fontLigatures": true,
+    "editor.fontSize": 16,
+    "editor.lineHeight": 26,
+    "editor.lineNumbers": "off",
   },
   "fountain.general.parentheticalNewLineHelper": false,
   "editor.acceptSuggestionOnEnter": "off",
