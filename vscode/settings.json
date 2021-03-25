@@ -39,6 +39,7 @@
     // "editor.wordSeparators": "`~!@$%^&*()=+[{]}\\|;:'\",.<>/?", // remove '#' so tags can be searched. Does not seem to be working....
   },
   "[fountain]": {
+    "editor.fontFamily": "'Courier Prime', Monaco, Menlo, Consolas, 'Courier New', monospace",
     "editor.wordBasedSuggestions": true,
     "editor.tabSize": 2,
     "editor.wordWrap": "bounded",
