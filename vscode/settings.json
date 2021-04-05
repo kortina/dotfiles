@@ -418,6 +418,7 @@
     "Stiglitz",
     "Tarkovsky",
     "Ukeles",
+    "adsense",
     "autoplay",
     "boto",
     "buildpacks",
@@ -463,19 +464,10 @@
     "editor.defaultFormatter": "vscode.html-language-features"
   },
   "typescript.suggest.paths": false ,
-  // "workbench.editorAssociations": []
   "workbench.editorAssociations": [
     {
-      "viewType": "jupyter-notebook",
+      "viewType": "jupyter.notebook.ipynb",
       "filenamePattern": "*.ipynb"
     }
   ]
 }
-  // "workbench.editorAssociations": [
-  //   {
-  //     "viewType": "jupyter-notebook",
-  //     "filenamePattern": "*.ipynb"
-  //   }
-  // ],
-  // "window.zoomLevel": 2
-// }
