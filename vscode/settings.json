@@ -489,7 +489,6 @@
     }
   ],
   "window.title": "${activeEditorMedium}${separator}${rootName}",
-  "workbench.activityBar.visible": false,
   "workbench.colorCustomizations": {
     "editor.lineHighlightBorder": "#444444",
     "editorCursor.foreground": "#f44271",
@@ -674,5 +673,6 @@
       "viewType": "jupyter-notebook",
       "filenamePattern": "*.ipynb"
     }
-  ]
+  ],
+  "workbench.activityBar.visible": false
 }

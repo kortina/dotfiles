@@ -33,4 +33,5 @@ vsls-contrib.codetour
 vsls-contrib.gistfs
 wayou.vscode-todo-highlight
 wingrunr21.vscode-ruby
+witulski.selection-word-count
 yzhang.markdown-all-in-one

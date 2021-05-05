@@ -27,6 +27,8 @@ def main():
     cmd = " ".join(cmd_args)
     print(f"running {cmd}")
     subprocess.run(cmd_args)
+    print("----")
+    print(f"mv {new_filename}")
 
 
 if __name__ == "__main__":
