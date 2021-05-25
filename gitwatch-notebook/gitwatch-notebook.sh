@@ -2,8 +2,8 @@
 set -e
 
 # config:
-remote="git@github.com:kortina/_notebook.git"
-# remote="origin"
+# remote="git@github.com:kortina/_notebook.git"
+remote="origin"
 path="$HOME/Google-Drive/_notebook"
 secs="300" # at most push to github every 5 minutes
 
