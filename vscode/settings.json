@@ -33,7 +33,6 @@
     "editor.tabSize": 2,
     "editor.wordWrap": "bounded",
     "editor.wordWrapColumn": 75,
-    "editor.fontSize": 16,
     "editor.lineHeight": 26,
     "editor.lineNumbers": "off",
     // "editor.wordSeparators": "`~!@$%^&*()=+[{]}\\|;:'\",.<>/?", // remove '#' so tags can be searched. Does not seem to be working....
@@ -44,7 +43,6 @@
     "editor.tabSize": 2,
     "editor.wordWrap": "bounded",
     "editor.wordWrapColumn": 63,
-    "editor.fontSize": 16,
     "editor.lineHeight": 26,
     "editor.lineNumbers": "off",
   },
@@ -649,6 +647,7 @@
     "nodenv",
     "noqa",
     "pharma",
+    "precarity",
     "predistribution",
     "rgen",
     "rouler",
@@ -668,11 +667,9 @@
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "workbench.editorAssociations": [
-    {
-      "viewType": "jupyter-notebook",
-      "filenamePattern": "*.ipynb"
-    }
-  ],
-  "workbench.activityBar.visible": false
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter-notebook"
+  },
+  "workbench.activityBar.visible": false,
+  "window.zoomLevel": 1
 }
