@@ -35,7 +35,7 @@
     "editor.wordBasedSuggestions": true
   },
   "editor.acceptSuggestionOnEnter": "off",
-  "editor.wordWrap": "on",
+  "editor.wordWrap": "off",
   "explorer.autoReveal": false,
   "files.autoSave": "off",
   "files.associations": {
@@ -327,7 +327,6 @@
     }
   ],
   "window.title": "${activeEditorMedium}${separator}${rootName}",
-  "workbench.activityBar.visible": false,
   "workbench.colorCustomizations": {
     "editor.lineHighlightBorder": "#444444",
     "editorCursor.foreground": "#f44271",
@@ -466,8 +465,17 @@
   "typescript.suggest.paths": false ,
   "workbench.editorAssociations": [
     {
-      "viewType": "jupyter.notebook.ipynb",
+      "viewType": "jupyter-notebook",
       "filenamePattern": "*.ipynb"
     }
-  ]
+  ],
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  // "editor.tabSize": 8,
+  // "editor.cursorStyle": "line",
+  // "editor.insertSpaces": false,
+  // "editor.lineNumbers": "on",
+  // "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
+  // "editor.insertSpaces": false
 }
