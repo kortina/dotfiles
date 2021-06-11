@@ -38,3 +38,5 @@ vsls-contrib.gistfs
 wayou.vscode-todo-highlight
 wingrunr21.vscode-ruby
 yzhang.markdown-all-in-one
+witulski.selection-word-count
+yzhang.markdown-all-in-one

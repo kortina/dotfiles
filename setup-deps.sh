@@ -58,6 +58,11 @@ brew_install vim # need vim8 for ale
 brew_install watchman
 brew_install zsh-syntax-highlighting
 
+# image compression tools, via
+# https://blog.daskepon.com/image-compression-tools-on-macos/
+brew_install pngquant
+brew_install jpegoptim
+
 ########################################
 # customize shell (for fast git status)
 ########################################

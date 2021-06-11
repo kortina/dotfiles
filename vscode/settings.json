@@ -8,7 +8,11 @@
   "vscodeMarkdownNotes.allowPipedWikiLinks": true,
   // "vscodeMarkdownNotes.pipedWikiLinksSyntax": "desc|file",
   // "vscodeMarkdownNotes.slugifyMethod": "github",
-  "cSpell.enableFiletypes": ["markdown", "plaintext"],
+  "cSpell.enableFiletypes": [
+    "fountain",
+    "markdown",
+    "plaintext"
+  ],
   "diffEditor.renderIndicators": true,
   // "docker-linter.rubocop.enable": true,
   "editor.formatOnSave": true,
@@ -29,11 +33,20 @@
     "editor.tabSize": 2,
     "editor.wordWrap": "bounded",
     "editor.wordWrapColumn": 75,
+    "editor.lineHeight": 26,
+    "editor.lineNumbers": "off",
     // "editor.wordSeparators": "`~!@$%^&*()=+[{]}\\|;:'\",.<>/?", // remove '#' so tags can be searched. Does not seem to be working....
   },
   "[fountain]": {
-    "editor.wordBasedSuggestions": true
+    "editor.fontFamily": "'Courier Prime', Monaco, Menlo, Consolas, 'Courier New', monospace",
+    "editor.wordBasedSuggestions": true,
+    "editor.tabSize": 2,
+    "editor.wordWrap": "bounded",
+    "editor.wordWrapColumn": 63,
+    "editor.lineHeight": 26,
+    "editor.lineNumbers": "off",
   },
+  "fountain.general.parentheticalNewLineHelper": false,
   "editor.acceptSuggestionOnEnter": "off",
   "editor.wordWrap": "off",
   "explorer.autoReveal": false,
@@ -76,6 +89,14 @@
       "cmd": "${relativeFile}",
       "match": ".*",
       "name": "exec-file"
+    },
+    // make a copy of the current file, with the date, eg:
+    // cp note.txt note--2021-03-19--10-39.txt
+    // see: https://github.com/kortina/dotfiles/blob/master/bin/cpd.py
+    {
+      "cmd": "cd ${fileDirname} && cpd.py ${relativeFile}",
+      "match": ".*",
+      "name": "dup_with_date"
     },
     //////////////////////
     // jest typescript
@@ -136,7 +157,9 @@
   "vim.insertModeKeyBindings": [
     // insert the current date, insert mode
     {
-      "before": ["<C-d>"],
+      "before": [
+        "<C-d>"
+      ],
       "after": [],
       "commands": [
         {
@@ -152,7 +175,10 @@
     // open link under cursor
     {
       "after": [],
-      "before": ["g", "l"],
+      "before": [
+        "g",
+        "l"
+      ],
       "commands": [
         {
           "args": [],
@@ -163,7 +189,10 @@
     // go to next error marker
     {
       "after": [],
-      "before": ["<leader>", "e"],
+      "before": [
+        "<leader>",
+        "e"
+      ],
       "commands": [
         {
           "args": [],
@@ -174,19 +203,56 @@
     // clear search buffer
     {
       "after": [],
-      "before": ["<leader>", "/"],
-      "commands": [":nohl"]
+      "before": [
+        "<leader>",
+        "/"
+      ],
+      "commands": [
+        ":nohl"
+      ]
     },
     // copy everything in buffer to clipboard
     {
-      "after": ["g", "g", "V", "G", "\"", "*", "y"],
-      "before": ["<leader>", "c"],
+      "after": [
+        "g",
+        "g",
+        "V",
+        "G",
+        "\"",
+        "*",
+        "y"
+      ],
+      "before": [
+        "<leader>",
+        "c"
+      ],
       "commands": []
+    },
+    // run in terminal 'dup_with_date'
+    {
+      "after": [],
+      "before": [
+        "<leader>",
+        "d",
+        "d"
+      ],
+      "commands": [
+        {
+          "args": {
+            "name": "dup_with_date"
+          },
+          "command": "runInTerminal.run"
+        }
+      ]
     },
     // run in terminal 'again'
     {
       "after": [],
-      "before": ["<leader>", "r", "a"],
+      "before": [
+        "<leader>",
+        "r",
+        "a"
+      ],
       "commands": [
         {
           "command": "runInTerminal.runLast"
@@ -196,7 +262,11 @@
     // run in terminal 'line'
     {
       "after": [],
-      "before": ["<leader>", "r", "l"],
+      "before": [
+        "<leader>",
+        "r",
+        "l"
+      ],
       "commands": [
         {
           "args": {
@@ -209,7 +279,11 @@
     // run in terminal 'buffer'
     {
       "after": [],
-      "before": ["<leader>", "r", "b"],
+      "before": [
+        "<leader>",
+        "r",
+        "b"
+      ],
       "commands": [
         {
           "args": {
@@ -222,7 +296,11 @@
     // run in terminal 'suite'
     {
       "after": [],
-      "before": ["<leader>", "r", "s"],
+      "before": [
+        "<leader>",
+        "r",
+        "s"
+      ],
       "commands": [
         {
           "args": {
@@ -235,7 +313,10 @@
     // goto next error flag
     {
       "after": [],
-      "before": ["<leader>", "a"],
+      "before": [
+        "<leader>",
+        "a"
+      ],
       "commands": [
         {
           "command": "editor.action.marker.nextInFiles"
@@ -245,7 +326,10 @@
     // run the current file in terminal
     {
       "after": [],
-      "before": ["<leader>", "x"],
+      "before": [
+        "<leader>",
+        "x"
+      ],
       "commands": [
         {
           "args": {
@@ -258,7 +342,11 @@
     // insert a (roughly) title cased version of the filename
     // eg, for `some-file.md`, "Some File"
     {
-      "before": [",", "f", "f"],
+      "before": [
+        ",",
+        "f",
+        "f"
+      ],
       "after": [],
       "commands": [
         {
@@ -272,7 +360,10 @@
     // open quickfix z=
     {
       "after": [],
-      "before": ["z", "="],
+      "before": [
+        "z",
+        "="
+      ],
       "commands": [
         {
           "args": [],
@@ -283,13 +374,27 @@
     // go to the top, enter some newlines, and enter insert mode
     // useful for prepending new entries to journal, eg
     {
-      "after": ["g", "g", "j", "j", "O", "<Esc>", "O"],
-      "before": ["<leader>", "g"],
+      "after": [
+        "g",
+        "g",
+        "j",
+        "j",
+        "O",
+        "<Esc>",
+        "O"
+      ],
+      "before": [
+        "<leader>",
+        "g"
+      ],
       "commands": []
     },
     // insert the current date as markdown header, normal mode
     {
-      "before": ["<leader>", "t"],
+      "before": [
+        "<leader>",
+        "t"
+      ],
       "after": [],
       "commands": [
         {
@@ -302,8 +407,17 @@
     },
     // insert the current date as markdown header NEAR TOP OF FILE
     {
-      "before": ["<leader>", "d"],
-      "after": ["g", "g", "j", "j", "O"],
+      "before": [
+        "<leader>",
+        "d"
+      ],
+      "after": [
+        "g",
+        "g",
+        "j",
+        "j",
+        "O"
+      ],
       "commands": [
         {
           "command": "editor.action.insertSnippet",
@@ -315,7 +429,10 @@
     },
     // insert a horizontal rule
     {
-      "before": ["<leader>", "h"],
+      "before": [
+        "<leader>",
+        "h"
+      ],
       "commands": [
         {
           "command": "editor.action.insertSnippet",
@@ -324,6 +441,49 @@
           }
         }
       ]
+    },
+    // move paragraph down
+    {
+      "before": [
+        "≥"
+      ], // alt + .
+      "after": [
+        "{",
+        "V",
+        "}",
+        "k",
+        "\"",
+        "z",
+        "d",
+        "}",
+        "k",
+        "\"",
+        "z",
+        "p",
+        "j"
+      ],
+      "commands": []
+    },
+    // move paragraph down
+    {
+      "before": [
+        "≤"
+      ], // alt + ,
+      "after": [
+        "}",
+        "V",
+        "{",
+        "j",
+        "\"",
+        "z",
+        "d",
+        "{",
+        "{",
+        "\"",
+        "z",
+        "p"
+      ],
+      "commands": []
     }
   ],
   "window.title": "${activeEditorMedium}${separator}${rootName}",
@@ -399,46 +559,106 @@
   "explorer.confirmDelete": false,
   "editor.fontFamily": "Monaco, Menlo, Consolas, 'Courier New', monospace",
   "cSpell.userWords": [
+    "Acquemini",
+    "Adderrall",
     "Arendt",
+    "Asha",
+    "Barbes",
+    "Braimah",
     "Bretton",
     "COVID",
+    "Cabeza",
+    "Citi",
+    "Corea",
+    "Corea's",
+    "D'Angelo",
     "Decompiling",
+    "Djovamin",
+    "Drom",
+    "Dunkin",
     "Emeryville",
     "Frankl",
+    "Fremery",
+    "Goedel's",
+    "Gopnik",
+    "Gramith's",
     "Guantanamera",
+    "Herbie",
+    "Hiromi",
+    "Hiromi's",
     "Iqram",
+    "J",
+    "Jürgen",
     "Kaneda",
+    "Kidjo",
     "Kortina",
+    "Kunal",
+    "Kweli's",
     "Laderman",
+    "Mazzucato",
     "Mierle",
+    "Moto",
+    "NADA",
+    "Nuyorican",
+    "Outkast",
+    "Outkast's",
+    "Palo",
+    "Pedrito",
+    "Pedrito's",
+    "Perpetuo",
     "Phillipsburg",
+    "Pollan's",
     "Ponzi",
     "Prolly",
+    "Radiohead",
+    "Rockwood",
+    "Sanabria",
+    "Schmidhuber's",
+    "Seaton",
+    "Soothe's",
+    "Soundsystem",
+    "Spotify",
     "Stiglitz",
+    "Talib",
     "Tarkovsky",
     "Ukeles",
     "adsense",
+    "VC's",
+    "Weedie",
+    "Youngblood",
+    "Zellerbach",
     "autoplay",
+    "backgrounding",
     "boto",
     "buildpacks",
     "disintermediate",
+    "dropcam",
     "endfor",
+    "ergodicity",
     "factionalize",
     "ffmpeg",
     "financialization",
     "finxpc",
+    "fived",
     "hmac",
     "iframe",
     "infantilizes",
     "logline",
+    "matcha",
     "miscalibrated",
     "neurochemistry",
     "nodenv",
     "noqa",
     "pharma",
     "precompile",
+    "precarity",
     "predistribution",
+    "rgen",
+    "rouler",
+    "schwag",
+    "shakshuka",
     "soundcloud",
+    "subak",
     "sundance",
     "venmo",
     "vetocracy",
@@ -451,31 +671,24 @@
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter-notebook"
+  },
+  "workbench.activityBar.visible": false,
   //JK Customizations START
   "editor.acceptSuggestionOnEnter": "on",
   "workbench.iconTheme": "vs-minimal",
   "explorer.openEditors.visible": 0,
   "files.associations": {
-      "*.html.erb": "html",
-      "*.erb": "erb"
+    "*.html.erb": "html",
+    "*.erb": "erb"
   },
   "[html]": {
     "editor.defaultFormatter": "vscode.html-language-features"
   },
-  "typescript.suggest.paths": false ,
-  "workbench.editorAssociations": [
-    {
-      "viewType": "jupyter-notebook",
-      "filenamePattern": "*.ipynb"
-    }
-  ],
+  "typescript.suggest.paths": false,
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  // "editor.tabSize": 8,
-  // "editor.cursorStyle": "line",
-  // "editor.insertSpaces": false,
-  // "editor.lineNumbers": "on",
-  // "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
-  // "editor.insertSpaces": false
+  }
+  //JK Customizations END
 }

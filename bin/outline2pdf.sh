@@ -28,6 +28,8 @@ echo "----------"
 echo -e "Create \n$ofp \nfrom \n$ifn"
 echo "----------"
 
+# --pdf-engine-opt="[page] of [topage]" \
+
 pandoc \
 --pdf-engine=wkhtmltopdf \
 --pdf-engine-opt="--header-right" \
