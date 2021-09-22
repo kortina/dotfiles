@@ -622,11 +622,11 @@
     "Talib",
     "Tarkovsky",
     "Ukeles",
-    "adsense",
     "VC's",
     "Weedie",
     "Youngblood",
     "Zellerbach",
+    "adsense",
     "autoplay",
     "backgrounding",
     "boto",
@@ -650,8 +650,8 @@
     "nodenv",
     "noqa",
     "pharma",
-    "precompile",
     "precarity",
+    "precompile",
     "predistribution",
     "rgen",
     "rouler",
@@ -660,6 +660,7 @@
     "soundcloud",
     "subak",
     "sundance",
+    "swiggy",
     "venmo",
     "vetocracy",
     "youtube"
@@ -689,6 +690,11 @@
   "typescript.suggest.paths": false,
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "notebook.cellToolbarLocation": {
+    "default": "right",
+    "jupyter-notebook": "left"
+  },
+  "editor.inlineSuggest.enabled": true
   //JK Customizations END
 }
