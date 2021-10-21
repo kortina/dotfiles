@@ -162,6 +162,13 @@
     "key": "cmd+k cmd+k",
     "when": "terminalFocus",
     "command": "workbench.action.terminal.clear"
+  },
+  {
+    "key": "ctrl+enter",
+    "command": "editor.action.insertSnippet",
+    "when": "editorFocus && resourceLangId == markdown",
+    "args": { "langId": "markdown", "name": "markdown-ul-item" }
+    // "args": { "snippet": "\n-" }
   }
   // {
   //   "key": "cmd+k cmd+r",
