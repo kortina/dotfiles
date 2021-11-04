@@ -11,7 +11,7 @@ source $HOME/dotfiles/themes/powerlevel10k/powerlevel10k.zsh-theme
 # To customize prompt, run `p10k configure` or edit $HOME/.p10k.zsh.
 [[ ! -f $HOME/.p10k.zsh ]] || source $HOME/.p10k.zsh
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
+test -e /opt/homebrew/bin/brew && eval "$(/opt/homebrew/bin/brew shellenv)"
 # syntax highlight commands
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
