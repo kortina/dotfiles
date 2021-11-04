@@ -5,7 +5,7 @@ set -e
 echo "##### $(basename $BASH_SOURCE) #####"
 
 DOTFILES_ROOT="`pwd`"
-source "$DOTFILES_ROOT/_setup_defs.sh"
+source "$HOME/dotfiles/_setup_defs.sh"
 
 
 # ensure this exists:
