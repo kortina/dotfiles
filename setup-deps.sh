@@ -175,6 +175,12 @@ gem_install rubocop
 ########################################
 # vim
 ########################################
-show_warning "You may still need to run\n vim +PlugInstall +qall"
+show_warning "You may still need to run the following:"
+show_warning "vim +PlugInstall +qall"
+show_warning "(which installs fzf)"
+show_warning "and:"
+show_warning "- Tomorrow Night Terminal Theme"
+show_warning "- MesloLGS Fonts for powerlevel10k"
+show_warning "- potentially git pull powerlevel10k submodule"
 
 show_success "Finished setup-deps.sh"
