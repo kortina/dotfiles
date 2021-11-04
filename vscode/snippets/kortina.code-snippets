@@ -21,5 +21,10 @@
 		"body": [
 			"__import__(\"pdb\").set_trace()  # FIXME",
 		]
+	},
+	"markdown-ul-item": {
+		"scope": "markdown",
+		"prefix": "li-insert",
+		"body": ["\n- "]
 	}
 }

@@ -71,6 +71,13 @@ source_if_exists "$HOME/.rbenv/completions/rbenv.bash"
 ##################################################
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
+
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+export PIPENV_PYTHON="$PYENV_ROOT/shims/python"
+
+# also with --path
+if command -v pyenv 1>/dev/null 2>&1; then eval "$(pyenv init --path &)"; fi
 # ak added &
 if command -v pyenv 1>/dev/null 2>&1; then eval "$(pyenv init --path &)"; fi
 

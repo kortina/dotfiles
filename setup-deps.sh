@@ -15,6 +15,10 @@ cd $DOTFILES_ROOT && git submodule update --init
 # sudo chown -R "`id -u -n`:admin" /usr/local
 sudo chown -R $(whoami) $(brew --prefix)/* # need to do this on High Sierra instead of previous line
 
+is_m1_mac=false
+arch | grep -q arm64 && is_m1_mac=true
+$is_m1_mac && ROSETTA_PREFIX="arch -x86_64"
+$is_m1_mac && test -e /Library/Apple/usr/share/rosetta/rosetta || softwareupdate --install-rosetta
 
 ########################################
 # libs
@@ -40,8 +44,9 @@ brew_install github/gh/gh
 brew_install python
 brew_install pyenv
 eval "$(pyenv init -)"
-test -e "$HOME/.pyenv/versions/3.7.0" || CFLAGS="-I$(xcrun --show-sdk-path)/usr/include" pyenv install -v 3.7.0
-pyenv global 3.7.0
+# test -e "$HOME/.pyenv/versions/3.7.0" || CFLAGS="-I$(xcrun --show-sdk-path)/usr/include" pyenv install -v 3.7.0
+test -e "$HOME/.pyenv/versions/3.7.10" || pyenv install -v 3.7.10
+pyenv global 3.7.10
 pyenv rehash
 # see: https://github.com/pyenv/pyenv/issues/530 for CFLAGS tip
 
@@ -87,7 +92,7 @@ sudo chsh -s "$_shell" "$_user" # set shell for $_user
 # pip
 ########################################
 
-pip install --upgrade pip
+pip3 install --upgrade pip
 pip_install ansible
 pip_install autopep8
 pip_install black
@@ -123,7 +128,7 @@ test -L "/Applications/Screen Sharing.app" || ln -s "/System/Library/CoreService
 ########################################
 which nodenv || brew_install nodenv # instead of node
 eval "$(nodenv init -)"
-nodenv versions | grep -q "11\.9\.0" || nodenv install 11.9.0
+nodenv versions | grep -q "11\.9\.0" || $ROSETTA_PREFIX nodenv install 11.9.0
 nodenv global 11.9.0
 nodenv rehash
 
@@ -153,17 +158,16 @@ npm_install yarn
 test -e ~/.gemrc && grep -q "no-document" ~/.gemrc || echo "gem: --no-document" >> ~/.gemrc
 # rbenv versions | grep -q "2\.3\.3" || rbenv install 2.3.3
 # rbenv versions | grep -q "2\.3\.3" || RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)" rbenv install 2.3.3
-rbenv versions | grep -q "2\.3\.3" ||  rbenv install 2.3.3
+RUBY_CFLAGS=""
+$is_m1_mac && M1_RUBY_CFLAGS="-Wno-error=implicit-function-declaration"
+rbenv versions | grep -q "2\.7\.4" ||  RUBY_CFLAGS="$M1_RUBY_CFLAGS" rbenv install 2.7.4
 eval "$(rbenv init -)"
-rbenv global 2.3.3
+rbenv global 2.7.4
 rbenv rehash
 # You may need to fix readline in irb by doing the following:
 # xcode-select --install
-# rbenv install -f 2.3.3 && RBENV_VERSION=2.3.3 gem pristine --all
-gem_install docker-sync
-gem_install cocoapods
-# gem_install overcommit
-gem_install teamocil
+# rbenv install -f 2.5.3 && RBENV_VERSION=2.5.3 gem pristine --all
+
 gem_install rb-readline
 gem_install rubocop
 
@@ -171,6 +175,12 @@ gem_install rubocop
 ########################################
 # vim
 ########################################
-show_warning "You may still need to run\n vim +PlugInstall +qall"
+show_warning "You may still need to run the following:"
+show_warning "vim +PlugInstall +qall"
+show_warning "(which installs fzf)"
+show_warning "and:"
+show_warning "- Tomorrow Night Terminal Theme"
+show_warning "- MesloLGS Fonts for powerlevel10k"
+show_warning "- potentially git pull powerlevel10k submodule"
 
 show_success "Finished setup-deps.sh"
