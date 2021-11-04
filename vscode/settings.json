@@ -676,5 +676,6 @@
   "workbench.editorAssociations": {
     "*.ipynb": "jupyter-notebook"
   },
-  "workbench.activityBar.visible": false
+  "workbench.activityBar.visible": false,
+  "python.insidersChannel": "weekly"
 }
