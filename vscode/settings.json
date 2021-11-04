@@ -680,10 +680,10 @@
   "editor.acceptSuggestionOnEnter": "on",
   "workbench.iconTheme": "vs-minimal",
   "explorer.openEditors.visible": 0,
-  "files.associations": {
-    "*.html.erb": "html",
-    "*.erb": "erb"
-  },
+  // "files.associations": {
+  //   "*.html.erb": "html",
+  //   "*.erb": "erb"
+  // },
   "[html]": {
     "editor.defaultFormatter": "vscode.html-language-features"
   },
