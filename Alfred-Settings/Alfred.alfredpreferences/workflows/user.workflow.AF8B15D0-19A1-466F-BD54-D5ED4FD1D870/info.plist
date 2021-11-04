@@ -139,8 +139,8 @@
 				<key>escaping</key>
 				<integer>100</integer>
 				<key>script</key>
-				<string>test -e $HOME/.bash_profile &amp;&amp; source $HOME/.bash_profile
-export NOTE_TO_SELF_TO="andrew.kortina+notes@gmail.com"
+				<string>test -e $HOME/.bash_secrets &amp;&amp; source $HOME/.bash_secrets
+export PATH=~/.pyenv/shims:$PATH
 echo "{query}" | $NOTE_TO_SELF_DIR/note-to-self.sh 2&gt;&amp;1</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
@@ -159,7 +159,7 @@ echo "{query}" | $NOTE_TO_SELF_DIR/note-to-self.sh 2&gt;&amp;1</string>
 	</array>
 	<key>readme</key>
 	<string>export NOTE_TO_SELF_FROM=“..@gmail.com"
-export NOTE_TO_SELF_TO=“..@in.getfin.com"
+export NOTE_TO_SELF_TO=“..+notes@gmail.com"
 export NOTE_TO_SELF_LOG="$HOME/Dropbox/_/notes-to-self.log"
 export NOTE_TO_SELF_DIR="$HOME/src/bakpak/ses-emailer-cli"
 
@@ -196,6 +196,10 @@ export AMAZON_SECRET_KEY=‘..’</string>
 			<real>10</real>
 		</dict>
 	</dict>
+	<key>variablesdontexport</key>
+	<array/>
+	<key>version</key>
+	<string></string>
 	<key>webaddress</key>
 	<string>http://kortina.nyc/</string>
 </dict>
