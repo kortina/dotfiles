@@ -131,9 +131,15 @@ class S3ScreenshotHandler(RegexMatchingEventHandler):
         # skip if our regex didn't match the screenshot
         if not self._matches_a_pattern(os.path.basename(filepath)):
             return
+
         new_filepath = self._new_filepath(filepath)
+        if not os.path.exists(filepath):
+            logging.warning("file no longer exists: {}".format(filepath))
+            return
+
         # mv
         os.rename(filepath, new_filepath)
+        logging.warning("___uploading___")
         self._upload_file(new_filepath)
         # rm
         os.remove(new_filepath)
