@@ -90,16 +90,16 @@ alias history="history 1"
 ##################################################
 # fin
 ##################################################
-test -e ~/code/fin-dev && eval "$(_FA_COMPLETE=source_zsh fa)"
+test -e ~/code/fin-dev && eval "$(_FA_COMPLETE=zsh_source fa)"
 
 ##################################################
 # sq
 ##################################################
 if [ "`id -u -n`" = "kortina" ] ; then 
   export PATH="$PATH:$HOME/src/sq"
-  eval "$(_SQ_COMPLETE=source_zsh sq)"
+  eval "$(_SQ_COMPLETE=zsh_source sq)"
 
   test -e $HOME/src/ck && export PATH="$PATH:$HOME/src"
-  test -e $HOME/src/ck && eval "$(_CK_COMPLETE=source_zsh ck)"
+  test -e $HOME/src/ck && eval "$(_CK_COMPLETE=zsh_source ck)"
 fi
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

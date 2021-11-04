@@ -18,7 +18,7 @@ sudo chown -R $(whoami) $(brew --prefix)/* # need to do this on High Sierra inst
 is_m1_mac=false
 arch | grep -q arm64 && is_m1_mac=true
 $is_m1_mac && ROSETTA_PREFIX="arch -x86_64"
-$is_m1_mac && test -e /Library/Apple/usr/share/rosetta/rosetta || softwareupdate --install-rosetta
+$is_m1_mac && test ! -e /Library/Apple/usr/share/rosetta/rosetta && softwareupdate --install-rosetta
 
 ########################################
 # libs
@@ -104,6 +104,7 @@ pip_install mock # python 2.7
 pip_install nose
 pip_install nose-run-line-number "git+https://github.com/kortina/nose-run-line-number.git@ak-python3-compatibility" # fork w py3 support
 pip_install pre-commit
+pip_install pytz
 pip_install screenplain
 pip_install watchdog
 pip_install xlsx2csv
