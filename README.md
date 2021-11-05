@@ -30,10 +30,6 @@ Each of this scripts can also be run independently (which may be faster for maki
 sudo chown -R "`id -u -n`:admin" /usr/local/*
 ```
 
-### Other
-
-- Must install Xcode before running `./setup.sh`
-
 ### Themes
 
     # install terminal theme
@@ -46,6 +42,18 @@ sudo chown -R "`id -u -n`:admin" /usr/local/*
 to get all of the default terminal keybindings for `fzf` like
 `ctrl-r` for history search. Then, I have my personal `fzf` settings
 in `~/.fzf.conf.bash`
+
+Last time I setup a machine, I had to run the vim setup to get fzf working...
+
+### Other
+
+- Must install Xcode before running `./setup.sh`
+- Chrome
+- Alfred
+- Amphetamine
+- Cyberduck
+- Resolve
+
 
 ### Questions
 

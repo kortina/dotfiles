@@ -11,7 +11,7 @@ source $HOME/dotfiles/themes/powerlevel10k/powerlevel10k.zsh-theme
 # To customize prompt, run `p10k configure` or edit $HOME/.p10k.zsh.
 [[ ! -f $HOME/.p10k.zsh ]] || source $HOME/.p10k.zsh
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
+test -e /opt/homebrew/bin/brew && eval "$(/opt/homebrew/bin/brew shellenv)"
 # syntax highlight commands
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
@@ -97,9 +97,9 @@ test -e ~/code/fin-dev && eval "$(_FA_COMPLETE=zsh_source fa)"
 ##################################################
 if [ "`id -u -n`" = "kortina" ] ; then 
   export PATH="$PATH:$HOME/src/sq"
-  eval "$(_SQ_COMPLETE=source_zsh sq)"
+  eval "$(_SQ_COMPLETE=zsh_source sq)"
 
   test -e $HOME/src/ck && export PATH="$PATH:$HOME/src"
-  test -e $HOME/src/ck && eval "$(_CK_COMPLETE=source_zsh ck)"
+  test -e $HOME/src/ck && eval "$(_CK_COMPLETE=zsh_source ck)"
 fi
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

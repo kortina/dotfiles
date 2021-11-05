@@ -9,9 +9,11 @@ echo "Starting s3screenshots..."
 echo "........................."
 
 # allow root to use homebrew
-export PATH="/usr/local/bin:$PATH"
+# export PATH="/usr/local/bin:$PATH"
+# export PYTHONPATH="`brew --prefix`/lib/python2.7/site-packages:$PYTHONPATH"
+# use pyenv path
+export PATH="$HOME/.pyenv/shims:$PATH"
 
-export PYTHONPATH="`brew --prefix`/lib/python2.7/site-packages:$PYTHONPATH"
 export S3_SCREENSHOTS_OSX_USER="`id -un`"
 export S3_SCREENSHOTS_AWS_BUCKET='__YOURS__'
 export S3_SCREENSHOTS_AWS_ID='__YOURS__'

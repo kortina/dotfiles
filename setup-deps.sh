@@ -18,7 +18,7 @@ sudo chown -R $(whoami) $(brew --prefix)/* # need to do this on High Sierra inst
 is_m1_mac=false
 arch | grep -q arm64 && is_m1_mac=true
 $is_m1_mac && ROSETTA_PREFIX="arch -x86_64"
-$is_m1_mac && test -e /Library/Apple/usr/share/rosetta/rosetta || softwareupdate --install-rosetta
+$is_m1_mac && test ! -e /Library/Apple/usr/share/rosetta/rosetta && softwareupdate --install-rosetta
 
 ########################################
 # libs
@@ -44,9 +44,8 @@ brew_install github/gh/gh
 brew_install python
 brew_install pyenv
 eval "$(pyenv init -)"
-# test -e "$HOME/.pyenv/versions/3.7.0" || CFLAGS="-I$(xcrun --show-sdk-path)/usr/include" pyenv install -v 3.7.0
-test -e "$HOME/.pyenv/versions/3.7.10" || pyenv install -v 3.7.10
-pyenv global 3.7.10
+test -e "$HOME/.pyenv/versions/3.10.0" || pyenv install -v 3.10.0
+pyenv global 3.10.0
 pyenv rehash
 # see: https://github.com/pyenv/pyenv/issues/530 for CFLAGS tip
 
@@ -55,7 +54,6 @@ brew_install jq
 brew_install tmux
 # brew_install languagetool
 brew_install youtube-dl
-# brew_install the_silver_searcher # WAY faster than ack
 brew_install ripgrep
 brew_install rbenv
 brew_install reattach-to-user-namespace
@@ -104,6 +102,7 @@ pip_install mock # python 2.7
 pip_install nose
 pip_install nose-run-line-number "git+https://github.com/kortina/nose-run-line-number.git@ak-python3-compatibility" # fork w py3 support
 pip_install pre-commit
+pip_install pytz
 pip_install screenplain
 pip_install watchdog
 pip_install xlsx2csv
@@ -117,6 +116,9 @@ if [ "`id -u -n`" = "kortina" ] && [ ! -f "$HOME/.bash_secrets" ]; then
     show_error "~/.bash_secrets does not exist. exiting.";
     exit 1; 
 fi;
+cd "$HOME/dotfiles/gitwatch"
+test -e /usr/local/bin/gitwatch || install -b gitwatch.sh /usr/local/bin/gitwatch
+cd "$HOME/dotfiles/gitwatch-notebook" && ./setup-gitwatch-notebook.sh
 
 ########################################
 # various symlinks
@@ -175,6 +177,7 @@ gem_install rubocop
 ########################################
 # vim
 ########################################
+show_warning "-----------------------------------------------"
 show_warning "You may still need to run the following:"
 show_warning "vim +PlugInstall +qall"
 show_warning "(which installs fzf)"
@@ -182,5 +185,6 @@ show_warning "and:"
 show_warning "- Tomorrow Night Terminal Theme"
 show_warning "- MesloLGS Fonts for powerlevel10k"
 show_warning "- potentially git pull powerlevel10k submodule"
+show_warning "-----------------------------------------------"
 
 show_success "Finished setup-deps.sh"
