@@ -45,6 +45,12 @@ setopt no_menu_complete
 setopt no_auto_menu
 setopt magicequalsubst
 
+# change autocompletion settings
+if [[ `id -u  -n` = "jennykortina" ]]; then
+    setopt menu_complete
+    setopt auto_menu
+fi
+
 ##################################################
 # key-bindings
 ##################################################
