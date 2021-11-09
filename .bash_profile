@@ -12,7 +12,8 @@ bind '"\C-k": "printf \\\\33c\\\\e[3;\n"'
 ##################################################
 # pretty bash prompt with git / svn branch name
 ##################################################
-source /usr/local/opt/gitstatus/gitstatus.prompt.sh
+gitstatus_prompt_path="$HOME/dotfiles/themes/powerlevel10k/gitstatus/gitstatus.prompt.sh"
+source $gitstatus_prompt_path
 # PS1='\w ${GITSTATUS_PROMPT}\n\$ ' # directory followed by git status and $/# (normal/root)
 PS1="\n\
 \[\033[0;32m\]\u$DIM \[\033[0;37m\]@ \[\033[0;33m\]\h 
@@ -36,7 +37,7 @@ source_if_exists "$HOME/.fzf.conf.bash"
 ##################################################
 # fin
 ##################################################
-eval "$(_FA_COMPLETE=source fa)"
+test -e "$HOME/code/fin-dev" && eval "$(_FA_COMPLETE=source fa)"
 
 # function make-completion-wrapper () {
 #   local function_name="$2"

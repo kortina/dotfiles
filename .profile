@@ -85,9 +85,10 @@ if command -v pyenv 1>/dev/null 2>&1; then eval "$(pyenv init - &)"; fi
 # javascript
 ##################################################
 
+if which nodenv > /dev/null; then nodenv_cmd=`which nodenv` ; else nodenv_cmd="/opt/homebrew/bin/nodenv" ; fi
 export PATH="$HOME/.nodenv/bin:$PATH"
 # ak added &
-if which nodenv > /dev/null; then eval "$(nodenv init - &)"; else echo nodenv not installed; fi
+if test -e $nodenv_cmd ; then eval "$($nodenv_cmd init - &)"; else echo nodenv not installed; fi
 
 ##################################################
 # fin

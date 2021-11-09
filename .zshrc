@@ -90,7 +90,7 @@ alias history="history 1"
 ##################################################
 # fin
 ##################################################
-test -e ~/code/fin-dev && eval "$(_FA_COMPLETE=zsh_source fa)"
+test -e "$HOME/code/fin-dev" && eval "$(_FA_COMPLETE=zsh_source fa)"
 
 ##################################################
 # sq
