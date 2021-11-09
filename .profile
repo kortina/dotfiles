@@ -62,8 +62,9 @@ source_if_exists "$HOME/.bash_secrets"
 # ruby
 ##################################################
 export PATH="$HOME/.rbenv/shims:$PATH"
+if which rbenv > /dev/null; then rbenv_cmd=`which rbenv` ; else rbenv_cmd="/opt/homebrew/bin/rbenv" ; fi
 # ak added &
-if which rbenv > /dev/null; then eval "$(rbenv init - &)"; else echo rbenv not installed; fi
+if which rbenv > /dev/null || test -e $rbenv_cmd ; then eval "$($rbenv_cmd init - &)"; else echo rbenv not installed; fi
 source_if_exists "$HOME/.rbenv/completions/rbenv.bash"
 
 ##################################################
@@ -88,7 +89,7 @@ if command -v pyenv 1>/dev/null 2>&1; then eval "$(pyenv init - &)"; fi
 if which nodenv > /dev/null; then nodenv_cmd=`which nodenv` ; else nodenv_cmd="/opt/homebrew/bin/nodenv" ; fi
 export PATH="$HOME/.nodenv/bin:$PATH"
 # ak added &
-if test -e $nodenv_cmd ; then eval "$($nodenv_cmd init - &)"; else echo nodenv not installed; fi
+if which nodenv >/dev/null || test -e $nodenv_cmd ; then eval "$($nodenv_cmd init - &)"; else echo nodenv not installed; fi
 
 ##################################################
 # fin
