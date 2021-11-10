@@ -84,7 +84,7 @@
 				<string>#query=$1
 #echo -n $query
 
-cd "$HOME/Google-Drive/_notebook"
+cd "$HOME/gd/_notebook"
 .vscode/open-journal.sh</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>

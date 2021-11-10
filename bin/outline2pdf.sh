@@ -15,7 +15,7 @@ fi
 
 # Use the style sheet from this env var,
 # or fallback to a default:
-test -z $OUTLINE_CSS && OUTLINE_CSS="$HOME/Google-Drive/_notebook/_style.css"
+test -z $OUTLINE_CSS && OUTLINE_CSS="$HOME/gd/_notebook/_style.css"
 
 # output filename (replace ext md|markdown|fountain with pdf)
 ofn=`echo $ifn | sed 's/\.md$/.pdf/i' | sed 's/\.fountain$/.pdf/i' | sed 's/\.markdown$/.pdf/i'`
