@@ -98,8 +98,9 @@ test -e "$HOME/code/fin-dev" && eval "$(_FA_COMPLETE=zsh_source fa)"
 if [ "`id -u -n`" = "kortina" ] ; then 
   export PATH="$PATH:$HOME/src/sq"
   eval "$(_SQ_COMPLETE=zsh_source sq)"
-
-  test -e $HOME/src/ck && export PATH="$PATH:$HOME/src"
-  test -e $HOME/src/ck && eval "$(_CK_COMPLETE=zsh_source ck)"
 fi
+
+##################################################
+# fzf
+##################################################
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
