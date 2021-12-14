@@ -1,5 +1,4 @@
 bierner.emojisense
-bierner.markdown-checkbox
 buenon.scratchpads
 codespaces-contrib.codeswing
 dbaeumer.vscode-eslint
@@ -34,4 +33,3 @@ vsls-contrib.gistfs
 wayou.vscode-todo-highlight
 wingrunr21.vscode-ruby
 witulski.selection-word-count
-yzhang.markdown-all-in-one
