@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 import argparse
-import datetime
 import os
 import re
 import shutil
@@ -20,10 +19,18 @@ def run_cmd(cmd_args: list):
 def main():
     parser = argparse.ArgumentParser(
         description="""Given a file, such as,
-        my_screenplay.highland
+            my_screenplay.highland
         extract the plaintext fountain file to:
-        my_screenplay.highland.fountain
+            my_screenplay.highland.x.fountain
+        By default, sets filemode to readonly, 0444.
     """
+    )
+    parser.add_argument(
+        "--readonly",
+        dest="readonly",
+        type=int,
+        help="Set file to readonly 0444 by default. Set --readonly=0 to skip.",
+        default=1,
     )
     parser.add_argument(
         "file",
@@ -34,11 +41,9 @@ def main():
     args = parser.parse_args()
     f_highland = args.file
     if not os.path.isfile(f_highland):
-        raise argparse.ArgumentError(args.file, "does not exist.")
+        parser.error(f"file '{args.file}' does not exist.")
     if not re.search(r"\.highland$", f_highland):
-        raise argparse.ArgumentError(
-            args.file, "does not appear to be a .highland file."
-        )
+        parser.error(f"file {args.file}' does not appear to be a .highland file.")
 
     base_highland = os.path.basename(f_highland)
     abs_f_highland = os.path.abspath(f_highland)
@@ -70,19 +75,12 @@ def main():
     run_cmd(cmd_args)
 
     # set file readonly
-    cmd_args = ["chmod", "0444", abs_f_fountain]
-    run_cmd(cmd_args)
+    if args.readonly:
+        cmd_args = ["chmod", "0444", abs_f_fountain]
+        run_cmd(cmd_args)
 
     # cleanup tmp directory
     shutil.rmtree(abs_dir_tmp)
-
-    # f_abs_filename = os.path.join(abs_path, f_filename)
-
-    # cmd_args = ["cp", f_highland, f_filename]
-    # cmd = " ".join(cmd_args)
-    # print(f"running {cmd}")
-    # print("----")
-    # print(f"{f_filename}")
 
 
 if __name__ == "__main__":
