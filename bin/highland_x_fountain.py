@@ -33,6 +33,8 @@ def main():
     )
     args = parser.parse_args()
     f_highland = args.file
+    if not os.path.isfile(f_highland):
+        raise argparse.ArgumentError(args.file, "does not exist.")
     if not re.search(r"\.highland$", f_highland):
         raise argparse.ArgumentError(
             args.file, "does not appear to be a .highland file."
@@ -44,7 +46,8 @@ def main():
 
     abs_dir_tmp = "/tmp/highland"
     # make the tmp directory
-    os.makedirs(abs_dir_tmp)
+    if not os.path.isdir(abs_dir_tmp):
+        os.makedirs(abs_dir_tmp)
 
     f_tmp_highland = os.path.join(abs_dir_tmp, base_highland)
 
@@ -64,6 +67,10 @@ def main():
     abs_f_fountain = os.path.join(abs_dir_highland, f_fountain)
 
     cmd_args = ["cp", abs_path_txt, abs_f_fountain]
+    run_cmd(cmd_args)
+
+    # set file readonly
+    cmd_args = ["chmod", "0444", abs_f_fountain]
     run_cmd(cmd_args)
 
     # cleanup tmp directory
