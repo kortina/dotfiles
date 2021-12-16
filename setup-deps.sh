@@ -106,6 +106,7 @@ pip_install pytz
 pip_install screenplain
 pip_install watchdog
 pip_install xlsx2csv
+pip install -U yt-dlp
 
 ########################################
 # misc
