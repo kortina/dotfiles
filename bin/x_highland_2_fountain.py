@@ -85,16 +85,18 @@ def main():
     f_fountain = f"{base_highland}.x.fountain"
     abs_f_fountain = os.path.join(abs_dir_highland, f_fountain)
 
-    # if x.fountain exists, exit if there is no diff
-    if os.path.isfile(abs_f_fountain) and filecmp.cmp(abs_f_txt, abs_f_fountain):
-        if Settings.debug:
-            print(f"No change: {abs_f_fountain}")
-        shutil.rmtree(abs_dir_tmp)
-        return
+    # if x.fountain exists
+    if os.path.isfile(abs_f_fountain):
+        # exit if there is no diff
+        if filecmp.cmp(abs_f_txt, abs_f_fountain):
+            if Settings.debug:
+                print(f"No change: {abs_f_fountain}")
+            shutil.rmtree(abs_dir_tmp)
+            return
 
-    # make sure the target is not read-only
-    cmd_args = ["chmod", "0644", abs_f_fountain]
-    run_cmd(cmd_args)
+        # make sure the target is not read-only, so we can overwrite it
+        cmd_args = ["chmod", "0644", abs_f_fountain]
+        run_cmd(cmd_args)
 
     # copy the plaintext file to original directory
     cmd_args = ["cp", abs_f_txt, abs_f_fountain]
