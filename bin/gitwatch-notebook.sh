@@ -35,7 +35,7 @@ echo "  $path"
 echo "to:"
 echo "  $remote $branch"
 echo "every:"
-echo "$secs secs"
+echo "  $secs secs"
 echo "-------------------------------------------------------------------------------"
 echo ""
 
