@@ -87,7 +87,8 @@ def main():
 
     # if x.fountain exists, exit if there is no diff
     if os.path.isfile(abs_f_fountain) and filecmp.cmp(abs_f_txt, abs_f_fountain):
-        print(f"No change: {abs_f_fountain}")
+        if Settings.debug:
+            print(f"No change: {abs_f_fountain}")
         shutil.rmtree(abs_dir_tmp)
         return
 
