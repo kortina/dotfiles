@@ -1,19 +1,21 @@
 #!/usr/bin/env python3
 import argparse
+import filecmp
 import os
 import re
 import shutil
 import subprocess
 
 
-DEBUG = True
+class Settings:
+    debug = False
 
 
 def run_cmd(cmd_args: list):
     cmd = " ".join(cmd_args)
-    if DEBUG:
+    if Settings.debug:
         print(f"running:\n{cmd}")
-    subprocess.run(cmd_args)
+    subprocess.run(cmd_args, check=True)
 
 
 def main():
@@ -26,11 +28,17 @@ def main():
     """
     )
     parser.add_argument(
-        "--readonly",
-        dest="readonly",
-        type=int,
-        help="Set file to readonly 0444 by default. Set --readonly=0 to skip.",
+        "--no-readonly",
+        dest="no_readonly",
+        action="store_true",
+        help="Set file to readonly 0444 by default. Set --no-readonly to skip.",
         default=1,
+    )
+    parser.add_argument(
+        "--debug",
+        dest="debug",
+        action="store_true",
+        help="Set debug mode output.",
     )
     parser.add_argument(
         "file",
@@ -40,6 +48,10 @@ def main():
     )
     args = parser.parse_args()
     f_highland = args.file
+
+    if args.debug:
+        Settings.debug = True
+
     if not os.path.isfile(f_highland):
         parser.error(f"file '{args.file}' does not exist.")
     if not re.search(r"\.highland$", f_highland):
@@ -50,9 +62,10 @@ def main():
     abs_dir_highland = os.path.dirname(abs_f_highland)
 
     abs_dir_tmp = "/tmp/highland"
+    if os.path.isdir(abs_dir_tmp):
+        shutil.rmtree(abs_dir_tmp)
     # make the tmp directory
-    if not os.path.isdir(abs_dir_tmp):
-        os.makedirs(abs_dir_tmp)
+    os.makedirs(abs_dir_tmp)
 
     f_tmp_highland = os.path.join(abs_dir_tmp, base_highland)
 
@@ -61,21 +74,33 @@ def main():
     run_cmd(cmd_args)
 
     # unzip in tmp
-    cmd_args = ["unzip", f_tmp_highland, "-d", abs_dir_tmp]
+    cmd_args = ["unzip", "-q", f_tmp_highland, "-d", abs_dir_tmp]
     run_cmd(cmd_args)
 
-    # copy the plaintext file to original directory
+    # get path to extracted fountain
     f_textbundle = re.sub(r"(\.highland)", ".textbundle", base_highland)
-    abs_path_txt = os.path.join(abs_dir_tmp, f_textbundle, "text.fountain")
+    abs_f_txt = os.path.join(abs_dir_tmp, f_textbundle, "text.fountain")
 
+    # get path to new x.fountain
     f_fountain = f"{base_highland}.x.fountain"
     abs_f_fountain = os.path.join(abs_dir_highland, f_fountain)
 
-    cmd_args = ["cp", abs_path_txt, abs_f_fountain]
+    # if x.fountain exists, exit if there is no diff
+    if os.path.isfile(abs_f_fountain) and filecmp.cmp(abs_f_txt, abs_f_fountain):
+        print(f"No change: {abs_f_fountain}")
+        shutil.rmtree(abs_dir_tmp)
+        return
+
+    # make sure the target is not read-only
+    cmd_args = ["chmod", "0644", abs_f_fountain]
+    run_cmd(cmd_args)
+
+    # copy the plaintext file to original directory
+    cmd_args = ["cp", abs_f_txt, abs_f_fountain]
     run_cmd(cmd_args)
 
     # set file readonly
-    if args.readonly:
+    if not args.no_readonly:
         cmd_args = ["chmod", "0444", abs_f_fountain]
         run_cmd(cmd_args)
 
