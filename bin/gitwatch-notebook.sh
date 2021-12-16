@@ -17,7 +17,7 @@ function commit_changes {
     [ -z "$(git status --porcelain=v1 2>/dev/null)" ] && return
 
     # add
-    msg="autocommit `date '+%Y-%m-%d %H:%M:%S'`"
+    msg="autocommit `date '+%Y-%m-%d %H:%M:%S'` by gitwatch"
     git add --all .
 
     # commit
