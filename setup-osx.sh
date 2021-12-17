@@ -213,15 +213,18 @@ sudo ln -sf "/Applications/Xcode.app/Contents/Developer/Applications/iOS Simulat
 # 10: Put display to sleep
 # 11: Launchpad
 # 12: Notification Center
-# Top left screen corner → 
+# Top left screen corner → X
 defaults write com.apple.dock wvous-tl-corner -int 0
 defaults write com.apple.dock wvous-tl-modifier -int 0
-# Top right screen corner →
+# Top right screen corner → X
 defaults write com.apple.dock wvous-tr-corner -int 0
 defaults write com.apple.dock wvous-tr-modifier -int 0
-# Bottom left screen corner → Desktop
+# Bottom left screen corner → X Desktop
 defaults write com.apple.dock wvous-bl-corner -int 0
 defaults write com.apple.dock wvous-bl-modifier -int 0
+# Bottom right screen corner → X Quick Note
+defaults write com.apple.dock wvous-br-corner -int 0
+defaults write com.apple.dock wvous-br-modifier -int 0
 
 ###############################################################################
 # Messages                                                                    #
