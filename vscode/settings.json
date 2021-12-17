@@ -33,7 +33,7 @@
     "editor.tabSize": 2,
     "editor.wordWrap": "bounded",
     "editor.wordWrapColumn": 75,
-    "editor.lineHeight": 26,
+    "editor.lineHeight": 1.8,
     "editor.lineNumbers": "off",
     // "editor.wordSeparators": "`~!@$%^&*()=+[{]}\\|;:'\",.<>/?", // remove '#' so tags can be searched. Does not seem to be working....
   },
@@ -43,7 +43,7 @@
     "editor.tabSize": 2,
     "editor.wordWrap": "bounded",
     "editor.wordWrapColumn": 63,
-    "editor.lineHeight": 26,
+    "editor.lineHeight": 1.8,
     "editor.lineNumbers": "off",
   },
   "fountain.general.parentheticalNewLineHelper": false,
