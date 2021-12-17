@@ -66,6 +66,10 @@ brew_install zsh-syntax-highlighting
 brew_install pngquant
 brew_install jpegoptim
 
+# cask installs
+ brew install --cask syntax-highlight # quick look for code
+ brew install --cask qlmarkdown # quick look for rendered markdown
+
 ########################################
 # customize shell (for fast git status)
 ########################################
