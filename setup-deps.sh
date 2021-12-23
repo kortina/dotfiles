@@ -38,7 +38,7 @@ brew_install coreutils
 brew_install ctop
 brew_install ctags
 brew_install ffmpeg
-brew_install github/gh/gh
+brew_install gh # github/gh/gh
 # brew_install heroku
 
 brew_install python
