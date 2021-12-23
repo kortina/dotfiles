@@ -53,7 +53,7 @@ brew_install openssl
 brew_install jq
 brew_install tmux
 # brew_install languagetool
-brew_install youtube-dl
+# brew_install youtube-dl # pip install yt-dlp instead
 brew_install ripgrep
 brew_install rbenv
 brew_install reattach-to-user-namespace
@@ -82,7 +82,7 @@ sudo chsh -s "$_shell" # set shell for root
 sudo chsh -s "$_shell" "$_user" # set shell for $_user
 
 ########################################
-# cask required for the following, kind of annoyting so removing for now
+# cask required for the following, kind of annoying so removing for now
 ########################################
 # brew tap homebrew/cask-cask
 # brew tap caskroom/versions 
