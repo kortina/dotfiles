@@ -121,9 +121,6 @@ if [ "`id -u -n`" = "kortina" ] && [ ! -f "$HOME/.bash_secrets" ]; then
     show_error "~/.bash_secrets does not exist. exiting.";
     exit 1; 
 fi;
-cd "$HOME/dotfiles/gitwatch"
-test -e /usr/local/bin/gitwatch || install -b gitwatch.sh /usr/local/bin/gitwatch
-cd "$HOME/dotfiles/gitwatch-notebook" && ./setup-gitwatch-notebook.sh
 
 ########################################
 # various symlinks
