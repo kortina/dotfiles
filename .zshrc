@@ -95,7 +95,7 @@ test -e "$HOME/code/fin-dev" && eval "$(_FA_COMPLETE=zsh_source fa)"
 ##################################################
 # sq
 ##################################################
-if [ "`id -u -n`" = "kortina" ] ; then 
+if [ -d "$HOME/src/sq" ] ; then 
   export PATH="$PATH:$HOME/src/sq"
   eval "$(_SQ_COMPLETE=zsh_source sq)"
 fi
