@@ -84,7 +84,7 @@
 				<string>#query=$1
 #echo -n $query
 
-cd "$HOME/gd/_notebook"
+cd "$HOME/_notebook"
 /usr/local/bin/code .</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>

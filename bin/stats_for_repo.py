@@ -2,6 +2,7 @@
 import datetime
 import git
 import os
+import re
 import subprocess
 
 
@@ -18,6 +19,7 @@ class S:
     CHECKOUT_DIR = "/Users/kortina/src/stats_for__notebook"
     FIRST_D = "2021-02-01"
     LAST_D = "2022-01-01"
+    REGEX = re.compile(r"\.(fountain|md|markdown|txt)$", re.I)
 
 
 def run_cmd(cmd_args: list, cwd: str | None):
@@ -38,9 +40,20 @@ def repo_exists():
 
 def r():
     if repo_exists():
-        return git.Repo.init(S.CHECKOUT_DIR)
+        repo = git.Repo.init(S.CHECKOUT_DIR)
     else:
-        return git.Repo.clone_from(S.ORIGIN_URL, S.CHECKOUT_DIR, branch="master")
+        repo = git.Repo.clone_from(S.ORIGIN_URL, S.CHECKOUT_DIR, branch="master")
+
+    # make sure local master tracks remote origin
+    repo.heads.master.set_tracking_branch(repo.remotes.origin.refs.master)
+
+    # pull the latest from remote origin
+    repo.remotes.origin.pull()
+
+    # submodule update --init
+    for submodule in repo.submodules:
+        submodule.update(init=True)
+    return repo
 
 
 def datetime_for_commit(commit):
@@ -62,16 +75,23 @@ def datetime_from_string(d: str):
 
 
 def first_commit_date():
-    repo = r()
-    heads = repo.heads
-    master = heads.master
-    log = master.log()
-    first_commit = log[0]
+    commits = r().heads.master.log()
+    first_commit = commits[0]
     return datetime_for_commit(first_commit)
 
 
 def main():
-    first_commit_date()
+    print(f"first_commit_date: {first_commit_date()}")
+    print("writing_files:")
+    writing_files()
+
+
+def writing_files():
+    for subdir, dirs, files in os.walk(S.CHECKOUT_DIR):
+        for filename in files:
+            filepath = os.path.join(subdir, filename)
+            if re.search(S.REGEX, filepath):
+                print(filepath.replace("/Users/kortina/src/stats_for__notebook/", ""))
 
 
 if __name__ == "__main__":
