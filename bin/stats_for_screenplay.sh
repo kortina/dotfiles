@@ -28,10 +28,14 @@ afterwriting --overwrite --source "$fp_screenplay" --pdf "$fp_pdf" 2>&1 > /dev/n
 
 words=`wc -w "$fp_screenplay" | tr -s ' ' | cut -d ' ' -f 2`
 lines=`wc -l "$fp_screenplay" | tr -s ' ' | cut -d ' ' -f 2`
+scenes=`rg --multiline "\n(INT|EXT)\." -o "$fp_screenplay" | wc -l | g -o "\d+"`
 pages=`qpdf --show-npages "$fp_pdf"`
+
+# commify
 
 words=`LC_NUMERIC=en_US.UTF-8 printf "%'d\n" "$words"`
 lines=`LC_NUMERIC=en_US.UTF-8 printf "%'d\n" "$lines"`
+scenes=`LC_NUMERIC=en_US.UTF-8 printf "%'d\n" "$scenes"`
 pages=`LC_NUMERIC=en_US.UTF-8 printf "%'d\n" "$pages"`
 
 echo "-------------------"
