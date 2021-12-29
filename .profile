@@ -73,6 +73,7 @@ source_if_exists "$HOME/.rbenv/completions/rbenv.bash"
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 export PIPENV_PYTHON="$PYENV_ROOT/shims/python"
+export PYTHONBREAKPOINT="ipdb.set_trace"
 
 # ak replaced '-' with '--path' and added '&'
 if command -v pyenv 1>/dev/null 2>&1; then eval "$(pyenv init --path &)"; fi

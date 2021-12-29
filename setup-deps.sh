@@ -101,6 +101,7 @@ pip_install black
 pip_install boto
 pip_install boto3
 pip_install flake8
+pip_install ipdb
 pip_install ipython
 pip_install mock # python 2.7
 pip_install nose
