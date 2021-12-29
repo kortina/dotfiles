@@ -89,6 +89,7 @@ class PlayStats:
     line_count: int = 0
     scene_count: int = 0
     characters: Dict[str, CharacterStats] = field(default_factory=dict)
+    comment_count: int = 0
 
 
 def line_break() -> None:
@@ -128,10 +129,15 @@ def play_stats(fountain_string: str) -> PlayStats:
     f = fountain.Fountain(fountain_string)
     cur_scene = 0
     cur_char: str | None = None
+    ps.comment_count = f.comment_count
+
     for el in f.elements:
         if el.element_type == FT.SCENE_HEADING:
             cur_scene += 1
             ps.scene_count += 1
+
+        # if el.element_type == FT.COMMENT:
+        #     ps.comment_count += 1
 
         # set current char, update their stats
         if el.element_type == FT.CHARACTER:
@@ -177,6 +183,7 @@ def render_stats(ps: PlayStats, filepath: str) -> None:
     print(f"Pages: {page_count}")
     print(f"Characters: {len(ps.characters.keys())}")
     print(f"Words of Dialog: {ps.word_count_dialog}")
+    print(f"Todos: {ps.comment_count}")
 
     chars = list(ps.characters.values())
     chars.sort(key=lambda x: len(x.name), reverse=True)

@@ -48,6 +48,7 @@ class Fountain:
     def __init__(self, string=None, path=None):
         self.metadata = dict()
         self.elements = list()
+        self.comment_count = 0
 
         if path:
             with open(path) as fp:
@@ -107,6 +108,8 @@ class Fountain:
                 newlines_before += 1
                 continue
 
+            # again, this seems only to look at the beginning of a line
+            # we should rewrite this so it catches mid-line Boneyard text
             if line.startswith("/*"):
                 line = line.rstrip()
                 if line.endswith("*/"):
@@ -165,6 +168,14 @@ class Fountain:
                     )
                 )
                 continue
+
+            # kortina
+            # The comment parser only seems to identify comments that occupy an entire line
+            # This implements a count.
+            # The real solution likely works more like Boneyard tracking.
+            # see: https://fountain.io/syntax#section-notes
+            # Also, these are called Notes, not Comments
+            self.comment_count += full_strip.count("[[")
 
             if (
                 newlines_before > 0
