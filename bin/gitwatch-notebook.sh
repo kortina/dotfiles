@@ -23,11 +23,18 @@ function commit_changes {
     msg="autocommit `date '+%Y-%m-%d %H:%M:%S'` by gitwatch"
     git add --all .
 
+    # don't abort on error
+    set +e
+
     # commit
     git commit -m "$msg"
 
     # push
     git push "$remote" "$branch"
+
+    # resume abort on error
+    set -e
+
     echo "-------------------------------------------------------------------------------"
     
 }

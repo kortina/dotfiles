@@ -285,11 +285,12 @@ def main() -> None:
     c1 = repo.newest_commit_before_date(S.FIRST_D)
     print(f"newest commit before {S.FIRST_D}: {c1.hexsha} @ {datetime_for_commit(c1)}")
 
-    repo.checkout_repo_at_date(datetime_for_commit(c1).strftime("%Y-%m-%d"))
-    repo.checkout_repo_at_date("2021-12-25")
+    if False:  # TODO: remove this
+        repo.checkout_repo_at_date(datetime_for_commit(c1).strftime("%Y-%m-%d"))
+    repo.checkout_repo_at_date("2021-12-15")
 
     # print("writing_files:")
-    # print_summary()
+    print_summary()
 
 
 if __name__ == "__main__":
