@@ -43,7 +43,13 @@ def main():
     parser.add_argument(
         "file",
         type=str,
-        help="file",
+        help="input file",
+        default=None,
+    )
+    parser.add_argument(
+        "--output",
+        type=str,
+        help="output file",
         default=None,
     )
     args = parser.parse_args()
@@ -82,8 +88,11 @@ def main():
     abs_f_txt = os.path.join(abs_dir_tmp, f_textbundle, "text.fountain")
 
     # get path to new x.fountain
-    f_fountain = f"{base_highland}.x.fountain"
-    abs_f_fountain = os.path.join(abs_dir_highland, f_fountain)
+    if args.output:
+        abs_f_fountain = args.output
+    else:
+        f_fountain = f"{base_highland}.x.fountain"
+        abs_f_fountain = os.path.join(abs_dir_highland, f_fountain)
 
     # if x.fountain exists
     if os.path.isfile(abs_f_fountain):

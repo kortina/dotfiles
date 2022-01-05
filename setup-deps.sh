@@ -104,6 +104,7 @@ pip_install flake8
 pip_install ipdb
 pip_install ipython
 pip_install mock # python 2.7
+pip_install nltk
 pip_install nose
 pip_install nose-run-line-number "git+https://github.com/kortina/nose-run-line-number.git@ak-python3-compatibility" # fork w py3 support
 pip_install pre-commit
