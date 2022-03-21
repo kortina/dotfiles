@@ -2,7 +2,7 @@
 [
   // use shift+enter to accept selected suggestion
   {
-    "key": "shift+enter",
+    "key": "ctrl+enter",
     "command": "acceptSelectedSuggestion"
   },
   {
@@ -164,11 +164,9 @@
     "command": "workbench.action.terminal.clear"
   },
   {
-    "key": "ctrl+enter",
-    "command": "editor.action.insertSnippet",
-    "when": "editorFocus && resourceLangId == markdown",
-    "args": { "langId": "markdown", "name": "markdown-ul-item" }
-    // "args": { "snippet": "\n-" }
+    "key": "enter",
+    "command": "-acceptSelectedSuggestion",
+    "when": "acceptSuggestionOnEnter && suggestWidgetVisible && suggestionMakesTextEdit && textInputFocus"
   }
   // {
   //   "key": "cmd+k cmd+r",

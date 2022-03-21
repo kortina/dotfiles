@@ -4,6 +4,7 @@
 #   dl-subtitles.sh "rush hour"
 # deps:
 # cd $HOME/src && git clone git@github.com:kortina/opensubs.git
+# cd opensubs && npm install
 # ripgrep
 
 wd=`pwd`
