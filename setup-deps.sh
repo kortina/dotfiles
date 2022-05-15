@@ -110,6 +110,7 @@ pip_install nose-run-line-number "git+https://github.com/kortina/nose-run-line-n
 pip_install pre-commit
 pip_install pytz
 pip_install screenplain
+pip_install vimeo_downloader
 pip_install watchdog
 pip_install xlsx2csv
 pip install -U yt-dlp
