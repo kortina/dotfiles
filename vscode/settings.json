@@ -8,11 +8,7 @@
   "vscodeMarkdownNotes.allowPipedWikiLinks": true,
   // "vscodeMarkdownNotes.pipedWikiLinksSyntax": "desc|file",
   // "vscodeMarkdownNotes.slugifyMethod": "github",
-  "cSpell.enableFiletypes": [
-    "fountain",
-    "markdown",
-    "plaintext"
-  ],
+  "cSpell.enableFiletypes": ["fountain", "markdown", "plaintext"],
   "diffEditor.renderIndicators": true,
   // "docker-linter.rubocop.enable": true,
   "editor.formatOnSave": true,
@@ -34,7 +30,7 @@
     "editor.wordWrap": "bounded",
     "editor.wordWrapColumn": 75,
     "editor.lineHeight": 1.8,
-    "editor.lineNumbers": "off",
+    "editor.lineNumbers": "off"
     // "editor.wordSeparators": "`~!@$%^&*()=+[{]}\\|;:'\",.<>/?", // remove '#' so tags can be searched. Does not seem to be working....
   },
   "[fountain]": {
@@ -44,7 +40,7 @@
     "editor.wordWrap": "bounded",
     "editor.wordWrapColumn": 63,
     "editor.lineHeight": 1.8,
-    "editor.lineNumbers": "off",
+    "editor.lineNumbers": "off"
   },
   "fountain.general.parentheticalNewLineHelper": false,
   "editor.acceptSuggestionOnEnter": "off",
@@ -157,9 +153,7 @@
   "vim.insertModeKeyBindings": [
     // insert the current date, insert mode
     {
-      "before": [
-        "<C-d>"
-      ],
+      "before": ["<C-d>"],
       "after": [],
       "commands": [
         {
@@ -175,10 +169,7 @@
     // open link under cursor
     {
       "after": [],
-      "before": [
-        "g",
-        "l"
-      ],
+      "before": ["g", "l"],
       "commands": [
         {
           "args": [],
@@ -189,10 +180,7 @@
     // go to next error marker
     {
       "after": [],
-      "before": [
-        "<leader>",
-        "e"
-      ],
+      "before": ["<leader>", "e"],
       "commands": [
         {
           "args": [],
@@ -203,39 +191,19 @@
     // clear search buffer
     {
       "after": [],
-      "before": [
-        "<leader>",
-        "/"
-      ],
-      "commands": [
-        ":nohl"
-      ]
+      "before": ["<leader>", "/"],
+      "commands": [":nohl"]
     },
     // copy everything in buffer to clipboard
     {
-      "after": [
-        "g",
-        "g",
-        "V",
-        "G",
-        "\"",
-        "*",
-        "y"
-      ],
-      "before": [
-        "<leader>",
-        "c"
-      ],
+      "after": ["g", "g", "V", "G", "\"", "*", "y"],
+      "before": ["<leader>", "c"],
       "commands": []
     },
     // run in terminal 'dup_with_date'
     {
       "after": [],
-      "before": [
-        "<leader>",
-        "d",
-        "d"
-      ],
+      "before": ["<leader>", "d", "d"],
       "commands": [
         {
           "args": {
@@ -248,11 +216,7 @@
     // run in terminal 'again'
     {
       "after": [],
-      "before": [
-        "<leader>",
-        "r",
-        "a"
-      ],
+      "before": ["<leader>", "r", "a"],
       "commands": [
         {
           "command": "runInTerminal.runLast"
@@ -262,11 +226,7 @@
     // run in terminal 'line'
     {
       "after": [],
-      "before": [
-        "<leader>",
-        "r",
-        "l"
-      ],
+      "before": ["<leader>", "r", "l"],
       "commands": [
         {
           "args": {
@@ -279,11 +239,7 @@
     // run in terminal 'buffer'
     {
       "after": [],
-      "before": [
-        "<leader>",
-        "r",
-        "b"
-      ],
+      "before": ["<leader>", "r", "b"],
       "commands": [
         {
           "args": {
@@ -296,11 +252,7 @@
     // run in terminal 'suite'
     {
       "after": [],
-      "before": [
-        "<leader>",
-        "r",
-        "s"
-      ],
+      "before": ["<leader>", "r", "s"],
       "commands": [
         {
           "args": {
@@ -313,10 +265,7 @@
     // goto next error flag
     {
       "after": [],
-      "before": [
-        "<leader>",
-        "a"
-      ],
+      "before": ["<leader>", "a"],
       "commands": [
         {
           "command": "editor.action.marker.nextInFiles"
@@ -326,10 +275,7 @@
     // run the current file in terminal
     {
       "after": [],
-      "before": [
-        "<leader>",
-        "x"
-      ],
+      "before": ["<leader>", "x"],
       "commands": [
         {
           "args": {
@@ -342,11 +288,7 @@
     // insert a (roughly) title cased version of the filename
     // eg, for `some-file.md`, "Some File"
     {
-      "before": [
-        ",",
-        "f",
-        "f"
-      ],
+      "before": [",", "f", "f"],
       "after": [],
       "commands": [
         {
@@ -360,10 +302,7 @@
     // open quickfix z=
     {
       "after": [],
-      "before": [
-        "z",
-        "="
-      ],
+      "before": ["z", "="],
       "commands": [
         {
           "args": [],
@@ -374,27 +313,13 @@
     // go to the top, enter some newlines, and enter insert mode
     // useful for prepending new entries to journal, eg
     {
-      "after": [
-        "g",
-        "g",
-        "j",
-        "j",
-        "O",
-        "<Esc>",
-        "O"
-      ],
-      "before": [
-        "<leader>",
-        "g"
-      ],
+      "after": ["g", "g", "j", "j", "O", "<Esc>", "O"],
+      "before": ["<leader>", "g"],
       "commands": []
     },
     // insert the current date as markdown header, normal mode
     {
-      "before": [
-        "<leader>",
-        "t"
-      ],
+      "before": ["<leader>", "t"],
       "after": [],
       "commands": [
         {
@@ -407,17 +332,8 @@
     },
     // insert the current date as markdown header NEAR TOP OF FILE
     {
-      "before": [
-        "<leader>",
-        "d"
-      ],
-      "after": [
-        "g",
-        "g",
-        "j",
-        "j",
-        "O"
-      ],
+      "before": ["<leader>", "d"],
+      "after": ["g", "g", "j", "j", "O"],
       "commands": [
         {
           "command": "editor.action.insertSnippet",
@@ -429,10 +345,7 @@
     },
     // insert a horizontal rule
     {
-      "before": [
-        "<leader>",
-        "h"
-      ],
+      "before": ["<leader>", "h"],
       "commands": [
         {
           "command": "editor.action.insertSnippet",
@@ -444,45 +357,14 @@
     },
     // move paragraph down
     {
-      "before": [
-        "≥"
-      ], // alt + .
-      "after": [
-        "{",
-        "V",
-        "}",
-        "k",
-        "\"",
-        "z",
-        "d",
-        "}",
-        "k",
-        "\"",
-        "z",
-        "p",
-        "j"
-      ],
+      "before": ["≥"], // alt + .
+      "after": ["{", "V", "}", "k", "\"", "z", "d", "}", "k", "\"", "z", "p", "j"],
       "commands": []
     },
     // move paragraph down
     {
-      "before": [
-        "≤"
-      ], // alt + ,
-      "after": [
-        "}",
-        "V",
-        "{",
-        "j",
-        "\"",
-        "z",
-        "d",
-        "{",
-        "{",
-        "\"",
-        "z",
-        "p"
-      ],
+      "before": ["≤"], // alt + ,
+      "after": ["}", "V", "{", "j", "\"", "z", "d", "{", "{", "\"", "z", "p"],
       "commands": []
     }
   ],
@@ -577,6 +459,7 @@
     "Corea's",
     "Cormac",
     "COVID",
+    "crossfade",
     "D'Angelo",
     "Decompiling",
     "disintermediate",
@@ -587,6 +470,7 @@
     "Emeryville",
     "endfor",
     "ergodicity",
+    "exposé",
     "factionalize",
     "ffmpeg",
     "financialization",
@@ -609,6 +493,7 @@
     "inspo",
     "Iqram",
     "J",
+    "Johnstone",
     "Joscha",
     "Jürgen",
     "Kaneda",
@@ -638,6 +523,7 @@
     "Perpetuo",
     "pharma",
     "Phillipsburg",
+    "Playhead",
     "Pollan's",
     "Ponzi",
     "precarity",
@@ -663,6 +549,7 @@
     "Talib",
     "Tarkovsky",
     "telos",
+    "timecode",
     "Tribeca",
     "Ukeles",
     "VC's",
@@ -686,5 +573,5 @@
     "*.ipynb": "jupyter-notebook"
   },
   "workbench.activityBar.visible": false,
-  "python.insidersChannel": "weekly"
+  "window.zoomLevel": -1
 }
