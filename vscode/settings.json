@@ -497,6 +497,7 @@
     "Joscha",
     "Jürgen",
     "Kaneda",
+    "Katharina",
     "Kidjo",
     "Kortina",
     "Kunal",
@@ -523,6 +524,7 @@
     "Perpetuo",
     "pharma",
     "Phillipsburg",
+    "Pistor",
     "Playhead",
     "Pollan's",
     "Ponzi",
@@ -572,6 +574,5 @@
   "workbench.editorAssociations": {
     "*.ipynb": "jupyter-notebook"
   },
-  "workbench.activityBar.visible": false,
-  "window.zoomLevel": -1
+  "workbench.activityBar.visible": false
 }
