@@ -68,24 +68,33 @@ def main():
     abs_dir_highland = os.path.dirname(abs_f_highland)
 
     abs_dir_tmp = "/tmp/highland"
-    if os.path.isdir(abs_dir_tmp):
-        shutil.rmtree(abs_dir_tmp)
-    # make the tmp directory
-    os.makedirs(abs_dir_tmp)
+    if not os.path.isdir(abs_dir_tmp):
+        # make the /tmp/highland directory if nec
+        os.makedirs(abs_dir_tmp)
 
     f_tmp_highland = os.path.join(abs_dir_tmp, base_highland)
+
+    print(f"f_tmp_highland: {f_tmp_highland}")
+    # remove .highland in /tmp/highland
+    if os.path.exists(f_tmp_highland):
+        os.remove(f_tmp_highland)
 
     # copy highland file to tmp
     cmd_args = ["cp", abs_f_highland, f_tmp_highland]
     run_cmd(cmd_args)
 
-    # unzip in tmp
-    cmd_args = ["unzip", "-q", f_tmp_highland, "-d", abs_dir_tmp]
-    run_cmd(cmd_args)
-
-    # get path to extracted fountain
+    # get path to textbundle
     f_textbundle = re.sub(r"(\.highland)", ".textbundle", base_highland)
+
+    # remove .textbundle in /tmp/highland
+    if os.path.exists(f_textbundle):
+        shutil.rmtree(f_textbundle)
+
+    # get path to fountain in textbundle
     abs_f_txt = os.path.join(abs_dir_tmp, f_textbundle, "text.fountain")
+    # unzip in tmp
+    cmd_args = ["unzip", "-qo", f_tmp_highland, "-d", abs_dir_tmp]
+    run_cmd(cmd_args)
 
     # get path to new x.fountain
     if args.output:
@@ -100,7 +109,6 @@ def main():
         if filecmp.cmp(abs_f_txt, abs_f_fountain):
             if Settings.debug:
                 print(f"No change: {abs_f_fountain}")
-            shutil.rmtree(abs_dir_tmp)
             return
 
         # make sure the target is not read-only, so we can overwrite it
@@ -115,9 +123,6 @@ def main():
     if not args.no_readonly:
         cmd_args = ["chmod", "0444", abs_f_fountain]
         run_cmd(cmd_args)
-
-    # cleanup tmp directory
-    shutil.rmtree(abs_dir_tmp)
 
 
 if __name__ == "__main__":
