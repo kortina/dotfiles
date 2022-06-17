@@ -8,9 +8,11 @@
 		<string>/Developer/Applications</string>
 		<string>/Library/PreferencePanes</string>
 		<string>/opt/homebrew/Cellar</string>
+		<string>/opt/s3</string>
 		<string>/System/Library/CoreServices/Applications</string>
 		<string>/System/Library/PreferencePanes</string>
 		<string>/usr/local/Cellar</string>
+		<string>/Volumes/SQ</string>
 		<string>~/Downloads</string>
 		<string>~/gd</string>
 		<string>~/Library/Caches/Metadata</string>
