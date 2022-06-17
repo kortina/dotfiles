@@ -10,7 +10,7 @@
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>B7F2DEA3-EBDA-4CAB-BBEB-5D61E6E2BC90</string>
+				<string>E4356B9A-1232-4CD5-BD48-D62342332084</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -20,7 +20,7 @@
 			</dict>
 			<dict>
 				<key>destinationuid</key>
-				<string>C142A52A-2552-426D-943B-6C22D1EC34F7</string>
+				<string>B7F2DEA3-EBDA-4CAB-BBEB-5D61E6E2BC90</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -72,6 +72,23 @@
 			<string>7038EF8A-6FBB-44BE-B61D-390CB7C6EC4C</string>
 			<key>version</key>
 			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>paths</key>
+				<array>
+					<string>/Applications/vscode</string>
+				</array>
+				<key>toggle</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.launchfiles</string>
+			<key>uid</key>
+			<string>E4356B9A-1232-4CD5-BD48-D62342332084</string>
+			<key>version</key>
+			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -142,6 +159,13 @@ cd "$HOME/_notebook"
 			<integer>525</integer>
 			<key>ypos</key>
 			<integer>455</integer>
+		</dict>
+		<key>E4356B9A-1232-4CD5-BD48-D62342332084</key>
+		<dict>
+			<key>xpos</key>
+			<integer>480</integer>
+			<key>ypos</key>
+			<integer>100</integer>
 		</dict>
 	</dict>
 	<key>webaddress</key>

@@ -10,7 +10,7 @@
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>496C15FC-1578-4688-8163-B3F16B792F56</string>
+				<string>C27A528F-C6C4-48B2-93FD-F8FC41BD145B</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -108,6 +108,23 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>paths</key>
+				<array>
+					<string>/Applications/vscode</string>
+				</array>
+				<key>toggle</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.launchfiles</string>
+			<key>uid</key>
+			<string>C27A528F-C6C4-48B2-93FD-F8FC41BD145B</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>concurrently</key>
 				<false/>
 				<key>escaping</key>
@@ -137,16 +154,16 @@
 		<key>33D04B61-71CD-4EBC-88A1-A82E4A0D1ABB</key>
 		<dict>
 			<key>xpos</key>
-			<integer>455</integer>
+			<integer>475</integer>
 			<key>ypos</key>
-			<integer>250</integer>
+			<integer>415</integer>
 		</dict>
 		<key>496C15FC-1578-4688-8163-B3F16B792F56</key>
 		<dict>
 			<key>xpos</key>
-			<integer>500</integer>
+			<integer>465</integer>
 			<key>ypos</key>
-			<real>10</real>
+			<integer>10</integer>
 		</dict>
 		<key>7038EF8A-6FBB-44BE-B61D-390CB7C6EC4C</key>
 		<dict>
@@ -161,6 +178,13 @@
 			<integer>465</integer>
 			<key>ypos</key>
 			<integer>130</integer>
+		</dict>
+		<key>C27A528F-C6C4-48B2-93FD-F8FC41BD145B</key>
+		<dict>
+			<key>xpos</key>
+			<integer>470</integer>
+			<key>ypos</key>
+			<integer>275</integer>
 		</dict>
 	</dict>
 	<key>webaddress</key>

@@ -13,6 +13,7 @@
 .vim/.netrwhist
 .vim/black
 .vim/plugged
+.vscode/extensions
 /.bundle/
 /tags
 Icon
