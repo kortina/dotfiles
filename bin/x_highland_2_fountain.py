@@ -74,7 +74,6 @@ def main():
 
     f_tmp_highland = os.path.join(abs_dir_tmp, base_highland)
 
-    print(f"f_tmp_highland: {f_tmp_highland}")
     # remove .highland in /tmp/highland
     if os.path.exists(f_tmp_highland):
         os.remove(f_tmp_highland)
