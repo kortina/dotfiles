@@ -40,6 +40,7 @@ brew_install ctags
 brew_install ffmpeg
 brew_install gh # github/gh/gh
 # brew_install heroku
+brew_install libmagic
 
 brew_install python
 brew_install pyenv
@@ -109,6 +110,7 @@ pip_install nose
 pip_install nose-run-line-number "git+https://github.com/kortina/nose-run-line-number.git@ak-python3-compatibility" # fork w py3 support
 pip_install pre-commit
 pip_install pytz
+pip_install python-magic
 pip_install screenplain
 pip_install vimeo_downloader
 pip_install watchdog
