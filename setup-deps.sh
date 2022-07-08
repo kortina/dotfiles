@@ -113,6 +113,7 @@ pip_install pytz
 pip_install python-magic
 pip_install screenplain
 pip_install vimeo_downloader
+pip_install types-pytz
 pip_install watchdog
 pip_install xlsx2csv
 pip install -U yt-dlp
