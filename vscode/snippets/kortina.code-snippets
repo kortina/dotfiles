@@ -26,5 +26,11 @@
 		"scope": "markdown",
 		"prefix": "li-insert",
 		"body": ["\n- "]
-	}
+	},
+	"markdown-frontmatter-for-note": {
+		"scope": "markdown",
+		"prefix": "frontmatter-for-note",
+		"body": ["---\nauthor: kortina\ndate: '$CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE'\nlayout: post\ntitle: '_____'\n---"]
+	},
+
 }
