@@ -32,6 +32,12 @@ def main():
         help="Set debug mode output.",
     )
     parser.add_argument(
+        "--keep-original",
+        dest="keep",
+        action="store_true",
+        help="Do not delete original file.",
+    )
+    parser.add_argument(
         "file",
         type=str,
         help="input img file",
@@ -62,7 +68,7 @@ def main():
     no_ext_fn = re.sub(r"(\.[^\.]+)$", "", source_fn)
     # jpg_fn = f"{no_ext_fn}.jpg"
     jpg_abs_path = os.path.join(cwd, f"{no_ext_fn}.jpg")
-    tiny_fn = f"{no_ext_fn}.tiny.jpg"
+    tiny_abs_path = os.path.join(cwd, f"{no_ext_fn}.tiny.jpg")
 
     if not is_jpg and not os.path.isfile(jpg_abs_path):
         print(f"convert to jpg: {source_fn}")
@@ -71,16 +77,21 @@ def main():
         run_cmd(cmd_args, cwd)
         source_fn = jpg_abs_path
 
-    fn_tiny_full = os.path.join(cwd, tiny_fn)
-
-    if os.path.isfile(fn_tiny_full):
-        print(f"already exists: {fn_tiny_full}")
+    if os.path.isfile(tiny_abs_path):
+        print(f"already exists: {tiny_abs_path}")
         return
 
     tinify.key = os.environ.get("TINY_JPG_API_KEY")
     print(f"tinify: {source_fn}")
     source = tinify.from_file(source_fn)
-    source.to_file(tiny_fn)
+    source.to_file(tiny_abs_path)
+
+    if not args.keep:
+        if os.path.isfile(tiny_abs_path):
+            print(f"rm: {args.file}")
+            os.remove(args.file)
+        else:
+            print(f"ERROR, no tiny file: {tiny_abs_path}")
 
 
 if __name__ == "__main__":

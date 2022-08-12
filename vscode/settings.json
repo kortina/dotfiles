@@ -513,6 +513,7 @@
     "Kunal",
     "Kweli's",
     "Laderman",
+    "Langhorne",
     "logline",
     "matcha",
     "Mazzucato",
@@ -590,5 +591,6 @@
   "workbench.editorAssociations": {
     "*.ipynb": "jupyter-notebook"
   },
-  "workbench.activityBar.visible": false
+  "workbench.activityBar.visible": false,
+  "window.zoomLevel": 1
 }
