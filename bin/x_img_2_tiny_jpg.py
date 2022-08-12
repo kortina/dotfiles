@@ -51,7 +51,8 @@ def main():
     is_jpg = True if re.search(rx_jpg, f_source) else False
 
     if re.search(r"\.tiny\.jpg$", f_source):
-        parser.error(f"file {args.file}' is already tiny jpg")
+        print(f"already tiny: {args.file}")
+        return
 
     source_fn = os.path.basename(f_source)
 
@@ -59,21 +60,25 @@ def main():
     cwd = os.path.dirname(source_abs_path)
 
     no_ext_fn = re.sub(r"(\.[^\.]+)$", "", source_fn)
-    jpg_fn = f"{no_ext_fn}.jpg"
+    # jpg_fn = f"{no_ext_fn}.jpg"
+    jpg_abs_path = os.path.join(cwd, f"{no_ext_fn}.jpg")
     tiny_fn = f"{no_ext_fn}.tiny.jpg"
 
-    if not is_jpg:
+    if not is_jpg and not os.path.isfile(jpg_abs_path):
+        print(f"convert to jpg: {source_fn}")
         # convert to jpg with imagemagick
-        cmd_args = ["convert", source_fn, jpg_fn]
+        cmd_args = ["convert", source_fn, jpg_abs_path]
         run_cmd(cmd_args, cwd)
-        source_fn = jpg_fn
+        source_fn = jpg_abs_path
 
     fn_tiny_full = os.path.join(cwd, tiny_fn)
 
     if os.path.isfile(fn_tiny_full):
-        parser.error(f"File already exists: {fn_tiny_full}")
+        print(f"already exists: {fn_tiny_full}")
+        return
 
     tinify.key = os.environ.get("TINY_JPG_API_KEY")
+    print(f"tinify: {source_fn}")
     source = tinify.from_file(source_fn)
     source.to_file(tiny_fn)
 
