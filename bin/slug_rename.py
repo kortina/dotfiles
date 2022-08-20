@@ -39,8 +39,8 @@ def main():
     if args.debug:
         Settings.debug = True
 
-    if not os.path.isfile(orig):
-        parser.error(f"file '{args.file}' does not exist.")
+    if not os.path.exists(orig):
+        parser.error(f"file/dir '{args.file}' does not exist.")
 
     orig_base = os.path.basename(orig)
     orig_abs = os.path.abspath(orig)
