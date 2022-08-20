@@ -46,19 +46,9 @@ def main():
     orig_abs = os.path.abspath(orig)
     orig_abs_dir = os.path.dirname(orig_abs)
     orig_name, orig_ext = os.path.splitext(orig_base)
-
-    print(orig_base)
-    print(orig_abs)
-    print(orig_abs_dir)
-    print(orig_name)
-    print(orig_ext)
-
     slug_name = re.sub(r"[^\w]+", "-", orig_name)
-    print(slug_name)
     new_name = f"{slug_name}{orig_ext}"
-    print(new_name)
     new_abs = os.path.join(orig_abs_dir, new_name)
-    print(new_abs)
 
     print(f'mv "{orig_abs}" "{new_abs}"')
     shutil.move(orig_abs, new_abs)
