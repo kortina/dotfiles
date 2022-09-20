@@ -46,7 +46,7 @@ def main():
     orig_abs = os.path.abspath(orig)
     orig_abs_dir = os.path.dirname(orig_abs)
     orig_name, orig_ext = os.path.splitext(orig_base)
-    slug_name = re.sub(r"[^a-zA-Z]+", "-", orig_name).strip("-")
+    slug_name = re.sub(r"[^a-zA-Z0-9]+", "-", orig_name).strip("-")
     new_name = f"{slug_name}{orig_ext}"
     new_abs = os.path.join(orig_abs_dir, new_name)
 
