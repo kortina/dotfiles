@@ -118,6 +118,7 @@ pip_install types-pytz
 pip_install watchdog
 pip_install xlsx2csv
 pip install -U yt-dlp
+pip install git+https://github.com/openai/whisper.git 
 
 ########################################
 # misc
