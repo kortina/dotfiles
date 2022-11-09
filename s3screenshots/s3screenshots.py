@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
-import boto
-from boto.s3.key import Key
+import boto  # type:ignore
+from boto.s3.key import Key  # type:ignore
 import logging
 import os
 import random
@@ -13,7 +13,7 @@ from watchdog.observers import Observer
 from watchdog.events import RegexMatchingEventHandler, EVENT_TYPE_DELETED
 
 # system generated screenshot regex
-REGEX_SYSTEM = r".*\/Screen Shot.*\.png"
+REGEX_SYSTEM = r".*\/(Screen Shot|Screenshot).*\.png"
 # manual file upload regex
 REGEX_MANUAL = r".*\.s3s\.(png|jpg|jpeg|gif)"
 
