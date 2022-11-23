@@ -92,41 +92,6 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>applescript</key>
-				<string>on alfred_script(q)
-
-try
-    tell application "Finder" to set b to bounds of window of desktop
-    try
-        tell application (path to frontmost application as text)
-            set bounds of window 1 to {item 1 of b, 22, 1024, 768}
-        end tell
-    on error
-        tell application "System Events" to tell window 1 of (process 1 where it is frontmost)
-            try
-                set position to {0, 22}
-                set size to {1024, 768}
-            on error
-			    display notification "Resize error." with title "Unable to set bounds of window." subtitle "in alfred script."
-            end try
-        end tell
-    end try
-end try
-
-end alfred_script</string>
-				<key>cachescript</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.applescript</string>
-			<key>uid</key>
-			<string>5F691244-2FD2-4F60-BEEB-0B9B6A78EBB0</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>argumenttype</key>
 				<integer>2</integer>
 				<key>keyword</key>
@@ -144,29 +109,6 @@ end alfred_script</string>
 			<string>B1055B9D-BBE5-46AB-A688-C836EDA1AF89</string>
 			<key>version</key>
 			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>concurrently</key>
-				<false/>
-				<key>escaping</key>
-				<integer>102</integer>
-				<key>script</key>
-				<string>$HOME/dotfiles/bin/dismiss_notification_center.applescript</string>
-				<key>scriptargtype</key>
-				<integer>1</integer>
-				<key>scriptfile</key>
-				<string></string>
-				<key>type</key>
-				<integer>0</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>EE3C27A3-3513-4471-AFEA-878B8202D929</string>
-			<key>version</key>
-			<integer>2</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -197,6 +139,30 @@ end alfred_script</string>
 			<key>version</key>
 			<integer>3</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>$HOME/dotfiles/bin/os_dismiss_notifications.applescript
+# $HOME/dotfiles/bin/dismiss_notification_center.applescript</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>EE3C27A3-3513-4471-AFEA-878B8202D929</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string></string>
@@ -205,39 +171,34 @@ end alfred_script</string>
 		<key>30AFC699-BE32-48EF-8F22-986CC03CE446</key>
 		<dict>
 			<key>xpos</key>
-			<integer>130</integer>
+			<real>130</real>
 			<key>ypos</key>
-			<integer>30</integer>
+			<real>30</real>
 		</dict>
 		<key>4A8E41F6-292C-4A1E-8841-26F5F091CB78</key>
 		<dict>
 			<key>xpos</key>
-			<integer>815</integer>
+			<real>815</real>
 			<key>ypos</key>
-			<integer>320</integer>
-		</dict>
-		<key>5F691244-2FD2-4F60-BEEB-0B9B6A78EBB0</key>
-		<dict>
-			<key>xpos</key>
-			<integer>500</integer>
-			<key>ypos</key>
-			<integer>160</integer>
+			<real>320</real>
 		</dict>
 		<key>B1055B9D-BBE5-46AB-A688-C836EDA1AF89</key>
 		<dict>
 			<key>xpos</key>
-			<integer>135</integer>
+			<real>135</real>
 			<key>ypos</key>
-			<integer>170</integer>
+			<real>170</real>
 		</dict>
 		<key>EE3C27A3-3513-4471-AFEA-878B8202D929</key>
 		<dict>
 			<key>xpos</key>
-			<integer>435</integer>
+			<real>435</real>
 			<key>ypos</key>
-			<integer>320</integer>
+			<real>320</real>
 		</dict>
 	</dict>
+	<key>userconfigurationconfig</key>
+	<array/>
 	<key>variablesdontexport</key>
 	<array/>
 	<key>version</key>

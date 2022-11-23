@@ -528,6 +528,7 @@
     "Laderman",
     "logline",
     "LUFS",
+    "majeure",
     "matcha",
     "Mazzucato",
     "metahuman",
@@ -622,6 +623,5 @@
   "workbench.editorAssociations": {
     "*.ipynb": "jupyter-notebook"
   },
-  "workbench.activityBar.visible": false,
-  "window.zoomLevel": 1
+  "workbench.activityBar.visible": false
 }
