@@ -3,18 +3,20 @@
 <plist version="1.0">
 <dict>
 	<key>bundleid</key>
-	<string>net.kortina.alfred.hotkey-chrome</string>
+	<string>nyc.kortina.alfred.hotkey-browser</string>
 	<key>connections</key>
 	<dict>
 		<key>7038EF8A-6FBB-44BE-B61D-390CB7C6EC4C</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>496C15FC-1578-4688-8163-B3F16B792F56</string>
+				<string>28116E90-0014-4925-A19C-8449BD0BEF62</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
 				<string></string>
+				<key>vitoclose</key>
+				<false/>
 			</dict>
 		</array>
 	</dict>
@@ -25,7 +27,7 @@
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
-	<string>Hotkey - Chrome</string>
+	<string>Hotkey - Browser</string>
 	<key>objects</key>
 	<array>
 		<dict>
@@ -43,7 +45,7 @@
 			<key>uid</key>
 			<string>496C15FC-1578-4688-8163-B3F16B792F56</string>
 			<key>version</key>
-			<integer>0</integer>
+			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -52,6 +54,10 @@
 				<integer>0</integer>
 				<key>argument</key>
 				<integer>0</integer>
+				<key>focusedappvariable</key>
+				<false/>
+				<key>focusedappvariablename</key>
+				<string></string>
 				<key>hotkey</key>
 				<integer>37</integer>
 				<key>hotmod</key>
@@ -70,6 +76,23 @@
 			<key>uid</key>
 			<string>7038EF8A-6FBB-44BE-B61D-390CB7C6EC4C</string>
 			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>paths</key>
+				<array>
+					<string>/Applications/Safari.app</string>
+				</array>
+				<key>toggle</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.launchfiles</string>
+			<key>uid</key>
+			<string>28116E90-0014-4925-A19C-8449BD0BEF62</string>
+			<key>version</key>
 			<integer>1</integer>
 		</dict>
 	</array>
@@ -77,18 +100,31 @@
 	<string></string>
 	<key>uidata</key>
 	<dict>
+		<key>28116E90-0014-4925-A19C-8449BD0BEF62</key>
+		<dict>
+			<key>xpos</key>
+			<real>490</real>
+			<key>ypos</key>
+			<real>145</real>
+		</dict>
 		<key>496C15FC-1578-4688-8163-B3F16B792F56</key>
 		<dict>
+			<key>xpos</key>
+			<real>500</real>
 			<key>ypos</key>
-			<real>10</real>
+			<real>15</real>
 		</dict>
 		<key>7038EF8A-6FBB-44BE-B61D-390CB7C6EC4C</key>
 		<dict>
+			<key>xpos</key>
+			<real>100</real>
 			<key>ypos</key>
-			<real>10</real>
+			<real>15</real>
 		</dict>
 	</dict>
+	<key>userconfigurationconfig</key>
+	<array/>
 	<key>webaddress</key>
-	<string>http://kortina.net</string>
+	<string>https://kortina.nyc/</string>
 </dict>
 </plist>
