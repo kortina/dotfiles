@@ -19,3 +19,6 @@ mp3=`echo "$vid" | sed  -e 's/\..*$/\.mp3/g'`
 
 # use ffmpeg to extract audio
 ffmpeg -i "$vid" -q:a 0 -map a "$mp3"
+
+# following seems to work with BRAW:
+# BRAW to wav:  ffmpeg -i A001_08140417_C002.braw -vn C002.wav
