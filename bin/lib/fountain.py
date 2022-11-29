@@ -11,6 +11,7 @@ Based on Fountain by Nima Yousefi & John August
 Original code for Objective-C at https://github.com/nyousefi/Fountain
 Further Edited by Manuel Senfft
 """
+import re
 
 
 COMMON_TRANSITIONS = {"FADE OUT.", "CUT TO BLACK.", "FADE TO BLACK."}
@@ -317,18 +318,21 @@ class Fountain:
                     )
                 continue
 
+            # kortina ↓
+            k_char_strip = re.sub(r" \([^\)]+\)", "", full_strip)
+            # kortina ꜛ
             if (
                 newlines_before > 0
                 and index + 1 < len(script_body)
                 and script_body[index + 1]
                 and not line[0] in ["[", "]", ",", "(", ")"]
                 and (
-                    all([(c in UPPER_ALPHABETS) for c in full_strip])
-                    or full_strip[0] == "@"
+                    all([(c in UPPER_ALPHABETS) for c in k_char_strip])
+                    or k_char_strip[0] == "@"
                 )
             ):
                 newlines_before = 0
-                if full_strip[-1] == "^":
+                if k_char_strip[-1] == "^":
                     for element in reversed(self.elements):
                         if element.element_type == "Character":
                             element.is_dual_dialogue = True
@@ -336,7 +340,7 @@ class Fountain:
                     self.elements.append(
                         FountainElement(
                             "Character",
-                            full_strip.lstrip("@").rstrip("^").strip(),
+                            k_char_strip.lstrip("@").rstrip("^").strip(),
                             is_dual_dialogue=True,
                             original_line=linenum,
                             original_content=line,
@@ -347,7 +351,7 @@ class Fountain:
                     self.elements.append(
                         FountainElement(
                             "Character",
-                            full_strip.lstrip("@"),
+                            k_char_strip.lstrip("@"),
                             original_line=linenum,
                             original_content=line,
                         )
