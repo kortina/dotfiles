@@ -5,7 +5,7 @@
 ##################################################
 export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/opt/local/bin:$PATH"
 export PATH="~/.vim/:/usr/local:/usr/local/bin/ruby:$PATH"
-export PATH="$HOME/dotfiles/bin:$PATH"
+export PATH="$HOME/dotfiles/bin:$HOME/dotfiles/av_transcribe:$PATH"
 
 export GOPATH="$HOME/gopath"
 export PATH="$GOPATH/bin:$PATH"

@@ -16,3 +16,6 @@
 [submodule ".zsh/zsh-autosuggestions"]
 	path = .zsh/zsh-autosuggestions
 	url = git@github.com:zsh-users/zsh-autosuggestions.git
+[submodule "av_transcribe"]
+	path = av_transcribe
+	url = git@github.com:kortina/av_transcribe.git
