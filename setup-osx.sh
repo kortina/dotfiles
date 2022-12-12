@@ -256,7 +256,9 @@ defaults write com.apple.Safari NewWindowBehavior -int 1 # Empty
 # keyboard shortcuts
 defaults write com.apple.Safari NSUserKeyEquivalents -dict-add "'Favorites > pk'" "~p" # currently in first position of favorites there is no way to override ⌥⌘1
 defaults write com.apple.Safari NSUserKeyEquivalents -dict-add "Print..." "^p"
-defaults write com.apple.Safari NSUserKeyEquivalents -dict-add "Reload Page" "~r"
+defaults write com.apple.Safari NSUserKeyEquivalents -dict-add "Reload Page" "@%r"
+defaults write com.apple.Safari NSUserKeyEquivalents -dict-add "Show Reader" "~r"
+defaults write com.apple.Safari NSUserKeyEquivalents -dict-add "Hide Reader" "~r"
 defaults write com.apple.Safari NSUserKeyEquivalents -dict-add "Show JavaScript Console" "@~j"
 defaults write com.apple.Safari NSUserKeyEquivalents -dict-add "Show Tab Overview" "@p"
 
