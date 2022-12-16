@@ -14,9 +14,11 @@ import subprocess
 
 
 def main():
-    parser = argparse.ArgumentParser("dl-youtube-transcript.py [youtube_url]")
+    parser = argparse.ArgumentParser("dl-transcript-youtube.py [youtube_url]")
     parser.add_argument(
-        "youtube_url", type=str, help="URL of youtube vid",
+        "youtube_url",
+        type=str,
+        help="URL of youtube vid",
     )
     args = parser.parse_args()
     download_and_cleanup_transcript(args.youtube_url)
