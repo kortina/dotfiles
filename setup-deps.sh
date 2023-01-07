@@ -138,10 +138,11 @@ test -L "/Applications/Screen Sharing.app" || ln -s "/System/Library/CoreService
 ########################################
 # node modules
 ########################################
+# prev = 11.9.0
 which nodenv || brew_install nodenv # instead of node
 eval "$(nodenv init -)"
-nodenv versions | grep -q "11\.9\.0" || $ROSETTA_PREFIX nodenv install 11.9.0
-nodenv global 11.9.0
+nodenv versions | grep -q "18\.12\.1" || $ROSETTA_PREFIX nodenv install 18.12.1
+nodenv global 18.12.1
 nodenv rehash
 
 npm_install eslint
@@ -150,6 +151,7 @@ npm_install eslint-plugin-flowtype
 npm_install eslint-plugin-fin-eslint-flow-enforcement
 npm_install babel-eslint
 npm_install doctoc # generate markdown toc
+npm_install fountain-js
 npm_install h2m # tool for downlaoding webpage as md file
 npm_install livedown
 npm_install prettier
@@ -163,6 +165,7 @@ npm_install stylelint
 npm_install stylelint-config-recommended
 npm_install typescript
 npm_install tslint
+npm_install ts-node
 npm_install yarn
 
 ########################################
