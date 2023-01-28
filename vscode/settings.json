@@ -642,5 +642,8 @@
   "workbench.editorAssociations": {
     "*.ipynb": "jupyter-notebook"
   },
-  "workbench.activityBar.visible": false
+  "workbench.activityBar.visible": false,
+  "editor.unicodeHighlight.allowedCharacters": {
+    "’": true
+  }
 }
