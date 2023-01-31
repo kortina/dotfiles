@@ -16,6 +16,7 @@ export PATH="$GOPATH/bin:$PATH"
 # alias SaveScreen='/System/Library/Frameworks/ScreenSaver.framework/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine'
 # alias ag='ag --hidden'
 alias g='rg --hidden'
+alias gf='rg . -lg' # find files with names matching glob, eg: gf "*.md"
 alias diff='PAGER=cat git diff --no-index'
 alias dk="docker-compose"
 alias flushdns='sudo dscacheutil -flushcache'
