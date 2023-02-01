@@ -35,18 +35,7 @@
 			</dict>
 		</array>
 		<key>EE3C27A3-3513-4471-AFEA-878B8202D929</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>4A8E41F6-292C-4A1E-8841-26F5F091CB78</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-		</array>
+		<array/>
 	</dict>
 	<key>createdby</key>
 	<string>kortina</string>
@@ -88,6 +77,27 @@
 			<string>30AFC699-BE32-48EF-8F22-986CC03CE446</string>
 			<key>version</key>
 			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string></string>
+				<key>title</key>
+				<string></string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>29BCB6A7-B8B3-47CF-9707-2E7D9DAB609D</string>
+			<key>version</key>
+			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -168,6 +178,13 @@
 	<string></string>
 	<key>uidata</key>
 	<dict>
+		<key>29BCB6A7-B8B3-47CF-9707-2E7D9DAB609D</key>
+		<dict>
+			<key>xpos</key>
+			<real>805</real>
+			<key>ypos</key>
+			<real>140</real>
+		</dict>
 		<key>30AFC699-BE32-48EF-8F22-986CC03CE446</key>
 		<dict>
 			<key>xpos</key>
