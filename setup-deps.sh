@@ -91,6 +91,10 @@ sudo chsh -s "$_shell" "$_user" # set shell for $_user
 # test -e /Applications/KeepingYouAwake.app || brew cask install keepingyouawake # caffeine replacement
 # test -e /Applications/Cyberduck.app || brew cask install cyberduck
 
+brew tap ttscoff/thelab
+brew install gather-cli
+
+
 ########################################
 # pip
 ########################################
