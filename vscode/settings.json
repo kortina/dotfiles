@@ -75,7 +75,8 @@
   "python.pythonPath": "~/.pyenv/shims/python",
   "python.defaultInterpreterPath": "~/.pyenv/shims/python",
   "[python]": {
-    "files.trimFinalNewlines": true
+    "files.trimFinalNewlines": true,
+    "editor.formatOnType": true
   },
   "ruby.linter.run": "onSave",
   // "javascript.format.enable": true,
