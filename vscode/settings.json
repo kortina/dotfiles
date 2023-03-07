@@ -406,6 +406,12 @@
           }
         },
         {
+          "scope": "meta.link.inline.markdown",
+          "settings": {
+            "foreground": "#3f454a"
+          }
+        },
+        {
           "scope": "markup.inline.raw",
           "settings": {
             "foreground": "#f19999"
