@@ -1,6 +1,6 @@
 {
   // "vscodeMarkdownNotes.defaultFileExtension": "mdx",
-  // "vscodeMarkdownNotes.noteCompletionConvention": "toSpaces", // rawFilename, toSpaces noExtension
+  "vscodeMarkdownNotes.noteCompletionConvention": "noExtension", // rawFilename, toSpaces noExtension
   // "vscodeMarkdownNotes.slugifyCharacter": "NONE",
   // "vscodeMarkdownNotes.workspaceFilenameConvention": "relativePaths",
   // "vscodeMarkdownNotes.newNoteTemplate": "# ${noteName}\n\n${timestamp}",
@@ -23,14 +23,14 @@
     "editor.quickSuggestions": {
       "other": true,
       "comments": true,
-      "strings": true
+      "strings": true,
     },
     "editor.wordBasedSuggestions": false,
     "editor.tabSize": 2,
     "editor.wordWrap": "bounded",
     "editor.wordWrapColumn": 75,
     "editor.lineHeight": 1.8,
-    "editor.lineNumbers": "off"
+    "editor.lineNumbers": "off",
     // "editor.wordSeparators": "`~!@$%^&*()=+[{]}\\|;:'\",.<>/?", // remove '#' so tags can be searched. Does not seem to be working....
   },
   "[fountain]": {
@@ -412,6 +412,18 @@
           }
         },
         {
+          "scope": "markup.underline.link.markdown",
+          "settings": {
+            "foreground": "#3f454a"
+          }
+        },
+        {
+          "scope": "punctuation.definition.link.markdown",
+          "settings": {
+            "foreground": "#3f454a"
+          }
+        },
+        {
           "scope": "markup.inline.raw",
           "settings": {
             "foreground": "#f19999"
@@ -597,6 +609,7 @@
     "Rockwood",
     "rokoko",
     "rouler",
+    "rubocop",
     "rxed",
     "Sanabria",
     "Schmidhuber's",
@@ -663,6 +676,5 @@
   "editor.unicodeHighlight.allowedCharacters": {
     "’": true
   },
-  "window.zoomLevel": 1,
-  "vscodeMarkdownNotes.noteCompletionConvention": "toSpaces"
+  "window.zoomLevel": 1
 }
