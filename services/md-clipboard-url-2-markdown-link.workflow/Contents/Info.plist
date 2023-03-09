@@ -12,7 +12,7 @@
 			<key>NSMenuItem</key>
 			<dict>
 				<key>default</key>
-				<string>md - Convert - Clipboard URL to Markdown Link</string>
+				<string>md-clipboard-url-2-markdown-link</string>
 			</dict>
 			<key>NSMessage</key>
 			<string>runWorkflowAsService</string>

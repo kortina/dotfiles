@@ -167,6 +167,10 @@
     "key": "enter",
     "command": "-acceptSelectedSuggestion",
     "when": "acceptSuggestionOnEnter && suggestWidgetVisible && suggestionMakesTextEdit && textInputFocus"
+  },
+  {
+    "key": "ctrl+c",
+    "command": "workbench.action.toggleCenteredLayout"
   }
   // {
   //   "key": "cmd+k cmd+r",
