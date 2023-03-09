@@ -115,6 +115,8 @@
 				<false/>
 				<key>clipboardtext</key>
 				<string>{query}</string>
+				<key>ignoredynamicplaceholders</key>
+				<false/>
 				<key>transient</key>
 				<false/>
 			</dict>
@@ -154,32 +156,34 @@
 		<key>07A721AC-9BD8-4DB5-BA51-E33252CEB3B0</key>
 		<dict>
 			<key>xpos</key>
-			<integer>240</integer>
+			<real>240</real>
 			<key>ypos</key>
-			<integer>145</integer>
+			<real>145</real>
 		</dict>
 		<key>26CB21AC-D4B7-4D7E-8674-B243FF9C501D</key>
 		<dict>
 			<key>xpos</key>
-			<integer>250</integer>
+			<real>250</real>
 			<key>ypos</key>
-			<integer>310</integer>
+			<real>310</real>
 		</dict>
 		<key>60C34CFD-6AA4-404C-B997-5083D57F0D88</key>
 		<dict>
 			<key>xpos</key>
-			<integer>805</integer>
+			<real>805</real>
 			<key>ypos</key>
-			<integer>145</integer>
+			<real>145</real>
 		</dict>
 		<key>D5BC59B5-B2EB-4F2B-A3F5-671FCD92A3BC</key>
 		<dict>
 			<key>xpos</key>
-			<integer>565</integer>
+			<real>565</real>
 			<key>ypos</key>
-			<integer>145</integer>
+			<real>145</real>
 		</dict>
 	</dict>
+	<key>userconfigurationconfig</key>
+	<array/>
 	<key>webaddress</key>
 	<string>http://kortina.net</string>
 </dict>
