@@ -23,14 +23,14 @@
     "editor.quickSuggestions": {
       "other": true,
       "comments": true,
-      "strings": true,
+      "strings": true
     },
     "editor.wordBasedSuggestions": false,
     "editor.tabSize": 2,
     "editor.wordWrap": "bounded",
     "editor.wordWrapColumn": 75,
     "editor.lineHeight": 1.8,
-    "editor.lineNumbers": "off",
+    "editor.lineNumbers": "off"
     // "editor.wordSeparators": "`~!@$%^&*()=+[{]}\\|;:'\",.<>/?", // remove '#' so tags can be searched. Does not seem to be working....
   },
   "[fountain]": {
@@ -461,6 +461,7 @@
   "editor.fontFamily": "Monaco, Menlo, Consolas, 'Courier New', monospace",
   "cSpell.userWords": [
     "Acquemini",
+    "acqui",
     "Adderrall",
     "AFTRA",
     "Akira",
@@ -497,6 +498,7 @@
     "D'Angelo",
     "debranding",
     "Decompiling",
+    "deepfaking",
     "degrowth",
     "Deleuzian",
     "desaturate",

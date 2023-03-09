@@ -14,12 +14,20 @@ for f in `ls -a | grep "^\." | grep -v "\.swp$" | grep -v "DS_Store"`; do
         || [ "$f" = ".ssh" ]; then 
             echo "skipping symlink $f"
     else
-        SYM_FILE="$HOME/$f"
-        TARG_FILE="$DOTFILES_ROOT/$f"
         SYM_DIR="$HOME"
+        SYM_FILE="$SYM_DIR/$f"
+        TARG_FILE="$DOTFILES_ROOT/$f"
         safely_symlink "$SYM_FILE" "$TARG_FILE" "$SYM_DIR"
     fi
 done
+
+# Symlink the Keybinding.dict file
+f="DefaultKeyBinding.dict"
+SYM_DIR="$HOME/Library/KeyBindings"
+SYM_FILE="$SYM_DIR/$f"
+TARG_FILE="$DOTFILES_ROOT/$f"
+mkdir -p "$SYM_DIR"
+safely_symlink "$SYM_FILE" "$TARG_FILE" "$SYM_DIR"
 
 # # do not symlink the entire .ssh dir
 # # just the config file

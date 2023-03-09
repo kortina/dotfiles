@@ -1,0 +1,15 @@
+{
+    // Markdown commands
+    // See https://github.com/ttscoff/KeyBindings/blob/master/DefaultKeyBinding.dict
+    // These don't seem to work either in Chrome or Notes. Gonna try markdown service tools instead.
+    // > links
+    // > without selected text first, these can produce a mess using multiple clipboards
+    // > make a text selection before you run them
+    
+//     // create a link for selected text, cursor between () `[selected text]([cursor])`
+//     "^~k" = (setMark:, moveRight:, insertText:, " ", deleteToMark:, insertText:, " [", moveLeft:, deleteBackward:, moveRight:, yank:, moveLeft:, insertText:, "]()", moveRight:, deleteBackward:, moveLeft:, setMark:, insertText:, "https://", selectToMark:); // link text
+//     
+//     // create a link for selected text, inserting clipboard as url `[[cursor]selected text](clipboard contents)`
+//     "^~l" = (setMark:, moveRight:, insertText:, " ", deleteToMark:, insertText:, " [", moveLeft:, deleteBackward:, moveRight:, yank:, moveLeft:, insertText:, "](", setMark:, pasteAsPlainText:, insertText:, ")", moveRight:, deleteBackward:, moveLeft:, selectToMark:); // link with clipboard
+
+};
