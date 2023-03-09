@@ -12,4 +12,7 @@
 //     // create a link for selected text, inserting clipboard as url `[[cursor]selected text](clipboard contents)`
 //     "^~l" = (setMark:, moveRight:, insertText:, " ", deleteToMark:, insertText:, " [", moveLeft:, deleteBackward:, moveRight:, yank:, moveLeft:, insertText:, "](", setMark:, pasteAsPlainText:, insertText:, ")", moveRight:, deleteBackward:, moveLeft:, selectToMark:); // link with clipboard
 
+// Also did not work:
+// "^~l" = "md - Convert - Clipboard URL to Markdown Link";
+
 };
