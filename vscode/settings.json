@@ -367,6 +367,18 @@
       "before": ["≤"], // alt + ,
       "after": ["}", "V", "{", "j", "\"", "z", "d", "{", "{", "\"", "z", "p"],
       "commands": []
+    },
+    // Markdown: surround hyperlink with ( ) characters, prefix with [link], move cursor to "l" in link
+    {
+      "before": ["<leader>", "m", "l"],
+      "after": ["E", "a", ")", "<Esc>", "B", "i", "[", "l", "i", "n", "k", "]", "(", "<Esc>", "b", "b"],
+      "commands": []
+    },
+    // Markdown: surround hyperlink with < > characters
+    {
+      "before": ["<leader>", "m", "a"],
+      "after": ["B", "i", "<", "<Esc>", "E", "a", ">", "<Esc>"],
+      "commands": []
     }
   ],
   "window.title": "${activeEditorMedium}${separator}${rootName}",
