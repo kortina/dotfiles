@@ -20,6 +20,7 @@
   "editor.quickSuggestionsDelay": 1,
   // during dev show quick suggestions for markdown without ctrl+p
   "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.quickSuggestions": {
       "other": true,
       "comments": true,
@@ -62,7 +63,7 @@
   // "gitlens.codeLens.enabled": false,
   "gutterpreview.imagePreviewMaxHeight": 270,
   // "prettier.eslintIntegration": true,
-  "prettier.jsxBracketSameLine": true,
+  "prettier.bracketSameLine": true,
   // "prettier.parser": "flow",
   "prettier.printWidth": 100,
   "prettier.singleQuote": true,
@@ -144,7 +145,6 @@
   "terminal.integrated.cursorBlinking": true,
   "terminal.integrated.cursorStyle": "block",
   "terminal.integrated.fontFamily": "MesloLGS NF",
-  // "vim.disableAnnoyingNeovimMessage": true,
   "vim.handleKeys": {
     "<C-a>": false,
     "<C-p>": false
@@ -371,7 +371,24 @@
     // Markdown: surround hyperlink with ( ) characters, prefix with [link], move cursor to "l" in link
     {
       "before": ["<leader>", "m", "l"],
-      "after": ["E", "a", ")", "<Esc>", "B", "i", "[", "l", "i", "n", "k", "]", "(", "<Esc>", "b", "b"],
+      "after": [
+        "E",
+        "a",
+        ")",
+        "<Esc>",
+        "B",
+        "i",
+        "[",
+        "l",
+        "i",
+        "n",
+        "k",
+        "]",
+        "(",
+        "<Esc>",
+        "b",
+        "b"
+      ],
       "commands": []
     },
     // Markdown: surround hyperlink with < > characters
@@ -501,6 +518,7 @@
     "Chigurh",
     "Citi",
     "Coen",
+    "Consolas",
     "Corea",
     "Corea's",
     "Cormac",
@@ -526,6 +544,7 @@
     "Emeryville",
     "endfor",
     "ergodicity",
+    "esbenp",
     "exposé",
     "eyeline",
     "factionalize",
@@ -549,12 +568,14 @@
     "Herzog",
     "Hiromi",
     "Hiromi's",
+    "hlsearch",
     "hmac",
     "iframe",
     "inclusivity",
     "infantilize",
     "infantilizes",
     "inspo",
+    "ipynb",
     "Iqram",
     "Italo",
     "J",
@@ -577,6 +598,8 @@
     "matcha",
     "maxlevel",
     "Mazzucato",
+    "Menlo",
+    "Meslo",
     "metahuman",
     "midtone",
     "midtones",
@@ -586,12 +609,16 @@
     "mocap",
     "Moto",
     "Murch",
+    "mypy",
     "NADA",
     "neurochemical",
     "neurochemicals",
     "neurochemistry",
     "nodenv",
+    "nohl",
     "noqa",
+    "noseline",
+    "nosetests",
     "Nuyorican",
     "NXIVM",
     "Omelas",
@@ -616,6 +643,10 @@
     "predistribution",
     "productizes",
     "Prolly",
+    "pyenv",
+    "Pylance",
+    "pylint",
+    "quickfix",
     "rabbithole",
     "Radiohead",
     "résistance",
@@ -691,5 +722,8 @@
   "editor.unicodeHighlight.allowedCharacters": {
     "’": true
   },
-  "window.zoomLevel": 1
+  "window.zoomLevel": 1,
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }
