@@ -67,7 +67,7 @@ def main():
 
     # append downloaded date as comment to end of file
     dt = datetime.datetime.now().strftime("%Y-%m-%d--%H-%M")
-    msg = f"\n<!-- gather-dt: {dt} -->"
+    msg = f"\n<!-- download-dt: {dt} -->"
     with open(os.path.join(final_dir, fn), "a") as f:
         f.write(msg)
 
