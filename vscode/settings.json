@@ -538,6 +538,7 @@
     "devlogs",
     "disintermediate",
     "Djovamin",
+    "doctoc",
     "Drom",
     "dropcam",
     "Dunkin",
@@ -549,6 +550,7 @@
     "exposé",
     "eyeline",
     "factionalize",
+    "faiss",
     "ffmpeg",
     "financialization",
     "finxpc",
@@ -596,6 +598,7 @@
     "Laderman",
     "logline",
     "LUFS",
+    "Magdon",
     "majeure",
     "matcha",
     "maxlevel",
@@ -672,6 +675,7 @@
     "Soothe's",
     "soundcloud",
     "Soundsystem",
+    "SPLADE",
     "Spotify",
     "Stiglitz",
     "Storyboarder",
@@ -724,7 +728,6 @@
   "editor.unicodeHighlight.allowedCharacters": {
     "’": true
   },
-  "window.zoomLevel": 1,
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   }
