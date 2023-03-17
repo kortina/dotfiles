@@ -9,20 +9,24 @@ import re
 import subprocess
 
 
-DEBUG = True
+class Settings:
+    DEBUG = False
 
 
-def run(cmd_args: list[str]) -> str:
-    if DEBUG:
-        cmd = " ".join(cmd_args)
+def run(cmd: list[str]) -> str:
+    _cmd = " ".join(cmd)
+    if Settings.DEBUG:
         print("------------")
         print("running:")
-        print(cmd)
-    out = subprocess.run(cmd_args, capture_output=True, text=True).stdout
-    if DEBUG:
-        print(out)
-        print("------------")
-    return out
+        print(_cmd)
+    result = subprocess.run(cmd, capture_output=True, text=True)
+    if result.returncode == 1:
+        print(f"[ERROR]: {_cmd}")
+        print(result.stdout)
+        raise SystemExit
+    if Settings.DEBUG:
+        print(result.stdout)
+    return result.stdout
 
 
 def main():
@@ -31,21 +35,16 @@ def main():
         description="""Download and save markdown for the URL in the clipboard using gather.
     """
     )
-    # parser.add_argument(
-    #     "file",
-    #     type=str,
-    #     help="file",
-    #     default=None,
-    # )
-    # args = parser.parse_args()
-    parser.parse_args()
+    parser.add_argument("-v", "--verbose", action="store_true")
+    args = parser.parse_args()
+    Settings.debug = args.verbose
 
     filename = "%slug.md"
     tmp_path = f"{HOME}/tmp/{filename}"
-    final_dir = f"{HOME}/gd/Books-Papers-Screenplays/_gather/"
+    final_dir = f"{HOME}/gd/__CORPUS__/_gather/"
 
-    cmd_args = ["gather", "-p", "--metadata-yaml", "-f", tmp_path]
-    out = run(cmd_args)
+    cmd = ["gather", "-p", "--metadata-yaml", "-f", tmp_path]
+    out = run(cmd)
 
     # grab the actual tmp_path since filename uses %s
     m = re.search(r"Saved to file: ([\S]+)$", out)
@@ -55,8 +54,8 @@ def main():
         # grab the actual markdown filename off th tmp_path since filename uses %s
         fn = re.search(r"([^\/]+$)", tmp_path).group(1)
         # only move to final destination if target file does not already exist
-        cmd_args = ["mv", "-n", tmp_path, final_dir]
-        run(cmd_args)
+        cmd = ["mv", "-n", tmp_path, final_dir]
+        run(cmd)
     else:
         print("[ERROR] No tmp file........")
         raise SystemExit(1)
@@ -68,8 +67,13 @@ def main():
     # append downloaded date as comment to end of file
     dt = datetime.datetime.now().strftime("%Y-%m-%d--%H-%M")
     msg = f"\n<!-- download-dt: {dt} -->"
-    with open(os.path.join(final_dir, fn), "a") as f:
+    final_path = os.path.join(final_dir, fn)
+    with open(final_path, "a") as f:
         f.write(msg)
+
+    print(fn)
+    cmd = ["code", final_path]
+    run(cmd)
 
 
 if __name__ == "__main__":
