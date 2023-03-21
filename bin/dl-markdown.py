@@ -8,9 +8,12 @@ import os
 import re
 import subprocess
 
+HOME = os.environ.get("HOME")
+
 
 class Settings:
     DEBUG = False
+    GATHER_DIR = f"{HOME}/x/_gather/"
 
 
 def run(cmd: list[str]) -> str:
@@ -30,7 +33,6 @@ def run(cmd: list[str]) -> str:
 
 
 def main():
-    HOME = os.environ.get("HOME")
     parser = argparse.ArgumentParser(
         description="""Download and save markdown for the URL in the clipboard using gather.
     """
@@ -41,7 +43,7 @@ def main():
 
     filename = "%slug.md"
     tmp_path = f"{HOME}/tmp/{filename}"
-    final_dir = f"{HOME}/gd/__CORPUS__/_gather/"
+    final_dir = Settings.GATHER_DIR
 
     cmd = ["gather", "-p", "--metadata-yaml", "-f", tmp_path]
     out = run(cmd)
