@@ -435,6 +435,12 @@
           }
         },
         {
+          "scope": "string.other.link.title.markdown",
+          "settings": {
+            "foreground": "#4794dd"
+          }
+        },
+        {
           "scope": "meta.link.inline.markdown",
           "settings": {
             "foreground": "#3f454a"
@@ -443,7 +449,7 @@
         {
           "scope": "markup.underline.link.markdown",
           "settings": {
-            "foreground": "#3f454a"
+            "foreground": "#4a5156"
           }
         },
         {
