@@ -130,8 +130,14 @@
     // python
     //////////////////////
     // nose: test line
+    // {
+    //   "cmd": "noseline ${relativeFile} --line=${line}",
+    //   "match": "\\.py$",
+    //   "name": "l"
+    // },
     {
-      "cmd": "noseline ${relativeFile} --line=${line}",
+      // github.com/kortina/dotfiles/bin/pytest-line.py
+      "cmd": "pytest-line.py ${relativeFile}:${line}",
       "match": "\\.py$",
       "name": "l"
     },
@@ -643,6 +649,7 @@
     "Nuyorican",
     "NXIVM",
     "Omelas",
+    "openai",
     "Outkast",
     "Outkast's",
     "Palo",
@@ -668,6 +675,7 @@
     "pyenv",
     "Pylance",
     "pylint",
+    "pytest",
     "quickfix",
     "rabbithole",
     "Radiohead",
@@ -751,5 +759,6 @@
   },
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "editor.inlineSuggest.enabled": true
 }

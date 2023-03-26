@@ -17,9 +17,18 @@
 	// }
 	"black-friendly-python-pdb": {
 		"scope": "python",
-		"prefix": "bpdb",
+		"prefix": "pb",
 		"body": [
-			"__import__(\"pdb\").set_trace()  # FIXME",
+			"breakpoint()",
+			// "__import__(\"pdb\").set_trace()  # FIXME",
+		]
+	},
+	"stdin-friendly-python-pdb": {
+		"scope": "python",
+		"prefix": "pbs",
+		"body": [
+			"sys.stdin = open('/dev/tty') and breakpoint()  # FIXME",
+			// "__import__(\"pdb\").set_trace()  # FIXME",
 		]
 	},
 	"markdown-ul-item": {

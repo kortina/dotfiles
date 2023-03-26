@@ -1,0 +1,194 @@
+#!/usr/bin/env python3
+import argparse
+import click
+import datetime
+import os
+import openai
+import re
+import sys
+
+
+HOME = os.environ.get("HOME")
+
+
+class AI:
+    SAVED_CHATS_DIR = f"{HOME}/gd/ai-chats"
+    MODEL = "gpt-3.5-turbo"
+    SYSTEM_MESSAGE = """You are my kind and helpful assistant. I am a writer, software engineer,
+and filmmaker."""
+    ABBREVIATIONS = {"_U_": "user", "_A_": "assistant", "_S_": "system"}
+    ABBREVIATIONS_REVERSE = {v: k for k, v in ABBREVIATIONS.items()}
+    DEBUG = True
+
+
+# def _chats():
+#     if not os.path.exists(AI.SAVED_CHATS_DIR):
+#         return []
+#     projects = []
+#     for p in os.listdir(AI.SAVED_CHATS_DIR):
+#         ap = os.path.abspath(os.path.join(AI.SAVED_CHATS_DIR, p))
+#         if os.path.isdir(ap):
+#             projects.append(p)
+#     projects.sort()
+#     return projects
+
+
+# PROJECT_CHOICES = click.Choice(_chats())
+
+
+# @click.command()
+# @click.argument("project", type=PROJECT_CHOICES, required=True)
+# def cli(name):
+#     click.echo(f"Name: {name}")
+#     click.echo(f"Value: {os.environ[name]}")
+
+
+# @click.group(help="chat cli commands.")
+# def cli():
+#     pass
+
+
+def _dbg(msg: str):
+    if AI.DEBUG:
+        print(f"[DEBUG]: {msg}")
+
+
+def main():
+    parser = argparse.ArgumentParser("python3 a")
+    parser.add_argument(
+        "-p",
+        "--prompt",
+        type=str,
+        help="""Prompt / question for AI. You can also pass prompt as stdin.
+If you pass both, it will append prompt to stdin.""",
+        default=None,
+    )
+    parser.add_argument("--file", type=argparse.FileType("r"))
+    parser.add_argument("-n", "--no-stdin", action="store_true")
+    args = parser.parse_args()
+    prompts = []
+    # Combine stdin with the --prompt argument:
+    # if not args.no_stdin:
+    #     prompts.append(_stdin())
+    prompts.append(args.prompt)
+
+    prompts = [p for p in prompts if p]
+    prompt = "\n".join(prompts)
+    if prompt:
+        ask(prompt, args.file)
+    else:
+        print("[ERROR]: No prompt.")
+        exit(1)
+
+
+def _stdin() -> str:
+    return sys.stdin.read()
+
+
+def _slug(prompt: str, with_date=True) -> str:
+    slug_name = prompt
+    # replace all non-alpha-numeric with -
+    slug_name = re.sub(r"[^a-zA-Z0-9]+", "-", slug_name)
+
+    # remove leading and trailing -
+    slug_name = slug_name.strip("-")
+    return slug_name
+
+
+def _filename(prompt: str) -> str:
+    slug_name = _slug(prompt).lower()
+    dt = datetime.datetime.now().strftime("%Y-%m-%d--%H-%M")
+    return f"{slug_name}--{dt}.md"
+
+
+def _parse_markdown(markdown: str) -> dict:
+    title = None
+    messages = []
+    speaker = None
+    message = ""
+    for line in markdown.splitlines():
+        if line.startswith("# ") and not title:
+            title = line[2:]
+            continue
+        elif (
+            line.startswith("_U_:")
+            or line.startswith("_A_:")
+            or line.startswith("_S_:")
+        ):
+            if speaker and message != "":
+                messages.append({"role": speaker, "content": message.strip()})
+                message = ""
+            speaker = AI.ABBREVIATIONS[line[:3]]
+            continue
+        else:
+            message += f"{line}\n"
+    if speaker and message != "":
+        messages.append({"role": speaker, "content": message.strip()})
+    return {
+        "title": title,
+        "messages": messages,
+    }
+
+
+def _to_markdown(title: str, messages: list) -> str:
+    """
+    Given a title and a list of messages, return a markdown string.
+    """
+    markdown = f"# {title}\n"
+    for message in messages:
+        speaker = AI.ABBREVIATIONS_REVERSE[message["role"]]
+        content = message["content"]
+        markdown += f"\n{speaker}:\n{content.strip()}\n"
+    return markdown.strip()
+
+
+def _save_markdown(messages: list, filepath=None):
+    title = _title(messages)
+    markdown = _to_markdown(title, messages)
+    if not filepath:
+        filename = _filename(title)
+        filepath = os.path.join(AI.SAVED_CHATS_DIR, filename)
+    _dbg(f"saving: {filepath}")
+    with open(filepath, "w") as f:
+        f.write(markdown)
+
+
+def _title(messages: list) -> str:
+    for message in messages:
+        if message["role"] == "user":
+            return " ".join(message["content"].split(" ")[:5])
+    return "NO-USER-MESSAGE"
+
+
+def ask(prompt: str, chat_file=None):
+    openai.api_key = os.getenv("OPENAI_API_KEY")
+    _dbg(f"[asking]: {prompt}")
+
+    new_message = {"role": "user", "content": prompt}
+
+    path = None
+    if chat_file:
+        path = chat_file.name
+        chat = chat_file.read()
+        parsed = _parse_markdown(chat)
+        messages = parsed["messages"]
+    else:
+        messages = [{"role": "system", "content": AI.SYSTEM_MESSAGE}]
+
+    messages.append(new_message)
+
+    completion = openai.ChatCompletion.create(
+        model=AI.MODEL,
+        messages=messages,
+    )
+    response = completion.choices[0].message.get("content")
+    print(response)
+
+    messages.append({"role": "assistant", "content": response})
+
+    _save_markdown(messages, filepath=path)
+
+
+if __name__ == "__main__":
+    main()
+    # cli()
