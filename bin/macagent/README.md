@@ -9,12 +9,12 @@ This will ultimately probably end up in a new git repo.
     chmod 700 s3screenshots.sh
     vim s3screenshots.sh
     # Add your AWS credentials, bucket name, and OS X username to `s3screenshots.sh`
-    # Or, source your `.bash_secrets` with the env vars set
-    
-In order to run `s3screenshots.sh` with `Full Disk Access` in OS X, 
+    # Or, source your `.sh_secrets` with the env vars set
+
+In order to run `s3screenshots.sh` with `Full Disk Access` in OS X,
 you now need to use the `s3screenshots` binary wrapper
 (compiled from `s3screenshots.go`).
-Add this binary to the **Full Disk Access** list in 
+Add this binary to the **Full Disk Access** list in
 **System Preferences > Security & Privacy > Full Disk Access**.
 
 ![grant full disk access permission](https://4rk.s3.amazonaws.com/_/s3-screenshots.png)

@@ -57,7 +57,7 @@ command_exists() {
 ##################################################
 # settings not on github
 ##################################################
-source_if_exists "$HOME/.bash_secrets"
+source_if_exists "$HOME/.sh_secrets"
 
 ##################################################
 # ruby

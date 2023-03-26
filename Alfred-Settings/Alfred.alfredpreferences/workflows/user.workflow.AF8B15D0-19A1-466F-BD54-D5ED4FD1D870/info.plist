@@ -139,7 +139,7 @@
 				<key>escaping</key>
 				<integer>100</integer>
 				<key>script</key>
-				<string>test -e $HOME/.bash_secrets &amp;&amp; source $HOME/.bash_secrets
+				<string>test -e $HOME/.sh_secrets &amp;&amp; source $HOME/.sh_secrets
 export PATH=~/.pyenv/shims:$PATH
 echo "{query}" | $NOTE_TO_SELF_DIR/note-to-self.sh 2&gt;&amp;1</string>
 				<key>scriptargtype</key>

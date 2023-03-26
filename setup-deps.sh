@@ -112,6 +112,7 @@ pip_install mock # python 2.7
 pip_install nltk
 pip_install nose
 pip_install nose-run-line-number "git+https://github.com/kortina/nose-run-line-number.git@ak-python3-compatibility" # fork w py3 support
+pip_install openai
 pip_install pre-commit
 pip_install pytz
 pip_install python-magic
@@ -129,8 +130,8 @@ pip install git+https://github.com/openai/whisper.git
 ########################################
 SRC_DIR="$HOME/src"
 test -e $SRC_DIR || mkdir -p $SRC_DIR
-if [ "`id -u -n`" = "kortina" ] && [ ! -f "$HOME/.bash_secrets" ]; then 
-    show_error "~/.bash_secrets does not exist. exiting.";
+if [ "`id -u -n`" = "kortina" ] && [ ! -f "$HOME/.sh_secrets" ]; then 
+    show_error "~/.sh_secrets does not exist. exiting.";
     exit 1; 
 fi;
 
