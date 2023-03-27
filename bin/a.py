@@ -13,6 +13,7 @@ HOME = os.environ.get("HOME")
 
 
 class AI:
+    FILENAME_MAX_WORDS = 10
     SAVED_CHATS_DIR = f"{HOME}/gd/ai-chats"
     MODEL = "gpt-3.5-turbo"
     SYSTEM_MESSAGE = """You are my kind and helpful assistant. I am a writer, software engineer,
@@ -135,7 +136,11 @@ def _slug(prompt: str, with_date=True) -> str:
 
 
 def _filename(prompt: str) -> str:
-    slug_name = _slug(prompt).lower()
+    # truncate filename to 10 words:
+    slug_name = " ".join(prompt.split(" ")[: AI.FILENAME_MAX_WORDS])
+    # slugify and lowercase:
+    slug_name = _slug(slug_name).lower()
+    # add date:
     dt = datetime.datetime.now().strftime("%Y-%m-%d--%H-%M")
     return f"{slug_name}--{dt}.md"
 
@@ -196,10 +201,12 @@ def _save_markdown(messages: list, filepath=None):
         f.write(markdown)
 
 
+# only use the first line of the prompt as the title:
 def _title_from_prompt(prompt: str) -> str:
-    return " ".join(prompt.split(" ")[:5])
+    return f"{prompt}".strip().split("\n")[0]
 
 
+# use the first user message as the title:
 def _title(messages: list) -> str:
     for message in messages:
         if message["role"] == "user":
@@ -221,6 +228,9 @@ def ask(prompt: str, chat=None):
     path = None
 
     _dbg(f"{prompt}", "PROMPT")
+
+    # remove the leading and trailing whitespace:
+    prompt = f"{prompt}".strip()
 
     if chat:
         markdown = _load_chat(chat)
