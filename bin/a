@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 from pygments import highlight
-from pygments.formatters import TerminalFormatter
+from pygments.formatters import Terminal256Formatter
 from pygments.lexers import MarkdownLexer
 import click
 import datetime
@@ -94,14 +94,7 @@ def main(prompt, chat, ls, ls_recent, vv, cat, rc):
             print("cat requires a chat name.")
             return
         markdown = _load_chat(chat)
-        # This will output the Markdown text with color coding for headings,
-        # bold, and italic text. You can customize the colors and formatting by
-        # modifying the `TerminalFormatter` options.
-        # custom_style = TerminalFormatter().style.copy()
-        # custom_style.update({"underline": "ansigreen"})
-        highlighted_text = highlight(
-            markdown, MarkdownLexer(), TerminalFormatter(bg="dark")
-        )
+        highlighted_text = _highlight(markdown)
         print(highlighted_text)
 
     elif ls:
@@ -112,6 +105,17 @@ def main(prompt, chat, ls, ls_recent, vv, cat, rc):
         ask(prompt, chat)
     else:
         print("Provide prompt or specify another option.")
+
+
+def _highlight(text: str) -> str:
+    # This will output the Markdown text with color coding for headings,
+    # bold, and italic text. You can customize the colors and formatting by
+    # modifying the `TerminalFormatter` options.
+    # custom_style = TerminalFormatter().style.copy()
+    # custom_style.update({"underline": "ansigreen"})
+    return highlight(
+        text, MarkdownLexer(), Terminal256Formatter(bg="dark", style="monokai")
+    )
 
 
 def _dbg(msg: str, label=""):
@@ -234,7 +238,8 @@ def ask(prompt: str, chat=None):
     response = completion.choices[0].message.get("content")
     _dbg("----------------------------------------\n")
     print("\n")
-    print(response)
+    highlighted_text = _highlight(response)
+    print(highlighted_text)
     print("\n")
     _dbg("----------------------------------------")
 

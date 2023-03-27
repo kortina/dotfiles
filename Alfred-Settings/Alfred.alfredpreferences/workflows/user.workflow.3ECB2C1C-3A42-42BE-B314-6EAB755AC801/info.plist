@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string></string>
+	<key>connections</key>
+	<dict>
+		<key>020E0CBC-EB47-4B4D-B72D-AA24A54191B2</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>B3CF7296-D7DE-4914-A6A5-2DA27EB9C4D1</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string></string>
+	<key>description</key>
+	<string>q: new ai chat</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>q-new</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>keyword</key>
+				<string>q</string>
+				<key>subtext</key>
+				<string>{prompt}</string>
+				<key>text</key>
+				<string>new ai chat</string>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>020E0CBC-EB47-4B4D-B72D-AA24A54191B2</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>4</integer>
+				<key>script</key>
+				<string>a "{query}"</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.terminalcommand</string>
+			<key>uid</key>
+			<string>B3CF7296-D7DE-4914-A6A5-2DA27EB9C4D1</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string></string>
+	<key>uidata</key>
+	<dict>
+		<key>020E0CBC-EB47-4B4D-B72D-AA24A54191B2</key>
+		<dict>
+			<key>xpos</key>
+			<real>125</real>
+			<key>ypos</key>
+			<real>205</real>
+		</dict>
+		<key>B3CF7296-D7DE-4914-A6A5-2DA27EB9C4D1</key>
+		<dict>
+			<key>xpos</key>
+			<real>375</real>
+			<key>ypos</key>
+			<real>205</real>
+		</dict>
+	</dict>
+	<key>userconfigurationconfig</key>
+	<array/>
+	<key>webaddress</key>
+	<string>kortina.nyc</string>
+</dict>
+</plist>
