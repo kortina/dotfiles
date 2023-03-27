@@ -103,8 +103,10 @@ fi
 ##################################################
 # a
 ##################################################
-if [ -e "$HOME/dotfiles/bin/a" ] ; then 
-  export PATH="$PATH:$HOME/dotfiles/bin"
+if [ -d "$HOME/src/a.py" ] ; then 
+  # add this directory to path
+  export PATH="$PATH:$HOME/src/a.py"
+  # if you use a.py instead of an alias, change `a` to `a.py`
   eval "$(_A_COMPLETE=zsh_source a)"
 fi
 
