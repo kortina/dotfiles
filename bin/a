@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
-import argparse
+from pygments import highlight
+from pygments.formatters import TerminalFormatter
+from pygments.lexers import MarkdownLexer
 import click
 import datetime
-import os
 import openai
+import os
 import re
-import sys
 
 
 HOME = os.environ.get("HOME")
@@ -18,71 +19,105 @@ class AI:
 and filmmaker."""
     ABBREVIATIONS = {"_U_": "user", "_A_": "assistant", "_S_": "system"}
     ABBREVIATIONS_REVERSE = {v: k for k, v in ABBREVIATIONS.items()}
-    DEBUG = True
+    DEBUG = False
 
 
-# def _chats():
-#     if not os.path.exists(AI.SAVED_CHATS_DIR):
-#         return []
-#     projects = []
-#     for p in os.listdir(AI.SAVED_CHATS_DIR):
-#         ap = os.path.abspath(os.path.join(AI.SAVED_CHATS_DIR, p))
-#         if os.path.isdir(ap):
-#             projects.append(p)
-#     projects.sort()
-#     return projects
+def _chat_path(chat):
+    return os.path.join(AI.SAVED_CHATS_DIR, chat)
 
 
-# PROJECT_CHOICES = click.Choice(_chats())
+def _chats():
+    if not os.path.exists(AI.SAVED_CHATS_DIR):
+        return []
+    chats = os.listdir(AI.SAVED_CHATS_DIR)
+    chats.sort()
+    return chats
 
 
-# @click.command()
-# @click.argument("project", type=PROJECT_CHOICES, required=True)
-# def cli(name):
-#     click.echo(f"Name: {name}")
-#     click.echo(f"Value: {os.environ[name]}")
+def _chats_by_modified_date_desc():
+    if not os.path.exists(AI.SAVED_CHATS_DIR):
+        return []
+    chats = os.listdir(AI.SAVED_CHATS_DIR)
+    chats.sort(key=lambda x: os.path.getmtime(os.path.join(AI.SAVED_CHATS_DIR, x)))
+    chats.reverse()
+    return chats
 
 
-# @click.group(help="chat cli commands.")
-# def cli():
-#     pass
+def _most_recent_chat():
+    return _chats_by_modified_date_desc()[0]
 
 
-def _dbg(msg: str):
-    if AI.DEBUG:
-        print(f"[DEBUG]: {msg}")
+CHATS_CHOICES = click.Choice(_chats())
 
 
-def main():
-    parser = argparse.ArgumentParser("python3 a")
-    parser.add_argument(
-        "-p",
-        "--prompt",
-        type=str,
-        help="""Prompt / question for AI. You can also pass prompt as stdin.
-If you pass both, it will append prompt to stdin.""",
-        default=None,
-    )
-    parser.add_argument("--file", type=argparse.FileType("r"))
-    parser.add_argument("-n", "--no-stdin", action="store_true")
-    args = parser.parse_args()
-    prompts = []
-    # Combine stdin with the --prompt argument:
-    # if not args.no_stdin:
-    #     prompts.append(_stdin())
-    prompts.append(args.prompt)
-
-    prompts = [p for p in prompts if p]
-    prompt = "\n".join(prompts)
-    if prompt:
-        ask(prompt, args.file)
-    else:
-        print("[ERROR]: No prompt.")
+@click.command(help="cli for ai assistant")
+@click.argument("prompt", type=str, required=False)
+@click.option("--chat", help="chat file name to load as context", type=CHATS_CHOICES)
+@click.option(
+    "--ls",
+    help="list chats",
+    is_flag=True,
+)
+@click.option(
+    "--ls-recent",
+    help="list chats by recency",
+    is_flag=True,
+)
+@click.option(
+    "-vv",
+    help="debug verbose output",
+    is_flag=True,
+)
+@click.option(
+    "--cat",
+    help="cat a chat",
+    is_flag=True,
+)
+@click.option(
+    "--rc",
+    help="use most recent chat as context",
+    is_flag=True,
+)
+def main(prompt, chat, ls, ls_recent, vv, cat, rc):
+    """Ask gpt about this prompt."""
+    if rc and chat:
+        print("[ERROR]: Cannot specify both --rc and --chat.")
         exit(1)
+    elif rc:
+        _dbg(f"Using most recent chat: {chat}", "LOAD")
+        chat = _most_recent_chat()
+
+    if vv:
+        AI.DEBUG = True
+    if cat:
+        if not chat:
+            print("cat requires a chat name.")
+            return
+        markdown = _load_chat(chat)
+        # This will output the Markdown text with color coding for headings,
+        # bold, and italic text. You can customize the colors and formatting by
+        # modifying the `TerminalFormatter` options.
+        # custom_style = TerminalFormatter().style.copy()
+        # custom_style.update({"underline": "ansigreen"})
+        highlighted_text = highlight(
+            markdown, MarkdownLexer(), TerminalFormatter(bg="dark")
+        )
+        print(highlighted_text)
+
+    elif ls:
+        print("\n".join(_chats()))
+    elif ls_recent:
+        print("\n".join(_chats_by_modified_date_desc()))
+    elif prompt:
+        ask(prompt, chat)
+    else:
+        print("Provide prompt or specify another option.")
 
 
-def _stdin() -> str:
-    return sys.stdin.read()
+def _dbg(msg: str, label=""):
+    if AI.DEBUG:
+        label = f"{label}".ljust(6)
+        print(f"[DEBUG: {label} ]:  {msg}")
 
 
 def _slug(prompt: str, with_date=True) -> str:
@@ -142,35 +177,50 @@ def _to_markdown(title: str, messages: list) -> str:
     return markdown.strip()
 
 
+def _filepath(title) -> str:
+    filename = _filename(title)
+    return os.path.join(AI.SAVED_CHATS_DIR, filename)
+
+
 def _save_markdown(messages: list, filepath=None):
     title = _title(messages)
-    markdown = _to_markdown(title, messages)
     if not filepath:
-        filename = _filename(title)
-        filepath = os.path.join(AI.SAVED_CHATS_DIR, filename)
-    _dbg(f"saving: {filepath}")
+        filepath = _filepath(title)
+        _dbg(f"{filepath}", "CREATE")
+    markdown = _to_markdown(title, messages)
     with open(filepath, "w") as f:
         f.write(markdown)
+
+
+def _title_from_prompt(prompt: str) -> str:
+    return " ".join(prompt.split(" ")[:5])
 
 
 def _title(messages: list) -> str:
     for message in messages:
         if message["role"] == "user":
-            return " ".join(message["content"].split(" ")[:5])
+            return _title_from_prompt(message["content"])
     return "NO-USER-MESSAGE"
 
 
-def ask(prompt: str, chat_file=None):
-    openai.api_key = os.getenv("OPENAI_API_KEY")
-    _dbg(f"[asking]: {prompt}")
+def _load_chat(chat: str) -> str:
+    path = _chat_path(chat)
+    _dbg(f"{path}", "LOAD")
+    with open(path, "r") as f:
+        return f.read()
 
+
+def ask(prompt: str, chat=None):
+    openai.api_key = os.getenv("OPENAI_API_KEY")
     new_message = {"role": "user", "content": prompt}
 
     path = None
-    if chat_file:
-        path = chat_file.name
-        chat = chat_file.read()
-        parsed = _parse_markdown(chat)
+
+    _dbg(f"{prompt}", "PROMPT")
+
+    if chat:
+        markdown = _load_chat(chat)
+        parsed = _parse_markdown(markdown)
         messages = parsed["messages"]
     else:
         messages = [{"role": "system", "content": AI.SYSTEM_MESSAGE}]
@@ -182,7 +232,11 @@ def ask(prompt: str, chat_file=None):
         messages=messages,
     )
     response = completion.choices[0].message.get("content")
+    _dbg("----------------------------------------\n")
+    print("\n")
     print(response)
+    print("\n")
+    _dbg("----------------------------------------")
 
     messages.append({"role": "assistant", "content": response})
 
@@ -191,4 +245,3 @@ def ask(prompt: str, chat_file=None):
 
 if __name__ == "__main__":
     main()
-    # cli()
