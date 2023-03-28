@@ -1,0 +1,7 @@
+{
+    "abbreviations": {"user": "_U_", "assistant": "_A_", "system": "_S_"},
+    "filename_max_words": 10,
+    "saved_chats_dir": "/Users/kortina/gd/ai-chats",
+    "model": "gpt-3.5-turbo",
+    "system_message": "You are my kind and helpful assistant. I am a writer, software engineer, and filmmaker."
+}

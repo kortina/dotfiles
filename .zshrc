@@ -101,13 +101,14 @@ if [ -d "$HOME/src/sq" ] ; then
 fi
 
 ##################################################
-# a
+# ai
 ##################################################
-if [ -d "$HOME/src/a.py" ] ; then 
-  # add this directory to path
-  export PATH="$PATH:$HOME/src/a.py"
-  # if you use a.py instead of an alias, change `a` to `a.py`
-  eval "$(_A_COMPLETE=zsh_source a)"
+if [ -d "$HOME/src/ai-python" ] ; then 
+  export PATH="$PATH:$HOME/src/ai-python"
+  eval "$(_AI_COMPLETE=zsh_source ai)"
+  # I also alias to just `a`  and `c`;)
+  alias a="ai"
+  alias c="ai --rc"
 fi
 
 ##################################################
