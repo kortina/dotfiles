@@ -61,11 +61,11 @@
 	<key>createdby</key>
 	<string>kortina</string>
 	<key>description</key>
-	<string>download URL in clipboard as markdown with gather</string>
+	<string>pbpaste URL to gather, download, and save markdown</string>
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
-	<string>dl-markdown.py</string>
+	<string>pb: dl-markdown.py</string>
 	<key>objects</key>
 	<array>
 		<dict>
@@ -102,6 +102,27 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string></string>
+				<key>title</key>
+				<string>saved: {query}</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>1395C359-5C76-43BE-9256-463FB6B8455D</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>concurrently</key>
 				<false/>
 				<key>escaping</key>
@@ -122,27 +143,6 @@ dl-markdown.py</string>
 			<string>1A7BFFE8-7230-4FC8-8A2A-E407B3B2E0FF</string>
 			<key>version</key>
 			<integer>2</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>lastpathcomponent</key>
-				<false/>
-				<key>onlyshowifquerypopulated</key>
-				<false/>
-				<key>removeextension</key>
-				<false/>
-				<key>text</key>
-				<string></string>
-				<key>title</key>
-				<string>saved: {query}</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.notification</string>
-			<key>uid</key>
-			<string>1395C359-5C76-43BE-9256-463FB6B8455D</string>
-			<key>version</key>
-			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>

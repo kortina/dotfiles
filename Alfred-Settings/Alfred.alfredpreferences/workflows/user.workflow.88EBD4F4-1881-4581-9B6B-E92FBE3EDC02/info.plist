@@ -51,11 +51,11 @@
 	<key>createdby</key>
 	<string>kortina</string>
 	<key>description</key>
-	<string></string>
+	<string>pbcopy current URL and title from browser</string>
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
-	<string>Hotkey - Copy RTF Link to Pasteboard</string>
+	<string>pb: RTF Link from Chrome</string>
 	<key>objects</key>
 	<array>
 		<dict>
@@ -204,7 +204,9 @@ echo -e "$title\n$url"</string>
 			<integer>160</integer>
 		</dict>
 	</dict>
+	<key>userconfigurationconfig</key>
+	<array/>
 	<key>webaddress</key>
-	<string></string>
+	<string>https://kortina.nyc/</string>
 </dict>
 </plist>

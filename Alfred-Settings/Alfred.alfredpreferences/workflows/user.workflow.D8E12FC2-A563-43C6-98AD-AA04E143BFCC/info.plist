@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>bundleid</key>
-	<string>net.kortina.alfred.email-fin</string>
+	<string></string>
 	<key>category</key>
 	<string>Internet</string>
 	<key>connections</key>
@@ -12,7 +12,7 @@
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>7A7895FA-3145-4EDE-9FA6-70B9B8F93462</string>
+				<string>1395C359-5C76-43BE-9256-463FB6B8455D</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -25,7 +25,7 @@
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>E13C7293-E2EC-43F0-BA4D-DF28AE993463</string>
+				<string>1A7BFFE8-7230-4FC8-8A2A-E407B3B2E0FF</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -34,7 +34,7 @@
 				<false/>
 			</dict>
 		</array>
-		<key>E13C7293-E2EC-43F0-BA4D-DF28AE993463</key>
+		<key>7C898FB6-4A54-4C6E-A44E-8BDE563C5786</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
@@ -51,11 +51,11 @@
 	<key>createdby</key>
 	<string>kortina</string>
 	<key>description</key>
-	<string></string>
+	<string>pbpaste rich HTML to markdown</string>
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
-	<string>Email-Fin</string>
+	<string>pb: pbpaste | html2markdown | pbcopy</string>
 	<key>objects</key>
 	<array>
 		<dict>
@@ -73,8 +73,6 @@
 				<integer>0</integer>
 				<key>hotmod</key>
 				<integer>0</integer>
-				<key>hotstring</key>
-				<string></string>
 				<key>leftcursor</key>
 				<false/>
 				<key>modsmode</key>
@@ -92,55 +90,14 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>argumenttype</key>
-				<integer>0</integer>
-				<key>keyword</key>
-				<string>f</string>
-				<key>subtext</key>
-				<string>{note}</string>
-				<key>text</key>
-				<string>Email Fin</string>
-				<key>withspace</key>
-				<true/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.keyword</string>
-			<key>uid</key>
-			<string>E13C7293-E2EC-43F0-BA4D-DF28AE993463</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>lastpathcomponent</key>
-				<false/>
-				<key>onlyshowifquerypopulated</key>
-				<true/>
-				<key>removeextension</key>
-				<false/>
-				<key>text</key>
-				<string>{query}</string>
-				<key>title</key>
-				<string>Email to Fin</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.notification</string>
-			<key>uid</key>
-			<string>7A7895FA-3145-4EDE-9FA6-70B9B8F93462</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>concurrently</key>
 				<false/>
 				<key>escaping</key>
 				<integer>100</integer>
 				<key>script</key>
 				<string>test -e $HOME/.bash_profile &amp;&amp; source $HOME/.bash_profile
-echo "{query}" | $NOTE_TO_SELF_DIR/note-to-self.sh 2&gt;&amp;1</string>
+gather --html -p | pbcopy
+pbpaste</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
@@ -155,6 +112,48 @@ echo "{query}" | $NOTE_TO_SELF_DIR/note-to-self.sh 2&gt;&amp;1</string>
 			<key>version</key>
 			<integer>2</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string></string>
+				<key>title</key>
+				<string>copied: {query}</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>1395C359-5C76-43BE-9256-463FB6B8455D</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>html2markdown</string>
+				<key>subtext</key>
+				<string></string>
+				<key>text</key>
+				<string>html2markdown</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>7C898FB6-4A54-4C6E-A44E-8BDE563C5786</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string>export NOTE_TO_SELF_FROM=“..@gmail.com"
@@ -166,36 +165,38 @@ export AMAZON_ACCESS_KEY_ID=‘..’
 export AMAZON_SECRET_KEY=‘..’</string>
 	<key>uidata</key>
 	<dict>
+		<key>1395C359-5C76-43BE-9256-463FB6B8455D</key>
+		<dict>
+			<key>xpos</key>
+			<real>565</real>
+			<key>ypos</key>
+			<real>145</real>
+		</dict>
 		<key>1A7BFFE8-7230-4FC8-8A2A-E407B3B2E0FF</key>
 		<dict>
 			<key>xpos</key>
-			<integer>500</integer>
+			<real>305</real>
 			<key>ypos</key>
-			<real>130</real>
+			<real>145</real>
 		</dict>
 		<key>774F59AC-2FDF-491C-8BC1-ABBEB34332AE</key>
 		<dict>
 			<key>xpos</key>
-			<integer>100</integer>
+			<real>100</real>
 			<key>ypos</key>
-			<real>10</real>
+			<real>15</real>
 		</dict>
-		<key>7A7895FA-3145-4EDE-9FA6-70B9B8F93462</key>
+		<key>7C898FB6-4A54-4C6E-A44E-8BDE563C5786</key>
 		<dict>
 			<key>xpos</key>
-			<integer>700</integer>
+			<real>80</real>
 			<key>ypos</key>
-			<real>130</real>
-		</dict>
-		<key>E13C7293-E2EC-43F0-BA4D-DF28AE993463</key>
-		<dict>
-			<key>xpos</key>
-			<integer>300</integer>
-			<key>ypos</key>
-			<real>10</real>
+			<real>225</real>
 		</dict>
 	</dict>
+	<key>userconfigurationconfig</key>
+	<array/>
 	<key>webaddress</key>
-	<string>http://kortina.net</string>
+	<string>https://kortina.nyc/</string>
 </dict>
 </plist>

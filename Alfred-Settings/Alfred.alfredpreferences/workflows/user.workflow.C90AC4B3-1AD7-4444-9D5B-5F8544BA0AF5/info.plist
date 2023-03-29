@@ -62,11 +62,11 @@
 	<key>createdby</key>
 	<string>kortina</string>
 	<key>description</key>
-	<string>Date Append</string>
+	<string>pbcopy date "--%Y-%d-%m--%k-%M"</string>
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
-	<string>Hotkey - date-clip</string>
+	<string>pb: date-clip | pbcopy</string>
 	<key>objects</key>
 	<array>
 		<dict>

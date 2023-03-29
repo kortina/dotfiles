@@ -62,11 +62,11 @@
 	<key>createdby</key>
 	<string>kortina</string>
 	<key>description</key>
-	<string>Slugify pasteboard</string>
+	<string>slugify pasteboard</string>
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
-	<string>Hotkey - Slugify Pasteboard</string>
+	<string>pb: pbpaste | slugify | pbcopy</string>
 	<key>objects</key>
 	<array>
 		<dict>
@@ -128,6 +128,8 @@
 				<false/>
 				<key>clipboardtext</key>
 				<string>{query}</string>
+				<key>ignoredynamicplaceholders</key>
+				<false/>
 				<key>transient</key>
 				<false/>
 			</dict>
@@ -226,6 +228,8 @@ pbpaste | slugify.sh</string>
 			<integer>110</integer>
 		</dict>
 	</dict>
+	<key>userconfigurationconfig</key>
+	<array/>
 	<key>webaddress</key>
 	<string>http://kortina.net</string>
 </dict>

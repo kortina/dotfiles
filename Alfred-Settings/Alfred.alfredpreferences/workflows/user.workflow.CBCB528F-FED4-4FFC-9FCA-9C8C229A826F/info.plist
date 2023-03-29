@@ -53,7 +53,7 @@
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
-	<string>Hotkey - Strip Pasteboard</string>
+	<string>pb: pbaste | plaintext | pbcopy</string>
 	<key>objects</key>
 	<array>
 		<dict>
