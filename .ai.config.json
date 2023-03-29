@@ -1,7 +1,7 @@
 {
     "abbreviations": {"user": "_U_", "assistant": "_A_", "system": "_S_"},
     "filename_max_words": 10,
-    "saved_chats_dir": "/Users/kortina/gd/ai-chats",
+    "saved_chats_dir": "~/gd/ai-chats",
     "model": "gpt-3.5-turbo",
-    "system_message": "You are my kind and helpful assistant. I am a writer, software engineer, and filmmaker."
+    "system_message": "You are my kind and helpful assistant. I am a writer, software engineer, and filmmaker. When you use backticks to denote a codeblock, please put the language identifier directly after the opening backticks. I typically use python3 for coding and zsh for my terminal shell."
 }

@@ -1,10 +1,15 @@
 // Place your key bindings in this file to overwrite the defaults
 [
-  // use shift+enter to accept selected suggestion
-  {
-    "key": "ctrl+enter",
-    "command": "acceptSelectedSuggestion"
-  },
+  // use ctrl+enter to accept selected suggestion
+  // {
+  //   "key": "ctrl+enter",
+  //   "command": "acceptSelectedSuggestion"
+  // },
+  // {
+  //   "key": "enter",
+  //   "command": "-acceptSelectedSuggestion",
+  //   "when": "acceptSuggestionOnEnter && suggestWidgetVisible && suggestionMakesTextEdit && textInputFocus"
+  // },
   {
     "key": "ctrl+p",
     "command": "editor.action.triggerSuggest",
@@ -162,11 +167,6 @@
     "key": "cmd+k cmd+k",
     "when": "terminalFocus",
     "command": "workbench.action.terminal.clear"
-  },
-  {
-    "key": "enter",
-    "command": "-acceptSelectedSuggestion",
-    "when": "acceptSuggestionOnEnter && suggestWidgetVisible && suggestionMakesTextEdit && textInputFocus"
   },
   // {
   //   "key": "cmd+k cmd+r",

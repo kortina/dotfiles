@@ -146,7 +146,14 @@
       "cmd": "nosetests ${relativeFile}",
       "match": "\\.py$",
       "name": "b"
-    }
+    },
+    {
+      // continue the conversation represented by the markdown file in the current buffer
+      // github.com/kortina/python-ai
+      "cmd": "ai --chat ${fileBasename} \"",
+      "match": "\\.md$",
+      "name": "l"
+    },
   ],
   "terminal.integrated.cursorBlinking": true,
   "terminal.integrated.cursorStyle": "block",
@@ -167,6 +174,22 @@
           "command": "editor.action.insertSnippet",
           "args": {
             "snippet": "$CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE"
+          }
+        }
+      ]
+    },
+    // EXPERIMENTAL: 
+    // remap enter key in insert mode to preserve indentation and insert a - if the current line begins with a hyphen (is a list item)
+    {
+      "before": ["<cr>"],
+      "after": [],
+      "commands": [
+        {
+          "command": "editor.action.insertSnippet",
+          // not sure this is restricting to markdown files only...
+          "when": "editorLangId == markdown",
+          "args": {
+            "snippet": "${TM_CURRENT_LINE/^(\\s*)(- )?.*$/\n$1$2/gm}"
           }
         }
       ]
