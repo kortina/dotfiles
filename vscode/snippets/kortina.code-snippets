@@ -31,8 +31,8 @@
 			// "__import__(\"pdb\").set_trace()  # FIXME",
 		]
 	},
-	"arrow": {
-		"prefix": ["l", "--"],
+	"arrow-right": {
+		"prefix": ["r", "--"],
 		"body": ["→"]
 	},
 	"markdown-frontmatter-for-note": {

@@ -12,7 +12,6 @@
   "diffEditor.renderIndicators": true,
   // "docker-linter.rubocop.enable": true,
   "editor.formatOnSave": true,
-  "editor.codeLens": false,
   "[ruby]": {
     "editor.formatOnSave": true
   },
@@ -60,7 +59,7 @@
   // },
   // "eslint.validate": ["javascript", "javascriptreact", "typescript"],
   "markdown.preview.fontSize": 18,
-  // "gitlens.codeLens.enabled": false,
+  "gitlens.codeLens.enabled": false,
   "gutterpreview.imagePreviewMaxHeight": 270,
   // "prettier.eslintIntegration": true,
   "prettier.bracketSameLine": true,
@@ -73,7 +72,7 @@
   "python.linting.mypyEnabled": true,
   "python.languageServer": "Pylance",
   "python.linting.pylintEnabled": false,
-  "python.pythonPath": "~/.pyenv/shims/python",
+  // "python.terminal.activateEnvInCurrentTerminal": false,
   "python.defaultInterpreterPath": "~/.pyenv/shims/python",
   "[python]": {
     "files.trimFinalNewlines": true,
@@ -153,7 +152,7 @@
       "cmd": "ai --chat ${fileBasename} \"",
       "match": "\\.md$",
       "name": "l"
-    },
+    }
   ],
   "terminal.integrated.cursorBlinking": true,
   "terminal.integrated.cursorStyle": "block",
@@ -178,7 +177,7 @@
         }
       ]
     },
-    // EXPERIMENTAL: 
+    // EXPERIMENTAL:
     // remap enter key in insert mode to preserve indentation and insert a - if the current line begins with a hyphen (is a list item)
     {
       "before": ["<cr>"],
@@ -537,11 +536,13 @@
     "Asha",
     "autoplay",
     "backgrounding",
+    "Badoit",
     "bakesale",
     "banya",
     "Barbes",
     "Behringer",
     "bertuccis",
+    "Bizzman",
     "bmpcc",
     "bootcamp",
     "boto",
@@ -608,6 +609,7 @@
     "Gopnik",
     "Gramith's",
     "Guantanamera",
+    "gutterpreview",
     "hackathon",
     "Hedwig",
     "Herbie",
@@ -631,6 +633,7 @@
     "Johnstone",
     "Joscha",
     "Jürgen",
+    "kajillion",
     "Kaneda",
     "Katharina",
     "Kidjo",
@@ -745,6 +748,7 @@
     "subak",
     "submix",
     "sundance",
+    "sunsetting",
     "SXSW",
     "Talib",
     "Tampopo",
@@ -758,6 +762,7 @@
     "upsampling",
     "VC's",
     "venmo",
+    "venv",
     "vetocracy",
     "Viktor",
     "WASD",
