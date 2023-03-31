@@ -100,6 +100,8 @@ brew install gather-cli
 ########################################
 
 pip3 install --upgrade pip
+pip install -U yt-dlp
+pip install git+https://github.com/openai/whisper.git 
 pip_install ansible
 pip_install autopep8
 pip_install black
@@ -114,16 +116,15 @@ pip_install nose
 pip_install nose-run-line-number "git+https://github.com/kortina/nose-run-line-number.git@ak-python3-compatibility" # fork w py3 support
 pip_install openai
 pip_install pre-commit
-pip_install pytz
 pip_install python-magic
+pip_install pytz
+pip_install ruff
 pip_install screenplain
-pip_install vimeo_downloader
 pip_install tinify
 pip_install types-pytz
+pip_install vimeo_downloader
 pip_install watchdog
 pip_install xlsx2csv
-pip install -U yt-dlp
-pip install git+https://github.com/openai/whisper.git 
 
 ########################################
 # misc

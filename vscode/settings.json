@@ -59,6 +59,12 @@
   // },
   // "eslint.validate": ["javascript", "javascriptreact", "typescript"],
   "markdown.preview.fontSize": 18,
+  "github.copilot.enable": {
+    "*": true,
+    "yaml": false,
+    "plaintext": true,
+    "markdown": true
+  },
   "gitlens.codeLens.enabled": false,
   "gutterpreview.imagePreviewMaxHeight": 270,
   // "prettier.eslintIntegration": true,
@@ -68,15 +74,24 @@
   "prettier.singleQuote": true,
   "prettier.trailingComma": "es5",
   "python.formatting.provider": "black",
-  "python.linting.flake8Enabled": true,
+  // use ruff instead of flake8
+  // "python.linting.flake8Enabled": true,
+  "ruff.showNotifications": "always",
   "python.linting.mypyEnabled": true,
   "python.languageServer": "Pylance",
   "python.linting.pylintEnabled": false,
-  // "python.terminal.activateEnvInCurrentTerminal": false,
+  // had to disable these to get pyenv working, per:
+  // https://github.com/lewagon/data-setup/issues/156
+  "python.terminal.activateEnvironment": false,
+  "python.terminal.activateEnvInCurrentTerminal": false,
   "python.defaultInterpreterPath": "~/.pyenv/shims/python",
   "[python]": {
     "files.trimFinalNewlines": true,
-    "editor.formatOnType": true
+    "editor.formatOnType": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll": true,
+      "source.organizeImports": true
+    }
   },
   "ruby.linter.run": "onSave",
   // "javascript.format.enable": true,

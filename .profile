@@ -77,7 +77,7 @@ export PIPENV_PYTHON="$PYENV_ROOT/shims/python"
 export PYTHONBREAKPOINT="ipdb.set_trace"
 
 # ak replaced '-' with '--path' and added '&'
-if command -v pyenv 1>/dev/null 2>&1; then eval "$(pyenv init --path &)"; fi
+if command -v pyenv 1>/dev/null 2>&1; then eval "$(pyenv init --path )"; fi
 
 ##################################################
 # javascript

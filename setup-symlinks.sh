@@ -28,11 +28,3 @@ SYM_FILE="$SYM_DIR/$f"
 TARG_FILE="$DOTFILES_ROOT/$f"
 mkdir -p "$SYM_DIR"
 safely_symlink "$SYM_FILE" "$TARG_FILE" "$SYM_DIR"
-
-# # do not symlink the entire .ssh dir
-# # just the config file
-# f=".ssh/config"
-# SYM_FILE="$HOME/$f"
-# TARG_FILE="$DOTFILES_ROOT/$f"
-# SYM_DIR="$HOME/.ssh"
-# safely_symlink "$SYM_FILE" "$TARG_FILE" "$SYM_DIR"
