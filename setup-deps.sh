@@ -158,7 +158,6 @@ npm_install eslint-plugin-fin-eslint-flow-enforcement
 npm_install babel-eslint
 npm_install doctoc # generate markdown toc
 npm_install fountain-js
-npm_install h2m # tool for downlaoding webpage as md file
 npm_install livedown
 npm_install prettier
 npm_install remark

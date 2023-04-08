@@ -1,0 +1,19 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        // test echo task to print the relativeFile and lineNumber of the current file in the vscode Terminal
+        {
+            "label": "echo",
+            "type": "shell",
+            "command": "echo '${relativeFile}:${lineNumber}'",
+            "group": {
+                "kind": "k"
+            },
+            "presentation": {
+                "showReuseMessage": false
+            }
+        }
+    ]
+  }
