@@ -148,7 +148,7 @@
 				<key>script</key>
 				<string>#!/usr/bin/env bash
 
-date +"--%Y-%d-%m--%H-%MM" | tr -d " \t\n\r"</string>
+date +"--%Y-%d-%m--%H-%M" | tr -d " \t\n\r"</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
