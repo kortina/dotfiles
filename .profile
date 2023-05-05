@@ -17,6 +17,8 @@ export PATH="$GOPATH/bin:$PATH"
 # alias ag='ag --hidden'
 alias g='rg --hidden'
 alias gf='rg . -lg' # find files with names matching glob, eg: gf "*.md"
+alias f='rg --hidden --files | rg '
+alias h='history | rg '
 alias diff='PAGER=cat git diff --no-index'
 alias dk="docker-compose"
 alias flushdns='sudo dscacheutil -flushcache'
@@ -31,9 +33,9 @@ alias tmux="TERM=screen-256color-bce tmux"
 alias updatedb='sudo /usr/libexec/locate.updatedb'
 alias v='pbpaste | vim -'
 
-function f() {
-    rg --hidden --files | rg "$1"
-}
+# function f() {
+#     rg --hidden --files | rg "$1"
+# }
 
 export EDITOR=vim
 # export FZF_DEFAULT_COMMAND='ag -g ""'
@@ -87,14 +89,3 @@ if which nodenv > /dev/null; then nodenv_cmd="nodenv" ; else nodenv_cmd="/opt/ho
 export PATH="$HOME/.nodenv/bin:$PATH"
 # ak added &
 if which nodenv >/dev/null || test -e $nodenv_cmd ; then eval "$($nodenv_cmd init - &)"; else echo nodenv not installed; fi
-
-##################################################
-# fin
-##################################################
-alias ks=kubectl\ --context=analytics-staging-admin
-alias kPROD=kubectl\ --context=analytics-prod-admin
-export PATH=$HOME/.datacoral/cli/bin:$PATH
-export FIN_SSH_USERNAME="andrew_kortina"
-export FIN_CODE_HOME="$HOME/code"
-fa_bin="/usr/local/bin/fa"
-test -h $fa_bin ||  ln -s "$FIN_CODE_HOME/fin-dev/fa" $fa_bin
