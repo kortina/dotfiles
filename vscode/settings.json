@@ -807,7 +807,8 @@
     "youtube",
     "Yuanfen",
     "Zeihan",
-    "Zellerbach"
+    "Zellerbach",
+    "Zweisamkeit"
   ],
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -826,6 +827,5 @@
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "editor.inlineSuggest.enabled": true,
-  "window.zoomLevel": 1
+  "editor.inlineSuggest.enabled": true
 }
