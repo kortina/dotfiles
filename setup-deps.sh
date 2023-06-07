@@ -54,7 +54,6 @@ brew_install openssl
 brew_install jq
 brew_install tmux
 # brew_install languagetool
-# brew_install youtube-dl # pip install yt-dlp instead
 brew_install ripgrep
 brew_install rbenv
 brew_install reattach-to-user-namespace

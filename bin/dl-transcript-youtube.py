@@ -8,7 +8,9 @@ https://alexwlchan.net/2019/04/getting-a-transcript-of-a-talk-from-youtube/
 """
 
 import argparse
+import glob
 import itertools
+import os
 import re
 import subprocess
 
@@ -25,39 +27,32 @@ def main():
 
 
 def download_and_cleanup_transcript(url):
-    fn_base = "subs"
-    ext = "en.vtt"
-    fn = f"{fn_base}.{ext}"
     # youtube-dl --write-auto-sub --skip-download
-    cmd_args = ["youtube-dl", "--write-auto-sub", "--skip-download", "-o", fn_base, url]
+    # cmd_args = ["youtube-dl", "--write-auto-sub", "--skip-download", "-o", fn_base, url]
+    cmd_args = [
+        "yt-dlp",
+        "--write-subs",
+        "--sub-langs",
+        "en.*",
+        "--sub-format",
+        "vtt",
+        "--skip-download",
+        url,
+    ]
     cmd = " ".join(cmd_args)
     print(f"running {cmd}")
     subprocess.run(cmd_args)
+
+    # get the name of the most recently created file in the current directory
+    # with the extension .vtt
+    fn = sorted(glob.glob("*.vtt"), key=os.path.getmtime)[-1]
+
     # this part appears to be broken:
     cleanup_transcript(fn)
 
 
 def cleanup_transcript(fn):
     data = open(fn).read()
-    # Throw away the header, which is of the form:
-    #
-    #     WEBVTT
-    #     Kind: captions
-    #     Language: en
-    #     Style:
-    #     ::cue(c.colorCCCCCC) { color: rgb(204,204,204);
-    #      }
-    #     ::cue(c.colorE5E5E5) { color: rgb(229,229,229);
-    #      }
-    #     ##
-    #
-    data = data.split("##\n", 1)[1]
-
-    # Now throw away all the timestamps, which are typically of
-    # the form:
-    #
-    #     00:00:01.819 --> 00:00:01.829 align:start position:0%
-    #
     data, _ = re.subn(
         r"\d{2}:\d{2}:\d{2}\.\d{3} \-\-> \d{2}:\d{2}:\d{2}\.\d{3} align:start position:0%\n",
         "",
@@ -88,40 +83,6 @@ def cleanup_transcript(fn):
     for line, _ in itertools.groupby(data):
         print(line)
 
-    # pprint(data)
-    # components = [data]
-    # while True:
-    #     i = len(components)
-    #
-    #     last_component = components.pop()
-    #     if f'\n{i}\n' in last_component:
-    #         components.extend(list(last_component.split(f'\n{i}\n')))
-    #         assert len(components) == i + 1
-    #     elif last_component.startswith('1\n'):
-    #         components.extend(list(last_component.split(f'1\n', 1)))
-    #     else:
-    #         break
-
-    # # Now chuck away the first bit, which is something like "Kind: captions"
-    # # -- I don't know what it is, but we don't need it.
-    # if components[0].startswith('Kind: captions\n'):
-    #     components.pop(0)
-    #
-    # # Next, remove all the trailing whitespace from each subtitle.
-    # components = [c.rstrip() for c in components]
-    #
-    # # This gets a lot of duplication -- try to remove it as best we can.
-    # dedupe_components = []
-    # for c in components:
-    #     if not c:
-    #         continue
-    #
-    #     for line in c.splitlines():
-    #         if dedupe_components and dedupe_components[-1] == line:
-    #             continue
-    #         else:
-    #             dedupe_components.append(line)
-    #
     # with open(sys.argv[1] + '.txt', 'w') as outfile:
     #     outfile.write('\n'.join(dedupe_components))
     #
