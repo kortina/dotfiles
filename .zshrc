@@ -10,6 +10,23 @@ source $HOME/dotfiles/themes/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit $HOME/.p10k.zsh.
 [[ ! -f $HOME/.p10k.zsh ]] || source $HOME/.p10k.zsh
+##################################################
+# add precommit status to prompt
+# to warn if a .pre-commit-config.yaml file exists
+# but is not installed to git
+##################################################
+function prompt_kortina_precommit_status() {
+  if [ -e .pre-commit-config.yaml ] && [ ! -e "`git rev-parse --git-path hooks`/pre-commit" ]; then
+    p10k segment -s WARM -f yellow -i "" -t "pre-commit install"
+  fi
+}
+old=($POWERLEVEL9K_LEFT_PROMPT_ELEMENTS)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=()
+for v in $old ; do
+  POWERLEVEL9K_LEFT_PROMPT_ELEMENTS+=($v) ;
+  [[ "$v" == "vcs" ]] && POWERLEVEL9K_LEFT_PROMPT_ELEMENTS+=("kortina_precommit_status")
+done;
+##################################################
 
 test -e /opt/homebrew/bin/brew && eval "$(/opt/homebrew/bin/brew shellenv)"
 # syntax highlight commands
