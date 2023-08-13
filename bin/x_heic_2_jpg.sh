@@ -6,12 +6,14 @@
 set -eu -o pipefail
 
 # 2
-count=$(find . -depth 1 -iname "*.heic" | wc -l | sed 's/[[:space:]]*//')
-echo "converting $count files .heic or .HEIC files to .jpg"
+count_H=$(find . -depth 1 -name "*.HEIC" | wc -l | sed 's/[[:space:]]*//')
+echo "converting $count_H files .HEIC files to .jpg"
+[[ "$count_H" == "0" ]] || magick mogrify -monitor -format jpg *.HEIC
 
-# 3
-magick mogrify -monitor -format jpg *.heic
-magick mogrify -monitor -format jpg *.HEIC
+count_h=$(find . -depth 1 -name "*.heic" | wc -l | sed 's/[[:space:]]*//')
+echo "converting $count_h files .heic files to .jpg"
+[[ "$count_h" == "0" ]] || magick mogrify -monitor -format jpg *.heic
+
 
 # 4
 echo "Remove .heic / .HEIC files? [y/n]"
