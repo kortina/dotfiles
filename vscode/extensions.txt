@@ -17,6 +17,7 @@ johngraham262.join-comment-aware
 kisstkondoros.vscode-gutter-preview
 kortina.run-in-terminal
 kortina.vscode-markdown-notes
+mechatroner.rainbow-csv
 misogi.ruby-rubocop
 ms-azuretools.vscode-docker
 ms-python.isort
@@ -30,6 +31,7 @@ ms-toolsai.vscode-jupyter-slideshow
 ms-vscode.Theme-TomorrowKit
 pepri.subtitles-editor
 piersdeseilligny.betterfountain
+pomdtr.excalidraw-editor
 rebornix.ruby
 richie5um2.vscode-sort-json
 streetsidesoftware.code-spell-checker
