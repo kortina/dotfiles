@@ -48,7 +48,8 @@
   "explorer.autoReveal": false,
   "files.autoSave": "off",
   "files.associations": {
-    "*.dpl": "sql"
+    "*.dpl": "sql",
+    "*.tsv": "tsv"
   },
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
@@ -638,6 +639,7 @@
     "Gopnik",
     "Gramith's",
     "Greenberg",
+    "greenway",
     "Guantanamera",
     "gutterpreview",
     "hackathon",
@@ -660,6 +662,7 @@
     "Iqram",
     "Italo",
     "J",
+    "jenga",
     "Jenn",
     "Johnstone",
     "Joscha",
@@ -680,6 +683,7 @@
     "Labatut",
     "Lacan",
     "Laderman",
+    "Lagunitas",
     "livestream",
     "logline",
     "LUFS",
@@ -718,6 +722,7 @@
     "nosetests",
     "Nuyorican",
     "NXIVM",
+    "NYLA",
     "Omelas",
     "oners",
     "openai",
@@ -800,6 +805,7 @@
     "substack",
     "sundance",
     "sunsetting",
+    "Suttree",
     "SXSW",
     "Talib",
     "Tampopo",
@@ -812,6 +818,7 @@
     "UCSF",
     "Ukeles",
     "upsampling",
+    "vaportown",
     "VC's",
     "venmo",
     "venv",
@@ -853,6 +860,10 @@
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "[tsv]": {
+    "editor.detectIndentation": false,
+    "editor.insertSpaces": false
+  },
   "editor.inlineSuggest.enabled": true,
-  "window.zoomLevel": 2
+  "window.zoomLevel": 1
 }

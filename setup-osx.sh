@@ -240,10 +240,10 @@ defaults write com.apple.messageshelper.MessageController SOInputLineSettings -d
 defaults write com.apple.sound.beep.volume -float 0.05
 
 ###############################################################################
-# FSNotes
+# cyberduck
 ###############################################################################
-# use Cmd+Delete for "delete text to beginning of line" you can change the "delete note" hotkey to Cmd+Shift+Delete
-defaults write co.fluder.FSNotes NSUserKeyEquivalents -dict-add 'Delete' '@$\U0008';
+# copy https url with ctrl c
+defaults write ch.sudo.cyberduck NSUserKeyEquivalents -dict-add '\033Edit\033Copy URL\033HTTPS URL' '^c';
 
 ###############################################################################
 # Safari
