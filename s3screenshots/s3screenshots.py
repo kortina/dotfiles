@@ -1,7 +1,5 @@
 #!/usr/bin/env python
 
-import boto  # type:ignore
-from boto.s3.key import Key  # type:ignore
 import logging
 import os
 import random
@@ -9,8 +7,11 @@ import re
 import string
 import subprocess
 import time
+
+import boto  # type:ignore
+from boto.s3.key import Key  # type:ignore
+from watchdog.events import EVENT_TYPE_DELETED, RegexMatchingEventHandler
 from watchdog.observers import Observer
-from watchdog.events import RegexMatchingEventHandler, EVENT_TYPE_DELETED
 
 # system generated screenshot regex
 REGEX_SYSTEM = r".*\/(Screen Shot|Screenshot).*\.png"
@@ -94,7 +95,7 @@ class S3ScreenshotHandler(RegexMatchingEventHandler):
         return False
 
     def _match_groups(self, filename):
-        r = r"(\d{4}-\d{2}-\d{2}) at (\d{1,2}).(\d{2}\.\d{2}) (AM|PM)\.png"
+        r = r"(\d{4}-\d{2}-\d{2}) at (\d{1,2}).(\d{2}\.\d{2})\W(AM|PM)\.png"
         return re.search(r, filename)
 
     def _new_filename(self, filename):
