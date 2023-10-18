@@ -170,32 +170,34 @@ export AMAZON_SECRET_KEY=‘..’</string>
 		<key>1A7BFFE8-7230-4FC8-8A2A-E407B3B2E0FF</key>
 		<dict>
 			<key>xpos</key>
-			<integer>500</integer>
+			<real>500</real>
 			<key>ypos</key>
 			<real>130</real>
 		</dict>
 		<key>774F59AC-2FDF-491C-8BC1-ABBEB34332AE</key>
 		<dict>
 			<key>xpos</key>
-			<integer>100</integer>
+			<real>100</real>
 			<key>ypos</key>
-			<real>10</real>
+			<real>15</real>
 		</dict>
 		<key>7A7895FA-3145-4EDE-9FA6-70B9B8F93462</key>
 		<dict>
 			<key>xpos</key>
-			<integer>700</integer>
+			<real>700</real>
 			<key>ypos</key>
 			<real>130</real>
 		</dict>
 		<key>E13C7293-E2EC-43F0-BA4D-DF28AE993463</key>
 		<dict>
 			<key>xpos</key>
-			<integer>300</integer>
+			<real>300</real>
 			<key>ypos</key>
-			<real>10</real>
+			<real>15</real>
 		</dict>
 	</dict>
+	<key>userconfigurationconfig</key>
+	<array/>
 	<key>variablesdontexport</key>
 	<array/>
 	<key>version</key>

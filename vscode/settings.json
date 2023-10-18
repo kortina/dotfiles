@@ -96,6 +96,7 @@
   },
   "ruby.linter.run": "onSave",
   // "javascript.format.enable": true,
+  "runInTerminal.moveFocusToTerminalOnRun": true,
   "runInTerminal.commands": [
     // exec any file as a binary
     {
@@ -748,6 +749,7 @@
     "Pistor",
     "Plainview",
     "Playhead",
+    "Pollan",
     "Pollan's",
     "Polley",
     "Ponzi",
