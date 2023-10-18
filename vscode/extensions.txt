@@ -8,6 +8,7 @@ eamodio.gitlens
 esbenp.prettier-vscode
 flowtype.flow-for-vscode
 GitHub.copilot
+GitHub.copilot-chat
 hashicorp.terraform
 hoovercj.ruby-linter
 idleberg.applescript
@@ -32,13 +33,12 @@ ms-vscode.Theme-TomorrowKit
 pepri.subtitles-editor
 piersdeseilligny.betterfountain
 pomdtr.excalidraw-editor
-rebornix.ruby
 richie5um2.vscode-sort-json
+Shopify.ruby-lsp
 streetsidesoftware.code-spell-checker
 sysoev.vscode-open-in-github
 vscodevim.vim
 vsls-contrib.codetour
 vsls-contrib.gistfs
 wayou.vscode-todo-highlight
-wingrunr21.vscode-ruby
 witulski.selection-word-count
