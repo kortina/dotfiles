@@ -177,17 +177,12 @@ npm_install yarn
 # ruby gems
 ########################################
 test -e ~/.gemrc && grep -q "no-document" ~/.gemrc || echo "gem: --no-document" >> ~/.gemrc
-# rbenv versions | grep -q "2\.3\.3" || rbenv install 2.3.3
-# rbenv versions | grep -q "2\.3\.3" || RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)" rbenv install 2.3.3
 RUBY_CFLAGS=""
 $is_m1_mac && M1_RUBY_CFLAGS="-Wno-error=implicit-function-declaration"
-rbenv versions | grep -q "2\.7\.4" ||  RUBY_CFLAGS="$M1_RUBY_CFLAGS" rbenv install 2.7.4
+rbenv versions | grep -q "3\.2\.2" ||  RUBY_CFLAGS="$M1_RUBY_CFLAGS" rbenv install 3.2.2
 eval "$(rbenv init -)"
-rbenv global 2.7.4
+rbenv global 3.2.2
 rbenv rehash
-# You may need to fix readline in irb by doing the following:
-# xcode-select --install
-# rbenv install -f 2.5.3 && RBENV_VERSION=2.5.3 gem pristine --all
 
 gem_install rb-readline
 gem_install rubocop
