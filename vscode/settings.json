@@ -78,9 +78,7 @@
   // use ruff instead of flake8
   // "python.linting.flake8Enabled": true,
   "ruff.showNotifications": "always",
-  "python.linting.mypyEnabled": true,
   "python.languageServer": "Pylance",
-  "python.linting.pylintEnabled": false,
   // had to disable these to get pyenv working, per:
   // https://github.com/lewagon/data-setup/issues/156
   "python.terminal.activateEnvironment": false,
@@ -582,6 +580,7 @@
     "chatbots",
     "Chigurh",
     "Citi",
+    "clipart",
     "Coen",
     "commodified",
     "Consolas",
@@ -604,6 +603,8 @@
     "dente",
     "desaturate",
     "desaturated",
+    "desqueeze",
+    "desqueezing",
     "devlog",
     "devlogs",
     "disintermediate",
@@ -665,6 +666,7 @@
     "inspo",
     "ipynb",
     "Iqram",
+    "Isaacson",
     "Italo",
     "J",
     "jenga",
@@ -862,7 +864,6 @@
   "workbench.editorAssociations": {
     "*.ipynb": "jupyter-notebook"
   },
-  "workbench.activityBar.visible": false,
   "editor.unicodeHighlight.allowedCharacters": {
     "’": true
   },
@@ -874,5 +875,6 @@
     "editor.insertSpaces": false
   },
   "editor.inlineSuggest.enabled": true,
+  "workbench.activityBar.location": "hidden",
   "window.zoomLevel": 1
 }

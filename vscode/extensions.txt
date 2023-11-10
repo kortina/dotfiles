@@ -22,6 +22,7 @@ mechatroner.rainbow-csv
 misogi.ruby-rubocop
 ms-azuretools.vscode-docker
 ms-python.isort
+ms-python.mypy-type-checker
 ms-python.python
 ms-python.vscode-pylance
 ms-toolsai.jupyter
