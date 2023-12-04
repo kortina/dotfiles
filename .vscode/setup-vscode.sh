@@ -9,10 +9,10 @@ source "$DOTFILES_ROOT/_setup_defs.sh"
 
 which code || { echo "No \`code\` binary on \$PATH. If you just installed VS Code, you may need to open a new terminal session."; exit 1; }
 
-EXTENSIONS="$HOME/dotfiles/vscode/extensions.txt"
+EXTENSIONS="$HOME/dotfiles/.vscode/extensions.txt"
 
 # vscode files
-vscode_dotfiles="$DOTFILES_ROOT/vscode"
+vscode_dotfiles="$DOTFILES_ROOT/.vscode"
 cd "$vscode_dotfiles"
 code_dirs=(
     "$HOME/Library/Application Support/Code/User"
