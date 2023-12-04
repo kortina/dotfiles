@@ -9,7 +9,7 @@ echo "You will need to install MesloLGS Font via https://github.com/romkatv/powe
 ./setup-symlinks.sh
 ./setup-homebrew.sh
 ./setup-deps.sh
-./vscode/setup-vscode.sh
+./.vscode/setup-vscode.sh
 ./setup-osx.sh
 
 source "./_setup_defs.sh"

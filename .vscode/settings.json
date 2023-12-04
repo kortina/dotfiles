@@ -74,13 +74,8 @@
   "prettier.printWidth": 100,
   "prettier.singleQuote": true,
   "prettier.trailingComma": "es5",
-  "python.formatting.provider": "black",
-  // use ruff instead of flake8
-  // "python.linting.flake8Enabled": true,
-  "ruff.showNotifications": "always",
-  "python.linting.mypyEnabled": true,
+  "ruff.showNotifications": "always", // INSTEAD OF pylint AND flake8
   "python.languageServer": "Pylance",
-  "python.linting.pylintEnabled": false,
   // had to disable these to get pyenv working, per:
   // https://github.com/lewagon/data-setup/issues/156
   "python.terminal.activateEnvironment": false,
@@ -317,16 +312,6 @@
       "commands": [
         {
           "command": "editor.action.marker.nextInFiles"
-        }
-      ]
-    },
-    // nearest quick fix (doesn't seem to work, but ⌘. also doesn't seem to work...)
-    {
-      "after": [],
-      "before": ["<leader>", "s"],
-      "commands": [
-        {
-          "command": "editor.action.quickFix"
         }
       ]
     },
@@ -568,7 +553,6 @@
     "Arri",
     "Arzaga",
     "Asha",
-    "audiobook",
     "audiobooks",
     "autoplay",
     "backgrounding",
@@ -579,6 +563,7 @@
     "Behringer",
     "bertuccis",
     "Bizzman",
+    "blackmagic",
     "bmpcc",
     "bootcamp",
     "boto",
@@ -593,6 +578,7 @@
     "chatbots",
     "Chigurh",
     "Citi",
+    "clipart",
     "Coen",
     "commodified",
     "Consolas",
@@ -615,6 +601,8 @@
     "dente",
     "desaturate",
     "desaturated",
+    "desqueeze",
+    "desqueezing",
     "devlog",
     "devlogs",
     "disintermediate",
@@ -637,7 +625,6 @@
     "factionalize",
     "faiss",
     "ffmpeg",
-    "figimage",
     "financialization",
     "finxpc",
     "Fitzcarraldo",
@@ -677,6 +664,7 @@
     "inspo",
     "ipynb",
     "Iqram",
+    "Isaacson",
     "Italo",
     "J",
     "jenga",
@@ -785,6 +773,7 @@
     "rewatched",
     "rgen",
     "Rica",
+    "Rigsby",
     "RLHF",
     "Rockwood",
     "rokoko",
@@ -832,6 +821,7 @@
     "Tarkovsky",
     "telos",
     "Tiananmen",
+    "timebox",
     "timecode",
     "tldr",
     "Tribeca",
@@ -852,7 +842,6 @@
     "Wernher",
     "wheatpasting",
     "Whyte",
-    "wirecutter",
     "WIYW",
     "workshopped",
     "Workshopping",
@@ -874,7 +863,6 @@
   "workbench.editorAssociations": {
     "*.ipynb": "jupyter-notebook"
   },
-  "workbench.activityBar.visible": false,
   "editor.unicodeHighlight.allowedCharacters": {
     "’": true
   },
@@ -886,6 +874,6 @@
     "editor.insertSpaces": false
   },
   "editor.inlineSuggest.enabled": true,
-  "window.zoomLevel": 1,
-  "excalidraw.theme": "light"
+  "workbench.activityBar.location": "hidden",
+  "window.zoomLevel": 1
 }
