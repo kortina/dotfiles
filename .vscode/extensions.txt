@@ -1,12 +1,8 @@
-bierner.emojisense
-buenon.scratchpads
 charliermarsh.ruff
-codespaces-contrib.codeswing
 dbaeumer.vscode-eslint
 dzannotti.vscode-babel-coloring
 eamodio.gitlens
 esbenp.prettier-vscode
-flowtype.flow-for-vscode
 GitHub.copilot
 GitHub.copilot-chat
 hashicorp.terraform
@@ -25,11 +21,6 @@ ms-python.isort
 ms-python.mypy-type-checker
 ms-python.python
 ms-python.vscode-pylance
-ms-toolsai.jupyter
-ms-toolsai.jupyter-keymap
-ms-toolsai.jupyter-renderers
-ms-toolsai.vscode-jupyter-cell-tags
-ms-toolsai.vscode-jupyter-slideshow
 ms-vscode.Theme-TomorrowKit
 pepri.subtitles-editor
 piersdeseilligny.betterfountain
@@ -39,7 +30,5 @@ Shopify.ruby-lsp
 streetsidesoftware.code-spell-checker
 sysoev.vscode-open-in-github
 vscodevim.vim
-vsls-contrib.codetour
-vsls-contrib.gistfs
 wayou.vscode-todo-highlight
 witulski.selection-word-count
