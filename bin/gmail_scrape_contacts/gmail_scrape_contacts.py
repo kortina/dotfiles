@@ -29,10 +29,11 @@ MAX_MESSAGE_RESULTS = 500
 CREDENTIALS_PATH = "/Users/kortina/.ssh/gmail_scrape_contacts.json"
 DB_PATH = "gmail_scrape_contacts.db"
 ENGINE_URL = f"sqlite:///{DB_PATH}"
+ENGINE = create_engine(ENGINE_URL)
+
 # TODO: ensure this defaults everywhere or just allow NULL?
 UNDEF = "_UNDEF_"
 CONTACTS_KEYS = ["from", "to", "cc", "bcc", "reply-to", "sender", "return-path", "delivered-to"]
-engine = create_engine(ENGINE_URL)
 
 # see googleapiclient docs:
 #   https://developers.google.com/gmail/api/reference/rest/v1/users.messages#Message
@@ -60,9 +61,6 @@ class Base(DeclarativeBase):
     def __repr__(self):
         return f"<{self.__class__.__name__} {self.__dict__}>"
 
-    def __str__(self):
-        return f"<{self.__class__.__name__} {self.__dict__}>"
-
 
 @dataclass
 class Contact(Base):
@@ -75,9 +73,6 @@ class Contact(Base):
     header: Mapped[str] = mapped_column(String)
 
     def __repr__(self):
-        return f"<{self.__class__.__name__} {self.header}: {self.email}"
-
-    def __str__(self):
         return f"<{self.__class__.__name__} {self.header}: {self.email}"
 
     @classmethod
@@ -131,9 +126,6 @@ class Email(Base):
     def __repr__(self):
         return f"<{self.__class__.__name__} id: {self.id} Subject: {self.subject}>"
 
-    def __str__(self):
-        return f"<{self.__class__.__name__} id: {self.id} Subject: {self.subject}>"
-
     FROM = "From"
 
     @classmethod
@@ -181,9 +173,6 @@ class EmailContact:
     def __repr__(self):
         return f"<{self.__class__.__name__} {self.header}: {self.email} // email_subject: {self.subject}>"
 
-    def __str__(self):
-        return f"<{self.__class__.__name__} {self.header}: {self.email} // email_subject: {self.subject}>"
-
     @classmethod
     def from_email(cls, email) -> List["EmailContact"]:
         ecs = []
@@ -220,7 +209,7 @@ class DB:
     @classmethod
     def session(cls):
         if not cls._session:
-            Session = sessionmaker(bind=engine)
+            Session = sessionmaker(bind=ENGINE)
             cls._session = Session()
         return cls._session
 
@@ -245,6 +234,8 @@ def fetch_messages(service, messages):
 
 
 def scrape():
+    create_tables_if_not_exist()
+
     credentials = Credentials.from_authorized_user_file(CREDENTIALS_PATH)
 
     # Get the timestamp of the last processed email:
@@ -289,7 +280,7 @@ def scrape():
 # - and metadata
 ##################################################
 def create_tables_if_not_exist():
-    raise NotImplementedError
+    Base.metadata.create_all(ENGINE)
 
 
 #     conn = sqlite3.connect(DB_PATH)
