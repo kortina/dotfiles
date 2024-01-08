@@ -24,7 +24,7 @@ import pytz
 from dateutil import parser
 from google.oauth2.credentials import Credentials
 from googleapiclient.discovery import build
-from sqlalchemy import DateTime, Integer, String, create_engine, select
+from sqlalchemy import DateTime, Integer, String, create_engine
 from sqlalchemy.orm import DeclarativeBase, Mapped, Session, mapped_column
 from sqlalchemy.sql.schema import ForeignKey
 
@@ -105,7 +105,7 @@ class Contact(Base):
 
     @classmethod
     def find_by_email(cls, _email):
-        return db_session.execute(select(cls).where(cls.email == _email)).first()
+        return db_session.query(cls).where(cls.email == _email).first()
 
     def insert_if_not_exists(self):
         _exists = self.find_by_email(self.email)
@@ -168,6 +168,16 @@ class Email(Base):
     FROM = "From"
 
     @classmethod
+    def find_by_id(cls, _id):
+        return db_session.query(cls).where(cls.id == _id).first()
+
+    def insert_if_not_exists(self):
+        _exists = self.find_by_id(self.id)
+        if not _exists:
+            db_session.add(self)
+            db_session.commit()
+
+    @classmethod
     def from_message(cls, m: GMailMessage):
         e = Email()
         e.id = m.get("id")
@@ -192,10 +202,16 @@ class Email(Base):
                 e.c_from = contacts[0].email
         return e
 
+    def utc_timestamp(self):
+        dt = self.date
+        # Ensure that the datetime is timezone-aware and set to UTC
+        if dt.tzinfo is None or dt.tzinfo.utcoffset(dt) is None:
+            dt = pytz.utc.localize(dt)
+        return int(dt.timestamp())
+
     @classmethod
     def oldest(cls):
         oldest = db_session.query(cls).order_by(cls.date.asc()).first()
-        print(oldest)
         return oldest
 
     @classmethod
@@ -209,7 +225,7 @@ class Email(Base):
         # https://developers.google.com/gmail/api/guides/filtering
         oldest = cls.oldest()
         if oldest:
-            breakpoint()
+            return oldest.utc_timestamp()
 
 
 @dataclass
@@ -240,6 +256,22 @@ class EmailContact(Base):
         if self.date:
             dt = self.date.strftime("%Y-%m-%d")
         return f"<{self.__class__.__name__} {self.header}: {self.email} // {dt}>"
+
+    @classmethod
+    def find_by_email_id_and_email_and_header(cls, _email_id, _email, _header):
+        return (
+            db_session.query(cls)
+            .where(cls.email_id == _email_id)
+            .where(cls.email == _email)
+            .where(cls.header == _header)
+            .first()
+        )
+
+    def insert_if_not_exists(self):
+        _exists = self.find_by_email_id_and_email_and_header(self.email_id, self.email, self.header)
+        if not _exists:
+            db_session.add(self)
+            db_session.commit()
 
     @classmethod
     def from_email(cls, email) -> List["EmailContact"]:
@@ -282,12 +314,11 @@ def fetch_messages(service, messages):
         # additional api call to get message details like email headers:
         m = service.users().messages().get(userId="me", id=md.get("id")).execute()
         email = Email.from_message(m)
-        db_session.add(email)
-        db_session.commit()
+        email.insert_if_not_exists()
 
         ecs = EmailContact.from_email(email)
         for ec in ecs:
-            db_session.add(ec)
+            ec.insert_if_not_exists()
             if ec._contact:
                 ec._contact.insert_if_not_exists()
 
@@ -306,6 +337,12 @@ def scrape(resume_oldest: bool):
     q = ""
     if resume_oldest:
         oldest_timestamp = Email.oldest_timestamp()
+        # TODO: should we set this to one day BEFORE oldest timestamp?
+        if oldest_timestamp:
+            q = f"before: {oldest_timestamp}"
+            print("---------------------------")
+            print(q)
+            print("---------------------------")
 
     credentials = Credentials.from_authorized_user_file(CREDENTIALS_PATH)
 
@@ -322,7 +359,7 @@ def scrape(resume_oldest: bool):
     #  pass the value in seconds instead:
     #  ?q=in:sent after:1388552400 before:1391230800
     response = (
-        service.users().messages().list(userId="me", q="", maxResults=MAX_MESSAGE_RESULTS).execute()
+        service.users().messages().list(userId="me", q=q, maxResults=MAX_MESSAGE_RESULTS).execute()
     )
 
     while "messages" in response:
@@ -334,7 +371,7 @@ def scrape(resume_oldest: bool):
                 .list(
                     userId="me",
                     pageToken=response["nextPageToken"],
-                    q="",
+                    q=q,
                     maxResults=MAX_MESSAGE_RESULTS,
                 )
                 .execute()
@@ -344,11 +381,7 @@ def scrape(resume_oldest: bool):
 
 
 ##################################################
-# TODO: create for each @dataclass
-# - Emails
-# - Contacts
-# - EmailContacts
-# - and metadata
+# setup db
 ##################################################
 def create_tables_if_not_exist():
     Base.metadata.create_all(ENGINE)
