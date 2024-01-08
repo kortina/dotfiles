@@ -182,6 +182,7 @@ class EmailContact(Base):
     date: Mapped[datetime] = mapped_column(DateTime, default=default_dt)
     date_raw: Mapped[str] = mapped_column(String, default=UNDEF)
     header: Mapped[str] = mapped_column(String, default=UNDEF)
+    # don't confuse this for a database column:
     _contact: Optional[Contact] = None
 
     def __repr__(self):
