@@ -338,6 +338,7 @@ def scrape(resume_oldest: bool):
     if resume_oldest:
         oldest_timestamp = Email.oldest_timestamp()
         # TODO: should we set this to one day BEFORE oldest timestamp?
+        # TODO: really should track COMPLETED days in separate table -- perhaps use the on: operator?
         if oldest_timestamp:
             q = f"before: {oldest_timestamp}"
             print("---------------------------")
