@@ -189,13 +189,8 @@
     "when": "canNavigateBack"
   },
   {
-    "key": "cmd+enter",
-    "command": "sqlite.runDocumentQuery",
-    "when": "editorLangId =~ /(sql|sqlite)/"
-  },
-  {
-    "key": "shift+cmd+q",
-    "command": "-sqlite.runDocumentQuery",
+    "key": "cmd+;",
+    "command": "sqlite.runSelectedQuery",
     "when": "editorLangId =~ /(sql|sqlite)/"
   },
   // {
