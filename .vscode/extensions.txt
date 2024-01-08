@@ -1,3 +1,4 @@
+alexcvzz.vscode-sqlite
 charliermarsh.ruff
 dbaeumer.vscode-eslint
 dzannotti.vscode-babel-coloring
@@ -9,6 +10,7 @@ hashicorp.terraform
 hoovercj.ruby-linter
 idleberg.applescript
 IgorSbitnev.error-gutters
+inferrinizzard.prettier-sql-vscode
 JoeBerria.statusbarerror
 johngraham262.join-comment-aware
 kisstkondoros.vscode-gutter-preview

@@ -6,6 +6,7 @@ deps:
 pip install types-python-dateutil
 pip install google-api-python-client-stubs
 pip install google-auth-stubs
+pip install sqlalchemy
 
 """
 import argparse
@@ -16,13 +17,13 @@ import re
 from dataclasses import dataclass, field
 from datetime import datetime
 from email.header import decode_header
-from typing import Any, List
+from typing import Any, List, Optional
 
 from dateutil import parser
 from google.oauth2.credentials import Credentials
 from googleapiclient.discovery import build
-from sqlalchemy import DateTime, String, create_engine
-from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, sessionmaker
+from sqlalchemy import DateTime, Integer, String, create_engine, select
+from sqlalchemy.orm import DeclarativeBase, Mapped, Session, mapped_column
 from sqlalchemy.sql.schema import ForeignKey
 
 MAX_MESSAGE_RESULTS = 500
@@ -74,6 +75,16 @@ class Contact(Base):
 
     def __repr__(self):
         return f"<{self.__class__.__name__} {self.header}: {self.email}"
+
+    @classmethod
+    def find_by_email(cls, _email):
+        return db_session.execute(select(cls).where(cls.email == _email)).first()
+
+    def insert_if_not_exists(self):
+        _exists = self.find_by_email(self.email)
+        if not _exists:
+            db_session.add(self)
+            db_session.commit()
 
     @classmethod
     def _normalize_email(cls, _raw):
@@ -152,9 +163,11 @@ class Email(Base):
 
 
 @dataclass
-class EmailContact:
-    __tablename__ = "emails"
+class EmailContact(Base):
+    __tablename__ = "email_contacts"
+    __allow_unmapped__ = True
 
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
     email_id: Mapped[str] = mapped_column(
         String, ForeignKey("emails.id"), index=True, default=UNDEF
     )
@@ -169,6 +182,7 @@ class EmailContact:
     date: Mapped[datetime] = mapped_column(DateTime, default=default_dt)
     date_raw: Mapped[str] = mapped_column(String, default=UNDEF)
     header: Mapped[str] = mapped_column(String, default=UNDEF)
+    _contact: Optional[Contact] = None
 
     def __repr__(self):
         return f"<{self.__class__.__name__} {self.header}: {self.email} // email_subject: {self.subject}>"
@@ -184,6 +198,7 @@ class EmailContact:
                     # create one EmailContact per Email x Contact
                     for c in contacts:
                         ec = EmailContact()
+                        ec._contact = c
                         ec.email_id = email.id
                         ec.thread_id = email.thread_id
                         ec.subject = email.subject
@@ -202,16 +217,11 @@ class EmailContact:
 # sqlalchemy
 ##################################################
 
+db_session = Session(ENGINE)
 
-class DB:
-    _session = None
-
-    @classmethod
-    def session(cls):
-        if not cls._session:
-            Session = sessionmaker(bind=ENGINE)
-            cls._session = Session()
-        return cls._session
+##################################################
+# main methods
+##################################################
 
 
 def fetch_messages(service, messages):
@@ -220,16 +230,21 @@ def fetch_messages(service, messages):
         # additional api call to get message details like email headers:
         m = service.users().messages().get(userId="me", id=md.get("id")).execute()
         email = Email.from_message(m)
-        # DB.session.add(email)
+        db_session.add(email)
+        db_session.commit()
 
         ecs = EmailContact.from_email(email)
-        # for ec in ecs:
-        #     DB.session.add(ec)
+        for ec in ecs:
+            db_session.add(ec)
+            if ec._contact:
+                ec._contact.insert_if_not_exists()
+
+        db_session.commit()
 
         pp(ecs)
 
         # commit all the rows to DB:
-        DB.session().commit()
+        db_session.commit()
     return email
 
 

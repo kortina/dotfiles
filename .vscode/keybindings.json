@@ -188,6 +188,16 @@
     "command": "-workbench.action.navigateBack",
     "when": "canNavigateBack"
   },
+  {
+    "key": "cmd+enter",
+    "command": "sqlite.runDocumentQuery",
+    "when": "editorLangId =~ /(sql|sqlite)/"
+  },
+  {
+    "key": "shift+cmd+q",
+    "command": "-sqlite.runDocumentQuery",
+    "when": "editorLangId =~ /(sql|sqlite)/"
+  },
   // {
   //   "key": "cmd+k cmd+r",
   //   "command": "-workbench.action.keybindingsReference"
