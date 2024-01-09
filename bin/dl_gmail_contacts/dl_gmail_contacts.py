@@ -310,12 +310,27 @@ class EmailContact(Base):
 
 db_session = Session(ENGINE)
 
+
+def create_tables_if_not_exist():
+    Base.metadata.create_all(ENGINE)
+
+
 ##################################################
-# main methods
+# gmail api
 ##################################################
 
 
-def fetch_messages(service, messages):
+def messages_list(service, list_query, page_token=None):
+    response = (
+        service.users()
+        .messages()
+        .list(userId="me", q=list_query, pageToken=page_token, maxResults=MAX_MESSAGE_RESULTS)
+        .execute()
+    )
+    return response
+
+
+def messages_get(service, messages):
     for msg in messages:
         email_id = msg.get("id")
         _exists = Email.find_by_id(email_id)
@@ -323,13 +338,14 @@ def fetch_messages(service, messages):
             print(f"SKIP:   {_exists}")
             continue
 
-        md = {"id": msg.get("id"), "threadId": msg.get("threadId")}
-        # additional api call to get message details like email headers:
-        m = service.users().messages().get(userId="me", id=md.get("id")).execute()
+        # use api to get email headers:
+        m = service.users().messages().get(userId="me", id=email_id).execute()
+
+        # create Email and insert:
         _email = Email.from_message(m)
-        # TODO: this does a duplicate check. could just do an insert here
         _email.insert()
 
+        # create Contacts and EmailContacts and insert:
         ecs = EmailContact.from_email(_email)
         for ec in ecs:
             ec.insert_if_not_exists()
@@ -341,6 +357,9 @@ def fetch_messages(service, messages):
     return _email
 
 
+##################################################
+# dl
+##################################################
 def dl(resume_oldest: bool):
     create_tables_if_not_exist()
     # search query for the gmail api:
@@ -350,6 +369,10 @@ def dl(resume_oldest: bool):
         # TODO: should we set this to one day BEFORE oldest timestamp?
         # TODO: really should track COMPLETED days in separate table -- perhaps use the on: operator?
         if oldest_timestamp:
+            # All dates used in the search query are interpreted as midnight on that
+            #  date in the PST timezone. To specify accurate dates for other timezones
+            #  pass the value in seconds instead:
+            #  ?q=in:sent after:1388552400 before:1391230800
             q = f"before: {oldest_timestamp}"
             print("---------------------------")
             print(q)
@@ -364,170 +387,22 @@ def dl(resume_oldest: bool):
     # Setup the Gmail API client
     service = build("gmail", "v1", credentials=credentials)
 
-    # Retrieve all messages after ts.
-    # All dates used in the search query are interpreted as midnight on that
-    #  date in the PST timezone. To specify accurate dates for other timezones
-    #  pass the value in seconds instead:
-    #  ?q=in:sent after:1388552400 before:1391230800
-    response = (
-        service.users().messages().list(userId="me", q=q, maxResults=MAX_MESSAGE_RESULTS).execute()
-    )
+    response = messages_list(service, q)
 
     while "messages" in response:
-        fetch_messages(service, response["messages"])
+        messages_get(service, response["messages"])
         if "nextPageToken" in response:
-            response = (
-                service.users()
-                .messages()
-                .list(
-                    userId="me",
-                    pageToken=response["nextPageToken"],
-                    q=q,
-                    maxResults=MAX_MESSAGE_RESULTS,
-                )
-                .execute()
-            )
+            response = messages_list(service, q, response["nextPageToken"])
         else:
             break
 
 
 ##################################################
-# setup db
+# rank
 ##################################################
-def create_tables_if_not_exist():
-    Base.metadata.create_all(ENGINE)
-
-
-#     conn = sqlite3.connect(DB_PATH)
-#     conn.execute(
-#         """
-#         CREATE TABLE IF NOT EXISTS emails (
-#             id INTEGER PRIMARY KEY,
-#             subject TEXT,
-#             from_address TEXT,
-#             sent_datetime TEXT
-#         )
-#         """
-#     )
-
-#     conn.execute(
-#         """
-#         CREATE TABLE IF NOT EXISTS email_headers (
-#             id INTEGER PRIMARY KEY,
-#             email_id INTEGER,
-#             header_name TEXT,
-#             raw_value TEXT,
-#             normalized_value TEXT,
-#             FOREIGN KEY (email_id) REFERENCES emails(id)
-#         )
-#         """
-#     )
-
-#     conn.execute(
-#         """
-#         CREATE TABLE IF NOT EXISTS email_contacts (
-#             id INTEGER PRIMARY KEY,
-#             email_id INTEGER,
-#             email_address TEXT,
-#             count INTEGER,
-#             FOREIGN KEY (email_id) REFERENCES emails(id),
-#             UNIQUE (email_id, email_address)
-#         )
-#         """
-#     )
-
-#     conn.execute(
-#         """
-#         CREATE TABLE IF NOT EXISTS metadata (
-#             key TEXT PRIMARY KEY,
-#             value TEXT
-#         )
-#         """
-#     )
-
-#     conn.commit()
-#     conn.close()
-
-
-# # TODO: move save functions to each @dataclass
-# # TODO: eg https://code.likeagirl.io/using-data-classes-to-create-database-models-in-python-b936301aa4ad
-# def save_emails_to_database(emails):
-#     conn = sqlite3.connect(DB_PATH)
-
-#     for em in emails:
-#         # Save email to "emails" table
-#         conn.execute(
-#             "INSERT INTO emails (id, subject, from_address, sent_datetime) VALUES (?, ?, ?, ?)",
-#             (em.id, em.subject, em.from_address, em.sent_datetime),
-#         )
-
-#         # Save headers to "email_headers" table
-#         headers = {
-#             "To": em.to_addresses,
-#             "Cc": em.cc_addresses,
-#             "Bcc": em.bcc_addresses,
-#         }
-
-#         for header_name, header_values in headers.items():
-#             for raw_value in header_values:
-#                 raise Exception
-#                 normalized_value = re.findall(EMAIL_REGEX, raw_value)[0].lower()
-#                 print(f"{em.id} {header_name} {raw_value} {normalized_value}")
-#                 conn.execute(
-#                     "INSERT INTO email_headers (email_id, header_name, raw_value, normalized_value) VALUES (?, ?, ?, ?)",
-#                     (em.id, header_name, raw_value, normalized_value),
-#                 )
-
-#     conn.commit()
-#     conn.close()
-
-
-# def save_last_processed_email_id(last_email_id):
-#     conn = sqlite3.connect(DB_PATH)
-#     conn.execute(
-#         "INSERT OR REPLACE INTO metadata (key, value) VALUES (?, ?)",
-#         ("last_email_id", last_email_id),
-#     )
-#     conn.commit()
-#     conn.close()
-
-
-# def get_last_processed_email_id():
-#     conn = sqlite3.connect(DB_PATH)
-#     cursor = conn.execute("SELECT value FROM metadata WHERE key = 'last_email_id'")
-#     row = cursor.fetchone()
-#     last_email_id = int(row[0]) if row is not None else None
-#     conn.close()
-#     return last_email_id
-
-
 def rank():
     create_tables_if_not_exist()
-    raise NotImplementedError
-    # # Connect to the SQLite database
-    # conn = sqlite3.connect(DB_PATH)
-    # cursor = conn.cursor()
-
-    # # Query to retrieve contact emails and their counts
-    # query = """
-    #     SELECT email_address, COUNT(email_address) AS contact_count
-    #     FROM email_contacts
-    #     GROUP BY email_address
-    #     ORDER BY contact_count DESC
-    # """
-
-    # cursor.execute(query)
-    # rows = cursor.fetchall()
-
-    # # Print the results in tab-delimited format
-    # print("Email Address\tContact Count")
-    # print("------------------------\t-------------")
-    # for row in rows:
-    #     email_address, contact_count = row
-    #     print(f"{email_address}\t{contact_count}")
-
-    # # Close the database connection
-    # conn.close()
+    raise NotImplementedError("See dl_gmail_contacts.sql")
 
 
 def main():
