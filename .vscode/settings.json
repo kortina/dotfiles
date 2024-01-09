@@ -8,6 +8,7 @@
   "vscodeMarkdownNotes.allowPipedWikiLinks": true,
   // "vscodeMarkdownNotes.pipedWikiLinksSyntax": "desc|file",
   // "vscodeMarkdownNotes.slugifyMethod": "github",
+  "sqlite.recordsPerPage": 500,
   "cSpell.enableFiletypes": ["fountain", "markdown", "plaintext"],
   "diffEditor.renderIndicators": true,
   // "docker-linter.rubocop.enable": true,
