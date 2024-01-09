@@ -166,7 +166,7 @@ class Email(Base):
     headers: Any = field(default_factory=dict)
 
     def __repr__(self):
-        return f"<{self.__class__.__name__} id: {self.id} Subject: {self.subject}>"
+        return f"<{self.__class__.__name__} id: {self.id} // Subject: {self.subject[:64]}>"
 
     FROM = "From"
 
