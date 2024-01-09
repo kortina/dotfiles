@@ -29,8 +29,8 @@ from sqlalchemy.orm import DeclarativeBase, Mapped, Session, mapped_column
 from sqlalchemy.sql.schema import ForeignKey
 
 MAX_MESSAGE_RESULTS = 500
-CREDENTIALS_PATH = "/Users/kortina/.ssh/gmail_scrape_contacts.json"
-DB_PATH = "gmail_scrape_contacts.db"
+CREDENTIALS_PATH = "/Users/kortina/.ssh/dl_gmail_contacts.json"
+DB_PATH = "dl_gmail_contacts.db"
 ENGINE_URL = f"sqlite:///{DB_PATH}"
 ENGINE = create_engine(ENGINE_URL)
 
@@ -341,7 +341,7 @@ def fetch_messages(service, messages):
     return _email
 
 
-def scrape(resume_oldest: bool):
+def dl(resume_oldest: bool):
     create_tables_if_not_exist()
     # search query for the gmail api:
     q = ""
@@ -532,13 +532,13 @@ def rank():
 
 def main():
     parser = argparse.ArgumentParser(description="""Download and rank google contacts.""")
-    parser.add_argument("action", help="action to take", choices=["scrape", "rank"])
+    parser.add_argument("action", help="action to take", choices=["dl", "rank"])
     parser.add_argument("--resume-oldest", action="store_true")
     # parser.add_argument("-v", "--verbose", action="store_true")
     args = parser.parse_args()
 
-    if args.action == "scrape":
-        scrape(resume_oldest=args.resume_oldest)
+    if args.action == "dl":
+        dl(resume_oldest=args.resume_oldest)
     elif args.action == "rank":
         rank()
     else:

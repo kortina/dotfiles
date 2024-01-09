@@ -16,7 +16,7 @@
 .vscode/extensions
 /.bundle/
 /tags
-gmail_scrape_contacts.db
+dl_gmail_contacts.db
 Icon
 Thumbs.db
 \#*\#
