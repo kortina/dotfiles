@@ -107,11 +107,15 @@ class Contact(Base):
     def find_by_email(cls, _email):
         return db_session.query(cls).where(cls.email == _email).first()
 
+    def insert(self):
+        print(f"INSERT: {self}")
+        db_session.add(self)
+        db_session.commit()
+
     def insert_if_not_exists(self):
         _exists = self.find_by_email(self.email)
         if not _exists:
-            db_session.add(self)
-            db_session.commit()
+            self.insert()
 
     @classmethod
     def _normalize_email(cls, _raw):
@@ -137,7 +141,6 @@ class Contact(Base):
             p = Contact(name=_n, email=_email, email_raw=_email_raw, header=_h_name)
             contacts.append(p)
 
-        pp(contacts)
         return contacts
 
     @classmethod
@@ -171,11 +174,15 @@ class Email(Base):
     def find_by_id(cls, _id):
         return db_session.query(cls).where(cls.id == _id).first()
 
+    def insert(self):
+        print(f"INSERT: {self}")
+        db_session.add(self)
+        db_session.commit()
+
     def insert_if_not_exists(self):
         _exists = self.find_by_id(self.id)
         if not _exists:
-            db_session.add(self)
-            db_session.commit()
+            self.insert()
 
     @classmethod
     def from_message(cls, m: GMailMessage):
@@ -270,6 +277,7 @@ class EmailContact(Base):
     def insert_if_not_exists(self):
         _exists = self.find_by_email_id_and_email_and_header(self.email_id, self.email, self.header)
         if not _exists:
+            print(f"INSERT: {self}")
             db_session.add(self)
             db_session.commit()
 
@@ -292,7 +300,6 @@ class EmailContact(Base):
                         ec.email_raw = c.email_raw
                         ec.date = email.date
                         ec.header = _h_name
-                        print(ec)
                         ecs.append(ec)
         return ecs
 
@@ -310,13 +317,20 @@ db_session = Session(ENGINE)
 
 def fetch_messages(service, messages):
     for msg in messages:
+        email_id = msg.get("id")
+        _exists = Email.find_by_id(email_id)
+        if _exists:
+            print(f"SKIP:   {_exists}")
+            continue
+
         md = {"id": msg.get("id"), "threadId": msg.get("threadId")}
         # additional api call to get message details like email headers:
         m = service.users().messages().get(userId="me", id=md.get("id")).execute()
-        email = Email.from_message(m)
-        email.insert_if_not_exists()
+        _email = Email.from_message(m)
+        # TODO: this does a duplicate check. could just do an insert here
+        _email.insert()
 
-        ecs = EmailContact.from_email(email)
+        ecs = EmailContact.from_email(_email)
         for ec in ecs:
             ec.insert_if_not_exists()
             if ec._contact:
@@ -324,11 +338,7 @@ def fetch_messages(service, messages):
 
         db_session.commit()
 
-        pp(ecs)
-
-        # commit all the rows to DB:
-        db_session.commit()
-    return email
+    return _email
 
 
 def scrape(resume_oldest: bool):
