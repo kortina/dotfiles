@@ -269,7 +269,7 @@ class Email(Base):
     c_from: Mapped[str] = mapped_column(String, default=UNDEF)
     date: Mapped[datetime] = mapped_column(DateTime, default=default_dt)
     tz: Mapped[str] = mapped_column(String, default=UNDEF)
-    date_raw: Mapped[str] = mapped_column(String, default=UNDEF)
+    date_raw: Mapped[str] = mapped_column(String, nullable=True)
     headers_raw: Mapped[str] = mapped_column(String, default="{}")
 
     # not persisted as raw dict to db
@@ -305,8 +305,12 @@ class Email(Base):
         e.headers = dict([(h.get("name"), h.get("value")) for h in _hl])
 
         # get subject, date, from from headers
-        e.subject = str(e.headers.get("Subject") or UNDEF)
-        e.date_raw = str(e.headers.get("Date") or UNDEF)
+        e.subject = str(e.headers.get("Subject"))
+
+        if not e.headers.get("Date"):
+            return None
+
+        e.date_raw = str(e.headers.get("Date"))
         dt, tz = parse_dtz(e.date_raw)
         e.date = dt
         e.tz = tz
@@ -456,6 +460,8 @@ def messages_get(messages):
 
         # create Email and insert:
         _email = Email.from_message(m)
+        if not _email:
+            continue
         _email.insert()
 
         # create Contacts and EmailContacts and insert:

@@ -38,10 +38,9 @@ LIMIT
 WITH
     recipients AS (
         SELECT
-            name,
             email,
-            header,
-            COUNT(DISTINCT (thread_id)) AS c
+            name,
+            count(DISTINCT (thread_id)) AS c
         FROM
             email_contacts
         WHERE
@@ -50,16 +49,43 @@ WITH
                 OR header = 'Cc'
                 OR header = 'Bcc'
             )
+            AND email IS NOT NULL
+            AND email != ''
         GROUP BY
+            email,
+            name
+    ),
+    ranked AS (
+        SELECT
+            email,
             name,
-            email
-        ORDER BY
-            c desc
+            c,
+            -- sum over email to get total count across email ANY name
+            SUM(c) OVER (
+                PARTITION BY
+                    email
+            ) AS tc,
+            -- rank to get most frequent name
+            ROW_NUMBER() OVER (
+                PARTITION BY
+                    email
+                ORDER BY
+                    c DESC
+            ) AS rank
+        FROM
+            recipients
     )
 SELECT
-    *
+    email,
+    name,
+    tc as c
 FROM
-    recipients;
+    ranked
+WHERE
+    rank = 1
+ORDER BY
+    c DESC,
+    name ASC;
 
 ----------------------------------------
 -- TODO: make a metadata table for shared config, eg:
