@@ -16,7 +16,7 @@ import pprint
 import re
 from contextlib import contextmanager
 from dataclasses import dataclass, field
-from datetime import datetime, timedelta
+from datetime import date, datetime, timedelta
 from email.header import decode_header
 from email.utils import mktime_tz, parsedate_tz
 from time import sleep
@@ -135,6 +135,39 @@ class Base(DeclarativeBase):
         return f"<{self.__class__.__name__} {self.__dict__}>"
 
 
+# table with all calendar days from 1970 to 2100
+@dataclass
+class Day(Base):
+    __tablename__ = "days"
+    date: Mapped[date] = mapped_column(DateTime, primary_key=True)
+
+    FIRST = datetime(1970, 1, 1)
+    LAST = datetime(2100, 1, 1)
+
+    @classmethod
+    def find_by_date(cls, _d):
+        return db_session.query(cls).where(cls.date == _d).first()
+
+    @classmethod
+    def upsert(cls, _d):
+        if cls.find_by_date(_d):
+            return
+        d = Day()
+        d.date = _d
+        print(f"INSERT: {d} (not committing)")
+        db_session.add(d)
+
+    @classmethod
+    def setup(cls):
+        create_tables_if_not_exist()
+        current_date = cls.FIRST
+        while current_date < cls.LAST:
+            cls.upsert(current_date)
+            current_date += timedelta(days=1)
+        print("COMMIT: Day.setup")
+        db_session.commit()
+
+
 @dataclass
 class Md(Base):
     __tablename__ = "md"
@@ -159,6 +192,7 @@ class Md(Base):
     @classmethod
     def setup(cls):
         create_tables_if_not_exist()
+        # setup the md table:
         md = {
             "name_blacklist": "Apple Business|craigslist",
             "email_blacklist": (
@@ -198,6 +232,8 @@ class Md(Base):
         for k, v in md.items():
             print(f"{k}:\n    {v}")
             cls.upsert(k, v)
+        # setup the days table:
+        Day.setup()
 
 
 @dataclass
