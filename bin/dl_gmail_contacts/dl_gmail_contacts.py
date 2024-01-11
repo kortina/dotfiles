@@ -14,22 +14,26 @@ import email
 import email.utils
 import pprint
 import re
+from contextlib import contextmanager
 from dataclasses import dataclass, field
 from datetime import datetime, timedelta
 from email.header import decode_header
 from email.utils import mktime_tz, parsedate_tz
+from time import sleep
 from typing import Any, List, Optional
 
 import pytz
 from dateutil import parser
 from google.oauth2.credentials import Credentials
 from googleapiclient.discovery import build
+from googleapiclient.errors import HttpError
 from sqlalchemy import DateTime, Integer, String, create_engine
 from sqlalchemy.orm import DeclarativeBase, Mapped, Session, mapped_column
 from sqlalchemy.sql.schema import ForeignKey
 
 MAX_MESSAGE_RESULTS = 500
 CREDENTIALS_PATH = "/Users/kortina/.ssh/dl_gmail_contacts.json"
+CREDENTIALS = Credentials.from_authorized_user_file(CREDENTIALS_PATH)
 DB_PATH = "dl_gmail_contacts.db"
 ENGINE_URL = f"sqlite:///{DB_PATH}"
 ENGINE = create_engine(ENGINE_URL)
@@ -42,6 +46,47 @@ CONTACTS_KEYS = ["from", "to", "cc", "bcc", "reply-to", "sender", "return-path",
 #   https://developers.google.com/gmail/api/reference/rest/v1/users.messages#Message
 GMailMessage = Any
 GMailHeaders = Any
+GmailService = Any
+
+
+def init_gmail_service():
+    print("init_gmail_service......")
+    return build("gmail", "v1", credentials=CREDENTIALS)
+
+
+# define this as a global so we can refresh it on exceptions:
+GMAIL_SERVICE = init_gmail_service()
+
+
+@contextmanager
+def allow_exceptions_per_minutes(per_minutes=5, max_per_minutes=3, wait_secs=45):
+    # this function will refresh the gmail service in attempt to resolve some HTTP exceptions
+    global GMAIL_SERVICE
+    exceptions_timestamps = []
+
+    try:
+        yield
+    # intermittent google api errors:
+    except (HttpError, TimeoutError) as e:
+        while True:
+            now = datetime.now()
+            # Remove timestamps older than one minute
+            exceptions_timestamps = [
+                t for t in exceptions_timestamps if now - t < timedelta(minutes=per_minutes)
+            ]
+
+            if len(exceptions_timestamps) < max_per_minutes:
+                exceptions_timestamps.append(now)
+                print(
+                    f"CAUGHT <{e}>. {len(exceptions_timestamps)} of {max_per_minutes} allowed per {per_minutes} minutes."
+                )
+                for remaining in range(wait_secs, 0, -1):
+                    print(f"Waiting to retry: {remaining}s...", end="\r")
+                    sleep(1)
+                GMAIL_SERVICE = init_gmail_service()
+                continue
+            else:
+                raise  # Too many exceptions in the last minute
 
 
 def pp(obj):
@@ -320,17 +365,18 @@ def create_tables_if_not_exist():
 ##################################################
 
 
-def messages_list(service, list_query, page_token=None):
-    response = (
-        service.users()
-        .messages()
-        .list(userId="me", q=list_query, pageToken=page_token, maxResults=MAX_MESSAGE_RESULTS)
-        .execute()
-    )
-    return response
+def messages_list(list_query, page_token=None):
+    with allow_exceptions_per_minutes(per_minutes=5, max_per_minutes=3, wait_secs=45):
+        response = (
+            GMAIL_SERVICE.users()
+            .messages()
+            .list(userId="me", q=list_query, pageToken=page_token, maxResults=MAX_MESSAGE_RESULTS)
+            .execute()
+        )
+        return response
 
 
-def messages_get(service, messages):
+def messages_get(messages):
     for msg in messages:
         email_id = msg.get("id")
         _exists = Email.find_by_id(email_id)
@@ -338,8 +384,10 @@ def messages_get(service, messages):
             print(f"SKIP:   {_exists}")
             continue
 
-        # use api to get email headers:
-        m = service.users().messages().get(userId="me", id=email_id).execute()
+        m = {}
+        with allow_exceptions_per_minutes(per_minutes=5, max_per_minutes=3, wait_secs=45):
+            # use api to get email headers:
+            m = GMAIL_SERVICE.users().messages().get(userId="me", id=email_id).execute()
 
         # create Email and insert:
         _email = Email.from_message(m)
@@ -378,21 +426,14 @@ def dl(resume_oldest: bool):
             print(q)
             print("---------------------------")
 
-    credentials = Credentials.from_authorized_user_file(CREDENTIALS_PATH)
-
-    # Get the timestamp of the last processed email:
-    # create_tables_if_not_exist()
-    # last_email_id = get_last_processed_email_id()
-
     # Setup the Gmail API client
-    service = build("gmail", "v1", credentials=credentials)
 
-    response = messages_list(service, q)
+    response = messages_list(q)
 
     while "messages" in response:
-        messages_get(service, response["messages"])
+        messages_get(response["messages"])
         if "nextPageToken" in response:
-            response = messages_list(service, q, response["nextPageToken"])
+            response = messages_list(q, response["nextPageToken"])
         else:
             break
 

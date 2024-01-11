@@ -704,6 +704,7 @@
     "Kaneda",
     "Katharina",
     "Kidjo",
+    "Knausgaard",
     "Kool",
     "Kortina",
     "Koyaanisqatsi",
@@ -928,5 +929,5 @@
   },
   "editor.inlineSuggest.enabled": true,
   "workbench.activityBar.location": "hidden",
-  "window.zoomLevel": 0
+  "window.zoomLevel": 1
 }
