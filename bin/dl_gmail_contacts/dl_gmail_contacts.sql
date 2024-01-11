@@ -1,4 +1,14 @@
 ----------------------------------------
+-- view metadata
+----------------------------------------
+SELECT
+    *
+FROM
+    md
+ORDER BY
+    k ASC;
+
+----------------------------------------
 -- sample emails
 ----------------------------------------
 SELECT
@@ -21,6 +31,35 @@ ORDER BY
     `date` asc
 LIMIT
     1;
+
+----------------------------------------
+-- popular recipients
+----------------------------------------
+WITH
+    recipients AS (
+        SELECT
+            name,
+            email,
+            header,
+            COUNT(DISTINCT (thread_id)) AS c
+        FROM
+            email_contacts
+        WHERE
+            (
+                header = 'To'
+                OR header = 'Cc'
+                OR header = 'Bcc'
+            )
+        GROUP BY
+            name,
+            email
+        ORDER BY
+            c desc
+    )
+SELECT
+    *
+FROM
+    recipients;
 
 ----------------------------------------
 -- TODO: make a metadata table for shared config, eg:

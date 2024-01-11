@@ -136,6 +136,71 @@ class Base(DeclarativeBase):
 
 
 @dataclass
+class Md(Base):
+    __tablename__ = "md"
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
+    # key name
+    k: Mapped[str] = mapped_column(String, unique=True)
+    # value name
+    v: Mapped[str] = mapped_column(String)
+
+    @classmethod
+    def find_by_k(cls, _k):
+        return db_session.query(cls).where(cls.k == _k).first()
+
+    @classmethod
+    def upsert(cls, _k, _v):
+        md = cls.find_by_k(_k) or Md()
+        md.k = _k
+        md.v = _v
+        db_session.add(md)
+        db_session.commit()
+
+    @classmethod
+    def setup(cls):
+        create_tables_if_not_exist()
+        md = {
+            "name_blacklist": "Apple Business|craigslist",
+            "email_blacklist": (
+                "4pfp|accounts*@|"
+                "511tactical|actors@|admin|agent@|alert|allianz|amazon|^ar@acc|assistant\.|"
+                "atlas@e\.stripe|atlas@stripe|^att@|^\.att\.|axs\.com|"
+                "billing|booking|"
+                "community@|coned|confirm|connect@|contact@|customer|"
+                "daemon|devops|document|docusign|"
+                "email@|etrade|events*@|"
+                "filmfest@|feedback|festival@|filings@|@fin\.com|@finxpc\.com|followup|forums*@|"
+                "giving@|googlegroups|googlenest|"
+                "hello@|help|"
+                "id\.apple\.com|iftt|info@|info\.|^ir@|"
+                "@inside\.garmin\.com|invest@|invoice|"
+                "jetblueairways|"
+                "legal@|lexisnexis|listening\.id\.me|"
+                "mailgun|mail\.vresp|mail\.comms\.yahoo\.net|marketing|@member|members*@|microsoft@|"
+                "momence|mskcc|my_merrill|"
+                "news@|notifications*@|notifier|notify@|"
+                "optimum@mail\.optimumemail1\.com|orders*@|"
+                "paperlesspost|postmaster|providers*@|proxyvote\.com|psyd|"
+                "quotes*@|receipts@|reply|reservations*@|robot@|"
+                "security|securemessag|service|^sff@|statement|status@|submissions*@|"
+                "subscription|substack|support|"
+                "sxsw@|"
+                "team@|ticket|tracking@|"
+                "update|"
+                "venmo@|"
+                "verify@|verizonwireless|vimeo@|"
+                "welcome|world@"
+            ),
+        }
+        print("--------------")
+        print("Setting up md:")
+        print("--------------")
+        for k, v in md.items():
+            print(f"{k}:\n    {v}")
+            cls.upsert(k, v)
+
+
+@dataclass
 class Contact(Base):
     __tablename__ = "contacts"
 
@@ -448,13 +513,15 @@ def rank():
 
 def main():
     parser = argparse.ArgumentParser(description="""Download and rank google contacts.""")
-    parser.add_argument("action", help="action to take", choices=["dl", "rank"])
+    parser.add_argument("action", help="action to take", choices=["dl", "rank", "setup_md"])
     parser.add_argument("--resume-oldest", action="store_true")
     # parser.add_argument("-v", "--verbose", action="store_true")
     args = parser.parse_args()
 
     if args.action == "dl":
         dl(resume_oldest=args.resume_oldest)
+    elif args.action == "setup_md":
+        Md.setup()
     elif args.action == "rank":
         rank()
     else:
