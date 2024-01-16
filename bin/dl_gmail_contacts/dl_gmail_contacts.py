@@ -168,6 +168,7 @@ class Day(Base):
         db_session.commit()
 
 
+# TODO: add "my_email" metadata
 @dataclass
 class Md(Base):
     __tablename__ = "md"
@@ -264,6 +265,19 @@ class Contact(Base):
             self.insert()
 
     @classmethod
+    def _normalize_name(cls, _raw):
+        # to lowercase
+        _name = _raw.lower()
+        # replace ' with space
+        _name = re.sub(r"'", " ", _name)
+        # replace multiple spaces with single space
+        _name = re.sub(r"\s+", " ", _name)
+        # trim leading / trailing white space
+        _name = _name.strip()
+
+        return _name
+
+    @classmethod
     def _normalize_email(cls, _raw):
         # to lowercase
         _email = _raw.lower()
@@ -284,7 +298,8 @@ class Contact(Base):
             )
             # normalize email:
             _email = cls._normalize_email(_email_raw)
-            p = Contact(name=_n, email=_email, email_raw=_email_raw, header=_h_name)
+            _name = cls._normalize_name(_n)
+            p = Contact(name=_name, email=_email, email_raw=_email_raw, header=_h_name)
             contacts.append(p)
 
         return contacts
@@ -356,6 +371,7 @@ class Email(Base):
         if _from:
             contacts = Contact.all_from_header(cls.FROM, _from)
             if contacts:
+                # contact email has been normalized:
                 e.c_from = contacts[0].email
         return e
 
@@ -445,6 +461,7 @@ class EmailContact(Base):
                         ec._contact = c
                         ec.email_id = email.id
                         ec.thread_id = email.thread_id
+                        # contact name has already been normalized:
                         ec.name = c.name
                         ec.email = c.email
                         ec.email_raw = c.email_raw

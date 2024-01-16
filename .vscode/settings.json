@@ -606,6 +606,7 @@
     "Davos",
     "DCTV",
     "deadlifts",
+    "debayer",
     "debranding",
     "Decompiling",
     "deepfaking",
@@ -632,6 +633,7 @@
     "Drom",
     "dropcam",
     "Dunkin",
+    "Duplass",
     "Egan",
     "Emeryville",
     "endcapture",
@@ -783,6 +785,7 @@
     "optimumemail",
     "Outkast",
     "Outkast's",
+    "Paddleton",
     "Palo",
     "pandoc",
     "paperlesspost",
@@ -814,6 +817,8 @@
     "Prewitt",
     "productizes",
     "Prolly",
+    "proxyvote",
+    "psyd",
     "pycache",
     "pyenv",
     "Pylance",
@@ -849,6 +854,7 @@
     "scriptation",
     "scriptment",
     "Seaton",
+    "securemessag",
     "Sennheiser",
     "sessionmaker",
     "shakshuka",
@@ -899,6 +905,7 @@
     "Venkatesh",
     "venmo",
     "venv",
+    "verizonwireless",
     "vetocracy",
     "Viktor",
     "Voigtlander",
@@ -945,11 +952,5 @@
   },
   "editor.inlineSuggest.enabled": true,
   "workbench.activityBar.location": "hidden",
-  "window.zoomLevel": 1,
-  "cSpell.words": [
-    "proxyvote",
-    "psyd",
-    "securemessag",
-    "verizonwireless"
-  ]
+  "window.zoomLevel": 2
 }

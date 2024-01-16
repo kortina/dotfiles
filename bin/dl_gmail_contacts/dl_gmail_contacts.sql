@@ -33,7 +33,33 @@ LIMIT
     1;
 
 ----------------------------------------
--- popular recipients
+-- contains apostrophe
+----------------------------------------
+SELECT
+    email,
+    name,
+    count(DISTINCT (thread_id)) AS c
+FROM
+    email_contacts
+WHERE
+    name LIKE '%''%'
+GROUP BY
+    email,
+    name
+ORDER BY
+    c DESC;
+
+----------------------------------------
+-- replace apostrophe
+----------------------------------------
+UPDATE email_contacts
+SET
+    name = TRIM(REPLACE (REPLACE (name, "'", ' '), '"', ' '))
+WHERE
+    name LIKE '%''%';
+
+----------------------------------------
+-- popular recipients 2
 ----------------------------------------
 WITH
     recipients AS (
@@ -74,18 +100,45 @@ WITH
             ) AS rank
         FROM
             recipients
+    ),
+    top_names_per_email AS (
+        SELECT
+            email,
+            name,
+            rank,
+            c,
+            tc,
+            tc != c AS multiple_names
+        FROM
+            ranked
+        WHERE
+            rank = 1
+            OR rank = 2
+        ORDER BY
+            c DESC,
+            name ASC
     )
 SELECT
-    email,
-    name,
-    tc as c
+    l.email,
+    CASE
+        WHEN l.name = ''
+        OR l.name IS NULL THEN r.name
+        ELSE l.name
+    END AS name,
+    l.c
+    -- l.rank,
+    -- l.name AS l_name,
+    -- r.name AS r_name,
+    -- l.tc
 FROM
-    ranked
+    top_names_per_email l
+    LEFT OUTER JOIN top_names_per_email r ON l.email = r.email
+    AND l.rank = 1
+    AND r.rank = 2
 WHERE
-    rank = 1
+    l.rank = 1
 ORDER BY
-    c DESC,
-    name ASC;
+    l.tc DESC;
 
 ----------------------------------------
 -- TODO: make a metadata table for shared config, eg:
