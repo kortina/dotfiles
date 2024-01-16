@@ -190,6 +190,7 @@ class Md(Base):
         db_session.add(md)
         db_session.commit()
 
+    # TODO: new strategy - add indexed field to email_contacts table based on the output of this regex
     @classmethod
     def setup(cls):
         create_tables_if_not_exist()

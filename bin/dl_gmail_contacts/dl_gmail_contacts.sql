@@ -58,8 +58,22 @@ SET
 WHERE
     name LIKE '%''%';
 
+SELECT
+    *
+FROM
+    email_contacts
+WHERE
+    email NOT REGEXP (
+        SELECT
+            v
+        FROM
+            md
+        WHERE
+            k = 'email_blacklist'
+    );
+
 ----------------------------------------
--- popular recipients 2
+-- popular people
 ----------------------------------------
 WITH
     recipients AS (
@@ -74,6 +88,8 @@ WITH
                 header = 'To'
                 OR header = 'Cc'
                 OR header = 'Bcc'
+                -- include senders also:
+                OR header = 'From'
             )
             AND email IS NOT NULL
             AND email != ''
@@ -125,7 +141,7 @@ SELECT
         OR l.name IS NULL THEN r.name
         ELSE l.name
     END AS name,
-    l.c
+    l.tc
     -- l.rank,
     -- l.name AS l_name,
     -- r.name AS r_name,
@@ -137,6 +153,14 @@ FROM
     AND r.rank = 2
 WHERE
     l.rank = 1
+    AND l.email NOT REGEXP (
+        SELECT
+            v
+        FROM
+            md
+        WHERE
+            k = 'email_blacklist'
+    )
 ORDER BY
     l.tc DESC;
 
