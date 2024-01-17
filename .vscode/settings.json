@@ -76,6 +76,7 @@
   "prettier.singleQuote": true,
   "prettier.trailingComma": "es5",
   "ruff.showNotifications": "always", // INSTEAD OF pylint AND flake8
+  "Prettier-SQL.commaPosition": "before",
   "python.languageServer": "Pylance",
   // had to disable these to get pyenv working, per:
   // https://github.com/lewagon/data-setup/issues/156
