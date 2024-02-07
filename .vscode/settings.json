@@ -75,8 +75,9 @@
   "prettier.printWidth": 100,
   "prettier.singleQuote": true,
   "prettier.trailingComma": "es5",
-  "ruff.showNotifications": "always", // INSTEAD OF pylint AND flake8
   "Prettier-SQL.commaPosition": "before",
+  "Prettier-SQL.newlineBeforeSemicolon": true,
+  "ruff.showNotifications": "always", // INSTEAD OF pylint AND flake8
   "python.languageServer": "Pylance",
   // had to disable these to get pyenv working, per:
   // https://github.com/lewagon/data-setup/issues/156
@@ -557,6 +558,7 @@
     "arthouse",
     "Arzaga",
     "Asha",
+    "audiobook",
     "audiobooks",
     "autoplay",
     "Axelrod",
@@ -665,6 +667,8 @@
     "Fremery",
     "frightless",
     "frontmatter",
+    "funder",
+    "fuzzies",
     "glute",
     "Goedel's",
     "googleapiclient",
@@ -745,6 +749,7 @@
     "Meslo",
     "metahuman",
     "metamodernism",
+    "methylcobalamin",
     "midtone",
     "midtones",
     "Mierle",
@@ -861,6 +866,7 @@
     "shakshuka",
     "Shaolin",
     "Shreyans",
+    "Slee",
     "sluglines",
     "Soothe's",
     "soundcloud",
@@ -906,6 +912,7 @@
     "Venkatesh",
     "venmo",
     "venv",
+    "verité",
     "verizonwireless",
     "vetocracy",
     "Viktor",

@@ -6,7 +6,8 @@ SELECT
 FROM
     md
 ORDER BY
-    k ASC;
+    k ASC
+;
 
 ----------------------------------------
 -- sample emails
@@ -18,7 +19,8 @@ FROM
 ORDER BY
     `date` desc
 LIMIT
-    100;
+    100
+;
 
 ----------------------------------------
 -- oldest email date
@@ -30,7 +32,8 @@ FROM
 ORDER BY
     `date` asc
 LIMIT
-    1;
+    1
+;
 
 ----------------------------------------
 -- contains apostrophe
@@ -47,7 +50,8 @@ GROUP BY
     email
   , name
 ORDER BY
-    c DESC;
+    c DESC
+;
 
 ----------------------------------------
 -- replace apostrophe
@@ -56,7 +60,8 @@ UPDATE email_contacts
 SET
     name = TRIM(REPLACE (REPLACE (name, "'", ' '), '"', ' '))
 WHERE
-    name LIKE '%''%';
+    name LIKE '%''%'
+;
 
 SELECT
     *
@@ -70,7 +75,8 @@ WHERE
             md
         WHERE
             k = 'email_blacklist'
-    );
+    )
+;
 
 ----------------------------------------
 -- popular people
@@ -170,4 +176,5 @@ WHERE
             k = 'name_blacklist'
     )
 ORDER BY
-    l.tc DESC;
+    l.tc DESC
+;
