@@ -176,8 +176,9 @@
     "nb:",
   ],
   "todohighlight.defaultStyle": {
-    "color": "#217cd0",
-    "backgroundColor": "#b2d1ee",
+    // "color": "#217cd0",
+    "color": "white",
+    "backgroundColor": "#217cd0",
     // "overviewRulerColor": "#ffab00",
     // "cursor": "pointer",
     // "border": "1px solid #eee",
