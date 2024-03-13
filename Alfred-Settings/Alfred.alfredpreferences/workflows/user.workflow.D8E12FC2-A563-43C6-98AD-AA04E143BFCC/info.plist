@@ -90,6 +90,27 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string></string>
+				<key>title</key>
+				<string>copied: {query}</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>1395C359-5C76-43BE-9256-463FB6B8455D</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>concurrently</key>
 				<false/>
 				<key>escaping</key>
@@ -111,27 +132,6 @@ pbpaste</string>
 			<string>1A7BFFE8-7230-4FC8-8A2A-E407B3B2E0FF</string>
 			<key>version</key>
 			<integer>2</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>lastpathcomponent</key>
-				<false/>
-				<key>onlyshowifquerypopulated</key>
-				<false/>
-				<key>removeextension</key>
-				<false/>
-				<key>text</key>
-				<string></string>
-				<key>title</key>
-				<string>copied: {query}</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.notification</string>
-			<key>uid</key>
-			<string>1395C359-5C76-43BE-9256-463FB6B8455D</string>
-			<key>version</key>
-			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -182,9 +182,9 @@ export AMAZON_SECRET_KEY=‘..’</string>
 		<key>774F59AC-2FDF-491C-8BC1-ABBEB34332AE</key>
 		<dict>
 			<key>xpos</key>
-			<real>100</real>
+			<real>85</real>
 			<key>ypos</key>
-			<real>15</real>
+			<real>30</real>
 		</dict>
 		<key>7C898FB6-4A54-4C6E-A44E-8BDE563C5786</key>
 		<dict>

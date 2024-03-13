@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string></string>
+	<key>connections</key>
+	<dict>
+		<key>310ADC52-7A74-4900-A7C1-3293B8985F52</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>511EA9EE-19CA-4FF4-AF87-55D6FAF67ECA</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>7C7F0602-B9F2-4FFA-870C-CEA945590CF4</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>310ADC52-7A74-4900-A7C1-3293B8985F52</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>kortina</string>
+	<key>description</key>
+	<string></string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>slug_rename.py --lower</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>for file in "$@"
+do
+    $HOME/dotfiles/bin/slug_rename.py "$file" --lower
+done</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>5</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>310ADC52-7A74-4900-A7C1-3293B8985F52</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>acceptsfiles</key>
+				<true/>
+				<key>acceptsmulti</key>
+				<integer>1</integer>
+				<key>acceptstext</key>
+				<false/>
+				<key>acceptsurls</key>
+				<false/>
+				<key>name</key>
+				<string>LOWER_slug_rename.py</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.universalaction</string>
+			<key>uid</key>
+			<string>7C7F0602-B9F2-4FFA-870C-CEA945590CF4</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string></string>
+				<key>title</key>
+				<string></string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>511EA9EE-19CA-4FF4-AF87-55D6FAF67ECA</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string>Universal Actions let you take any text, URLs or files and perform actions on them from anywhere on your Mac.
+
+This workflow shares various ways of using Universal Actions:
+
+1. The "Trim text" action will appear in your Actions panel for text-based selections. Choosing it will trim white spaces at the beginning and end of the text you copied. Holding ⌘ (Cmd) while pressing return will take the alternative path, where your text will be uppercased.
+
+In both cases, you then return to Alfred's Actions panel with your newly transformed text.
+
+2. Hotkeys are stripped on import, to ensure that they don't clash with your existing hotkeys, so double-click the object and set your own hotkey. 
+
+Using this hotkey will bring up the Action panel, pre-populated with your clipboard contents.
+
+3. Add Universal Actions as an Alfred Fallback Search result.</string>
+	<key>uidata</key>
+	<dict>
+		<key>310ADC52-7A74-4900-A7C1-3293B8985F52</key>
+		<dict>
+			<key>xpos</key>
+			<real>425</real>
+			<key>ypos</key>
+			<real>155</real>
+		</dict>
+		<key>511EA9EE-19CA-4FF4-AF87-55D6FAF67ECA</key>
+		<dict>
+			<key>xpos</key>
+			<real>650</real>
+			<key>ypos</key>
+			<real>155</real>
+		</dict>
+		<key>7C7F0602-B9F2-4FFA-870C-CEA945590CF4</key>
+		<dict>
+			<key>note</key>
+			<string>Don't forget to hint to Alfred not to close in the connection config</string>
+			<key>xpos</key>
+			<real>160</real>
+			<key>ypos</key>
+			<real>155</real>
+		</dict>
+	</dict>
+	<key>userconfigurationconfig</key>
+	<array/>
+	<key>variablesdontexport</key>
+	<array/>
+	<key>version</key>
+	<string>1.1</string>
+	<key>webaddress</key>
+	<string></string>
+</dict>
+</plist>

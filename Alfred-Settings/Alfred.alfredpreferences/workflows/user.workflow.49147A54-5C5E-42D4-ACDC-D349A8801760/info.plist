@@ -8,7 +8,7 @@
 	<string>Internet</string>
 	<key>connections</key>
 	<dict>
-		<key>1A7BFFE8-7230-4FC8-8A2A-E407B3B2E0FF</key>
+		<key>3806FAAC-0AAD-4780-8866-356BB3A31930</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
@@ -21,11 +21,24 @@
 				<false/>
 			</dict>
 		</array>
-		<key>774F59AC-2FDF-491C-8BC1-ABBEB34332AE</key>
+		<key>49C735BB-8CC8-497E-A7F0-2E15CDB293FA</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>1A7BFFE8-7230-4FC8-8A2A-E407B3B2E0FF</string>
+				<string>B1B5D329-F9EA-40F2-AE86-C919F664F235</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>7450CA8A-7A0A-4AA9-A724-D279C4DD61EC</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>49C735BB-8CC8-497E-A7F0-2E15CDB293FA</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -38,7 +51,20 @@
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>1A7BFFE8-7230-4FC8-8A2A-E407B3B2E0FF</string>
+				<string>7450CA8A-7A0A-4AA9-A724-D279C4DD61EC</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>B1B5D329-F9EA-40F2-AE86-C919F664F235</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>3806FAAC-0AAD-4780-8866-356BB3A31930</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -51,42 +77,13 @@
 	<key>createdby</key>
 	<string>kortina</string>
 	<key>description</key>
-	<string>pbpaste markdown to rich HTML</string>
+	<string>pbpaste to lowercase</string>
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
-	<string>pb: pbpaste | markdown2rich | pbcopy</string>
+	<string>pb: pbpaste | 2lowercase | pbcopy</string>
 	<key>objects</key>
 	<array>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>action</key>
-				<integer>0</integer>
-				<key>argument</key>
-				<integer>0</integer>
-				<key>focusedappvariable</key>
-				<false/>
-				<key>focusedappvariablename</key>
-				<string></string>
-				<key>hotkey</key>
-				<integer>0</integer>
-				<key>hotmod</key>
-				<integer>0</integer>
-				<key>leftcursor</key>
-				<false/>
-				<key>modsmode</key>
-				<integer>0</integer>
-				<key>relatedAppsMode</key>
-				<integer>0</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.trigger.hotkey</string>
-			<key>uid</key>
-			<string>774F59AC-2FDF-491C-8BC1-ABBEB34332AE</string>
-			<key>version</key>
-			<integer>2</integer>
-		</dict>
 		<dict>
 			<key>config</key>
 			<dict>
@@ -95,9 +92,7 @@
 				<key>escaping</key>
 				<integer>100</integer>
 				<key>script</key>
-				<string>test -e $HOME/.bash_profile &amp;&amp; source $HOME/.bash_profile
-$HOME/dotfiles/bin/pb_markdown_to_rich.sh
-pbpaste</string>
+				<string>pbpaste</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
@@ -108,7 +103,7 @@ pbpaste</string>
 			<key>type</key>
 			<string>alfred.workflow.action.script</string>
 			<key>uid</key>
-			<string>1A7BFFE8-7230-4FC8-8A2A-E407B3B2E0FF</string>
+			<string>7450CA8A-7A0A-4AA9-A724-D279C4DD61EC</string>
 			<key>version</key>
 			<integer>2</integer>
 		</dict>
@@ -124,7 +119,7 @@ pbpaste</string>
 				<key>text</key>
 				<string></string>
 				<key>title</key>
-				<string>copied rich: {query}</string>
+				<string>pb2lowercase: {query}</string>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.output.notification</string>
@@ -139,11 +134,11 @@ pbpaste</string>
 				<key>argumenttype</key>
 				<integer>2</integer>
 				<key>keyword</key>
-				<string>markdown2rich</string>
+				<string>pb2lowercase</string>
 				<key>subtext</key>
 				<string></string>
 				<key>text</key>
-				<string>markdown2rich</string>
+				<string>pb2lowercase</string>
 				<key>withspace</key>
 				<false/>
 			</dict>
@@ -151,6 +146,51 @@ pbpaste</string>
 			<string>alfred.workflow.input.keyword</string>
 			<key>uid</key>
 			<string>7C898FB6-4A54-4C6E-A44E-8BDE563C5786</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>autopaste</key>
+				<false/>
+				<key>clipboardtext</key>
+				<string>{query}</string>
+				<key>ignoredynamicplaceholders</key>
+				<false/>
+				<key>transient</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.clipboard</string>
+			<key>uid</key>
+			<string>3806FAAC-0AAD-4780-8866-356BB3A31930</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.transform</string>
+			<key>uid</key>
+			<string>49C735BB-8CC8-497E-A7F0-2E15CDB293FA</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>type</key>
+				<integer>2</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.transform</string>
+			<key>uid</key>
+			<string>B1B5D329-F9EA-40F2-AE86-C919F664F235</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -168,30 +208,44 @@ export AMAZON_SECRET_KEY=‘..’</string>
 		<key>1395C359-5C76-43BE-9256-463FB6B8455D</key>
 		<dict>
 			<key>xpos</key>
-			<real>565</real>
+			<real>805</real>
 			<key>ypos</key>
-			<real>145</real>
+			<real>290</real>
 		</dict>
-		<key>1A7BFFE8-7230-4FC8-8A2A-E407B3B2E0FF</key>
+		<key>3806FAAC-0AAD-4780-8866-356BB3A31930</key>
 		<dict>
 			<key>xpos</key>
-			<real>305</real>
+			<real>590</real>
 			<key>ypos</key>
-			<real>145</real>
+			<real>290</real>
 		</dict>
-		<key>774F59AC-2FDF-491C-8BC1-ABBEB34332AE</key>
+		<key>49C735BB-8CC8-497E-A7F0-2E15CDB293FA</key>
 		<dict>
 			<key>xpos</key>
-			<real>100</real>
+			<real>385</real>
 			<key>ypos</key>
-			<real>15</real>
+			<real>320</real>
+		</dict>
+		<key>7450CA8A-7A0A-4AA9-A724-D279C4DD61EC</key>
+		<dict>
+			<key>xpos</key>
+			<real>235</real>
+			<key>ypos</key>
+			<real>290</real>
 		</dict>
 		<key>7C898FB6-4A54-4C6E-A44E-8BDE563C5786</key>
 		<dict>
 			<key>xpos</key>
-			<real>80</real>
+			<real>55</real>
 			<key>ypos</key>
-			<real>225</real>
+			<real>290</real>
+		</dict>
+		<key>B1B5D329-F9EA-40F2-AE86-C919F664F235</key>
+		<dict>
+			<key>xpos</key>
+			<real>485</real>
+			<key>ypos</key>
+			<real>320</real>
 		</dict>
 	</dict>
 	<key>userconfigurationconfig</key>

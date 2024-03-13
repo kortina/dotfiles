@@ -28,6 +28,12 @@ def main():
         help="Set debug mode output.",
     )
     parser.add_argument(
+        "--lower",
+        dest="lower",
+        action="store_true",
+        help="Convert filename to all lowercase.",
+    )
+    parser.add_argument(
         "file",
         type=str,
         help="file to rename",
@@ -56,6 +62,10 @@ def main():
 
     # remove leading and trailing -
     slug_name = slug_name.strip("-")
+
+    # convert to lowercase
+    if args.lower:
+        slug_name = slug_name.lower()
 
     new_name = f"{slug_name}{orig_ext}"
     new_abs = os.path.join(orig_abs_dir, new_name)
