@@ -1,0 +1,44 @@
+*,
+html,
+body,
+p,
+ul,
+li {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #fff;
+  color: #000;
+  font-size: 12px;
+}
+
+h1 {
+  font-size: 20px;
+  font-weight: 900;
+}
+
+hr {
+  display: block;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  border-top: 1px solid #eee !important;
+}
+
+blockquote {
+  margin: 0px !important;
+  padding: 0 15px 0 12px;
+  border-left: 3px solid #eee;
+  background-color: transparent;
+}
+
+a {
+  text-decoration: underline;
+}
+
+code {
+  white-space: normal;
+  padding: 2px 4px;
+  font-size: 80%;
+  color: #c7254e;
+  background-color: #f9f2f4;
+  border-radius: 4px;
+  overflow-x: scroll;
+}

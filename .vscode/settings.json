@@ -31,9 +31,12 @@
     "editor.wordWrap": "bounded",
     "editor.wordWrapColumn": 75,
     "editor.lineHeight": 1.8,
-    "editor.lineNumbers": "off"
+    "editor.lineNumbers": "off",
     // "editor.wordSeparators": "`~!@$%^&*()=+[{]}\\|;:'\",.<>/?", // remove '#' so tags can be searched. Does not seem to be working....
   },
+  "markdown.styles": [
+    "https://kortina.s3.amazonaws.com/_/vscode/vscode-markdown-styles.css"
+  ],
   "[fountain]": {
     "editor.fontFamily": "'Courier Prime', Monaco, Menlo, Consolas, 'Courier New', monospace",
     "editor.wordBasedSuggestions": "matchingDocuments",
@@ -766,6 +769,7 @@
     "Lianne",
     "livestream",
     "logline",
+    "Loman",
     "LUFS",
     "macchiato",
     "Magdon",
