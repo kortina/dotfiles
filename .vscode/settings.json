@@ -31,12 +31,10 @@
     "editor.wordWrap": "bounded",
     "editor.wordWrapColumn": 75,
     "editor.lineHeight": 1.8,
-    "editor.lineNumbers": "off",
+    "editor.lineNumbers": "off"
     // "editor.wordSeparators": "`~!@$%^&*()=+[{]}\\|;:'\",.<>/?", // remove '#' so tags can be searched. Does not seem to be working....
   },
-  "markdown.styles": [
-    "https://kortina.s3.amazonaws.com/_/vscode/vscode-markdown-styles.css"
-  ],
+  "markdown.styles": ["https://kortina.s3.amazonaws.com/_/vscode/vscode-markdown-styles.css"],
   "[fountain]": {
     "editor.fontFamily": "'Courier Prime', Monaco, Menlo, Consolas, 'Courier New', monospace",
     "editor.wordBasedSuggestions": "matchingDocuments",
@@ -598,6 +596,7 @@
     "blackmagic",
     "bmpcc",
     "bokeh",
+    "Bonchon",
     "bootcamp",
     "boto",
     "Braimah",
@@ -611,6 +610,7 @@
     "Caproni",
     "chatbots",
     "Chazelle",
+    "Chewie",
     "Chigurh",
     "Citi",
     "clipart",
@@ -711,6 +711,7 @@
     "gutterpreview",
     "hackathon",
     "hackathons",
+    "Haidt",
     "Hana",
     "Hanzi",
     "Hayao",
@@ -784,6 +785,7 @@
     "metahuman",
     "metamodernism",
     "methylcobalamin",
+    "Michaels",
     "midtone",
     "midtones",
     "Mierle",
@@ -871,6 +873,7 @@
     "quickfix",
     "rabbithole",
     "Radiohead",
+    "rebalance",
     "résistance",
     "retarget",
     "rewatched",

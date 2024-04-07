@@ -81,11 +81,11 @@
 				<key>focusedappvariablename</key>
 				<string></string>
 				<key>hotkey</key>
-				<integer>40</integer>
+				<integer>0</integer>
 				<key>hotmod</key>
-				<integer>1572864</integer>
+				<integer>0</integer>
 				<key>hotstring</key>
-				<string>K</string>
+				<string></string>
 				<key>leftcursor</key>
 				<false/>
 				<key>modsmode</key>
@@ -195,37 +195,37 @@ pbpaste | slugify.sh</string>
 		<key>07A721AC-9BD8-4DB5-BA51-E33252CEB3B0</key>
 		<dict>
 			<key>xpos</key>
-			<integer>150</integer>
+			<real>150</real>
 			<key>ypos</key>
-			<integer>45</integer>
+			<real>45</real>
 		</dict>
 		<key>17181DC0-85BB-47AE-9C8D-BBC0160E561C</key>
 		<dict>
 			<key>xpos</key>
-			<integer>160</integer>
+			<real>160</real>
 			<key>ypos</key>
-			<integer>180</integer>
+			<real>180</real>
 		</dict>
 		<key>6554608F-15D4-4843-857D-9402536E3BD0</key>
 		<dict>
 			<key>xpos</key>
-			<integer>835</integer>
+			<real>835</real>
 			<key>ypos</key>
-			<integer>110</integer>
+			<real>110</real>
 		</dict>
 		<key>C3A4990C-620A-4214-80AD-42FD7180EA8E</key>
 		<dict>
 			<key>xpos</key>
-			<integer>420</integer>
+			<real>420</real>
 			<key>ypos</key>
-			<integer>110</integer>
+			<real>110</real>
 		</dict>
 		<key>D5BC59B5-B2EB-4F2B-A3F5-671FCD92A3BC</key>
 		<dict>
 			<key>xpos</key>
-			<integer>610</integer>
+			<real>610</real>
 			<key>ypos</key>
-			<integer>110</integer>
+			<real>110</real>
 		</dict>
 	</dict>
 	<key>userconfigurationconfig</key>

@@ -40,7 +40,7 @@
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
-	<string>slug_rename.py</string>
+	<string>Rename-Slug</string>
 	<key>objects</key>
 	<array>
 		<dict>
@@ -81,7 +81,7 @@ done</string>
 				<key>acceptsurls</key>
 				<false/>
 				<key>name</key>
-				<string>slug_rename.py</string>
+				<string>Rename-Slug</string>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.trigger.universalaction</string>
