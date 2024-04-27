@@ -527,8 +527,6 @@ def messages_get(messages):
 
         db_session.commit()
 
-    return _email
-
 
 ##################################################
 # dl
