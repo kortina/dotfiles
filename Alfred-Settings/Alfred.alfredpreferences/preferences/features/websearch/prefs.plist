@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>customSites</key>
+	<dict>
+		<key>86FA4218-47E7-4854-82AA-53D7A1DC9C97</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>letterboxd</string>
+			<key>text</key>
+			<string>google: letterboxd {query}</string>
+			<key>url</key>
+			<string>https://www.google.com/search?q=letterboxd+{query}</string>
+		</dict>
+	</dict>
+</dict>
+</plist>
