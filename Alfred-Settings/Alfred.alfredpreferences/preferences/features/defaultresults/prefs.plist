@@ -2,6 +2,13 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>fallbacks</key>
+	<array>
+		<string>features.websearch.google.fallback</string>
+		<string>features.websearch.maps.fallback</string>
+		<string>features.websearch.custom.86FA4218-47E7-4854-82AA-53D7A1DC9C97.fallback</string>
+		<string>features.websearch.amazon.fallback</string>
+	</array>
 	<key>showDocuments</key>
 	<true/>
 	<key>showFolders</key>
