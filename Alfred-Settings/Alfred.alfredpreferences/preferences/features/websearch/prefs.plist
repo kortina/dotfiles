@@ -4,6 +4,17 @@
 <dict>
 	<key>customSites</key>
 	<dict>
+		<key>30C5E820-72D4-4635-BDC2-5BD7A8253977</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>imdb</string>
+			<key>text</key>
+			<string>imdb</string>
+			<key>url</key>
+			<string>https://pro.imdb.com/find/?s=all&amp;q={query}</string>
+		</dict>
 		<key>86FA4218-47E7-4854-82AA-53D7A1DC9C97</key>
 		<dict>
 			<key>enabled</key>
