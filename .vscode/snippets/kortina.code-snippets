@@ -32,13 +32,26 @@
 		]
 	},
 	"arrow-right": {
-		"prefix": ["r", "--"],
-		"body": ["→"]
+		"prefix": [
+			"r",
+			"--"
+		],
+		"body": [
+			"→"
+		]
+	},
+	"markdown-cspell-ignore": {
+		"scope": "markdown",
+		"prefix": "cspell-ignore",
+		"body": [
+			"<!--\ncspell:ignore $1\n-->\n"
+		]
 	},
 	"markdown-frontmatter-for-note": {
 		"scope": "markdown",
 		"prefix": "frontmatter-for-note",
-		"body": ["---\nauthor: kortina\ndate: '$CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE'\nlayout: post\ntitle: '_____'\n---"]
+		"body": [
+			"---\nauthor: kortina\ndate: '$CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE'\nlayout: post\ntitle: '_____'\n---"
+		]
 	},
-
 }

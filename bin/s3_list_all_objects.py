@@ -1,16 +1,33 @@
 #!/usr/bin/env python3
-# List all the files in a bucket.
-#
-# Configuration
-#
-# export CYBERDUCK_AWS_ID='__your_id__'
-# export CYBERDUCK_AWS_SECRET='__your_secret__'
-#
+"""
+List all the files in a bucket.
+
+Configuration
+
+export S3_LIST_ALL_AWS_ID='__your_id__'
+export S3_LIST_ALL_AWS_SECRET='__your_secret__'
+
+Usage:
+
+S3_LIST_ALL_AWS_ID="$AK__AWS_ACCESS_KEY_ID" \
+  S3_LIST_ALL_AWS_SECRET="$AK__AWS_SECRET_KEY" \
+  s3_list_all_objects.py \
+  kortina-private \
+  > ~/gd/__s3/s3-kortina-private.txt
+
+S3_LIST_ALL_AWS_ID="$SQ__AWS_ACCESS_KEY_ID" \
+  S3_LIST_ALL_AWS_SECRET="$SQ__AWS_SECRET_KEY" \
+  s3_list_all_objects.py \
+  sq-us-east-1 \
+  > ~/gd/__s3/s3-sq-us-east-1.txt
+
+"""
 
 
 import argparse
-import boto3
 import os
+
+import boto3
 
 
 def _get_required_env_var(var):
@@ -50,11 +67,9 @@ if __name__ == "__main__":
     bucket = args.bucket
     prefix = args.prefix or ""
 
-    aws_id = _get_required_env_var("CYBERDUCK_AWS_ID")
-    aws_secret = _get_required_env_var("CYBERDUCK_AWS_SECRET")
-    s3_client = boto3.client(
-        "s3", aws_access_key_id=aws_id, aws_secret_access_key=aws_secret
-    )
+    aws_id = _get_required_env_var("S3_LIST_ALL_AWS_ID")
+    aws_secret = _get_required_env_var("S3_LIST_ALL_AWS_SECRET")
+    s3_client = boto3.client("s3", aws_access_key_id=aws_id, aws_secret_access_key=aws_secret)
 
     for file in get_all_s3_objects(s3_client, Bucket=bucket, Prefix=prefix):
         print(file["Key"])

@@ -568,6 +568,7 @@
     "acquihired",
     "Adderrall",
     "Adelle",
+    "administrivia",
     "AFTRA",
     "Akira",
     "Alexa",
@@ -750,6 +751,7 @@
     "Jenn",
     "jetblueairways",
     "Jhumpa",
+    "Jiro",
     "Johnstone",
     "Joscha",
     "jouissance",
@@ -981,6 +983,7 @@
     "verizonwireless",
     "vetocracy",
     "Viktor",
+    "vimux",
     "Voigtlander",
     "vresp",
     "Waldman",
@@ -1028,5 +1031,6 @@
   },
   "editor.inlineSuggest.enabled": true,
   "workbench.activityBar.location": "hidden",
-  "window.zoomLevel": 2
+  "window.zoomLevel": 2,
+  "github.copilot.editor.enableAutoCompletions": true
 }
