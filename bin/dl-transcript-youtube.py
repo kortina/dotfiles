@@ -32,8 +32,9 @@ def download_and_cleanup_transcript(url):
     cmd_args = [
         "yt-dlp",
         "--write-subs",
+        "--write-auto-subs",
         "--sub-langs",
-        "en.*",
+        "en",
         "--sub-format",
         "vtt",
         "--skip-download",
@@ -73,9 +74,7 @@ def cleanup_transcript(fn):
     data, _ = re.subn(r"(?:</c>)?(?:<\d{2}:\d{2}:\d{2}\.\d{3}>)?(?:<c>)?", "", data)
 
     # 00:00:03,500 --> 00:00:03,510
-    data, _ = re.subn(
-        r"\d{2}:\d{2}:\d{2}\.\d{3} \-\-> \d{2}:\d{2}:\d{2}\.\d{3}\n", "", data
-    )
+    data, _ = re.subn(r"\d{2}:\d{2}:\d{2}\.\d{3} \-\-> \d{2}:\d{2}:\d{2}\.\d{3}\n", "", data)
 
     # Now get the distinct lines.
     data = [line.strip() for line in data.splitlines() if line.strip()]
