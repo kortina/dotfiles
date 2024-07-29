@@ -1,9 +1,11 @@
 #!/usr/bin/env sh
 default_month_day=`date +%m-%d`
 month_day="${1:-$default_month_day}"
-# Search for journal entries dated with today's month and year:
-cd ~/_notebook; 
 
+notes_path="$HOME/_notebook"
+cd "$notes_path"
+
+# search ONLY files named like this:
 ls journal*.md \
 | sort \
 | xargs rg \
