@@ -14,4 +14,5 @@ ls journal*.md \
 --pcre2 \
 --heading \
 "^# \d{4}-$month_day\n([\s\S]*?)(?=\n# |\Z)" \
+| perl -pe 's/^(\S+)\.(\S+)$/###### $1.$2/g' \
 | glow
