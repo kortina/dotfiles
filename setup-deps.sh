@@ -8,7 +8,7 @@ DOTFILES_ROOT="`pwd`"
 source "$DOTFILES_ROOT/_setup_defs.sh"
 
 # make sure git submodules are up to date
-cd $DOTFILES_ROOT && git submodule update --init
+# cd $DOTFILES_ROOT && git submodule update --init
 
 # 'fix' permissions on usr local setting current usr as owner
 # assumes only one person, you, is using your machine

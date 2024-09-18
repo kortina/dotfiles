@@ -1,7 +1,6 @@
 alexcvzz.vscode-sqlite
 charliermarsh.ruff
 dbaeumer.vscode-eslint
-dzannotti.vscode-babel-coloring
 eamodio.gitlens
 esbenp.prettier-vscode
 github.copilot
