@@ -8,16 +8,19 @@ echo "........................."
 echo "Starting s3screenshots..."
 echo "........................."
 
-# allow root to use homebrew
-# export PATH="/usr/local/bin:$PATH"
-# export PYTHONPATH="`brew --prefix`/lib/python2.7/site-packages:$PYTHONPATH"
-# use pyenv path
-export PATH="$HOME/.pyenv/shims:$PATH"
+# LOAD .sh_secrets from dotfile:
+test -e $HOME/.sh_secrets && source $HOME/.sh_secrets
+# OR, add these vars manually:
+# export S3_SCREENSHOTS_OSX_USER="`id -un`"
+# export S3_SCREENSHOTS_AWS_BUCKET='__YOURS__'
+# export S3_SCREENSHOTS_AWS_ID='__YOURS__'
+# export S3_SCREENSHOTS_AWS_SECRET='__YOURS__'
 
-export S3_SCREENSHOTS_OSX_USER="`id -un`"
-export S3_SCREENSHOTS_AWS_BUCKET='__YOURS__'
-export S3_SCREENSHOTS_AWS_ID='__YOURS__'
-export S3_SCREENSHOTS_AWS_SECRET='__YOURS__'
+for var in S3_SCREENSHOTS_OSX_USER S3_SCREENSHOTS_AWS_BUCKET S3_SCREENSHOTS_AWS_ID S3_SCREENSHOTS_AWS_SECRET; do eval "[ -n \"\$$var\" ]" && echo "$var is set." || echo "$var is **EMPTY**."; done
+
+# add the pyenv shim for locally installed python
+export PATH=~/.pyenv/shims:$PATH
+
 
 cd $HOME/dotfiles/s3screenshots
 python s3screenshots.py 2>&1 | tee -a $logfile

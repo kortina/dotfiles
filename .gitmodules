@@ -7,7 +7,7 @@
 	url = git@github.com:kortina/ses-emailer-cli.git
 [submodule ".zsh/zsh-completions"]
 	path = .zsh/zsh-completions
-	url = git@github.com/zsh-users/zsh-completions.git
+	url = git@github.com:zsh-users/zsh-completions.git
 	shallow = true
 [submodule "themes/powerlevel10k"]
 	path = themes/powerlevel10k
