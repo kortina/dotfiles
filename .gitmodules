@@ -1,21 +1,21 @@
 [submodule "themes/tomorrow-theme"]
 	path = themes/tomorrow-theme
-	url = git@github.com:chriskempson/tomorrow-theme.git
+	url = https://github.com/chriskempson/tomorrow-theme/
 	shallow = true
 [submodule "ses-emailer-cli"]
 	path = ses-emailer-cli
-	url = git@github.com:kortina/ses-emailer-cli.git
+	url = https://github.com/kortina/ses-emailer-cli/
 [submodule ".zsh/zsh-completions"]
 	path = .zsh/zsh-completions
-	url = git@github.com:zsh-users/zsh-completions.git
+	url = https://github.com/zsh-users/zsh-completions/
 	shallow = true
 [submodule "themes/powerlevel10k"]
 	path = themes/powerlevel10k
-	url = git@github.com:romkatv/powerlevel10k.git
+	url = https://github.com/romkatv/powerlevel10k/
 	shallow = true
 [submodule ".zsh/zsh-autosuggestions"]
 	path = .zsh/zsh-autosuggestions
-	url = git@github.com:zsh-users/zsh-autosuggestions.git
+	url = https://github.com/zsh-users/zsh-autosuggestions/
 [submodule "av_transcribe"]
 	path = av_transcribe
-	url = git@github.com:kortina/av_transcribe.git
+	url = https://github.com/kortina/av_transcribe/
