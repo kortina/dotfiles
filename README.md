@@ -1,14 +1,14 @@
 ### Installation
 
     cd ~
-    git clone git@github.com:kortina/dotfiles.git
+    git clone https://github.com/kortina/dotfiles/
     cd dotfiles
     git submodule update --init
     ./setup.sh
 
 You should see the following output on sucessful install:
   
- ✅ ✅ ✅
+✅ ✅ ✅
 🎉 🎉 🎉
 
 NB: If you want s3screenshots, you will need to install following the [README](https://github.com/kortina/dotfiles/tree/master/s3screenshots)
@@ -24,10 +24,10 @@ Each of this scripts can also be run independently (which may be faster for maki
 
 ### FAQ
 
-- If you get a permissions error, I recommened setting your user as owner of `/usr/local/`:
+- If you get a permissions error, I recommened setting yourself as owner of `/usr/local`:
 
 ```
-sudo chown -R "`id -u -n`:admin" /usr/local/*
+sudo chown -R "`id -u -n`:admin" /usr/local
 ```
 
 ### Themes
