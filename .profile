@@ -9,6 +9,7 @@ export PATH="$HOME/dotfiles/bin:$HOME/dotfiles/av_transcribe:$PATH"
 
 export GOPATH="$HOME/gopath"
 export PATH="$GOPATH/bin:$PATH"
+export PATH="/opt/homebrew/bin:$PATH"
 
 ##################################################
 # aliases and bindings
