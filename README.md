@@ -1,7 +1,7 @@
 ### Installation
 
     cd ~
-    git clone https://github.com/kortina/dotfiles/
+    git clone git@github.com:kortina/dotfiles.git
     cd dotfiles
     git submodule update --init
     ./setup.sh
