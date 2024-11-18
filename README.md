@@ -13,6 +13,56 @@ You should see the following output on sucessful install:
 
 NB: If you want s3screenshots, you will need to install following the [README](https://github.com/kortina/dotfiles/tree/master/s3screenshots)
 
+### TODO
+
+You will need to do the following if you are setting up a new machine with MacOS.
+
+
+At
+<https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent>
+do this:
+
+
+```
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+```
+
+Then open the `~/.ssh` folder and rename the files to:
+
+```
+mv id_rsa id_ed25519
+mv id_rsa.pub id_ed25519.pub
+```
+
+
+Then:
+
+```
+eval "$(ssh-agent -s)"
+> Agent pid 59566
+
+touch ~/.ssh/config
+Host github.com
+  AddKeysToAgent yes
+  UseKeychain yes
+  IdentityFile ~/.ssh/id_ed25519
+
+ssh-add --apple-use-keychain ~/.ssh/id_ed25519
+```
+
+Then at
+<https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account>
+
+
+```
+pbcopy < ~/.ssh/id_ed25519.pub
+```
+
+And at <https://github.com/settings/keys>, paste the new key into the text area.
+
+
+### Details
+
 `setup.sh` will run all of the following setup scripts:
 
 - `setup-homebrew.sh` - install and update homebrew.
