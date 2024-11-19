@@ -465,6 +465,10 @@
       "commands": []
     }
   ],
+  // To improve performance
+  "extensions.experimental.affinity": {
+    "vscodevim.vim": 1
+  },
   "window.title": "${activeEditorMedium}${separator}${rootName}",
   "workbench.colorCustomizations": {
     "editor.lineHighlightBorder": "#444444",
@@ -638,6 +642,7 @@
     "Crossfit",
     "Cryo",
     "CUNY",
+    "Cyberduck",
     "D'Angelo",
     "dateutil",
     "davinci",
@@ -985,6 +990,7 @@
     "tldr",
     "tock",
     "todohighlight",
+    "Trackpad",
     "Tribeca",
     "UCSF",
     "Ukeles",
@@ -1003,6 +1009,7 @@
     "vimux",
     "Voigtlander",
     "vresp",
+    "vscodevim",
     "Waldman",
     "WASD",
     "Waymond",
