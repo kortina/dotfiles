@@ -8,6 +8,7 @@
 #   diff before after
 #
 set -e
+# set -x
 echo "##### $(basename $BASH_SOURCE) #####"
 DOTFILES_ROOT="`pwd`"
 
@@ -190,9 +191,6 @@ defaults write com.apple.dashboard mcx-disabled -bool true
 # Don’t show Dashboard as a Space
 defaults write com.apple.dock dashboard-in-overlay -bool true
 
-# Reset Launchpad, but keep the desktop wallpaper intact
-find "${HOME}/Library/Application Support/Dock" -name "*-*.db" -maxdepth 1 -delete
-
 # Add iOS Simulator to Launchpad
 sudo ln -sf "/Applications/Xcode.app/Contents/Developer/Applications/iOS Simulator.app" "/Applications/iOS Simulator.app"
 
@@ -246,21 +244,20 @@ defaults write com.apple.sound.beep.volume -float 0.05
 defaults write ch.sudo.cyberduck NSUserKeyEquivalents -dict-add '\033Edit\033Copy URL\033HTTPS URL' '^c';
 
 ###############################################################################
-# Safari
+# Safari - NB: all of these stopped working!
 ###############################################################################
-
 # stop show adds for websites on safari open
-defaults write com.apple.Safari HomePage -string "about:blank" # Empty
-defaults write com.apple.Safari NewTabBehavior -int 1 # Empty
-defaults write com.apple.Safari NewWindowBehavior -int 1 # Empty
+# defaults write com.apple.Safari HomePage -string "about:blank" # Empty
+# defaults write com.apple.Safari NewTabBehavior -int 1 # Empty
+# defaults write com.apple.Safari NewWindowBehavior -int 1 # Empty
 # keyboard shortcuts
-defaults write com.apple.Safari NSUserKeyEquivalents -dict-add "'Favorites > pk'" "~p" # currently in first position of favorites there is no way to override ⌥⌘1
-defaults write com.apple.Safari NSUserKeyEquivalents -dict-add "Print..." "^p"
-defaults write com.apple.Safari NSUserKeyEquivalents -dict-add "Reload Page" "@%r"
-defaults write com.apple.Safari NSUserKeyEquivalents -dict-add "Show Reader" "~r"
-defaults write com.apple.Safari NSUserKeyEquivalents -dict-add "Hide Reader" "~r"
-defaults write com.apple.Safari NSUserKeyEquivalents -dict-add "Show JavaScript Console" "@~j"
-defaults write com.apple.Safari NSUserKeyEquivalents -dict-add "Show Tab Overview" "@p"
+# defaults write com.apple.Safari NSUserKeyEquivalents -dict-add "'Favorites > pk'" "~p" # currently in first position of favorites there is no way to override ⌥⌘1
+# defaults write com.apple.Safari NSUserKeyEquivalents -dict-add "Print..." "^p"
+# defaults write com.apple.Safari NSUserKeyEquivalents -dict-add "Reload Page" "@%r"
+# defaults write com.apple.Safari NSUserKeyEquivalents -dict-add "Show Reader" "~r"
+# defaults write com.apple.Safari NSUserKeyEquivalents -dict-add "Hide Reader" "~r"
+# defaults write com.apple.Safari NSUserKeyEquivalents -dict-add "Show JavaScript Console" "@~j"
+# defaults write com.apple.Safari NSUserKeyEquivalents -dict-add "Show Tab Overview" "@p"
 
 
 ###############################################################################

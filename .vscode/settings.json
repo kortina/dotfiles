@@ -1030,6 +1030,7 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "workbench.colorTheme": "Tomorrow Night",
+  "workbench.preferredHighContrastColorTheme": "Tomorrow Night",
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
