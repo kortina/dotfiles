@@ -69,9 +69,18 @@ And at [Settings → Keys](https://github.com/settings/keys), paste the new key 
 
 ### Other Post-Requirements
 
+- [Ad Block Plus for Safari ABP](https://apps.apple.com/us/app/adblock-plus-for-safari-abp/id1432731683?mt=12)
 - [Alfred](https://www.alfredapp.com)
   - In Left Bar, choose `Advanced` then `Set preferences folder...` to `~/dotfiles/Alfred-Settings`
 - [Cyberduck](https://apps.apple.com/us/app/cyberduck/id409222199?mt=12)
+- **brew**
+  - `brew install --cask calibre`
+- **dotfiles**
+  - [dotfiles/ses-emailer-cli](https://github.com/kortina/ses-emailer-cli/) - this SHOULD just work (assuming you have `~/.sh_secrets` setup)
+  - [dotfiles/s3screenshots](https://github.com/kortina/dotfiles/tree/master/s3screenshots)
+  - [dotfiles/themes/fonts](https://github.com/kortina/dotfiles/tree/master/themes/fonts) - install the MesloLGS NF fonts
+  - [src/sq](https://github.com/kortina/sq) - install secrets and run `sq dev project-init dev` eg
+- [iStat Menus](https://bjango.com/mac/istatmenus/)
 - [Spotify](https://www.spotify.com/de-en/download/mac/)
 - System Settings
   - Connect `Google Contacts` in `Internet Accounts`
@@ -87,8 +96,11 @@ And at [Settings → Keys](https://github.com/settings/keys), paste the new key 
     - `Reduce Transparency`
     - `Trackpad`: `Tracking speed` and `Click`
     - `Notifications`: `Alfred`
+- [Transmission](https://transmissionbt.com/download)
+- [VLC](https://www.videolan.org/vlc/)
 - [Visual Studio Code](https://code.visualstudio.com/download)
   - Run `> Shell Command: Install 'code' command in PATH`
+- [Zoom](https://zoom.us/download)
 - Amphetamine
 - Resolve
 
