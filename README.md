@@ -65,6 +65,7 @@ And at [Settings → Keys](https://github.com/settings/keys), paste the new key 
 - [Google Drive](https://support.google.com/a/users/answer/13022292?hl=en)
   - Set the local path to `~/gd`
   - Set the Drive to `Mirror files`
+- **Applications → Screenshot → Options → Show Floating Thumbnail**
 
 ### Other Post-Requirements
 
