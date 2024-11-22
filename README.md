@@ -81,6 +81,8 @@ And at [Settings → Keys](https://github.com/settings/keys), paste the new key 
   - [dotfiles/themes/fonts](https://github.com/kortina/dotfiles/tree/master/themes/fonts) - install the MesloLGS NF fonts
   - [src/sq](https://github.com/kortina/sq) - install secrets and run `sq dev project-init dev` eg
 - [iStat Menus](https://bjango.com/mac/istatmenus/)
+- [Resolve](https://www.blackmagicdesign.com/products/davinciresolve/studio)
+  - `~/gd/__z/Fonts/_unzipped` - install these
 - [Spotify](https://www.spotify.com/de-en/download/mac/)
 - System Settings
   - Connect `Google Contacts` in `Internet Accounts`
