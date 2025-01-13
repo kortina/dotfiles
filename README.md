@@ -22,14 +22,7 @@ At
 do this:
 
 ```bash
-ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
-```
-
-Then open the `~/.ssh` folder and rename the files to:
-
-```bash
-mv id_rsa id_ed25519
-mv id_rsa.pub id_ed25519.pub
+ssh-keygen -t ed25519 -C "your_email@example.com"
 ```
 
 Then:
@@ -60,9 +53,10 @@ And at [Settings → Keys](https://github.com/settings/keys), paste the new key 
 
 - Must install Xcode before running `./setup.sh`
 - [1Password](https://1password.com/downloads/mac)
-- [GitHub](https://github.com/)
   - Copy `~/.sh_secrets` to HOME
+- [GitHub](https://github.com/)
 - [Google Drive](https://support.google.com/a/users/answer/13022292?hl=en)
+  - ![github](https://github.com/user-attachments/assets/935cdfbb-3af3-4210-bc94-ac6ef9b04b72)
   - Set the local path to `~/gd`
   - Set the Drive to `Mirror files`
 - **Applications → Screenshot → Options → Show Floating Thumbnail**
